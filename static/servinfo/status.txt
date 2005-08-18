@@ -1,0 +1,4 @@
+120180:NOTCP
+url0=http://afv2006.afva.net/servinfo.ws
+;
+; END
