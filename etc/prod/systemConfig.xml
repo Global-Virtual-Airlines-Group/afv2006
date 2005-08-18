@@ -12,12 +12,42 @@
 		<voice>
 			<url>rw.afva.net/AFV</url>
 		</voice>
-		
+
 		<location>
 			<lat type="Double">34.036693</lat>
 			<lng type="Double">-84.419289</lng>
 		</location>
 		
+		<!-- Home Page Meta Tags -->
+		<meta>
+			<desc>Aviation Français Virtuel is a virtual airline based on Air France.</desc>
+			<list name="keywords" attr="keyword">
+				<keyword>Aviation Français Virtuel</keyword>
+				<keyword>Air France</keyword>
+				<keyword>VA</keyword>
+				<keyword>virtual airlines</keyword>
+				<keyword>MSFS</keyword>
+				<keyword>FS98</keyword>
+				<keyword>FS2000</keyword>
+				<keyword>FS2002</keyword>
+				<keyword>FS2004</keyword>
+				<keyword>FS9</keyword>
+				<keyword>microsoft flight simulator</keyword>
+				<keyword>flightsim</keyword>
+				<keyword>flight simulators</keyword>
+				<keyword>flightsims</keyword>
+				<keyword>Airbus</keyword>
+				<keyword>Boeing</keyword>
+				<keyword>Embraer</keyword>
+				<keyword>Concorde</keyword>
+			</list>
+		</meta>
+
+		<partner>
+			<name>Delta Virtual Airlines</name>
+			<url>golgotha.deltava.org</url>
+		</partner>
+
 		<mail>
 			<info>info@afva.net</info>
 			<hr>hr@afva.net</hr>
@@ -244,7 +274,7 @@
 		</hash>
 		
 		<key>
-			<googleMaps>ABQIAAAAWFzTV_nG8JA7h9y7QsKTgRRJS5et9y3wMtdA-gitoKTtRCkjrxQTliO5QvvHxFEb4azcpuZZ39eVjQ</googleMaps>
+			<googleMaps>ABQIAAAAWFzTV_nG8JA7h9y7QsKTgRRMjYJyMG3aT4ivWV5QVzcQ-NndEBQQUTAEG3JvmzoFAnmiVGDg1mi7cA</googleMaps>
 		</key>
 		
 		<list name="roles" attr="role" sorted="true">
