@@ -39,8 +39,8 @@
 		</meta>
 		
 		<location>
-			<lat type="Double">34.036693</lat>
-			<lng type="Double">-84.419289</lng>
+			<lat type="Double">48.950252</lat>
+			<lng type="Double">2.469289</lng>
 		</location>
 		
 		<partner>
@@ -224,6 +224,11 @@
 		</list>
 		
 		<purge type="Integer">10</purge>
+		
+		<http>
+			<format>httpd-access.afv.log</format>
+			<parser>org.deltava.util.log.ApacheLogParser</parser>
+		</http>
 	</log>
 	
 	<config>
@@ -312,6 +317,7 @@
 		<js>js</js>
 		<img>img</img>
 		<library>d:\library</library>
+		<httplog>d:\log</httplog>
 	</path>
 	
 	<!-- SMTP Server configuration -->
