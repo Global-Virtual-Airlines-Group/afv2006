@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project default="deploy">
+	<!-- Compile the Java classes -->
+	<target name="golgotha">
+		<ant antfile="../DVA2006/build.xml" target="compile" dir="../DVA2006" />
+		<ant antfile="../DVA2006/build.xml" target="jspc" dir="../DVA2006" />		
+	</target>
+
+	<!-- Precompile the JSP pages -->
+	<target name="jspc" depends="golgotha">
+		<property name="jspc.dva.webXMLInc" value="${java.io.tmpdir}/src/jsp/include.xml" />
+		<property name="jspc.afv.webXMLInc" value="${java.io.tmpdir}/afv/src/jsp/include.xml" />		
+		<taskdef classname="org.apache.jasper.JspC" name="jasper2"> 
+			<classpath id="jspc.classpath"> 
+				<pathelement path="${classpath}" />
+				<pathelement location="${java.io.tmpdir}/build/dva2006.jar" />
+				<fileset dir="../DVA2006/lib" includes="**/*.jar" /> 
+			</classpath> 
+		</taskdef>
+		
+		<!-- Delete the old web.xml -->
+		<mkdir dir="${java.io.tmpdir}/afv/build" />
+		<delete file="${java.io.tmpdir}/afv/build/web.xml" />
+		
+		<!-- Precompile the files -->
+		<mkdir dir="${java.io.tmpdir}/afv/src/jsp" />
+	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="0" poolingEnabled="false" xpoweredBy="true" 
+			validateXml="false" webXmlFragment="${jspc.afv.webXMLInc}"
+	    	outputDir="${java.io.tmpdir}/afv/src/jsp" />
+
+		<!-- Compile the files -->
+		<mkdir dir="${java.io.tmpdir}/afv/build/jsp" />
+		<javac srcdir="${java.io.tmpdir}/afv/src/jsp" destdir="${java.io.tmpdir}/afv/build/jsp"
+			debug="on" debuglevel="source" optimize="on" target="1.4">
+			<classpath refid="jspc.classpath" />
+			<include name="net/afva/jsp/**/*.java" />
+		</javac>
+		
+		<!-- Compress the Java classes into a single JAR file -->
+		<jar basedir="${java.io.tmpdir}/afv/build/jsp" compress="true" index="true"
+		 destfile="${java.io.tmpdir}/afv/build/afv2006_jsp.jar" />
+		 		 
+		<!-- Merge the precompile definitions into web.xml -->
+		<loadfile property="afv.webXmlFragment" srcFile="${jspc.afv.webXMLInc}" />
+		<loadfile property="dva.webXmlFragment" srcFile="${jspc.dva.webXMLInc}" />		
+		<copy file="WEB-INF/web_core.xml" tofile="${java.io.tmpdir}/afv/build/web.xml" />
+		<replace file="${java.io.tmpdir}/afv/build/web.xml" 
+			token="&lt;!-- [INSERT DVA FRAGMENT HERE] --&gt;" value="${dva.webXmlFragment}" />
+		<replace file="${java.io.tmpdir}/afv/build/web.xml" 
+			token="&lt;!-- [INSERT AFV FRAGMENT HERE] --&gt;" value="${afv.webXmlFragment}" />
+	</target>
+	
+	<target name="deploy" depends="golgotha,jspc">
+		<!-- Load the FTP server properties -->
+		<property name="path.webapp" value="/afv2006" />
+		<property name="path.http" value="/afv2006" />
+		<loadproperties srcFile="data/build_deploy.properties" />
+		
+		<!-- Upload the root data to the FTP server -->
+		<echo message="Uploading WEB-INF configuration data" />
+		<ftp server="${webapp.ftp.server}" userid="${webapp.ftp.user}" password="${webapp.ftp.pwd}"
+		 remotedir="${path.webapp}/WEB-INF" action="send" depends="yes" verbose="yes">
+	    	<fileset dir="WEB-INF">
+	    		<include name="*.tld" />
+			</fileset>
+			<fileset dir="../DVA2006/WEB-INF">
+				<include name="*.tld" />
+			</fileset>
+			<fileset file="${java.io.tmpdir}/afv/build/web.xml" />
+		</ftp>
+		
+		<!-- Upload the libraries to the FTP server -->
+		<echo message="Uploading Library Jars" />
+		<ftp server="${webapp.ftp.server}" userid="${webapp.ftp.user}" password="${webapp.ftp.pwd}"
+		 remotedir="${path.webapp}/WEB-INF/lib" action="send" depends="yes" verbose="yes">
+			<fileset dir="../DVA2006/lib/deploy" includes="*.jar" />
+			<fileset dir="${java.io.tmpdir}/afv/build" includes="*.jar" />
+			<fileset dir="${java.io.tmpdir}/build">
+				<include name="dva2006.jar" />
+				<include name="dva2006_jsp.jar" />
+			</fileset>
+		</ftp>
+		
+		<!-- Upload configuration files to the FTP server -->
+		<echo message="Uploading Configuration files" />
+		<ftp server="${webapp.ftp.server}" userid="${webapp.ftp.user}" password="${webapp.ftp.pwd}"
+		 remotedir="${path.webapp}/WEB-INF/classes/etc" action="send" depends="yes" verbose="yes">
+			<fileset dir="etc" includes="*.*" />
+		</ftp>
+		
+		<!-- Upload static content to the HTTP server -->
+		<echo message="Uploading static content to HTTP server" />
+		<ftp server="${http.ftp.server}" userid="${http.ftp.user}" password="${http.ftp.pwd}"
+		 remotedir="${path.http}" action="send" depends="yes" verbose="yes">
+			<fileset dir="static" includes="**/*" />
+		</ftp>
+	</target>
+	
+	<!-- Clean out compiled data -->
+	<target name="clean">
+		<delete dir="${java.io.tmpdir}/build" />
+		<delete dir="${java.io.tmpdir}/src/jsp" />
+		<delete file="${java.io.tmpdir}/build/web.xml" />
+	</target>
+	
+	<!-- Production Deployment via SSH -->
+	<target name="prod_deploy" depends="golgotha">
+		<loadproperties srcFile="data/build_deploy.properties" />
+		
+		<!-- Upload the web configuration -->
+		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}/WEB-INF"
+					verbose="yes" trust="yes" password="${webapp.ssh.pwd}">
+	    	<fileset dir="../DVA2006/WEB-INF">
+	    		<include name="*.tld" />
+				<modified seldirs="false" algorithm="digest">
+						<param name="algorithm.algorithm" value="MD5" />
+						<param name="cache.cachefile" value="local_data/cfg.cache.txt" />
+				</modified>
+			</fileset>
+			<fileset file="${java.io.tmpdir}/afv/build/web.xml">
+				<modified seldirs="false" algorithm="digest">
+					<param name="algorithm.algorithm" value="MD5" />
+					<param name="cache.cachefile" value="local_data/cfg.cache.txt" />
+				</modified>
+			</fileset>
+		</scp>
+
+		<!-- Upload the JAR files to the app server -->
+		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}/WEB-INF/lib"
+			verbose="yes" trust="yes" password="${webapp.ssh.pwd}">
+			<fileset dir="../DVA2006/lib/deploy" includes="*.jar">
+				<modified seldirs="false" algorithm="digest">
+					<param name="algorithm.algorithm" value="MD5" />
+					<param name="cache.cachefile" value="local_data/jar.cache.txt" />
+				</modified>
+			</fileset>
+			<fileset dir="${java.io.tmpdir}/build" includes="*.jar">
+				<modified seldirs="false" algorithm="digest">
+					<param name="algorithm.algorithm" value="MD5" />
+					<param name="cache.cachefile" value="local_data/jar.cache.txt" />
+				</modified>
+			</fileset>
+		</scp>
+		
+		<!-- Upload the config file to the app server -->
+		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}/WEB-INF/classes/etc"
+			verbose="yes" trust="yes" password="${webapp.ssh.pwd}">
+			<fileset dir="etc">
+				<include name="commands.xml" />
+				<include name="services.xml" />
+				<include name="tasks.xml" />
+				<modified seldirs="false" algorithm="digest">
+						<param name="algorithm.algorithm" value="MD5" />
+						<param name="cache.cachefile" value="local_data/cfg.cache.txt" />
+				</modified>
+			</fileset>
+			<fileset dir="etc/prod">
+				<modified seldirs="false" algorithm="digest">
+						<param name="algorithm.algorithm" value="MD5" />
+						<param name="cache.cachefile" value="local_data/cfg.cache.txt" />
+				</modified>
+			</fileset>
+		</scp>
+		
+		<!-- Upload static content to the HTTP server -->
+		<scp todir="${http.ssh.user}@${http.ssh.server}:${http.ssh.path}"
+			verbose="yes" trust="yes" password="${http.ssh.pwd}">
+			<fileset dir="static">
+				<modified seldirs="true" algorithm="digest">
+						<param name="algorithm.algorithm" value="MD5" />
+						<param name="cache.cachefile" value="local_data/static.cache.txt" />
+				</modified>
+			</fileset>
+		</scp>
+	</target>
+</project>
