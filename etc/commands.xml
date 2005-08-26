@@ -857,7 +857,13 @@
 		<class>org.deltava.commands.system.DiagnosticCommand</class>
 		<roles>Admin</roles>
 	</command>
-	
+
+	<command id="cmdstats">
+		<name>Command Statistics</name>
+		<class>org.deltava.commands.system.CommandStatsCommand</class>
+		<roles>Admin</roles>
+	</command>
+
 	<command id="taskexec">
 		<name>Scheduled Task Execute</name>
 		<class>org.deltava.commands.system.TaskExecuteCommand</class>
