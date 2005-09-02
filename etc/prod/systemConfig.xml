@@ -323,7 +323,7 @@
 	<smtp>
 		<server>golgotha.sce.net</server>
 		<errors-to>webmaster@afva.net</errors-to>
-		<testMode type="Boolean">true</testMode>
+		<testMode type="Boolean">false</testMode>
 	</smtp>
 	
 	<registration>
@@ -344,8 +344,8 @@
 	<issue_track>
 		<list name="versions" attr="version" sorted="true">
 			<version>1.0</version>
-			<version>1.01</version>
 			<version>1.1</version>
+			<version>1.2</version>
 		</list>
 		
 		<assignto type="Integer">006</assignto>
@@ -412,7 +412,6 @@
 		
 		<list name="login_msgs" attr="msg">
 			<msg>All messages are logged by user ID and IP address.</msg>
-			<msg>Filed PIREPs will not count for logbook or promotion.</msg>
 		</list>
 		
 		<ack>
