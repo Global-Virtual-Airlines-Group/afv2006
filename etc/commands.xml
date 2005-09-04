@@ -484,6 +484,12 @@
 		<roles>Moderator</roles>
 	</command>
 	
+	<command id="unstick">
+		<name>Unstick Water Cooler Thread</name>
+		<class>org.deltava.commands.cooler.ThreadUnstickCommand</class>
+		<roles>Pilot</roles>
+	</command>
+	
 	<command id="coolersearch">
 		<name>Water Cooler Search</name>
 		<class>org.deltava.commands.cooler.CoolerSearchCommand</class>
