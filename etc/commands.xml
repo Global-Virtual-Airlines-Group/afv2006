@@ -882,6 +882,12 @@
 		<roles>Admin</roles>
 	</command>
 
+	<command id="su">
+		<name>Switch User</name>
+		<class>org.deltava.commands.system.UserSwitchCommand</class>
+		<roles>Admin</roles>
+	</command>
+
 	<command id="securityroles">
 		<name>Security Roles</name>
 		<class>org.deltava.commands.admin.SecurityRoleMembersCommand</class>
