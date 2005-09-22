@@ -472,6 +472,12 @@
 		<roles>Pilot</roles>
 	</command>
 
+	<command id="emoticons">
+		<name>Water Cooler Emoticons</name>
+		<class>org.deltava.commands.cooler.EmoticonHelperCommand</class>
+		<roles>Pilot</roles>
+	</command>
+
 	<command id="notifytoggle">
 		<name>Water Cooler Thread Notification</name>
 		<class>org.deltava.commands.cooler.NotificationToggleCommand</class>
