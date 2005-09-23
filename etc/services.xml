@@ -5,6 +5,8 @@
 	<service id="notams_rss" class="org.deltava.service.NoticeSyndicationService" />
 	<service id="news_rss" class="org.deltava.service.NewsSyndicationService" />
 	
+	<service id="acars_pirep" class="org.deltava.service.ACARSFlightDataService" />
+	
 	<service id="fleet_info" class="org.deltava.service.FleetInfoService" />
 	<service id="fleet_sysinf" class="org.deltava.service.SystemInfoService" />
 	<service id="fleetlib" class="org.deltava.service.InstallerInfoService" />
