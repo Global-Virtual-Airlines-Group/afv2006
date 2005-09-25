@@ -108,7 +108,7 @@ if (lat ==- 1){
 	return false;
 }
 
-if ((str.indexOf('.') < 1) || (str.indexOf('.') == str.length())) {
+if ((str.indexOf('.') < 1) || (str.indexOf('.') == str.length)) {
 	alert('Please provide a valid ' + title + '.');
 	text.focus();
 	return false;
@@ -222,4 +222,17 @@ try {
 }
 
 return req;
+}
+
+function initLinks()
+{
+if (!document.getElementsByTagName) return;
+var anchors = document.getElementsByTagName("a");
+for (var i = 0; i < anchors.length; i++) {
+	var anchor = anchors[i];
+	if (anchor.getAttribute("href") && anchor.getAttribute("rel") == "external")
+		anchor.target = "_blank";
+}
+
+return true;
 }
