@@ -4,5 +4,7 @@
 	<classpathentry kind="src" path="src/test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/DVA2006"/>
+	<classpathentry kind="lib" path="/DVA2006/lib/jspc/jasper-compiler.jar"/>
+	<classpathentry kind="lib" path="/DVA2006/lib/jspc/jasper-runtime.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
