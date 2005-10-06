@@ -134,7 +134,9 @@
 					<param name="cache.cachefile" value="local_data/jar.cache.txt" />
 				</modified>
 			</fileset>
-			<fileset dir="${java.io.tmpdir}/build" includes="*.jar">
+			<fileset dir="${java.io.tmpdir}/build">
+				<include name="dva2006.jar" />
+				<include name="dva2006_jsp.jar" />
 				<modified seldirs="false" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="local_data/jar.cache.txt" />
