@@ -39,6 +39,12 @@
 		<!-- Compress the Java classes into a single JAR file -->
 		<jar basedir="${java.io.tmpdir}/afv/build/jsp" compress="true" index="true"
 		 destfile="${java.io.tmpdir}/afv/build/afv2006_jsp.jar" />
+		
+		<!-- Force all JSPs to load on startup -->
+		<replace file="${jspc.afv.webXMLInc}" token="&lt;/servlet-class&gt;">
+			<replacevalue><![CDATA[</servlet-class>
+        <load-on-startup>2</load-on-startup>]]></replacevalue>
+		</replace>
 		 		 
 		<!-- Merge the precompile definitions into web.xml -->
 		<loadfile property="afv.webXmlFragment" srcFile="${jspc.afv.webXMLInc}" />
