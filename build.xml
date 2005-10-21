@@ -56,7 +56,7 @@
 			token="&lt;!-- [INSERT AFV FRAGMENT HERE] --&gt;" value="${afv.webXmlFragment}" />
 	</target>
 	
-	<target name="deploy" depends="golgotha,jspc">
+	<target name="deploy" depends="jspc">
 		<!-- Load the FTP server properties -->
 		<property name="path.webapp" value="/afv2006" />
 		<property name="path.http" value="/afv2006" />
@@ -79,12 +79,19 @@
 		<echo message="Uploading Library Jars" />
 		<ftp server="${webapp.ftp.server}" userid="${webapp.ftp.user}" password="${webapp.ftp.pwd}"
 		 remotedir="${path.webapp}/WEB-INF/lib" action="send" depends="yes" verbose="yes">
-			<fileset dir="../DVA2006/lib/deploy" includes="*.jar" />
+			<fileset dir="../DVA2006/lib/deploy" includes="mysql*.jar" />
 			<fileset dir="${java.io.tmpdir}/afv/build" includes="*.jar" />
 			<fileset dir="${java.io.tmpdir}/build">
 				<include name="dva2006.jar" />
 				<include name="dva2006_jsp.jar" />
 			</fileset>
+		</ftp>
+		
+		<!-- Upload the libraries to the FTP server -->
+		<echo message="Uploading common Library Jars" />
+		<ftp server="${webapp.ftp.server}" userid="${webapp.ftp.user}" password="${webapp.ftp.pwd}"
+		 remotedir="${webapp.ftp.path.common}" action="send" depends="yes" verbose="yes">
+			<fileset dir="../DVA2006/lib/deploy" excludes="mysql*.jar" />
 		</ftp>
 		
 		<!-- Upload configuration files to the FTP server -->
@@ -115,7 +122,7 @@
 		
 		<!-- Upload the web configuration -->
 		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}/WEB-INF"
-					verbose="yes" trust="yes" password="${webapp.ssh.pwd}">
+			verbose="yes" trust="yes" password="${webapp.ssh.pwd}">
 	    	<fileset dir="../DVA2006/WEB-INF">
 	    		<include name="*.tld" />
 				<modified seldirs="false" algorithm="digest">
