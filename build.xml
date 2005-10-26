@@ -158,7 +158,7 @@
 		</scp>
 
 		<!-- Upload the JAR files to the app server -->
-		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path.common}"
+		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}/WEB-INF/lib"
 			verbose="yes" trust="yes" password="${webapp.ssh.pwd}">
 			<fileset dir="../DVA2006/lib/deploy">
 				<include name="mysql*.jar" />
