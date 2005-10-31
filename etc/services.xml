@@ -5,6 +5,8 @@
 	<service id="notams_rss" class="org.deltava.service.NoticeSyndicationService" />
 	<service id="news_rss" class="org.deltava.service.NewsSyndicationService" />
 
+	<service id="acars_data" class="org.deltava.service.ACARSDataService" />
+	<service id="acars_earth" class="org.deltava.service.ACARSEarthService" />
 	<service id="acars_pirep" class="org.deltava.service.ACARSFlightDataService" />
 
 	<service id="fleet_info" class="org.deltava.service.FleetInfoService" />
