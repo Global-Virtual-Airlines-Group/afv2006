@@ -133,13 +133,13 @@
 	    		<include name="*.tld" />
 				<modified seldirs="false" algorithm="digest">
 						<param name="algorithm.algorithm" value="MD5" />
-						<param name="cache.cachefile" value="local_data/cfg.cache.txt" />
+						<param name="cache.cachefile" value="../.local_data/afv.cfg.cache.txt" />
 				</modified>
 			</fileset>
 			<fileset file="${java.io.tmpdir}/afv/build/web.xml">
 				<modified seldirs="false" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
-					<param name="cache.cachefile" value="local_data/cfg.cache.txt" />
+					<param name="cache.cachefile" value="../.local_data/afv.cfg.cache.txt" />
 				</modified>
 			</fileset>
 		</scp>
@@ -152,7 +152,7 @@
 				<exclude name="log4j*.jar" />
 				<modified seldirs="false" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
-					<param name="cache.cachefile" value="local_data/jar.cache.txt" />
+					<param name="cache.cachefile" value="../.local_data/jar.cache.txt" />
 				</modified>
 			</fileset>
 		</scp>
@@ -165,7 +165,7 @@
 				<include name="log4j*.jar" />
 				<modified seldirs="false" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
-					<param name="cache.cachefile" value="local_data/jar.cache.txt" />
+					<param name="cache.cachefile" value="../.local_data/afv.jar.cache.txt" />
 				</modified>
 			</fileset>
 			<fileset dir="${java.io.tmpdir}/build">
@@ -173,7 +173,7 @@
 				<include name="dva2006_jsp.jar" />
 				<modified seldirs="false" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
-					<param name="cache.cachefile" value="local_data/jar.cache.txt" />
+					<param name="cache.cachefile" value="../.local_data/afv.jar.cache.txt" />
 				</modified>
 			</fileset>
 		</scp>
@@ -187,13 +187,13 @@
 				<include name="tasks.xml" />
 				<modified seldirs="false" algorithm="digest">
 						<param name="algorithm.algorithm" value="MD5" />
-						<param name="cache.cachefile" value="local_data/cfg.cache.txt" />
+						<param name="cache.cachefile" value="../.local_data/afv.cfg.cache.txt" />
 				</modified>
 			</fileset>
 			<fileset dir="etc/prod">
 				<modified seldirs="false" algorithm="digest">
 						<param name="algorithm.algorithm" value="MD5" />
-						<param name="cache.cachefile" value="local_data/cfg.cache.txt" />
+						<param name="cache.cachefile" value="../.local_data/afv.cfg.cache.txt" />
 				</modified>
 			</fileset>
 		</scp>
@@ -204,7 +204,7 @@
 			<fileset dir="static">
 				<modified seldirs="true" algorithm="digest">
 						<param name="algorithm.algorithm" value="MD5" />
-						<param name="cache.cachefile" value="local_data/static.cache.txt" />
+						<param name="cache.cachefile" value="../.local_data/afv.static.cache.txt" />
 				</modified>
 			</fileset>
 		</scp>
