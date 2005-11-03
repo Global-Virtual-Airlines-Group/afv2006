@@ -283,7 +283,9 @@
 		</hash>
 		
 		<key>
-			<googleMaps>ABQIAAAAWFzTV_nG8JA7h9y7QsKTgRQJKTmPgeeZAZtzY_uUn1oxnhXwuBT3UyczTQrj3iUUJ6DiKPS-L4Fuug</googleMaps>
+			<map name="googleMaps">
+				<afv2006.afva.net>ABQIAAAAWFzTV_nG8JA7h9y7QsKTgRQJKTmPgeeZAZtzY_uUn1oxnhXwuBT3UyczTQrj3iUUJ6DiKPS-L4Fuug</afv2006.afva.net>
+			</map>
 		</key>
 		
 		<list name="roles" attr="role" sorted="true" unique="true">
@@ -386,7 +388,7 @@
 		</pirep>
 		
 		<!-- This controls whose user ID the Scheduled Tasks will operate as -->
-		<tasks_by>Tom Haug</tasks_by>
+		<tasks_by>Michael Carter</tasks_by>
 	</users>
 	
 	<!-- ACARS Server Properties -->
