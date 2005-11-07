@@ -5,7 +5,7 @@
 	<airline>
 		<domain>afva.net</domain>
 		<name>Aviation Français Virtuel</name>
-		<url>www.afva.net</url>
+		<url>endor.afva.net</url>
 		<banner>AFVBanner.png</banner>
 		<code>AFV</code>
 		<db>AFV</db>
@@ -287,7 +287,9 @@
 		<key>
 			<map name="googleMaps">
 				<golgotha.afva.net>ABQIAAAAWFzTV_nG8JA7h9y7QsKTgRRMjYJyMG3aT4ivWV5QVzcQ-NndEBQQUTAEG3JvmzoFAnmiVGDg1mi7cA</golgotha.afva.net>
+				<endor.afva.net>ABQIAAAAWFzTV_nG8JA7h9y7QsKTgRRgutO0BXP7fG9B-ADEimIbSNlgEBR0rPrTnd5zYWGk68nBvEvDAOawQQ</endor.afva.net>
 				<www.afva.net>ABQIAAAAWFzTV_nG8JA7h9y7QsKTgRSXs6S7MsBYRg9EoZ9k3LK8mKHecRQLwWC0mP7oHbgd45qdezv2qnXDBg</www.afva.net>
+			</map>
 		</key>
 
 		<list name="roles" attr="role" sorted="true">
