@@ -202,8 +202,11 @@
 		
 		<map name="connectProperties">
 			<useNewIO>false</useNewIO>
-			<autoReconnect>true</autoReconnect>
 			<useCompression>true</useCompression>
+			<cachePrepStmts>true</cachePrepStmts>
+			<cacheResultSetMetadata>true</cacheResultSetMetadata>
+			<continueBatchOnError>true</continueBatchOnError>
+			<useServerPrepStmts>true</useServerPrepStmts>
 		</map>
 		
 		<pool_size type="Integer">1</pool_size>
@@ -332,9 +335,14 @@
 	</path>
 	
 	<smtp>
-		<server>golgotha.sce.net</server>
+		<server>endor.sce.net</server>
 		<errors-to>webmaster@afva.net</errors-to>
 		<testMode type="Boolean">false</testMode>
+		<imap>
+			<enabled type="Boolean">true</enabled>
+			<quota type="Integer">10240000</quota>
+			<server>mail.afva.net</server>
+		</imap>
 	</smtp>
 	
 	<registration>
