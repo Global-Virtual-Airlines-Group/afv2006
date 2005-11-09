@@ -5,7 +5,7 @@
 	<airline>
 		<domain>afva.net</domain>
 		<name>Aviation Français Virtuel</name>
-		<url>endor.afva.net</url>
+		<url>www.afva.net</url>
 		<banner>AFVBanner.png</banner>
 		<code>AFV</code>
 		<db>AFV</db>
@@ -207,6 +207,7 @@
 			<cacheResultSetMetadata>true</cacheResultSetMetadata>
 			<continueBatchOnError>true</continueBatchOnError>
 			<useServerPrepStmts>true</useServerPrepStmts>
+			<dontTrackOpenResources>true</dontTrackOpenResources>
 		</map>
 		
 		<pool_size type="Integer">1</pool_size>
