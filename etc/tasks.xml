@@ -15,4 +15,10 @@
 		<interval>86400</interval>
 		<hours>0</hours>
 	</task>
+
+	<task id="cmdlogpurge" enabled="false">
+		<class>org.deltava.tasks.CommandLogPurgeTask</class>
+		<interval>86400</interval>
+		<hours>6</hours>
+	</task>
 </tasks>

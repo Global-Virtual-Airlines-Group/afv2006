@@ -232,7 +232,9 @@
 			<name>TASKS</name>
 		</list>
 		
-		<purge type="Integer">10</purge>
+		<purge>
+			<cmds type="Integer">10</cmds>
+		</purge>
 		
 		<http>
 			<format>httpd-access.afv.log</format>
