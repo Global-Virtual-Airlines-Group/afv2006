@@ -383,7 +383,7 @@
 		<sig_max>
 			<x type="Integer">520</x>
 			<y type="Integer">160</y>
-			<size type="Integer">65520</size>
+			<size type="Integer">81920</size>
 		</sig_max>
 	</cooler>
 	
