@@ -194,7 +194,7 @@
 	<!-- JDBC data source configuration -->
 	<jdbc>
 		<driver>com.mysql.jdbc.Driver</driver>
-		<url>jdbc:mysql://polaris.sce.net/afv</url>
+		<url>jdbc:mysql://localhost/afv</url>
 		<user>afv</user>
 		<pwd>***REMOVED***</pwd>
 		
