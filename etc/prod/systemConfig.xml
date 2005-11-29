@@ -202,7 +202,8 @@
 		
 		<map name="connectProperties">
 			<useNewIO>false</useNewIO>
-			<useCompression>true</useCompression>
+			<autoReconnect>true</autoReconnect>
+			<useCompression>false</useCompression>
 			<cachePrepStmts>true</cachePrepStmts>
 			<cacheResultSetMetadata>true</cacheResultSetMetadata>
 			<continueBatchOnError>true</continueBatchOnError>
@@ -212,6 +213,7 @@
 		
 		<pool_size type="Integer">1</pool_size>
 		<pool_max_size type="Integer">3</pool_max_size>
+		<max_reqs type="Integer">0</max_reqs>
 		<auto_commit type="Boolean">true</auto_commit>
 	</jdbc>
 	

@@ -31,7 +31,13 @@
 		<class>org.deltava.commands.pilot.GreasedLandingCommand</class>
 		<roles>*</roles>
 	</command>
-	
+
+	<command id="acarsprsearch">
+		<name>ACARS Flight Search</name>
+		<class>org.deltava.commands.pirep.ACARSFlightSearchCommand</class>
+		<roles>*</roles>
+	</command>
+
 	<command id="recognition">
 		<name>Pilot Recognition</name>
 		<class>org.deltava.commands.main.PilotRecognitionCommand</class>
@@ -703,7 +709,19 @@
 		<class>org.deltava.commands.assign.BuildAssignmentCommand</class>
 		<roles>Pilot</roles>
 	</command>
-	
+
+	<command id="selcals">
+		<name>SELCAL Code List</name>
+		<class>org.deltava.commands.schedule.SELCALCodeCommand</class>
+		<roles>Pilot</roles>
+	</command>	
+
+	<command id="selcal">
+		<name>SELCAL Reserve/Free</name>
+		<class>org.deltava.commands.schedule.SELCALReserveCommand</class>
+		<roles>Pilot</roles>
+	</command>
+
 	<command id="assignments">
 		<name>Flight Assignments</name>
 		<class>org.deltava.commands.assign.AssignmentListCommand</class>
