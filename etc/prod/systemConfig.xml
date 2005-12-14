@@ -271,9 +271,9 @@
 		</vatsim>
 		
 		<ivao>
-			<status_url>http://www.ivao.org/whazzup/status.txt</status_url>
+			<status_url>http://www.ivao.aero/whazzup/status.txt</status_url>
 			<banner>ivao.png</banner>
-			<url>http://www.ivao.org/</url>
+			<url>http://www.ivao.aero/</url>
 		</ivao>
 		
 		<fpi>
