@@ -881,7 +881,13 @@
 		<class>org.deltava.commands.testing.CheckRideAssignCommand</class>
 		<roles>Examination,HR</roles>
 	</command>
-	
+
+	<command id="nakedassign">
+		<name>Naked Check Ride Assign</name>
+		<class>org.deltava.commands.testing.NakedCheckRideCommand</class>
+		<roles>Examination,HR</roles>
+	</command>
+
 	<command id="exam">
 		<name>Examination</name>
 		<class>org.deltava.commands.testing.ExamCommand</class>
