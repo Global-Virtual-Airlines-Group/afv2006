@@ -60,7 +60,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j
 	<servlet>
 		<servlet-name>flightPlan</servlet-name>
 		<servlet-class>org.deltava.servlet.FlightPlanServlet</servlet-class>
-		<load-on-startup>0</load-on-startup>
+		<load-on-startup>2</load-on-startup>
 	</servlet>
 	
 	<!-- Library Donwload servlet -->
@@ -99,7 +99,15 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j
 	</filter-mapping>
 	
 	<!-- Filter mappings to Flight Plans -->
-	
+	<filter-mapping>
+		<filter-name>SecurityCookieFilter</filter-name>
+		<servlet-name>flightPlan</servlet-name>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SecurityRequestWrapperFilter</filter-name>
+		<servlet-name>flightPlan</servlet-name>
+	</filter-mapping>
+
 	<!-- Filter mappings to Fleet Library -->
 	<filter-mapping>
 		<filter-name>SecurityCookieFilter</filter-name>
@@ -108,7 +116,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j
 	<filter-mapping>
 		<filter-name>SecurityRequestWrapperFilter</filter-name>
 		<servlet-name>fleetLibrary</servlet-name>
-	</filter-mapping>	
+	</filter-mapping>
 
 	<!-- Filter mappings to Web Services -->
 	<filter-mapping>
@@ -140,17 +148,17 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j
 		<servlet-name>dbImage</servlet-name>
 		<url-pattern>/gallery/*</url-pattern>
 	</servlet-mapping>
-    
+
 	<servlet-mapping>
 		<servlet-name>dbImage</servlet-name>
 		<url-pattern>/sig/*</url-pattern>
     </servlet-mapping>
-    
+
     <servlet-mapping>
         <servlet-name>fleetLibrary</servlet-name>
         <url-pattern>/fleet/*</url-pattern>
     </servlet-mapping>
-    
+
     <servlet-mapping>
         <servlet-name>fleetLibrary</servlet-name>
         <url-pattern>/library/*</url-pattern>
