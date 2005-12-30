@@ -446,6 +446,12 @@
 		<roles>*</roles>
 	</command>
 
+	<command id="eventcalendar">
+		<name>Online Event Calendar</name>
+		<class>org.deltava.commands.event.EventCalendarCommand</class>
+		<roles>*</roles>
+	</command>
+
 	<command id="eventsignup">
 		<name>Event Signup</name>
 		<class>org.deltava.commands.event.EventSignupCommand</class>
