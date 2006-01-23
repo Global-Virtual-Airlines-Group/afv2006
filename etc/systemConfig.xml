@@ -194,14 +194,19 @@
 	<!-- JDBC data source configuration -->
 	<jdbc>
 		<driver>com.mysql.jdbc.Driver</driver>
-		<url>jdbc:mysql://localhost/afv</url>
+		<url>jdbc:mysql://polaris.sce.net/afv</url>
 		<user>afv</user>
 		<pwd>***REMOVED***</pwd>
 		
 		<map name="connectProperties">
 			<useNewIO>false</useNewIO>
+			<useCompression>false</useCompression>
 			<autoReconnect>true</autoReconnect>
-			<useCompression>true</useCompression>
+			<cachePrepStmts>true</cachePrepStmts>
+			<cacheResultSetMetadata>true</cacheResultSetMetadata>
+			<continueBatchOnError>true</continueBatchOnError>
+			<useServerPrepStmts>true</useServerPrepStmts>
+			<dontTrackOpenResources>true</dontTrackOpenResources>
 		</map>
 		
 		<pool_size type="Integer">1</pool_size>
