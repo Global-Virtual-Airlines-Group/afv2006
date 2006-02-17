@@ -4,7 +4,7 @@
 	<!-- Main Commmands -->
 	<command id="home">
 		<name>Home Page</name>
-		<class>org.deltava.commands.main.HomeCommand</class>
+		<class>net.afva.commands.main.HomeCommand</class>
 		<roles>*</roles>
 	</command>
 	

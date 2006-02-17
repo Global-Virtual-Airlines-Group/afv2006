@@ -1,44 +1,75 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project default="deploy">
-	<!-- Compile the Java classes -->
-	<target name="golgotha">
-		<ant antfile="../DVA2006/build.xml" target="compile" dir="../DVA2006" />
-		<ant antfile="../DVA2006/build.xml" target="jspc" dir="../DVA2006" />		
-	</target>
-
-	<!-- Precompile the JSP pages -->
-	<target name="jspc" depends="golgotha">
-		<property name="jspc.dva.webXMLInc" value="${java.io.tmpdir}/src/jsp/include.xml" />
-		<property name="jspc.afv.webXMLInc" value="${java.io.tmpdir}/afv/src/jsp/include.xml" />		
-		<taskdef classname="org.apache.jasper.JspC" name="jasper2"> 
-			<classpath id="jspc.classpath"> 
-				<pathelement path="${classpath}" />
+	<!-- Precompile the Java Code -->
+	<target name="compile">
+		<mkdir dir="${java.io.tmpdir}/afv/build/classes" />
+		<javac srcdir="src/java" optimize="on" destdir="${java.io.tmpdir}/afv/build/classes"
+		 debug="true" debuglevel="lines,vars,source" source="1.5" target="1.5"
+		 compiler="modern">
+			<compilerarg value="-Xlint:unchecked" />
+	    	<classpath id="afv.classpath">
+				<fileset dir="${ant.home}/lib" includes="*.jar" />
+				<fileset dir="../DVA2006/lib" includes="**/*.jar" />
 				<pathelement location="${java.io.tmpdir}/build/dva2006.jar" />
-				<fileset dir="../DVA2006/lib" includes="**/*.jar" /> 
+	    	</classpath>
+		</javac>
+		
+		<!-- Compress the Java classes into a single JAR file -->
+		<jar basedir="${java.io.tmpdir}/afv/build/classes" compress="true" index="true"
+			 destfile="${java.io.tmpdir}/afv/build/afv2006.jar" />
+	</target>
+	
+	<!-- Precompile the JSP pages -->
+	<target name="jspc" depends="compile">
+		<property name="jspc.dva.webXMLInc" value="${java.io.tmpdir}/src/jsp/include.xml" />
+		<property name="jspc.afv.webXMLInc" value="${java.io.tmpdir}/afv/src/jsp/include.xml" />
+		<taskdef classname="org.apache.jasper.JspC" name="jasper2"> 
+			<classpath id="afv.jspc.classpath"> 
+				<fileset dir="${ant.home}/lib" includes="*.jar" />
+				<fileset dir="../DVA2006/lib/jspc" includes="*.jar" />
+				<fileset dir="../DVA2006/lib" includes="**/*.jar" />
+				<pathelement location="${java.io.tmpdir}/build/dva2006.jar" />
+				<pathelement location="${java.io.tmpdir}/afv/build/afv2006.jar" />
 			</classpath> 
 		</taskdef>
 		
 		<!-- Delete the old web.xml -->
-		<mkdir dir="${java.io.tmpdir}/afv/build" />
 		<delete file="${java.io.tmpdir}/afv/build/web.xml" />
+		
+		<!-- Copy the new web.xml and TLD files from DVA2006 -->
+		<copy file="WEB-INF/web_core.xml" tofile="WEB-INF/web.xml" />
+		<copy todir="WEB-INF">
+			<fileset dir="../DVA2006/WEB-INF" includes="*.tld" />
+		</copy>
+		
+		<!-- Copy the main header files -->
+		<copy todir="jsp/main" overwrite="false">
+			<fileset dir="../DVA2006/jsp/main" excludes="home.jsp" />
+		</copy>
 		
 		<!-- Precompile the files -->
 		<mkdir dir="${java.io.tmpdir}/afv/src/jsp" />
-	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="0" poolingEnabled="false" xpoweredBy="true" 
-			validateXml="false" webXmlFragment="${jspc.afv.webXMLInc}"
+	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="0" poolingEnabled="false" 
+	    	xpoweredBy="true" validateXml="false" webXmlFragment="${jspc.afv.webXMLInc}"
+	    	compilerTargetVM="1.5" compilerSourceVM="1.5" trimSpaces="true"
 	    	outputDir="${java.io.tmpdir}/afv/src/jsp" />
+		
+		<!-- Clean up -->
+		<delete>
+			<fileset dir="WEB-INF" includes="web.xml,*.tld" />
+		</delete>
 
 		<!-- Compile the files -->
 		<mkdir dir="${java.io.tmpdir}/afv/build/jsp" />
 		<javac srcdir="${java.io.tmpdir}/afv/src/jsp" destdir="${java.io.tmpdir}/afv/build/jsp"
-			debug="on" debuglevel="source" optimize="on" target="1.4">
-			<classpath refid="jspc.classpath" />
+			debug="on" debuglevel="source" optimize="on" target="1.5" source="1.5" nowarn="on">
+			<classpath refid="afv.jspc.classpath" />
 			<include name="net/afva/jsp/**/*.java" />
 		</javac>
 		
 		<!-- Compress the Java classes into a single JAR file -->
 		<jar basedir="${java.io.tmpdir}/afv/build/jsp" compress="true" index="true"
-		 destfile="${java.io.tmpdir}/afv/build/afv2006_jsp.jar" />
+		 	destfile="${java.io.tmpdir}/afv/build/afv2006_jsp.jar" />
 		
 		<!-- Force all JSPs to load on startup -->
 		<replace file="${jspc.afv.webXMLInc}" token="&lt;/servlet-class&gt;">
@@ -123,7 +154,7 @@
 	</target>
 	
 	<!-- Production Deployment via SSH -->
-	<target name="prod_deploy" depends="golgotha">
+	<target name="prod_deploy">
 		<loadproperties srcFile="data/build_deploy.properties" />
 		
 		<!-- Upload the web configuration -->
