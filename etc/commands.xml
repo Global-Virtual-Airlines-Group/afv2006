@@ -954,6 +954,12 @@
 		<roles>HR,PIREP</roles>
 	</command>
 
+	<command id="promote">
+		<name>Promote to Captain</name>
+		<class>org.deltava.commands.pilot.PromoteCommand</class>
+		<roles>HR,PIREP</roles>
+	</command>
+
 
 	<!-- Testing Admin Commands -->
 	<command id="examqueue">
