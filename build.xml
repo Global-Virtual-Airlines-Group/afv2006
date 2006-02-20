@@ -57,6 +57,7 @@
 		<!-- Clean up -->
 		<delete>
 			<fileset dir="WEB-INF" includes="web.xml,*.tld" />
+			<fileset dir="jsp/main" excludes="afvHome.jsp" />
 		</delete>
 
 		<!-- Compile the files -->
