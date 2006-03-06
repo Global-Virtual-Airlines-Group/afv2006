@@ -67,7 +67,7 @@
 			<classpath refid="afv.jspc.classpath" />
 			<include name="net/afva/jsp/**/*.java" />
 		</javac>
-		
+
 		<!-- Compress the Java classes into a single JAR file -->
 		<jar basedir="${java.io.tmpdir}/afv/build/jsp" compress="true" index="true"
 		 	destfile="${java.io.tmpdir}/afv/build/afv2006_jsp.jar" />
@@ -155,7 +155,7 @@
 	</target>
 	
 	<!-- Production Deployment via SSH -->
-	<target name="prod_deploy">
+	<target name="prod_deploy" depends="jspc">
 		<loadproperties srcFile="data/build_deploy.properties" />
 		
 		<!-- Upload the web configuration -->
@@ -208,6 +208,13 @@
 					<param name="cache.cachefile" value="../.local_data/afv.jar.cache.txt" />
 				</modified>
 			</fileset>
+			<fileset dir="${java.io.tmpdir}/afv/build">
+				<include name="*.jar" />
+				<modified seldirs="false" algorithm="digest">
+					<param name="algorithm.algorithm" value="MD5" />
+					<param name="cache.cachefile" value="../.local_data/afv.jar.cache.txt" />
+				</modified>
+			</fileset>
 		</scp>
 		
 		<!-- Upload the config file to the app server -->
@@ -216,6 +223,7 @@
 			<fileset dir="etc">
 				<include name="commands.xml" />
 				<include name="services.xml" />
+				<include name="profanity.txt" />
 				<modified seldirs="false" algorithm="digest">
 						<param name="algorithm.algorithm" value="MD5" />
 						<param name="cache.cachefile" value="../.local_data/afv.cfg.cache.txt" />
