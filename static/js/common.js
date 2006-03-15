@@ -35,6 +35,12 @@ document.isSubmit = true;
 return true;
 }
 
+function clearSubmit()
+{
+document.isSubmit = false;
+return true;
+}
+
 function cmdPost(url)
 {
 var form = document.forms[0];
