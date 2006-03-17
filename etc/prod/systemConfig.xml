@@ -257,14 +257,13 @@
 	<online>
 		<list name="networks" attr="network">
 			<network>VATSIM</network>
-			<network>ACARS</network>
 			<network>IVAO</network>
 			<network>FPI</network>
 		</list>
 		
 		<list name="highlightCodes" attr="code">
-			<code>DAL</code>
-			<code>DVA</code>
+			<code>AFR</code>
+			<code>AFV</code>
 		</list>
 		
 		<vatsim>
