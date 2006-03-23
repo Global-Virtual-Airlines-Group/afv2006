@@ -125,3 +125,9 @@ for (var x = 0; x < map.overlays.length; x++) {
 
 return true;
 }
+
+function mapZoom(lat, lng, size)
+{
+map.centerAndZoom(new GPoint(lng, lat), size);
+return true;
+}
