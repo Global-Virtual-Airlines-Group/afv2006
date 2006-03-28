@@ -764,18 +764,6 @@
 		<roles>Pilot</roles>
 	</command>
 
-	<command id="selcals">
-		<name>SELCAL Code List</name>
-		<class>org.deltava.commands.schedule.SELCALCodeCommand</class>
-		<roles>Pilot</roles>
-	</command>	
-
-	<command id="selcal">
-		<name>SELCAL Reserve/Free</name>
-		<class>org.deltava.commands.schedule.SELCALReserveCommand</class>
-		<roles>Pilot</roles>
-	</command>
-
 	<command id="assignments">
 		<name>Flight Assignments</name>
 		<class>org.deltava.commands.assign.AssignmentListCommand</class>
@@ -1108,6 +1096,18 @@
 		<name>Security Roles</name>
 		<class>org.deltava.commands.admin.SecurityRoleMembersCommand</class>
 		<roles>Admin</roles>
+	</command>
+
+	<command id="helplist">
+		<name>Online Help Entries</name>
+		<class>org.deltava.commands.system.HelpListCommand</class>
+		<roles>HR,Developer</roles>
+	</command>
+
+	<command id="help">
+		<name>Online Help</name>
+		<class>org.deltava.commands.system.HelpEntryCommand</class>
+		<roles>*</roles>
 	</command>
 
 	<command id="cmdstats">
