@@ -47,6 +47,10 @@
 			<fileset dir="../DVA2006/jsp/main" excludes="home.jsp" />
 		</copy>
 		
+		<!-- Rename the include JSPs to framgments -->
+		<move file="jsp/main/header.jsp" tofile="jsp/main/header.jspf" />
+		<move file="jsp/main/sideMenu.jsp" tofile="jsp/main/sideMenu.jspf" />
+		
 		<!-- Precompile the files -->
 		<mkdir dir="${java.io.tmpdir}/afv/src/jsp" />
 	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="0" poolingEnabled="false" 
