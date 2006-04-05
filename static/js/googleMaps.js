@@ -58,24 +58,24 @@ return true;
 function getDefaultZoom(distance)
 {
 if (distance > 6100) {
-	return 15;
+	return 2;
 } else if (distance > 2900) {
-	return 14;
+	return 3;
 } else if (distance > 1600) {
-	return 13;
+	return 4;
 } else if (distance > 780) {
-	return 12;
+	return 5;
 } else if (distance > 390) {
-	return 11;
+	return 6;
 } else if (distance > 195) {
-	return 10;
+	return 7;
 } else if (distance > 90) {
-	return 9;
-} else if (distance > 50) {
 	return 8;
+} else if (distance > 50) {
+	return 9;
 }
 
-return 7;
+return 10;
 }
 
 function toggleMarkers(map, arrayName)
@@ -128,6 +128,6 @@ return true;
 
 function mapZoom(lat, lng, size)
 {
-map.centerAndZoom(new GPoint(lng, lat), size);
+map.setCenter(new GLatLng(lat, lng, false), size);
 return true;
 }
