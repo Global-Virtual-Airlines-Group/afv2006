@@ -279,7 +279,7 @@
 		</ivao>
 		
 		<fpi>
-			<status_url>http://afv2006.afva.net/fpi-data.txt</status_url>
+			<status_url>http://fsd.flightproject.de/status.txt</status_url>
 			<banner>fpi.png</banner>
 			<url>http://www.flightproject.net/</url>
 		</fpi>
