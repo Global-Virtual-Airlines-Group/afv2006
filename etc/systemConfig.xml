@@ -322,6 +322,14 @@
 				<width type="Integer">600</width>
 				<url>http://quicktrip.innosked.com/</url>
 			</popup>
+
+			<!-- FTP download data -->
+			<download>
+				<host>67.97.212.90</host>
+				<user>deltava</user>
+				<pwd>Innovata#4908</pwd>
+				<file>air france.zip</file>
+			</download>
 		</innovata>
 	</schedule>
 
