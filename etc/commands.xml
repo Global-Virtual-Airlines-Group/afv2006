@@ -1104,6 +1104,12 @@
 		<roles>Admin</roles>
 	</command>
 
+	<command id="dashboard">
+		<name>Management Dashboard</name>
+		<class>org.deltava.commands.stats.DashboardCommand</class>
+		<roles>HR</roles>
+	</command>
+
 	<command id="helplist">
 		<name>Online Help Entries</name>
 		<class>org.deltava.commands.system.HelpListCommand</class>
