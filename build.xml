@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2005, 2006 Global Virtual Airlines Group. All Rights Reserved. -->
 <project default="deploy">
 	<!-- Precompile the Java Code -->
 	<target name="compile">
@@ -44,12 +45,8 @@
 		
 		<!-- Copy the main header files -->
 		<copy todir="jsp/main" overwrite="false">
-			<fileset dir="../DVA2006/jsp/main" excludes="home.jsp" />
+			<fileset dir="../DVA2006/jsp/main" includes="*.jspf" />
 		</copy>
-		
-		<!-- Rename the include JSPs to framgments -->
-		<move file="jsp/main/header.jsp" tofile="jsp/main/header.jspf" />
-		<move file="jsp/main/sideMenu.jsp" tofile="jsp/main/sideMenu.jspf" />
 		
 		<!-- Precompile the files -->
 		<mkdir dir="${java.io.tmpdir}/afv/src/jsp" />
@@ -61,7 +58,7 @@
 		<!-- Clean up -->
 		<delete>
 			<fileset dir="WEB-INF" includes="web.xml,*.tld" />
-			<fileset dir="jsp/main" excludes="afvHome.jsp" />
+			<fileset dir="jsp/main" includes="*.jspf" />
 		</delete>
 
 		<!-- Compile the files -->
