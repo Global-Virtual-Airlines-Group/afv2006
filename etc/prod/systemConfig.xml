@@ -319,7 +319,7 @@
 			<role>Signature</role>
 		</list>
 		
-		<auth>org.deltava.security.MigrationAuthenticator</auth>
+		<auth>org.deltava.security.LDAPAuthenticator</auth>
 		<baseDN>ou=afv,o=sce</baseDN>
 	</security>
 
