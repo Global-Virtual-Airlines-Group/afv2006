@@ -225,6 +225,8 @@
 				<include name="commands.xml" />
 				<include name="services.xml" />
 				<include name="profanity.txt" />
+				<include name="iata_aircraft.properties" />
+				<include name="codeshares.txt" />
 				<modified seldirs="false" algorithm="digest">
 						<param name="algorithm.algorithm" value="MD5" />
 						<param name="cache.cachefile" value="../.local_data/afv.cfg.cache.txt" />
