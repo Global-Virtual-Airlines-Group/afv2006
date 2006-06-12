@@ -327,9 +327,12 @@
 			<download>
 				<host>67.97.212.90</host>
 				<user>deltava</user>
-				<pwd>Innovata#4908</pwd>
+				<pwd>Ssim#2001</pwd>
 				<file>airfrancedirects.csv</file>
 			</download>
+
+			<!-- downloaded file cache -->
+			<cache>d:\library\sched_cache</cache>
 		</innovata>
 	</schedule>
 
