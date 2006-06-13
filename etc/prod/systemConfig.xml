@@ -326,7 +326,7 @@
 	<!-- Innovata schedule link data -->
 	<schedule>
 		<innovata>
-			<enabled type="Boolean">false</enabled>
+			<enabled type="Boolean">true</enabled>
 			<popup>
 				<height type="Integer">600</height>
 				<width type="Integer">600</width>
@@ -342,7 +342,7 @@
 			</download>
 
 			<!-- downloaded file cache -->
-			<cache>d:\library\sched_cache</cache>
+			<cache>/home/www/sched_cache</cache>
 		</innovata>
 	</schedule>
 
