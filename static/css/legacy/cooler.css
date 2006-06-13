@@ -64,7 +64,7 @@ INPUT, TEXTAREA {
 	background: #F0F4F8;
 }
 
-*.postInfo :link, *.postInfo :visited {
+*.postInfo :link, *.postInfo :visited, *.postInfo :hover {
 	font-size: 9pt;
 	color: #0B228C;
 	font-weight: bold;
@@ -72,14 +72,14 @@ INPUT, TEXTAREA {
 	font-family: Verdana;
 }
 
-*.postEdit :link, *.postEdit :visited {
+*.postEdit :link, *.postEdit :visited, *.postEdit :hover {
 	font-size: 8pt;
 	color: #0000A1;
 	font-weight: bold;
 	font-family: Tahoma, Verdana;
 }
 
-*.title A {
+*.title :link, *.title :visited {
 	font-size: 9pt;
 	text-transform: uppercase;
 	font-weight: bold;
