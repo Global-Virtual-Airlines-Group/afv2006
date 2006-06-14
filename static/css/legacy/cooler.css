@@ -64,7 +64,7 @@ INPUT, TEXTAREA {
 	background: #F0F4F8;
 }
 
-*.postInfo :link, *.postInfo :visited, *.postInfo :hover {
+*.postInfo :link, *.postInfo :visited, *.postInfo A:hover {
 	font-size: 9pt;
 	color: #0B228C;
 	font-weight: bold;
