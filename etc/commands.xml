@@ -1446,6 +1446,12 @@
 		<roles>Instructor,HR</roles>
 	</command>
 
+	<command id="academyridequeue">
+		<name>Flight Academy Check Ride Queue</name>
+		<class>org.deltava.commands.academy.RideQueueCommand</class>
+		<roles>Instructor,Examiner,HR</roles>
+	</command>
+
 	<command id="tvideolibrary">
 		<name>Training Video Library</name>
 		<class>org.deltava.commands.academy.VideoLibraryCommand</class>
