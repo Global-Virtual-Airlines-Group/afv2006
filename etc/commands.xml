@@ -881,23 +881,17 @@
 	</command>
 	
 	<command id="eqtypes">
-		<name>Equipment Profiles</name>
+		<name>Equipment Type Profiles</name>
 		<class>org.deltava.commands.admin.EquipmentProfilesCommand</class>
 		<roles>HR</roles>
 	</command>
-	
-	<command id="eqedit">
-		<name>Edit Equipment Profile</name>
+
+	<command id="eqtype">
+		<name>Equipment Type Profile</name>
 		<class>org.deltava.commands.admin.EquipmentCommand</class>
 		<roles>HR</roles>
 	</command>
-	
-	<command id="eqsave">
-		<name>Save Equipment Profile</name>
-		<class>org.deltava.commands.admin.EquipmentSaveCommand</class>
-		<roles>HR</roles>
-	</command>
-	
+
 	<command id="txrequests">
 		<name>Transfer Requests</name>
 		<class>org.deltava.commands.admin.TransferListCommand</class>
@@ -1217,37 +1211,31 @@
 		<class>org.deltava.commands.system.IssueCommand</class>
 		<roles>*</roles>
 	</command>
-	
+
 	<command id="issuecomment">
 		<name>Issue Comment</name>
 		<class>org.deltava.commands.system.IssueCommentCommand</class>
 		<roles>Pilot</roles>
 	</command>
-	
+
 	<command id="msgtemplates">
 		<name>Message Templates</name>
 		<class>org.deltava.commands.admin.MessageTemplatesCommand</class>
 		<roles>HR,Developer</roles>
 	</command>
-	
+
 	<command id="msgtemplate">
 		<name>Edit Message Template</name>
 		<class>org.deltava.commands.admin.MessageTemplateCommand</class>
 		<roles>HR,Developer</roles>
 	</command>
-	
-	<command id="msgtemplatesave">
-		<name>Save Message Template</name>
-		<class>org.deltava.commands.admin.MessageTemplateSaveCommand</class>
-		<roles>HR,Developer</roles>
-	</command>
-	
+
 	<command id="msgtemplatedelete">
 		<name>Delete Message Template</name>
 		<class>org.deltava.commands.admin.MessageTemplateDeleteCommand</class>
 		<roles>Admin</roles>
 	</command>
-	
+
 	<command id="systemlog">
 		<name>View System Log</name>
 		<class>org.deltava.commands.system.LogViewCommand</class>
