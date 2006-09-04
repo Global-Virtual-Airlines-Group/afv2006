@@ -205,6 +205,7 @@
 		<equipment>B707-320</equipment>
 		<equipment>B727-200</equipment>
 		<equipment>B737-200</equipment>
+		<equipment>B737-300</equipment>
 		<equipment>B747-100</equipment>
 		<equipment>Caravelle</equipment>
 		<equipment>Comet</equipment>
@@ -299,7 +300,6 @@
 		<list name="networks" attr="network">
 			<network>VATSIM</network>
 			<network>IVAO</network>
-			<network>FPI</network>
 		</list>
 		
 		<list name="highlightCodes" attr="code">
