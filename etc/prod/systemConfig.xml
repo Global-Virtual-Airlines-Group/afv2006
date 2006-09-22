@@ -471,7 +471,7 @@
 			</list>
 		</imgurls>
 
-		<maxreports type="Integer">6</maxreports>
+		<maxreports type="Integer">3</maxreports>
 	</cooler>
 	
 	<users>
