@@ -290,8 +290,6 @@
 		<list name="networks" attr="network">
 			<network>VATSIM</network>
 			<network>IVAO</network>
-			<network>ACARS</network>
-			<network>FPI</network>
 		</list>
 		
 		<list name="highlightCodes" attr="code">
@@ -310,12 +308,6 @@
 			<banner>ivao.png</banner>
 			<url>http://www.ivao.org/</url>
 		</ivao>
-		
-		<fpi>
-			<status_url>http://dva2006.deltava.org/fpi-data.txt</status_url>
-			<banner>fpi.png</banner>
-			<url>http://www.flightproject.net/</url>
-		</fpi>
 		
 		<default_network>VATSIM</default_network>
 	</online>
