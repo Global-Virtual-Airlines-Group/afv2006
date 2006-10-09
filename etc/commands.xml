@@ -1487,10 +1487,16 @@
 		<class>org.deltava.commands.academy.VideoCommand</class>
 		<roles>Instructor,HR</roles>
 	</command>
-	
-		<command id="academyissues">
+
+	<command id="academyissues">
 		<name>Flight Academy Help Desk</name>
 		<class>org.deltava.commands.academy.IssueListCommand</class>
+		<roles>Pilot</roles>
+	</command>
+
+	<command id="myacademyissues">
+		<name>Flight Academy My Help Desk</name>
+		<class>org.deltava.commands.academy.MyIssueListCommand</class>
 		<roles>Pilot</roles>
 	</command>
 
