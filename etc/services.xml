@@ -27,6 +27,7 @@
 
 	<!-- ACARS/Google Maps Services -->
 	<service id="acars_data" class="org.deltava.service.acars.FlightDataExportService" />
+	<service id="acars_error" class="org.deltava.service.acars.ErrorLogService" />
 	<service id="acars_pirep" class="org.deltava.service.acars.MapFlightDataService" />
 	<service id="acars_earth" class="org.deltava.service.acars.FlightDataEarthService" />
 
