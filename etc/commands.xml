@@ -1246,13 +1246,13 @@
 	<!-- Help Desk commands -->
 	<command id="helplist">
 		<name>Online Help Entries</name>
-		<class>org.deltava.commands.system.HelpListCommand</class>
+		<class>org.deltava.commands.help.HelpListCommand</class>
 		<roles>HR,Developer</roles>
 	</command>
 
 	<command id="help">
 		<name>Online Help</name>
-		<class>org.deltava.commands.system.HelpEntryCommand</class>
+		<class>org.deltava.commands.help.HelpEntryCommand</class>
 		<roles>*</roles>
 	</command>
 
