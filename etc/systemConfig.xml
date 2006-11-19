@@ -326,7 +326,13 @@
 			<salt>hashcode salt</salt>
 			<algorithm>SHA-1</algorithm>
 		</hash>
-		
+
+		<!-- Password settings -->
+		<password>
+			<default type="Integer">8</default>
+			<min type="Integer">5</min>	
+		</password>
+
 		<key>
 			<map name="googleMaps">
 				<afv2006.afva.net>ABQIAAAAWFzTV_nG8JA7h9y7QsKTgRQJKTmPgeeZAZtzY_uUn1oxnhXwuBT3UyczTQrj3iUUJ6DiKPS-L4Fuug</afv2006.afva.net>
