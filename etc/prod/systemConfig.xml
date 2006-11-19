@@ -339,6 +339,12 @@
 			<algorithm>SHA-1</algorithm>
 		</hash>
 
+		<!-- Password settings -->
+		<password>
+			<default type="Integer">8</default>
+			<min type="Integer">5</min>
+		</password>
+
 		<key>
 			<map name="googleMaps">
 				<golgotha.afva.net>ABQIAAAAWFzTV_nG8JA7h9y7QsKTgRRMjYJyMG3aT4ivWV5QVzcQ-NndEBQQUTAEG3JvmzoFAnmiVGDg1mi7cA</golgotha.afva.net>
