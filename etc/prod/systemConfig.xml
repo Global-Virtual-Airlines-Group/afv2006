@@ -356,6 +356,7 @@
 		<list name="roles" attr="role" sorted="true">
 			<role>Admin</role>
 			<role>Developer</role>
+			<role>Dispatch</role>
 			<role>Examination</role>
 			<role>Event</role>
 			<role>Fleet</role>
@@ -367,10 +368,12 @@
 			<role>Moderator</role>
 			<role>Schedule</role>
 			<role>Signature</role>
+			<role>Tech</role>
 		</list>
 		
-		<auth>org.deltava.security.LDAPAuthenticator</auth>
+		<auth>org.deltava.security.MigrationAuthenticator</auth>
 		<baseDN>ou=afv,o=sce</baseDN>
+		<auth_alias type="Boolean">true</auth_alias>
 	</security>
 
 	<!-- Innovata schedule link data -->
