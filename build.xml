@@ -140,7 +140,7 @@
 		<!-- Upload the config files to the app server -->
 		<scp todir="${webapp.dev.user}@${webapp.dev.server}:${webapp.dev.path}/WEB-INF/classes/etc"
 			verbose="yes" trust="yes" password="${webapp.dev.pwd}">
-			<fileset dir="etc" includes="*.">
+			<fileset dir="etc" includes="*.*">
 				<modified seldirs="false" algorithm="digest">
 						<param name="algorithm.algorithm" value="MD5" />
 						<param name="cache.cachefile" value="../.local_data/afv.cfg.cache.dev.txt" />
