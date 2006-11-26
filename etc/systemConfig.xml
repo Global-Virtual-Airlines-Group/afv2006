@@ -374,8 +374,15 @@
 				<host>67.97.212.90</host>
 				<user>deltava</user>
 				<pwd>Ssim#2001</pwd>
-				<file>airfrancedirects.csv</file>
+				<!-- <file>deltava.zip</file> get newest -->
 			</download>
+
+			<!-- Automated import -->
+			<import>
+				<purge type="Boolean">true</purge>
+				<markCanPurge type="Boolean">true</markCanPurge>
+				<isHistoric type="Boolean">false</isHistoric>
+			</import>
 
 			<!-- downloaded file cache -->
 			<cache>d:\library\sched_cache</cache>
@@ -511,4 +518,10 @@
 			<msg>Don't be a goof.</msg>
 		</list>
 	</acars>
+
+	<!-- Help Desk Data -->
+	<helpdesk>
+		<enabled type="Boolean">true</enabled>
+		<assignto type="Integer">11</assignto>
+	</helpdesk>
 </config>
