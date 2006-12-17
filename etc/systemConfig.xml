@@ -133,7 +133,7 @@
 			<useCompression>false</useCompression>
 			<autoReconnect>true</autoReconnect>
 			<cachePrepStmts>true</cachePrepStmts>
-			<cacheResultSetMetadata>true</cacheResultSetMetadata>
+			<cacheResultSetMetadata>false</cacheResultSetMetadata>
 			<continueBatchOnError>true</continueBatchOnError>
 			<useServerPrepStmts>true</useServerPrepStmts>
 			<dontTrackOpenResources>true</dontTrackOpenResources>
