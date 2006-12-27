@@ -216,7 +216,7 @@
 
 		<intvas>
 			<status_url>http://www.intvas.net/whazzup/status.txt</status_url>
-			<banner>intvas.png</banner>
+			<banner>intvas.jpg</banner>
 			<url>http://www.intvas.net/</url>
 			<local>
 				<status>/var/cache/servinfo/intvas.status</status>
