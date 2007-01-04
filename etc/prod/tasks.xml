@@ -61,7 +61,7 @@
 	</task>
 
 	<!-- Innovata Schedule download -->
-	<task id="innovatadl" enabled="false">
+	<task id="innovatadl" enabled="true">
 		<class>org.deltava.tasks.ScheduleImportTask</class>
 		<time>
 			<min>0</min>
