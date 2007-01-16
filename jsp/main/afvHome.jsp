@@ -33,8 +33,8 @@
 <!-- Main Body Frame -->
 <content:region id="main">
 Welcome to <content:airline />' web site. We are a group of flight simulation enthusiasts who fly Air
-France and its alliance partners' routes using Microsoft's Flight Simulator 98, 2000, 2002 or Flight 
-Simulator 2004: A Century of Flight. We are in no way affiliated with Air France.<br />
+France and its alliance partners' routes using Microsoft's Flight Simulator 2002, 2004 or Flight 
+Simulator X. We are in no way affiliated with Air France.<br />
 <br />
 Since May 2003, we have received over <fmt:int value="${httpStats.homeHits}" /> visits and received 
 <fmt:int value="${httpStats.hits}" /> hits. During this time, our servers have sent out over
