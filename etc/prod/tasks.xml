@@ -64,7 +64,7 @@
 	<task id="innovatadl" enabled="true">
 		<class>org.deltava.tasks.ScheduleImportTask</class>
 		<time>
-			<min>0</min>
+			<min>20</min>
 			<hour>9</hour>
 			<mday>*</mday>
 			<month>*</month>
