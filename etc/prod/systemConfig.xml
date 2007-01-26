@@ -276,7 +276,7 @@
 			<role>Tech</role>
 		</list>
 		
-		<auth>org.deltava.security.MigrationAuthenticator</auth>
+		<auth>org.deltava.security.MirrorAuthenticator</auth>
 		<baseDN>ou=afv,o=sce</baseDN>
 		<auth_alias type="Boolean">true</auth_alias>
 	</security>
