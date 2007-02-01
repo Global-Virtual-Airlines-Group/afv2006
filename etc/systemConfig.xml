@@ -252,6 +252,7 @@
 			<role>Moderator</role>
 			<role>Schedule</role>
 			<role>Signature</role>
+			<role>TestAdmin</role>
 		</list>
 		
 		<auth>org.deltava.security.MirrorAuthenticator</auth>
