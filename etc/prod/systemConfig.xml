@@ -151,7 +151,7 @@
 		</map>
 		
 		<pool_size type="Integer">1</pool_size>
-		<pool_max_size type="Integer">5</pool_max_size>
+		<pool_max_size type="Integer">6</pool_max_size>
 		<max_reqs type="Integer">0</max_reqs>
 		<auto_commit type="Boolean">true</auto_commit>
 	</jdbc>
@@ -251,7 +251,6 @@
 
 		<key>
 			<map name="googleMaps">
-				<golgotha.afva.net>ABQIAAAAWFzTV_nG8JA7h9y7QsKTgRRMjYJyMG3aT4ivWV5QVzcQ-NndEBQQUTAEG3JvmzoFAnmiVGDg1mi7cA</golgotha.afva.net>
 				<endor.afva.net>ABQIAAAAWFzTV_nG8JA7h9y7QsKTgRRgutO0BXP7fG9B-ADEimIbSNlgEBR0rPrTnd5zYWGk68nBvEvDAOawQQ</endor.afva.net>
 				<www.afva.net>ABQIAAAAWFzTV_nG8JA7h9y7QsKTgRSXs6S7MsBYRg9EoZ9k3LK8mKHecRQLwWC0mP7oHbgd45qdezv2qnXDBg</www.afva.net>
 				<acars.afva.net>ABQIAAAAWFzTV_nG8JA7h9y7QsKTgRT-Yaz1ZlYh-N3AAsF3i3rKLGKL_BREApS0Pf4wwKkMbKrlp6auH1dn-Q</acars.afva.net>
@@ -353,10 +352,11 @@
 		<list name="reject_domain" attr="domain">
 			<domain>yahoo.com</domain>
 			<domain>hotmail.com</domain>
+			<domain>gmail.com</domain>
 		</list>
 		
 		<auto_reject type="Integer">5</auto_reject>
-		<from>David Keech</from>
+		<from>Michael Carter</from>
 	</registration>
 	
 	<!-- PICS content ratings -->

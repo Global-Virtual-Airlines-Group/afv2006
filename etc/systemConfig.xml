@@ -234,6 +234,7 @@
 
 		<key>
 			<map name="googleMaps">
+				<golgotha.afva.net>ABQIAAAAWFzTV_nG8JA7h9y7QsKTgRRMjYJyMG3aT4ivWV5QVzcQ-NndEBQQUTAEG3JvmzoFAnmiVGDg1mi7cA</golgotha.afva.net>
 				<afv2006.afva.net>ABQIAAAAWFzTV_nG8JA7h9y7QsKTgRQJKTmPgeeZAZtzY_uUn1oxnhXwuBT3UyczTQrj3iUUJ6DiKPS-L4Fuug</afv2006.afva.net>
 			</map>
 		</key>
@@ -285,7 +286,7 @@
 			</import>
 
 			<!-- downloaded file cache -->
-			<cache>d:\library\sched_cache</cache>
+			<cache>/var/cache/innovata/sched_cache</cache>
 		</innovata>
 	</schedule>
 
@@ -303,8 +304,8 @@
 		<css>css</css>
 		<js>js</js>
 		<img>img</img>
-		<library>d:\library</library>
-		<httplog>d:\log</httplog>
+		<library>/usr/www/library</library>
+		<httplog>/var/log/www</httplog>
 	</path>
 	
 	<!-- SMTP Server configuration -->
@@ -318,6 +319,7 @@
 		<list name="reject_domain" attr="domain">
 			<domain>yahoo.com</domain>
 			<domain>hotmail.com</domain>
+			<domain>gmail.com</domain>
 		</list>
 		
 		<auto_reject type="Integer">5</auto_reject>
