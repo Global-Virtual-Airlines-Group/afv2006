@@ -11,7 +11,7 @@
 	    	<classpath id="afv.classpath">
 				<fileset dir="${ant.home}/lib" includes="*.jar" />
 				<fileset dir="../DVA2006/lib" includes="**/*.jar" />
-				<pathelement location="${java.io.tmpdir}/build/dva2006.jar" />
+				<pathelement location="${java.io.tmpdir}/build/golgotha.jar" />
 	    	</classpath>
 		</javac>
 		
@@ -121,8 +121,8 @@
 				</modified>
 			</fileset>
 			<fileset dir="${java.io.tmpdir}/build">
-				<include name="dva2006.jar" />
-				<include name="dva2006_jsp.jar" />
+				<include name="golgotha.jar" />
+				<include name="golgotha_jsp.jar" />
 				<modified seldirs="false" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="../.local_data/afv.jar.cache.dev.txt" />
