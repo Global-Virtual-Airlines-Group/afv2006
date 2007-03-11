@@ -259,17 +259,23 @@
 		<class>org.deltava.commands.fleet.DocumentLibraryCommand</class>
 		<roles>Pilot</roles>
 	</command>
-	
+
 	<command id="fleetlibrary">
 		<name>Fleet Library</name>
 		<class>org.deltava.commands.fleet.FleetLibraryCommand</class>
 		<roles>Pilot</roles>
 	</command>
-	
+
 	<command id="doclib">
 		<name>Manual Edit</name>
 		<class>org.deltava.commands.fleet.ManualCommand</class>
 		<roles>Fleet</roles>	
+	</command>
+
+	<command id="manualdelete">
+		<name>Manual Delete</name>
+		<class>org.deltava.commands.fleet.ManualDeleteCommand</class>
+		<roles>HR</roles>
 	</command>
 	
 	<command id="fleetlib">
