@@ -88,41 +88,6 @@ if (isToggled) {
 	addMarkers(map, arrayName);
 }
 
-if (crossIDL)
-	updateOverlays();
-
-return true;
-}
-
-function updateOverlays()
-{
-var page = Math.floor(map.getCenterLatLng().getLng() / 360) * 360;
-var ppage = page * 100000;
-
-// Update the map overlays
-for (var x = 0; x < map.overlays.length; x++) {
-	var ov = map.overlays[x];
-	if (ov.point) { // GPoint
-		while (ov.point.x < page)
-			ov.point.x += 360;
-
-		while (ov.point.x > (page + 360))
-			ov.point.x -= 360;
-
-		ov.redraw(true);
-	} else if (ov.points) { // GPolyline
-		for (var p = 1; p < ov.points.length; p += 2) {
-			while (ov.points[p] < ppage) 
-				ov.points[p] += 36000000;
-
-			while (ov.points[p] > (ppage + 36000000))
-				ov.points[p] -= 36000000;
-		}
-
-		ov.redraw(true);	
-	}
-}
-
 return true;
 }
 
