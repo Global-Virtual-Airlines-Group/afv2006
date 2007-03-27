@@ -29,7 +29,7 @@
 				<fileset dir="${ant.home}/lib" includes="*.jar" />
 				<fileset dir="../DVA2006/lib/jspc" includes="*.jar" />
 				<fileset dir="../DVA2006/lib" includes="**/*.jar" />
-				<pathelement location="${java.io.tmpdir}/build/dva2006.jar" />
+				<pathelement location="${java.io.tmpdir}/build/golgotha.jar" />
 				<pathelement location="${java.io.tmpdir}/afv/build/afv2006.jar" />
 			</classpath> 
 		</taskdef>
@@ -91,6 +91,7 @@
 	
 	<target name="deploy" depends="jspc">
 		<loadproperties srcFile="data/build_deploy.properties" />
+		<mkdir dir="../.local_data" />
 		
 		<!-- Upload the web configuration -->
 		<scp todir="${webapp.dev.user}@${webapp.dev.server}:${webapp.dev.path}/WEB-INF"
@@ -170,6 +171,7 @@
 	<!-- Production Deployment via SSH -->
 	<target name="prod_deploy" depends="jspc">
 		<loadproperties srcFile="data/build_deploy.properties" />
+		<mkdir dir="../.local_data" />
 		
 		<!-- Upload the web configuration -->
 		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}/WEB-INF"
