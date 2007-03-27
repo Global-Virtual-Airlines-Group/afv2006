@@ -1357,6 +1357,12 @@
 		<roles>Pilot</roles>
 	</command>
 
+	<command id="hdclose">
+		<name>Help Desk Issue Close</name>
+		<class>org.deltava.commands.help.IssueCloseCommand</class>
+		<roles>HR,Examination,PIREP,Signature</roles>
+	</command>
+
 	<command id="hdconvert">
 		<name>Help Desk Issue Convert</name>
 		<class>org.deltava.commands.help.IssueConvertCommand</class>
