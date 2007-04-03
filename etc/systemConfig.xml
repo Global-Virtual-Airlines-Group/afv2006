@@ -4,7 +4,7 @@
 	<!-- Airline Information -->
 	<airline>
 		<domain>afva.net</domain>
-		<name>Aviation Français Virtuel</name>
+		<name>Air France Virtual</name>
 		<url>afv2006.afva.net</url>
 		<banner>AFVBanner.png</banner>
 		<code>AFV</code>
@@ -18,10 +18,11 @@
 		
 		<!-- Home Page Meta Tags -->
 		<meta>
-			<desc>Aviation Français Virtuel is a virtual airline based on Air France.</desc>
+			<desc>Air France Virtual is a virtual airline based on Air France.</desc>
 			<list name="keywords" attr="keyword">
 				<keyword>Aviation Français Virtuel</keyword>
 				<keyword>Air France</keyword>
+				<keyword>Air France Virtual</keyword>
 				<keyword>VA</keyword>
 				<keyword>virtual airlines</keyword>
 				<keyword>MSFS</keyword>
@@ -38,6 +39,7 @@
 				<keyword>Boeing</keyword>
 				<keyword>Embraer</keyword>
 				<keyword>Concorde</keyword>
+				<keyword>Delta Virtual Airlines</keyword>
 			</list>
 		</meta>
 		

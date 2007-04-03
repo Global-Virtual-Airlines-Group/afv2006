@@ -32,7 +32,7 @@
 
 <!-- Main Body Frame -->
 <content:region id="main">
-Welcome to <content:airline />' web site. We are a group of flight simulation enthusiasts who fly Air
+Welcome to <content:airline />'s web site. We are a group of flight simulation enthusiasts who fly Air
 France and its alliance partners' routes using Microsoft's Flight Simulator 2002, 2004 or Flight 
 Simulator X. We are in no way affiliated with Air France.<br />
 <br />
