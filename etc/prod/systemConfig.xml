@@ -316,7 +316,7 @@
 			</import>
 
 			<!-- downloaded file cache -->
-			<cache>/home/www/sched_cache</cache>
+			<cache>/var/cache/sched</cache>
 		</innovata>
 	</schedule>
 
