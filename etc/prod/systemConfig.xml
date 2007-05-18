@@ -344,9 +344,12 @@
 		<errors-to>webmaster@afva.net</errors-to>
 		<testMode type="Boolean">false</testMode>
 		<imap>
+			<path>/home/mail</path>
 			<enabled type="Boolean">true</enabled>
 			<quota type="Integer">10240000</quota>
 			<server>mail.afva.net</server>
+			<default_pwd>12345</default_pwd>
+			<script>/usr/local/sbin/www/mailbox_create</script>
 		</imap>
 	</smtp>
 	
