@@ -36,6 +36,7 @@
 	<service id="acars_error" class="org.deltava.service.acars.ErrorLogService" />
 	<service id="acars_pirep" class="org.deltava.service.acars.MapFlightDataService" />
 	<service id="acars_earth" class="org.deltava.service.acars.FlightDataEarthService" />
+	<service id="natinfo" class="org.deltava.service.schedule.NATPlotService" />
 
 	<!-- ServInfo Services -->
 	<service id="servinfo" class="org.deltava.service.servinfo.DataService" />
