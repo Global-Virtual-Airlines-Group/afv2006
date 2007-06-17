@@ -142,17 +142,20 @@
 		<map name="connectProperties">
 			<useNewIO>false</useNewIO>
 			<useCompression>false</useCompression>
-			<autoReconnect>true</autoReconnect>
+			<autoReconnect>false</autoReconnect>
 			<cachePrepStmts>true</cachePrepStmts>
 			<cacheResultSetMetadata>false</cacheResultSetMetadata>
 			<continueBatchOnError>true</continueBatchOnError>
 			<useServerPrepStmts>true</useServerPrepStmts>
 			<dontTrackOpenResources>true</dontTrackOpenResources>
+			<useLocalSessionState>true</useLocalSessionState>
 		</map>
 		
 		<pool_size type="Integer">1</pool_size>
 		<pool_max_size type="Integer">2</pool_max_size>
+		<max_reqs type="Integer">500</max_reqs>
 		<auto_commit type="Boolean">true</auto_commit>
+		<log_stack type="Boolean">true</log_stack>
 	</jdbc>
 	
 	<html>
@@ -180,6 +183,12 @@
 			<parser>org.deltava.util.log.ApacheLogParser</parser>
 		</http>
 	</log>
+
+	<!-- Weather map tile sources -->	
+	<weather>
+		<!-- <radar>http://www.deltava.org/prx/nexrad/n0r.cgi?</radar> -->
+		<tileHost>gima.weather.com</tileHost>
+	</weather>
 	
 	<config>
 		<commands>/etc/commands.xml</commands>
