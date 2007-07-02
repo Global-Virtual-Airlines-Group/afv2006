@@ -96,13 +96,6 @@
 		<!-- Upload the web configuration -->
 		<scp todir="${webapp.dev.user}@${webapp.dev.server}:${webapp.dev.path}/WEB-INF"
 			verbose="yes" trust="yes" password="${webapp.dev.pwd}">
-	    	<fileset dir="../DVA2006/WEB-INF">
-	    		<include name="*.tld" />
-				<modified seldirs="false" algorithm="digest">
-						<param name="algorithm.algorithm" value="MD5" />
-						<param name="cache.cachefile" value="../.local_data/afv.cfg.cache.dev.txt" />
-				</modified>
-			</fileset>
 			<fileset file="${java.io.tmpdir}/afv/build/web.xml">
 				<modified seldirs="false" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
@@ -143,8 +136,8 @@
 			verbose="yes" trust="yes" password="${webapp.dev.pwd}">
 			<fileset dir="etc" includes="*.*">
 				<modified seldirs="false" algorithm="digest">
-						<param name="algorithm.algorithm" value="MD5" />
-						<param name="cache.cachefile" value="../.local_data/afv.cfg.cache.dev.txt" />
+					<param name="algorithm.algorithm" value="MD5" />
+					<param name="cache.cachefile" value="../.local_data/afv.cfg.cache.dev.txt" />
 				</modified>
 			</fileset>
 		</scp>
@@ -154,8 +147,8 @@
 			trust="yes" password="${http.dev.pwd}">
 			<fileset dir="static">
 				<modified seldirs="true" algorithm="digest">
-						<param name="algorithm.algorithm" value="MD5" />
-						<param name="cache.cachefile" value="../.local_data/afv.static.cache.dev.txt" />
+					<param name="algorithm.algorithm" value="MD5" />
+					<param name="cache.cachefile" value="../.local_data/afv.static.cache.dev.txt" />
 				</modified>
 			</fileset>
 		</scp>
@@ -176,13 +169,6 @@
 		<!-- Upload the web configuration -->
 		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}/WEB-INF"
 			verbose="yes" trust="yes" password="${webapp.ssh.pwd}">
-	    	<fileset dir="../DVA2006/WEB-INF">
-	    		<include name="*.tld" />
-				<modified seldirs="false" algorithm="digest">
-						<param name="algorithm.algorithm" value="MD5" />
-						<param name="cache.cachefile" value="../.local_data/afv.cfg.cache.txt" />
-				</modified>
-			</fileset>
 			<fileset file="${java.io.tmpdir}/afv/build/web.xml">
 				<modified seldirs="false" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
@@ -195,7 +181,6 @@
 		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path.common}"
 			verbose="yes" trust="yes" password="${webapp.ssh.pwd}">
 			<fileset dir="../DVA2006/lib/deploy" includes="*.jar">
-				<exclude name="mysql*.jar" />
 				<exclude name="log4j*.jar" />
 				<modified seldirs="false" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
@@ -208,7 +193,6 @@
 		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}/WEB-INF/lib"
 			verbose="yes" trust="yes" password="${webapp.ssh.pwd}">
 			<fileset dir="../DVA2006/lib/deploy">
-				<include name="mysql*.jar" />
 				<include name="log4j*.jar" />
 				<modified seldirs="false" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
@@ -241,14 +225,14 @@
 				<include name="profanity.txt" />
 				<include name="codeshares.txt" />
 				<modified seldirs="false" algorithm="digest">
-						<param name="algorithm.algorithm" value="MD5" />
-						<param name="cache.cachefile" value="../.local_data/afv.cfg.cache.txt" />
+					<param name="algorithm.algorithm" value="MD5" />
+					<param name="cache.cachefile" value="../.local_data/afv.cfg.cache.txt" />
 				</modified>
 			</fileset>
 			<fileset dir="etc/prod">
 				<modified seldirs="false" algorithm="digest">
-						<param name="algorithm.algorithm" value="MD5" />
-						<param name="cache.cachefile" value="../.local_data/afv.cfg.cache.txt" />
+					<param name="algorithm.algorithm" value="MD5" />
+					<param name="cache.cachefile" value="../.local_data/afv.cfg.cache.txt" />
 				</modified>
 			</fileset>
 		</scp>
@@ -258,8 +242,8 @@
 			verbose="yes" trust="yes" password="${http.ssh.pwd}">
 			<fileset dir="static">
 				<modified seldirs="true" algorithm="digest">
-						<param name="algorithm.algorithm" value="MD5" />
-						<param name="cache.cachefile" value="../.local_data/afv.static.cache.txt" />
+					<param name="algorithm.algorithm" value="MD5" />
+					<param name="cache.cachefile" value="../.local_data/afv.static.cache.txt" />
 				</modified>
 			</fileset>
 		</scp>
