@@ -209,6 +209,7 @@
 		
 		<vatsim>
 			<status_url>http://usa-s1.vatsim.net/data/status.txt</status_url>
+			<validation_url>http://cert.vatsim.net/vatsimnet/status.php</validation_url>
 			<banner>vatsim.gif</banner>
 			<url>http://www.vatsim.net/</url>
 			<local>
@@ -395,43 +396,17 @@
 		<!-- This controls whose user ID the Scheduled Tasks will operate as -->
 		<tasks_by>Michael Carter</tasks_by>
 	</users>
-	
+
 	<!-- ACARS Server Properties -->
 	<acars>
-		<enabled type="Boolean">false</enabled>
-		<daemon>org.deltava.acars.TomcatDaemon</daemon>
-		
+		<enabled type="Boolean">true</enabled>
+
+		<!-- Live map settings -->
 		<livemap>
 			<lat type="Double">38.88</lat>
 			<lng type="Double">-93.25</lng>
 			<reload type="Integer">15000</reload>
 		</livemap>
-		
-		<port type="Integer">15527</port>
-		<sleep type="Integer">1000</sleep>
-		<timeout type="Integer">240</timeout>
-		<position_interval type="Integer">2500</position_interval>
-		
-		<pool>
-			<size type="Integer">100</size>
-			<multiple type="Boolean">false</multiple>
-		</pool>
-		
-		<buffer>
-			<send type="Integer">10240</send>
-			<recv type="Integer">1024</recv>
-		</buffer>
-		
-		<ack>
-			<info type="Boolean">true</info>
-			<position type="Boolean">true</position>
-			<text type="Boolean">false</text>
-		</ack>
-		
-		<list name="login_msgs" attr="msg">
-			<msg>All messages are logged by user ID and IP address.</msg>
-			<msg>Don't be a goof.</msg>
-		</list>
 	</acars>
 
 	<!-- Help Desk Data -->
