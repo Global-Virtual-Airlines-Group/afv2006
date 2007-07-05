@@ -142,7 +142,7 @@
 		<pwd>***REMOVED***</pwd>
 		
 		<map name="connectProperties">
-			<useNewIO>false</useNewIO>
+			<useNewIO>true</useNewIO>
 			<useCompression>false</useCompression>
 			<autoReconnect>false</autoReconnect>
 			<cachePrepStmts>true</cachePrepStmts>
@@ -438,7 +438,7 @@
 
 	<!-- ACARS Server Properties -->
 	<acars>
-		<enabled type="Boolean">false</enabled>
+		<enabled type="Boolean">true</enabled>
 
 		<livemap>
 			<lat type="Double">42.88</lat>

@@ -35,9 +35,16 @@
 	<!-- ACARS/Google Maps Services -->
 	<service id="acars_data" class="org.deltava.service.acars.FlightDataExportService" />
 	<service id="acars_error" class="org.deltava.service.acars.ErrorLogService" />
+	<service id="acars_map" class="org.deltava.service.acars.MapService" />
+	<service id="acars_progress" class="org.deltava.service.acars.MapProgressService" />
 	<service id="acars_pirep" class="org.deltava.service.acars.MapFlightDataService" />
 	<service id="acars_earth" class="org.deltava.service.acars.FlightDataEarthService" />
 	<service id="natinfo" class="org.deltava.service.schedule.NATPlotService" />
+
+	<!-- The names of ACARSMapEarthServices are hardcoded in ACARSMapEarthLinkService -->
+	<service id="acars_map_earth" class="org.deltava.service.acars.EarthMapLinkService" />
+	<service id="acars_map_eprog" class="org.deltava.service.acars.EarthMapService" />
+	<service id="acars_map_eplan" class="org.deltava.service.acars.EarthMapPlanService" />
 
 	<!-- ServInfo Services -->
 	<service id="servinfo" class="org.deltava.service.servinfo.DataService" />
