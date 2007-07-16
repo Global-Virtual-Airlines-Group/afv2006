@@ -40,7 +40,7 @@ Since May 2003, we have received over <fmt:int value="${httpStats.homeHits}" /> 
 <fmt:int value="${httpStats.hits}" /> hits. During this time, our servers have sent out over
 <fmt:int value="${httpStats.bytes}" /> bytes worth of data.
 <c:if test="${coolerStats > 1}"> Our members have posted over <fmt:quantity value="${coolerStats}" single="message" /> 
-in our Water Cooler discussion forum in the past 24 hours.</c:if>
+in our discussion forums in the past 24 hours.</c:if>
 <c:if test="${(!empty runTimeDays) && (runTimeDays > 0)}"> Our web server has been running for <fmt:quantity value="${runTimeDays}" single="day" /> , 
 <fmt:quantity value="${runTimeHours}" single="hour" /> and <fmt:quantity value="${runTimeMinutes}" single="minute" />.</c:if>
 <br />
