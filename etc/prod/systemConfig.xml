@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<config env="dev" default="true">
+<config env="prod" default="true">
 
 	<!-- Airline Information -->
 	<airline>
@@ -8,6 +8,7 @@
 		<url>www.afva.net</url>
 		<banner>AFVBanner.png</banner>
 		<code>AFV</code>
+		<forum>Forums</forum>
 		<db>afv</db>
 		<voice>
 			<url>rw.afva.net/AFV</url>
