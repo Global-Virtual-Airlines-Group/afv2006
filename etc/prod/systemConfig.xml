@@ -346,7 +346,7 @@
 		<css>css</css>
 		<js>js</js>
 		<img>img</img>
-		<library>/usr/local/www/library</library>
+		<library>/home/www/library</library>
 		<httplog>/var/log/www</httplog>
 	</path>
 	
