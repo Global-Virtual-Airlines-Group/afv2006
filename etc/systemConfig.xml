@@ -324,21 +324,22 @@
 	
 	<!-- SMTP Server configuration -->
 	<smtp>
-		<server>sirius.sce.net</server>
+		<server>polaris.sce.net</server>
 		<errors-to>webmaster@sce.net</errors-to>
 		<testMode type="Boolean">true</testMode>
 	</smtp>
-	
+
 	<registration>
 		<list name="reject_domain" attr="domain">
 			<domain>yahoo.com</domain>
 			<domain>hotmail.com</domain>
 			<domain>gmail.com</domain>
 		</list>
-		
+
 		<auto_reject type="Integer">5</auto_reject>
+		<ip_interval type="Integer">7</ip_interval>
 	</registration>
-	
+
 	<!-- PICS content ratings -->
 	<content>
 		<safesurf>SS~~000 3</safesurf>

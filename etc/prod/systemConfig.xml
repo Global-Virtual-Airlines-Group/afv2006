@@ -362,18 +362,19 @@
 			<script>/usr/local/sbin/www/mailbox_create</script>
 		</imap>
 	</smtp>
-	
+
 	<registration>
 		<list name="reject_domain" attr="domain">
 			<domain>yahoo.com</domain>
 			<domain>hotmail.com</domain>
 			<domain>gmail.com</domain>
 		</list>
-		
+
 		<auto_reject type="Integer">5</auto_reject>
+		<ip_interval type="Integer">7</ip_interval>
 		<from>Michael Carter</from>
 	</registration>
-	
+
 	<!-- PICS content ratings -->
 	<content>
 		<safesurf>SS~~000 3</safesurf>
