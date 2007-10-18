@@ -1026,6 +1026,18 @@
 		<roles>Examination,HR</roles>
 	</command>
 	
+	<command id="extpirep">
+		<name>External Flight Report</name>
+		<class>org.deltava.commands.pirep.ExternalPIREPCommand</class>
+		<roles>Pilot</roles>
+	</command>
+
+	<command id="extpirepscore">
+		<name>External Check Ride Score</name>
+		<class>org.deltava.commands.pirep.ExternalPIREPApprovalCommand</class>
+		<roles>Examination,HR</roles>
+	</command>
+
 	<command id="crview">
 		<name>View Check Ride PIREP</name>
 		<class>org.deltava.commands.pirep.CheckRidePIREPCommand</class>
@@ -1127,6 +1139,12 @@
 	<command id="qprofile">
 		<name>Question Profile</name>
 		<class>org.deltava.commands.testing.QuestionProfileCommand</class>
+		<roles>HR,Examination,TestAdmin</roles>
+	</command>
+
+	<command id="qinclude">
+		<name>Question Examination Include</name>
+		<class>org.deltava.commands.testing.QuestionIncludeCommand</class>
 		<roles>HR,Examination,TestAdmin</roles>
 	</command>
 
