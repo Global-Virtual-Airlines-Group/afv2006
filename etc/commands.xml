@@ -664,6 +664,12 @@
 		<roles>Pilot</roles>
 	</command>
 
+	<command id="imglink">
+		<name>Link Water Cooler Image</name>
+		<class>org.deltava.commands.cooler.LinkImageCommand</class>
+		<roles>Pilot</roles>
+	</command>
+
 	<command id="emoticons">
 		<name>Water Cooler Emoticons</name>
 		<class>org.deltava.commands.cooler.EmoticonHelperCommand</class>
