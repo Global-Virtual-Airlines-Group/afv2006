@@ -53,11 +53,11 @@ xmlreq.onreadystatechange = function() {
 
 	// Display dispatch status
 	var de = getElement('dispatchStatus');
-	if ((de) && document.dispatchOnline) {
-		de.class = 'ter bld caps';
+	if (document.dispatchOnline) {
+		de.className = 'ter bld caps';
 		de.innerText = 'Dispatcher Currently Online';
-	} else if (de) {
-		de.class = 'err bld caps';	
+	} else {
+		de.className = 'err bld caps';	
 		de.innerText = 'Dispatcher Currently Offline';
 	}
 
