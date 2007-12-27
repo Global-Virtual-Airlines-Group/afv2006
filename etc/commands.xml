@@ -1572,6 +1572,44 @@
 		<roles>Admin</roles>
 	</command>
 
+	<command id="acarserrors">
+		<name>ACARS Error Reports</name>
+		<class>org.deltava.commands.acars.ErrorLogCommand</class>
+		<roles>HR,Developer</roles>
+	</command>
+
+	<command id="acarserror">
+		<name>ACARS Error Report</name>
+		<class>org.deltava.commands.acars.ErrorLogEntryCommand</class>
+		<roles>HR,Developer</roles>
+	</command>
+
+	<command id="acarserrordelete">
+		<name>ACARS Error Report Delete</name>
+		<class>org.deltava.commands.acars.ErrorLogDeleteCommand</class>
+		<roles>HR,Developer</roles>
+	</command>
+
+
+	<!-- Dispatch Commands -->
+	<command id="dsproutes">
+		<name>Dispatch Route List</name>
+		<class>org.deltava.commands.dispatch.RouteListCommand</class>
+		<roles>HR,Dispatch</roles>
+	</command>
+
+	<command id="dsproute">
+		<name>Dispatch Route</name>
+		<class>org.deltava.commands.dispatch.RouteCommand</class>
+		<roles>HR,Dispatch</roles>
+	</command>
+
+	<command id="dsproutedelete">
+		<name>Dispatch Route List</name>
+		<class>org.deltava.commands.dispatch.RouteDeleteCommand</class>
+		<roles>HR</roles>
+	</command>
+
 
 	<!-- Flight Academy Commands -->
 	<command id="academy">
