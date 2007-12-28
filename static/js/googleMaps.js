@@ -1,4 +1,5 @@
 var displayedMarkers = new Array();
+var mapTextElements = new Array();
 
 function googleMarker(imgPath, color, point, label)
 {
@@ -89,8 +90,13 @@ else
 return true;
 }
 
-function mapZoom(lat, lng, size)
+function updateMapText()
 {
-map.setCenter(new GLatLng(lat, lng, false), size);
+var newColor = this.getCurrentMapType().getTextColor();
+for (var x = 0; x < mapTextElements.length; x++) {
+	var el = mapTextElements[x];
+	el.style.color = newColor;
+}
+
 return true;
 }
