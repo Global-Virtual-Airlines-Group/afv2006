@@ -44,6 +44,12 @@ TD.postDate {
 	height: 19px;
 }
 
+TD.unread_postDate {
+	font-size: 8pt;
+	background-color: #FEFFFE;
+	height: 19px;
+}
+
 TD.postEdit {
 	width: 90px;
 	text-align: center;
