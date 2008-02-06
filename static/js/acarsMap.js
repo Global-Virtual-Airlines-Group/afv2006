@@ -21,6 +21,7 @@ xmlreq.onreadystatechange = function() {
 	if (!xml) return false;
 	var xe = xml.documentElement;
 	document.dispatchOnline = (xe.getAttribute("dispatch") == "true");
+	var ac = xe.getElementsByTagName("aircraft");
 	for (var i = 0; i < ac.length; i++) {
 		var a = ac[i];
 		var p = new GLatLng(parseFloat(a.getAttribute("lat")), parseFloat(a.getAttribute("lng")));
