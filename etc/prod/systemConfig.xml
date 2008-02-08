@@ -64,6 +64,11 @@
 			<hr>hr@afva.net</hr>
 			<webmaster>webmaster@afva.net</webmaster>
 		</mail>
+
+		<library>
+			<!-- Use mod_xsendfile -->
+			<sendfile type="Boolean">true</sendfile>
+		</library>
 	</airline>
 	
 	<!-- Default Date/Time data -->

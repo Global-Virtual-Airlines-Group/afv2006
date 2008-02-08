@@ -56,12 +56,17 @@
 			<url>dva2006.deltava.org</url>
 			<location>North American</location>
 		</partner>
-		
+
 		<mail>
 			<info>info@afva.net</info>
 			<hr>hr@afva.net</hr>
 			<webmaster>webmaster@afva.net</webmaster>
 		</mail>
+
+		<library>
+			<!-- Use mod_xsendfile -->
+			<sendfile type="Boolean">true</sendfile>
+		</library>
 	</airline>
 
 	<!-- Default Date/Time data -->
