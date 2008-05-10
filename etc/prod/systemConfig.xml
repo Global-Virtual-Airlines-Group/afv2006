@@ -262,6 +262,10 @@
 		<hash>
 			<salt>***REMOVED***!!AFV</salt>
 			<algorithm>SHA-1</algorithm>
+			<acars>
+				<salt>***REMOVED***</salt>
+				<algorithm>SHA-256</algorithm>
+			</acars>
 		</hash>
 
 		<!-- Password settings -->
@@ -384,7 +388,7 @@
 
 		<auto_reject type="Integer">5</auto_reject>
 		<ip_interval type="Integer">7</ip_interval>
-		<from>Michael Carter</from>
+		<from>Luke Kolin</from>
 	</registration>
 
 	<!-- PICS content ratings -->
@@ -442,10 +446,11 @@
 			<minDays type="Integer">7</minDays>
 			<pad_hours type="Double">0.5</pad_hours>
 			<draft_purge type="Integer">30</draft_purge>
+			<acars_only type="Boolean">true</acars_only>
 		</pirep>
 
 		<!-- This controls whose user ID the Scheduled Tasks will operate as -->
-		<tasks_by>Michael Carter</tasks_by>
+		<tasks_by>Luke Kolin</tasks_by>
 	</users>
 
 	<!-- ACARS Server Properties -->

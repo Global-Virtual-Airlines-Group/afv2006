@@ -401,10 +401,11 @@
 			<maxDays type="Integer">1</maxDays>
 			<minDays type="Integer">45</minDays>
 			<pad_hours type="Double">0.5</pad_hours>
+			<acars_only type="Boolean">true</acars_only>
 		</pirep>
 		
 		<!-- This controls whose user ID the Scheduled Tasks will operate as -->
-		<tasks_by>Michael Carter</tasks_by>
+		<tasks_by>Luke Kolin</tasks_by>
 	</users>
 
 	<!-- ACARS Server Properties -->
