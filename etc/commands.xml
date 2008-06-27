@@ -1817,13 +1817,13 @@
 	</command>
 
 	<command id="tvideolibrary">
-		<name>Training Video Library</name>
+		<name>Video Library</name>
 		<class>org.deltava.commands.academy.VideoLibraryCommand</class>
 		<roles>Pilot</roles>
 	</command>
 
 	<command id="tvideo">
-		<name>Training Video Edit</name>
+		<name>Video Edit</name>
 		<class>org.deltava.commands.academy.VideoCommand</class>
 		<roles>Instructor,HR</roles>
 	</command>
