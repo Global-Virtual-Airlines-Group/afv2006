@@ -26,7 +26,7 @@
 		
 		<!-- Home Page Meta Tags -->
 		<meta>
-			<desc>Aviation Français Virtuel is a virtual airline based on Air France.</desc>
+			<desc>Air France Virtual is a virtual airline based on Air France.</desc>
 			<list name="keywords" attr="keyword">
 				<keyword>Air France Virtual</keyword>
 				<keyword>Aviation Français Virtuel</keyword>
@@ -251,16 +251,6 @@
 			</local>
 		</ivao>
 
-		<intvas>
-			<status_url>http://www.intvas.net/whazzup/status.txt</status_url>
-			<banner>intvas.jpg</banner>
-			<url>http://www.intvas.net/</url>
-			<local>
-				<status>/var/cache/servinfo/intvas.status</status>
-				<info>/var/cache/servinfo/intvas.info</info>
-			</local>
-		</intvas>
-
 		<default_network>VATSIM</default_network>
 	</online>
 
@@ -395,7 +385,7 @@
 
 		<auto_reject type="Integer">5</auto_reject>
 		<ip_interval type="Integer">7</ip_interval>
-		<from>Luke Kolin</from>
+		<from>Ryan Watkins</from>
 	</registration>
 
 	<!-- PICS content ratings -->
@@ -474,6 +464,6 @@
 	<!-- Help Desk Data -->
 	<helpdesk>
 		<enabled type="Boolean">true</enabled>
-		<assignto type="Integer">11</assignto>
+		<assignto type="Integer">003</assignto>
 	</helpdesk>
 </config>
