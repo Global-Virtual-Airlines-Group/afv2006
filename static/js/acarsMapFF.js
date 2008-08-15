@@ -1,7 +1,9 @@
 // Combobox Options and Timeslices for FF layers
 document.ffOptions = new Array();
 document.ffSlices = new Array();
+
 var animateSlices = new Array();
+var loadSlices = new Array();
 
 function getFFSlices(seriesName)
 {
@@ -140,10 +142,25 @@ for (var x = 0; ((x < dates.length) && (map.isAnimating)); x++) {
 	var dt = dates[x];
 	var ov = document.wxLayers[layerName + '!' + dt.getTime()];
 	animateSlices.push(ov);
-	map.addOverlay(ov);
+	loadSlices.push(ov);
 }
 
-window.setTimeout('map.isPreloaded = true', (map.visibleTiles.length * 1500));
+sliceLoaded.handler = GEvent.addListener(map, 'tilesloaded', sliceLoaded);
+map.addOverlay(loadSlices.shift());
+return true;	
+}
+
+function sliceLoaded()
+{
+if (loadSlices.length == 0)
+{
+	GEvent.removeListener(sliceLoaded.handler);
+	map.isPreloaded = true;
+	return true;
+}
+
+// Load the next slice
+map.addOverlay(loadSlices.shift());
 return true;	
 }
 
@@ -159,14 +176,21 @@ if (map.isAnimating) {
 	animateSlices.length = 0;
 	btn.value = 'ANIMATE';
 	enableObject(f.ffSlice, true);
+	map.enableDoubleClickZoom();
+	map.enableDragging();
+	map.addControl(mapC);
+	map.addControl(mapTypeC);
 	delete map.lastSlice;
 	delete map.isAnimating;
 } else {
 	enableObject(f.ffSlice, false);
+	map.disableDragging();
+	map.disableDoubleClickZoom();
+	map.removeControl(mapC);
+	map.removeControl(mapTypeC);
 
 	// Preload the tiles for each tile layer
 	map.isAnimating = true;
-	btn.value = 'LOADING';
 	preloadImages(map.ffLayer, document.ffSlices[map.ffLayer]);
 	btn.value = 'STOP';
 
