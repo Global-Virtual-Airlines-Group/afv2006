@@ -269,6 +269,7 @@
 		
 		<list name="roles" attr="role" sorted="true" unique="true">
 			<role>Admin</role>
+			<role>Charts</role>
 			<role>Developer</role>
 			<role>Examination</role>
 			<role>Event</role>
