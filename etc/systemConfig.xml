@@ -148,15 +148,18 @@
 		<pwd>***REMOVED***</pwd>
 		
 		<map name="connectProperties">
-			<useNewIO>false</useNewIO>
 			<useCompression>false</useCompression>
-			<autoReconnect>false</autoReconnect>
+			<connectTimeout>1000</connectTimeout>
+			<autoReconnect>true</autoReconnect>
 			<cachePrepStmts>true</cachePrepStmts>
 			<cacheResultSetMetadata>false</cacheResultSetMetadata>
 			<continueBatchOnError>true</continueBatchOnError>
 			<useServerPrepStmts>true</useServerPrepStmts>
 			<dontTrackOpenResources>true</dontTrackOpenResources>
-			<useLocalSessionState>true</useLocalSessionState>
+			<useLocalSessionState>false</useLocalSessionState>
+			<useCursorFetch>true</useCursorFetch>
+			<maintainTimeStats>false</maintainTimeStats>
+			<validationQuery>/* ping */</validationQuery>
 		</map>
 		
 		<pool_size type="Integer">1</pool_size>
@@ -297,7 +300,7 @@
 			<popup>
 				<height type="Integer">600</height>
 				<width type="Integer">600</width>
-				<url>http://quicktrip.innosked.com/</url>
+				<url>http://www.quicktrip.com/</url>
 			</popup>
 
 			<!-- FTP download data -->
