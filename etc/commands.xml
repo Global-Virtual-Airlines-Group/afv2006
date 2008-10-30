@@ -976,7 +976,7 @@
 
 	<command id="selcal">
 		<name>SELCAL Reserve/Free</name>
-		<class>org.deltava.commands.schedule.SELCALCodeCommand</class>
+		<class>org.deltava.commands.schedule.SELCALReserveCommand</class>
 		<roles>Pilot</roles>
 	</command>
 
@@ -1728,6 +1728,12 @@
 		<name>Dispatch Route Search</name>
 		<class>org.deltava.commands.dispatch.RouteSearchCommand</class>
 		<roles>HR,Route,Dispatch</roles>
+	</command>
+
+	<command id="dsprouteplot">
+		<name>Dispatch Route Plotter</name>
+		<class>org.deltava.commands.dispatch.RoutePlotCommand</class>
+		<roles>Route</roles>	
 	</command>
 
 	<command id="dsproutes">
