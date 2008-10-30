@@ -51,6 +51,26 @@ if (e) e.disabled = (!isEnabled);
 return true;
 }
 
+function showObject(e, isVisible)
+{
+if (e) e.style.visibility = isVisible ? 'visible' : 'hidden';
+return true;
+}
+
+function setCombo(combo, value)
+{
+if (!combo) return false;
+for (var x = 0; x < combo.options.length; x++) {
+	var opt = combo.options[x];
+	if ((opt.text == value) || (opt.value == value)) {
+		combo.selectedIndex = x;
+		return true;
+	}
+}
+	
+return false;
+}
+
 function checkSubmit()
 {
 if (document.isSubmit) {

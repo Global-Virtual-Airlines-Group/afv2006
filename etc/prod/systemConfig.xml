@@ -204,6 +204,12 @@
 	<weather>
 		<!-- <radar>http://www.deltava.org/prx/nexrad/n0r.cgi?</radar> -->
 		<tileHost>gima.weather.com</tileHost>
+		
+		<!-- Download locations -->
+		<url>
+			<metar>ftp://tgftp.nws.noaa.gov/data/observations/metar/stations/</metar>
+			<taf>ftp://tgftp.nws.noaa.gov/data/forecasts/taf/stations/</taf>
+		</url>	
 	</weather>
 
 	<config>
@@ -342,6 +348,16 @@
 			<!-- downloaded file cache -->
 			<cache>/var/cache/sched</cache>
 		</innovata>
+		<cache>/var/cache/sched</cache>
+
+		<!-- FlightAware download data -->
+		<flightaware>
+			<enabled type="Boolean">true</enabled>
+			<download>
+				<user>gvagroup</user>			
+				<pwd>18f14fe837c03e585d20b955d797fd711cd907b0</pwd>			
+			</download>
+		</flightaware>
 	</schedule>
 
 	<cache>
@@ -375,6 +391,7 @@
 			<server>mail.afva.net</server>
 			<default_pwd>12345</default_pwd>
 			<script>/usr/local/sbin/www/mailbox_create</script>
+			<newmail>/usr/local/sbin/www/sudonewmail</newmail>
 		</imap>
 	</smtp>
 
