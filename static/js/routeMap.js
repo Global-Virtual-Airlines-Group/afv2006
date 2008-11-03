@@ -1,7 +1,7 @@
 function updateAirports(combo)
 {
 var isLoading = getElement('isLoading');
-isLoading.innerHTML = ' - REDRAWING...';
+isLoading.innerHTML = ' - CLEARING...';
 
 // Remove airports/routes from the map
 map.clearOverlays();
@@ -44,15 +44,17 @@ xmlreq.onreadystatechange = function() {
 		var label = a.childNodes[isIE ? 0 : 1];
 		mrk.infoLabel = label.data;
 		GEvent.bind(mrk, 'click', mrk, mrk.infoShow);
+		document.lastAirport = a;
 
 		// Add to array and map
 		aps.push(mrk);
 		map.addOverlay(mrk);
 	}
-	
+
 	// Save in the hashmap
 	airports[aCode] = aps;
 	isLoading.innerHTML = '';
+	gaEvent('Route Map', 'Airports', aCode, els.length);
 	return true;
 }
 
@@ -75,20 +77,22 @@ xmlreq.onreadystatechange = function() {
 	var isLoading = getElement('isLoading');
 	isLoading.innerHTML = ' - REDRAWING...';
 	routes = new Array();
-	
+
 	// Parse the XML
 	var xdoc = xmlreq.responseXML;
 	var wsdata = xdoc.documentElement;
 	var rts = wsdata.getElementsByTagName("route");
+	var aCombo = getElement("airlineCode");
+	var aCode = aCombo.options[aCombo.selectedIndex].value;
+	var routeCount = 0;
 	for (var x = 0; x < rts.length; x++) {
 		var rt = rts[x];
-		var aCode = rt.getAttribute("airline");
-		var aBox = getElement(aCode);
-		if ((aBox) && aBox.checked) {
-			var pos = rt.getElementsByTagName("pos");
+		var al = rt.getAttribute("airline");
+		if (al == aCode) {
 			var positions = new Array();
-	
+
 			// Get the positions
+			var pos = rt.getElementsByTagName("pos");
 			for (var i = 0; i < pos.length; i++) {
 				var pe = pos[i];
 				var p = new GLatLng(parseFloat(pe.getAttribute("lat")), parseFloat(pe.getAttribute("lng")));
@@ -99,16 +103,21 @@ xmlreq.onreadystatechange = function() {
 			var routeLine = new GPolyline(positions, '#4080AF', 2, 0.8, { geodesic: true });
 			map.addOverlay(routeLine);
 			routes.push(routeLine);
+			routeCount++;
 		}
 	}
 
 	// Focus on the map
 	isLoading.innerHTML = '';
+	gaEvent('Route Map', 'Routes', this.icao, routeCount);
 	return true;
 } // function
 
 // Send the XMLHTTP request
 xmlreq.send(null);
-this.openInfoWindowHtml(this.infoLabel);
+var showInfo = getElement('showInfo');
+if ((showInfo) && (showInfo.checked))
+	this.openInfoWindowHtml(this.infoLabel);
+
 return true;
 }
