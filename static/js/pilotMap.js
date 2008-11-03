@@ -27,13 +27,16 @@ xmlreq.onreadystatechange = function() {
 	} // for
 
 	// Display the markers
-	mm.refresh();
 	isLoading.innerHTML = '';
+	enableElement(f.noFilter, true);
+	enableElement(f.eqType, true);
+	enableElement(f.rank, true);
+	gaEvent('Pilot Map', 'Load', ac.length);
 	return true;
 } // function
 
 var isLoading = getElement('isLoading');
-isLoading.innerHTML = ' - REDRAWING...';
+isLoading.innerHTML = ' - LOADING...';
 enableElement(f.noFilter, false);
 enableElement(f.eqType, false);
 enableElement(f.rank, false);
@@ -62,5 +65,6 @@ for (var x = 0; x < allMarkers.length; x++) {
 		mrk.hide();
 }
 
+gaEvent('Pilot Map', 'Update');
 return true;
 }
