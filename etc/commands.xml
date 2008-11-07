@@ -507,7 +507,7 @@
 	<command id="schedsave">
 		<name>Schedule Save</name>
 		<class>org.deltava.commands.schedule.ScheduleSaveCommand</class>
-		<roles>schedules</roles>
+		<roles>Schedule</roles>
 	</command>
 
 	<command id="schedexport">
@@ -525,6 +525,12 @@
 	<command id="ivimport">
 		<name>Innovata Schedule Download</name>
 		<class>org.deltava.commands.schedule.InnovataDownloadCommand</class>
+		<roles>Schedule</roles>
+	</command>
+	
+	<command id="ivstatus">
+		<name>Innovata Status Display</name>
+		<class>org.deltava.commands.schedule.InnovataStatusCommand</class>
 		<roles>Schedule</roles>
 	</command>
 
