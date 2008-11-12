@@ -421,6 +421,11 @@
 		
 		<assignto type="Integer">006</assignto>
 	</issue_track>
+
+	<testing>
+		<lockout type="Integer">24</lockout>
+		<correct_ratio_age type="Integer">90</correct_ratio_age>
+	</testing>
 	
 	<cooler>
 		<img_max>
