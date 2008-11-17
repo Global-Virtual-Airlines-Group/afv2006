@@ -41,8 +41,16 @@ xmlreq.onreadystatechange = function() {
 		mrk.iata = a.getAttribute("iata");
 		mrk.infoShow = showRoutes;
 		GEvent.addListener(mrk, 'infowindowclose', function() { removeMarkers(map, 'routes'); });
-		var label = a.childNodes[isIE ? 0 : 1];
-		mrk.infoLabel = label.data;
+		for (var nidx = a.childNodes.length; nidx > 0; nidx--) {
+			var nd = a.childNodes[nidx - 1];
+			try {
+				if (nd.nodeType == 4) {
+					mrk.infoLabel = nd.data;
+					nidx = 0;
+				}
+			} catch (e) { }
+		}
+		
 		GEvent.bind(mrk, 'click', mrk, mrk.infoShow);
 		document.lastAirport = a;
 
