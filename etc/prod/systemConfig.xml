@@ -279,7 +279,6 @@
 
 		<key>
 			<map name="googleMaps">
-				<endor.afva.net>ABQIAAAAWFzTV_nG8JA7h9y7QsKTgRRgutO0BXP7fG9B-ADEimIbSNlgEBR0rPrTnd5zYWGk68nBvEvDAOawQQ</endor.afva.net>
 				<www.afva.net>ABQIAAAAWFzTV_nG8JA7h9y7QsKTgRSXs6S7MsBYRg9EoZ9k3LK8mKHecRQLwWC0mP7oHbgd45qdezv2qnXDBg</www.afva.net>
 				<acars.afva.net>ABQIAAAAWFzTV_nG8JA7h9y7QsKTgRT-Yaz1ZlYh-N3AAsF3i3rKLGKL_BREApS0Pf4wwKkMbKrlp6auH1dn-Q</acars.afva.net>
 			</map>
@@ -381,7 +380,7 @@
 	</path>
 	
 	<smtp>
-		<server>endor.gvagroup.org</server>
+		<server>pollux.gvagroup.org</server>
 		<errors-to>webmaster@afva.net</errors-to>
 		<testMode type="Boolean">false</testMode>
 		<imap>
@@ -404,7 +403,7 @@
 
 		<auto_reject type="Integer">5</auto_reject>
 		<ip_interval type="Integer">7</ip_interval>
-		<from>Ryan Watkins</from>
+		<from>AFV003</from>
 	</registration>
 
 	<!-- PICS content ratings -->
@@ -472,7 +471,7 @@
 		</pirep>
 
 		<!-- This controls whose user ID the Scheduled Tasks will operate as -->
-		<tasks_by>Luke Kolin</tasks_by>
+		<tasks_by>AFV046</tasks_by>
 	</users>
 
 	<!-- ACARS Server Properties -->
