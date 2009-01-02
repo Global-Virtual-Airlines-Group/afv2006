@@ -72,6 +72,18 @@
 		</time>
 	</task>
 
+	<!-- Purge SELCAL code reservations -->
+	<task id="selcalpurge" enabled="true">
+		<class>org.deltava.tasks.SELCALPurgeTask</class>
+		<time>
+			<min>0</min>
+			<hour>7</hour>
+			<mday>*</mday>
+			<month>*</month>
+			<wday>*</wday>
+		</time>
+	</task>
+
 	<!-- Transfer Request purge -->
 	<task id="txpurge" enabled="false">
 		<class>org.deltava.tasks.TransferPurgeTask</class>
