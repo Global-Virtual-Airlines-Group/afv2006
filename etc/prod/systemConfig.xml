@@ -67,7 +67,7 @@
 
 		<library>
 			<!-- Use mod_xsendfile -->
-			<sendfile type="Boolean">true</sendfile>
+			<sendfile type="Boolean">false</sendfile>
 		</library>
 	</airline>
 	
