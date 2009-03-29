@@ -464,6 +464,9 @@
 		</imgurls>
 
 		<maxreports type="Integer">3</maxreports>
+		<search>
+			<idx>/var/search</idx>
+		</search>
 	</cooler>
 
 	<users>
