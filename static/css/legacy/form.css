@@ -1,6 +1,6 @@
 /* Cascading Style Sheet for HTML Forms */
 
-TABLE.form, TABLE.bar {
+table.form, table.bar {
 	table-layout: auto;
 	border-collapse: separate;
 	border-spacing: 3px 3px;
@@ -10,7 +10,7 @@ TABLE.form, TABLE.bar {
 }
 
 /* Title Top Row */
-TABLE.form TR.title {
+table.form tr.title {
 	font-size: 9pt;
 	background-color: #0B228C;
 	font-family: Tahoma, Verdana;
@@ -20,19 +20,19 @@ TABLE.form TR.title {
 }
 
 /* Button bar table */
-TABLE.bar TD {
+table.bar td {
 	background-color: #0B228C;
 	text-align: center;
 	vertical-align: middle;
 }
 
-TABLE.form TR {
+table.form tr {
 	font-family: Tahoma, Verdana;
 	vertical-align: middle;
 	background-color: #EFEFEF;
 }
 
-TABLE.form TD.label {
+table.form td.label {
 	background-color: #0B228C;
 	text-align: right;
 	color: #FFFFFF;
@@ -40,7 +40,11 @@ TABLE.form TD.label {
 	width: 124px;
 }
 
-TABLE.form TD.coolerPost {
+table.form td.top {
+	vertical-align: top;	
+}
+
+table.form td.coolerPost {
 	text-align: left;
 	font-size: 9pt;
 	vertical-align: top;
@@ -48,12 +52,12 @@ TABLE.form TD.coolerPost {
 }
 
 /* Default row with data */
-TABLE.form TD.data {
+table.form td.data {
 	text-align: left;
 	font-size: 9pt;
 }
 
-SELECT {
+select {
 	font-family: Tahoma, Verdana;
 	font-size: 9pt;
 	font-weight: normal;
@@ -61,24 +65,24 @@ SELECT {
 	color: #FFFFFF;
 }
 
-INPUT, TEXTAREA {
+input, TEXTAREA {
 	font-family: Tahoma, Verdana;
 	font-size: 9pt;
 	border: 1px solid #0B228C;
 	background: #F0F4F8;
 }
 
-INPUT.radio, INPUT.check {
+input.radio, input.check {
 	border: none;
 	font-size: 8pt;
 }
 
-INPUT.req, TEXTAREA.req {
+input.req, TEXTAREA.req {
 	border: 1px solid #E00404;
 	background: #FFF8FA;
 }
 
-SELECT.req {
+select.req {
 	border: 1px solid #E00404;
 }
 
@@ -89,7 +93,7 @@ SELECT.req {
 	color: #EFFFFF;
 }
 
-*.title A {
+*.title a {
 	font-size: 9pt;
 	text-transform: uppercase;
 	font-weight: bold;
