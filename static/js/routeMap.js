@@ -25,7 +25,7 @@ xmlreq.onreadystatechange = function() {
 	if (xmlreq.readyState != 4) return false;
 	var isLoading = getElement('isLoading');
 	isLoading.innerHTML = ' - REDRAWING...';
-	var aps = new Array();
+	var aps = [];
 	var f = document.forms[0];
 	var isIE = (document.all);
 
@@ -84,7 +84,7 @@ xmlreq.onreadystatechange = function() {
 	if (xmlreq.readyState != 4) return false;
 	var isLoading = getElement('isLoading');
 	isLoading.innerHTML = ' - REDRAWING...';
-	routes = new Array();
+	routes = [];
 
 	// Parse the XML
 	var xdoc = xmlreq.responseXML;
@@ -97,7 +97,7 @@ xmlreq.onreadystatechange = function() {
 		var rt = rts[x];
 		var al = rt.getAttribute("airline");
 		if (al == aCode) {
-			var positions = new Array();
+			var positions = [];
 
 			// Get the positions
 			var pos = rt.getElementsByTagName("pos");
