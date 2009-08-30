@@ -1744,7 +1744,7 @@
 	<!-- Dispatch Commands -->
 	<command id="dispatchmap">
 		<name>ACARS Dispatch Map</name>
-		<class>org.deltava.commands.acars.MapCommand</class>
+		<class>org.deltava.commands.dispatch.MapCommand</class>
 		<roles>*</roles>
 	</command>
 
