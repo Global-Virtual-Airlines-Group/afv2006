@@ -486,6 +486,12 @@
 		<roles>Schedule</roles>
 	</command>
 
+	<command id="dsptrouteupdate">
+		<name>Dispatch SID/STAR Update</name>
+		<class>org.deltava.commands.navdata.DispatchRouteUpdateCommand</class>
+		<roles>Schedule,Operations</roles>
+	</command>
+
 	<command id="navsearch">
 		<name>Navigation Data Search</name>
 		<class>org.deltava.commands.navdata.NavaidSearchCommand</class>
