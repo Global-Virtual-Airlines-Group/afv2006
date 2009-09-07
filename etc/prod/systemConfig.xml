@@ -285,6 +285,12 @@
 			</acars>
 		</hash>
 
+		<!-- Security cookie settings -->
+		<cookie>
+			<checkIP type="Boolean">false</checkIP>
+			<maxAge type="Integer">-1</maxAge>
+		</cookie>
+
 		<!-- Password settings -->
 		<password>
 			<default type="Integer">8</default>
