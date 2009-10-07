@@ -59,6 +59,12 @@ if (e) e.style.visibility = isVisible ? 'visible' : 'hidden';
 return true;
 }
 
+function displayObject(e, isVisible)
+{
+if (e) e.style.display = isVisible ? '' : 'none';
+return true;
+}
+
 function setCombo(combo, value)
 {
 if (!combo) return false;
