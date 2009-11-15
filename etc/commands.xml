@@ -1028,9 +1028,17 @@
 		<roles>Pilot</roles>
 	</command>
 
+
+	<!-- Flight Assignment Commands -->
 	<command id="buildassign">
 		<name>Build Flight Assignment</name>
-		<class>org.deltava.commands.assign.BuildAssignmentCommand</class>
+		<class>org.deltava.commands.assign.BuildCommand</class>
+		<roles>Pilot</roles>
+	</command>
+
+	<command id="resetassign">
+		<name>Reset Flight Assignment</name>
+		<class>org.deltava.commands.asign.ResetCommand</class>
 		<roles>Pilot</roles>
 	</command>
 
