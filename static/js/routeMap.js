@@ -5,6 +5,10 @@ isLoading.innerHTML = ' - CLEARING...';
 
 // Remove airports/routes from the map
 map.clearOverlays();
+if (combo.selectedIndex == 0) {
+	isLoading.innerHTML = '';
+	return false;
+}
 
 // Get the new airline code
 var aCode = combo.options[combo.selectedIndex].value;
@@ -20,7 +24,7 @@ if (aps) {
 // Build the XML Requester
 isLoading.innerHTML = ' - LOADING...';
 var xmlreq = GXmlHttp.create();
-xmlreq.open("GET", "rmap_airports.ws?airline=" + aCode, true);
+xmlreq.open("get", "rmap_airports.ws?airline=" + aCode, true);
 xmlreq.onreadystatechange = function() {
 	if (xmlreq.readyState != 4) return false;
 	var isLoading = getElement('isLoading');
