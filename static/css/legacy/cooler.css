@@ -51,7 +51,7 @@ TD.unread_postDate {
 }
 
 TD.postEdit {
-	width: 90px;
+	min-width: 90px;
 	text-align: center;
 	background-color: #F7F7FF;
 	height: 19px;
@@ -92,4 +92,22 @@ INPUT, TEXTAREA {
 	font-family: Tahoma, Verdana;
 	text-decoration: underline;
 	color: #EFFFFF;
+}
+
+blockquote {
+	background: #e1ebf2 none no-repeat scroll 6px 8px;
+	border: 1px dashed #ababab;
+	font-size: 0.95em;
+	margin: 0.5em 10px 0pt 10px;
+	overflow: hidden;
+	padding: 4px;
+}
+
+blockquote cite {
+	background-color: #0b228c;
+	color: #efffff;
+	font-size: 9pt;
+	display: block;
+	font-style: normal;
+	font-weight: bold;
 }
