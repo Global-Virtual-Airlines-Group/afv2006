@@ -338,6 +338,19 @@
 				<pwd>Ssim#2001</pwd>
 				<!-- <file>deltava.zip</file> get newest -->
 			</download>
+			
+			<list name="primary_codes" attr="code" unique="true">
+				<code>AF</code>
+				<code>DL</code>
+				<code>JM</code>
+				<code>KL</code>
+				<code>AM</code>
+			</list>
+
+			<!-- Codeshare codes - only load codeshares of these airlines -->
+			<list name="codeshare_codes" attr="code" unique="true">
+				<code>AF</code>
+			</list>
 
 			<!-- Automated import -->
 			<import>
