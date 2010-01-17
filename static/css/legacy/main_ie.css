@@ -205,26 +205,27 @@ table.nav *.submenu :link:hover, table.nav *.submenu :hover {
 }
 
 /* Default table formatting */
-TABLE {
+table {
 	table-layout: auto;
 	border-collapse: separate;
 }
 
-BODY {
+body {
 	scrollbar-face-color: #000080;
 	scrollbar-track-color: #303030;
-	scrollbar-arrow-color: #FFFFFF;
-	color: #0B228C;	
+	scrollbar-arrow-color: #ffffff;
+	color: #0b228c;	
 	margin-left: 2px;
 	margin-right: 0px;
-	font-family: Tahoma, Verdana;
+	font-family: tahoma, verdana, sans-serif;
 	font-size: 9pt;
+	behavior: url(/css/csshover3.htc);
 }
 
 .BUTTON, .cmdButton {
 	background-color: #000080;
-	color: #FFFFFF;
-	font-family: Tahoma, Verdana;
+	color: #ffffff;
+	font-family: tahoma, verdana;
 	font-size: 8pt;
 	text-transform: uppercase;
 	border: 2px outset #CFCFFF;
@@ -306,7 +307,7 @@ a.plain {
 
 /* Google Maps infobox font */
 .mapInfoBox {
-	font-family: Tahoma, Verdana, sans-serif;
+	font-family: tahoma, verdana, sans-serif;
 	font-size: 8pt;
 }
 
