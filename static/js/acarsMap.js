@@ -20,7 +20,7 @@ xmlreq.onreadystatechange = function() {
 	displayObject(getElement('userSelect'), false);
 	var cbo = document.forms[0].usrID;
 	if (cbo) {
-		selectedPilot = cbo.options[combo.selectedIndex].text;
+		selectedPilot = cbo.options[cbo.selectedIndex].text;
 		cbo.options.length = 1;
 	}
 
