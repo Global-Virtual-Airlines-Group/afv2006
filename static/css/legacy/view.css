@@ -1,10 +1,15 @@
 /* Cascading Style Sheet for Table Views */
 
-TABLE.view {
+table.view {
 	width: 100%;
 }
 
-TABLE.view TR.title {
+table.mid {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table.view TR.title {
 	font-size: 9pt;
 	background-color: #0B228C;
 	font-family: Tahoma, Verdana;
@@ -13,7 +18,7 @@ TABLE.view TR.title {
 	font-weight: bold;
 }
 
-TABLE.view TR {
+table.view TR {
 	font-size: 9pt;
 	background-color: #EFEFEF;
 	font-family: Tahoma, Verdana;
@@ -39,27 +44,27 @@ TD.def {
 }
 
 /* Table row classes for view legends */
-TABLE.view *.opt1 {
+table.view *.opt1 {
 	background-color: #EFEFBF;
 }
 
-TABLE.view *.opt2 {
+table.view *.opt2 {
 	background-color: #A0FFD8;
 }
 
-TABLE.view *.opt3 {
+table.view *.opt3 {
 	background-color: #B0E0FF;
 }
 
-TABLE.view *.opt4 {
+table.view *.opt4 {
 	background-color: #C8C0FF;
 }
 
-TABLE.view *.warn {
+table.view *.warn {
 	background-color: #FFEFC0;
 }
 
-TABLE.view *.err {
+table.view *.err {
 	background-color: #FFC0C0;
 }
 
@@ -71,7 +76,7 @@ TABLE.view *.err {
 	color: #FFFFFF;
 }
 
-TABLE.view TR :link, TABLE.view TR :visited {
+table.view TR :link, table.view TR :visited {
 	color: inherit;
 	text-decoration: none;
 }
