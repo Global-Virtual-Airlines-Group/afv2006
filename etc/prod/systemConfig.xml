@@ -488,7 +488,6 @@
 		<inactive_days type="Integer">90</inactive_days>
 		<inactive_leave_days type="Integer">180</inactive_leave_days>
 		<inactive_new_days type="Integer">21</inactive_new_days>
-		<inactive_assign type="Integer">5</inactive_assign>
 
 		<user_cookie_age type="Integer">30</user_cookie_age>
 		<transfer_max type="Integer">30</transfer_max>
@@ -499,6 +498,7 @@
 			<maxHeld type="Integer">3</maxHeld>			
 			<pad_hours type="Double">0.5</pad_hours>
 			<draft_purge type="Integer">30</draft_purge>
+			<assign_purge type="Integer">14</assign_purge>
 			<acars_only type="Boolean">false</acars_only>
 		</pirep>
 
