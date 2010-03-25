@@ -61,7 +61,11 @@ xmlreq.onreadystatechange = function() {
 		if ((id != null) && (cbo != null)) {
 			var o = new Option(id);
 			o.mrk = mrk;  
-			cbo.add(o, null);
+			try {
+				cbo.add(o, null);
+			} catch (err) {
+				cbo.add(o); // IE hack
+			}
 			if (selectedPilot == id)
 				cbo.selectedIndex = (cbo.options.length - 1);
 		}
@@ -105,7 +109,11 @@ xmlreq.onreadystatechange = function() {
 		if ((id != null) && (cbo != null)) {
 			var o = new Option(id + " (Dispatcher)", id);
 			o.mrk = mrk;  
-			cbo.add(o, null);
+			try {
+				cbo.add(o, null);
+			} catch (err) {
+				cbo.add(o); // IE hack
+			}
 			if (selectedPilot == id)
 				cbo.selectedIndex = (cbo.options.length - 1);
 		}
