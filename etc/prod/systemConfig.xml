@@ -427,7 +427,7 @@
 	</path>
 	
 	<smtp>
-		<server>pollux.gvagroup.org</server>
+		<server>localhost</server>
 		<errors-to>webmaster@afva.net</errors-to>
 		<testMode type="Boolean">false</testMode>
 		<imap>
