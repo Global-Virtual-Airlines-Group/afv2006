@@ -79,6 +79,18 @@ for (var x = 0; x < combo.options.length; x++) {
 return false;
 }
 
+Array.prototype.remove = function(obj)
+{
+for (var x = 0; x < this.length; x++) {
+	if (this[x] == obj) {
+		this.splice(x, 1);
+		return true;
+	}
+}
+
+return false;
+};
+
 function checkSubmit()
 {
 if (document.isSubmit) {
