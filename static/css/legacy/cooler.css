@@ -1,6 +1,6 @@
 /* Cascading Style Sheet for Water Cooler pages */
 
-TABLE.thread {
+table.thread {
 	table-layout: auto;
 	border-collapse: separate;
 	border-spacing: 3px 3px;
@@ -10,7 +10,7 @@ TABLE.thread {
 }
 
 /* Title Top Row */
-TR.title {
+tr.title {
 	font-size: 9pt;
 	background-color: #0B228C;
 	font-family: Tahoma, Verdana;
@@ -20,44 +20,44 @@ TR.title {
 }
 
 /* Button Bottom Row */
-TR.buttons {
+tr.buttons {
 	background-color: #0B228C;
 	vertical-align: middle;
 }
 
-TR {
+tr {
 	font-family: Tahoma, Verdana;
 	vertical-align: middle;
 	background-color: #EFEFEF;
 	font-size: 9pt;
 }
 
-TD.postInfo {
+td.postInfo {
 	text-align: left;
 	vertical-align: top;
-	width: 165px;
+	width: 195px;
 }
 
-TD.postDate {
+td.postDate {
 	font-size: 8pt;
 	background-color: #F7F7FF;
 	height: 19px;
 }
 
-TD.unread_postDate {
+td.unread_postDate {
 	font-size: 8pt;
 	background-color: #FEFFFE;
 	height: 19px;
 }
 
-TD.postEdit {
+td.postEdit {
 	width: 180px;
 	text-align: center;
 	background-color: #F7F7FF;
 	height: 19px;
 }
 
-TD.postBody {
+td.postBody {
 	text-align: left;
 	vertical-align: top;
 }
@@ -70,7 +70,7 @@ INPUT, TEXTAREA {
 	background: #F0F4F8;
 }
 
-*.postInfo :link, *.postInfo :visited, *.postInfo A:hover {
+*.postInfo :link, *.postInfo :visited, *.postInfo a:hover {
 	font-size: 9pt;
 	color: #0B228C;
 	font-weight: bold;
