@@ -350,6 +350,7 @@
 			<list name="codeshare_codes" attr="code" unique="true">
 				<code>AF</code>
 				<code>DL</code>
+				<code>KL</code>
 			</list>
 
 			<!-- FTP download data -->
@@ -365,6 +366,7 @@
 				<purge type="Boolean">true</purge>
 				<markCanPurge type="Boolean">true</markCanPurge>
 				<isHistoric type="Boolean">false</isHistoric>
+				<minEntries type="Integer">250</minEntries>
 			</import>
 
 			<!-- downloaded file cache -->
