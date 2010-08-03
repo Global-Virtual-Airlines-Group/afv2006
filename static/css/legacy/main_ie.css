@@ -259,6 +259,10 @@ a:hover {
 	font-weight: bold;
 }
 
+.ita {
+	font-style: italic;	
+}
+
 .pri {
 	color: #0B228C;
 }
