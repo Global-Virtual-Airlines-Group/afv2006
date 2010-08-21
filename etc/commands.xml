@@ -1714,6 +1714,12 @@
 		<roles>HR</roles>
 	</command>
 
+	<command id="rsptemplatedelete">
+		<name>Help Desk Response Template Delete</name>
+		<class>org.deltava.commands.help.ResponseTemplateDeleteCommand</class>
+		<roles>HR</roles>
+	</command>
+
 
 	<!-- Teamspeak Administration commands -->
 	<command id="ts2channels">
