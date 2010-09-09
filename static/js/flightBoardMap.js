@@ -54,8 +54,10 @@ xmlreq.onreadystatechange = function() {
 		var type = cp.getAttribute('type');
 		if ((type == 'CTR') || (type == 'FSS'))
 			GEvent.addListener(mrk, 'click', function() { showFIR(this.callsign); });
-		else if (type == 'APP')
+		else if (type == 'APP') {
+			mrk.range = parseInt(cp.getAttribute('range'));
 			GEvent.addListener(mrk, 'click', function() { showAPP(this); });
+		}
 		
 		map.addOverlay(mrk);
 		atc[mrk.callsign] = mrk;
@@ -111,7 +113,7 @@ return true;
 
 function showAPP(mrk)
 {
-var pts = circle(mrk, 60);
+var pts = circle(mrk.getLatLng(), mrk.range);
 if (pts == null) return false;
 selectedRoute = new GPolygon(pts, '#20c060', 1, 0.65, '#208040', 0.2); 
 map.addOverlay(selectedRoute);
