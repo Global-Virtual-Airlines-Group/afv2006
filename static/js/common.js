@@ -95,20 +95,24 @@ for (var x = 0; x < combo.options.length; x++) {
 return false;
 }
 
-Element.prototype.getChild = function(name)
+function getChild(e, name)
 {
-var children = this.getElementsByTagName(name);
+var children = e.getElementsByTagName(name);
 return (children.length == 0) ? null : children[0];
-};
+}
 
-Element.prototype.getCDATA = function()
+Element.prototype.getChild = function(name) { return getChild(this, name); };
+
+getCDATA = function(e)
 {
-var child = this.firstChild;	
+var child = e.firstChild;	
 while ((child != null) && (child.nodeType != 4))
 	child = child.nextSibling;
 
 return child;
 };
+
+Element.prototype.getCDATA = function() { return getCDATA(this); };
 
 Array.prototype.remove = function(obj)
 {
