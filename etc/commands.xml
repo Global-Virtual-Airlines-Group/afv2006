@@ -1927,7 +1927,7 @@
 	<command id="dspentry">
 		<name>Dispatch Service Entry</name>
 		<class>org.deltava.commands.dispatch.ServiceEntryCommand</class>
-		<roles>*</roles>
+		<roles>HR,Dispatch</roles>
 	</command>
 
 	<command id="dspentrydelete">
