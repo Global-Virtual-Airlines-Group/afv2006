@@ -86,16 +86,6 @@
 		<dept>Administrative Services</dept>
 	</list>
 	
-	<!-- pilot ranks -->
-	<list name="ranks" attr="rank">
-		<rank>Trainee</rank>
-		<rank>First Officer</rank>
-		<rank>Captain</rank>
-		<rank>Senior Captain</rank>
-		<rank>Assistant Chief Pilot</rank>
-		<rank>Chief Pilot</rank>
-	</list>
-
 	<!-- Pilot Locations -->
 	<list name="locations" attr="location">
 		<location>Northeastern United States</location>
