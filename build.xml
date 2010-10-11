@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- Copyright 2005, 2006 Global Virtual Airlines Group. All Rights Reserved. -->
+<!-- Copyright 2005, 2006, 2008, 2010 Global Virtual Airlines Group. All Rights Reserved. -->
 <project default="deploy">
 	<!-- Precompile the Java Code -->
 	<target name="compile">
@@ -91,11 +91,13 @@
 	
 	<target name="deploy" depends="jspc">
 		<loadproperties srcFile="data/build_deploy.properties" />
+		<property name="webapp.dev.port" value="22" />
+		<property name="http.dev.port" value="22" />
 		<mkdir dir="../.local_data" />
 		
 		<!-- Upload the web configuration -->
 		<scp todir="${webapp.dev.user}@${webapp.dev.server}:${webapp.dev.path}/WEB-INF"
-			verbose="yes" trust="yes" password="${webapp.dev.pwd}">
+			port="${webapp.dev.port}" verbose="yes" trust="yes" password="${webapp.dev.pwd}">
 			<fileset file="${java.io.tmpdir}/afv/build/web.xml">
 				<modified seldirs="false" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
@@ -106,7 +108,7 @@
 
 		<!-- Upload the JAR files to the app server -->
 		<scp todir="${webapp.dev.user}@${webapp.dev.server}:${webapp.dev.path}/WEB-INF/lib"
-			verbose="yes" trust="yes" password="${webapp.dev.pwd}">
+			port="${webapp.dev.port}" verbose="yes" trust="yes" password="${webapp.dev.pwd}">
 			<fileset dir="../DVA2006/lib/deploy">
 				<include name="log4j*.jar" />
 				<modified seldirs="false" algorithm="digest">
@@ -133,7 +135,7 @@
 		
 		<!-- Upload the config files to the app server -->
 		<scp todir="${webapp.dev.user}@${webapp.dev.server}:${webapp.dev.path}/WEB-INF/classes/etc"
-			verbose="yes" trust="yes" password="${webapp.dev.pwd}">
+			port="${webapp.dev.port}" verbose="yes" trust="yes" password="${webapp.dev.pwd}">
 			<fileset dir="etc" includes="*.*">
 				<modified seldirs="false" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
@@ -144,7 +146,7 @@
 		
 		<!-- Upload static content to the HTTP server -->
 		<scp todir="${http.dev.user}@${http.dev.server}:${http.dev.path}" verbose="yes"
-			trust="yes" password="${http.dev.pwd}">
+			port="${http.dev.port}" trust="yes" password="${http.dev.pwd}">
 			<fileset dir="static">
 				<modified seldirs="true" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
@@ -164,11 +166,13 @@
 	<!-- Production Deployment via SSH -->
 	<target name="prod_deploy" depends="jspc">
 		<loadproperties srcFile="data/build_deploy.properties" />
+		<property name="webapp.ssh.port" value="22" />
+		<property name="http.ssh.port" value="22" />
 		<mkdir dir="../.local_data" />
 		
 		<!-- Upload the web configuration -->
 		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}"
-			verbose="yes" trust="yes" password="${webapp.ssh.pwd}">
+			port="${webapp.ssh.port}" verbose="yes" trust="yes" password="${webapp.ssh.pwd}">
 			<fileset file="${java.io.tmpdir}/afv/build/web.xml">
 				<modified seldirs="false" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
@@ -179,7 +183,7 @@
 		
 		<!-- Upload the common JAR files to the app server -->
 		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path.common}"
-			verbose="yes" trust="yes" password="${webapp.ssh.pwd}">
+			port="${webapp.ssh.port}" verbose="yes" trust="yes" password="${webapp.ssh.pwd}">
 			<fileset dir="../DVA2006/lib/deploy" includes="*.jar">
 				<exclude name="log4j*.jar" />
 				<modified seldirs="false" algorithm="digest">
@@ -191,7 +195,7 @@
 
 		<!-- Upload the JAR files to the app server -->
 		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}/lib"
-			verbose="yes" trust="yes" password="${webapp.ssh.pwd}">
+			port="${webapp.ssh.port}" verbose="yes" trust="yes" password="${webapp.ssh.pwd}">
 			<fileset dir="../DVA2006/lib/deploy">
 				<include name="log4j*.jar" />
 				<modified seldirs="false" algorithm="digest">
@@ -218,7 +222,7 @@
 		
 		<!-- Upload the config file to the app server -->
 		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}/classes/etc"
-			verbose="yes" trust="yes" password="${webapp.ssh.pwd}">
+			port="${webapp.ssh.port}" verbose="yes" trust="yes" password="${webapp.ssh.pwd}">
 			<fileset dir="etc">
 				<include name="commands.xml" />
 				<include name="services.xml" />
@@ -239,7 +243,7 @@
 		
 		<!-- Upload static content to the HTTP server -->
 		<scp todir="${http.ssh.user}@${http.ssh.server}:${http.ssh.path}"
-			verbose="yes" trust="yes" password="${http.ssh.pwd}">
+			port="${http.ssh.port}" verbose="yes" trust="yes" password="${http.ssh.pwd}">
 			<fileset dir="static">
 				<modified seldirs="true" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
