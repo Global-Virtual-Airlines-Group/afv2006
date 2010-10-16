@@ -201,7 +201,7 @@ table {
 	table-layout: auto;
 	border-collapse: separate;
 	border-spacing: 3px 3px;
-	font-family: Tahoma, Verdana;
+	font-family: tahoma, verdana;
 	color: #000000;
 	border-width: 4px 4px 4px 4px;
 	padding: 6px 6px 6px 6px;
@@ -215,23 +215,23 @@ body {
 	font-size: 9pt;
 }
 
-.BUTTON, .cmdButton {
+.cmdButton, .button {
 	background-color: #000080;
 	color: #ffffff;
 	font-family: tahoma, verdana;
 	font-size: 8pt;
 	text-transform: uppercase;
-	border: 2px outset #CFCFFF;
+	border: 2px outset #cfcfff;
 	font-weight: normal;
 }
 
-.BUTTON:disabled, .cmdButton:disabled {
+.cmdButton:disabled, .button:disabled {
 	background-color: #002060;
-	color: #A0A0A0;
+	color: #a0a0a0;
 }
 
 a, a:visited {
-	color: #0B228C;
+	color: #0b228c;
 	text-decoration: underline;
 	font-size: 9pt;
 }
@@ -256,7 +256,7 @@ a:hover {
 }
 
 .pri {
-	color: #0B228C;
+	color: #0b228c;
 }
 
 .ok, .sec {
@@ -272,7 +272,7 @@ a:hover {
 }
 
 .warn {
-	color: #FF8040;
+	color: #ff8040;
 }
 
 .small {
