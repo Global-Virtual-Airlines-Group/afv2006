@@ -255,6 +255,10 @@ a:hover {
 	font-style: italic;	
 }
 
+.und {
+	text-decoration: underline;	
+}
+
 .pri {
 	color: #0b228c;
 }
