@@ -24,7 +24,7 @@ while (isOK && (a.length > 0)) {
 }
 
 if ((!isOK) && (!document.isExpired)) {
-	if (!confirm("You have not answered all Questions. Hit OK to submit.")) return false;
+	if (!confirm('You have not answered all Questions. Hit OK to submit.')) return false;
 }
 
 setSubmit();
@@ -121,8 +121,8 @@ function updateMap(rpq)
 {
 // Generate an XMLHTTP request
 var d = new Date();
-var xmlreq = GXmlHttp.create();
-xmlreq.open("post", "examplot.ws?id=" + rpq.examID + "&q=" + rpq.idx + "&date=" + d.getTime(), true);
+var xmlreq = getXMLHttpRequest();
+xmlreq.open('post', 'examplot.ws?id=' + rpq.examID + '&q=' + rpq.idx + '&date=' + d.getTime(), true);
 xmlreq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 var txtbox = getElementsById('A' + rpq.idx);
 if (!txtbox) return false;
@@ -131,7 +131,7 @@ if (txtbox.length == 1) {
 	txtbox[0].style.border = '1px dashed #787980';
 }
 	
-//Build the update handler	
+// Build the update handler	
 xmlreq.onreadystatechange = function() {
 	if ((xmlreq.readyState != 4) || (xmlreq.status != 200)) return false;
 	rpq.map.clearOverlays();
@@ -140,21 +140,25 @@ xmlreq.onreadystatechange = function() {
 	var positions = [];
 	var codes = [];
 	var xdoc = xmlreq.responseXML.documentElement;
-	var waypoints = xdoc.getElementsByTagName("pos");
+	var waypoints = xdoc.getElementsByTagName('pos');
 	for (var i = 0; i < waypoints.length; i++) {
 		var wp = waypoints[i];
 		var label = wp.firstChild;
-		var p = new GLatLng(parseFloat(wp.getAttribute("lat")), parseFloat(wp.getAttribute("lng")));
+		var p = new google.maps.LatLng(parseFloat(wp.getAttribute('lat')), parseFloat(wp.getAttribute('lng')));
 		positions.push(p);
-		codes.push(wp.getAttribute("code"));
-		if (wp.getAttribute("pal"))
-			rpq.map.addOverlay(googleIconMarker(wp.getAttribute("pal"), wp.getAttribute("icon"), p, label.data));
+		codes.push(wp.getAttribute('code'));
+		var mrk = null;
+		if (wp.getAttribute('pal'))
+			mrk = googleIconMarker(wp.getAttribute('pal'), wp.getAttribute('icon'), p, label.data);
 		else
-			rpq.map.addOverlay(googleMarker(document.imgPath, wp.getAttribute("color"), p, label.data));
+			mrk = googleMarker(wp.getAttribute('color'), p, label.data);
+
+		mrk.setMap(rpq.map);
 	} // for
 
 	// Draw the route
-	rpq.map.addOverlay(new GPolyline(positions, '#4080AF', 1.65, 0.8));
+	var rt = new google.maps.Polyline({path:positions, strokeColor:'#4080af', strokeWeight:1.65, strokeOpacity:0.8, geodesic:true});
+	rt.setMap(rpq.map);
 
 	// Save the codes
 	if (txtbox.length == 1) {
@@ -167,7 +171,7 @@ xmlreq.onreadystatechange = function() {
 }
 
 // Build parameters
-xmlreq.send("route=" + escape(getAnswer(txtbox)));
+xmlreq.send('route=' + escape(getAnswer(txtbox)));
 gaEvent('Examination', 'Route Plot');
 return true;
 }

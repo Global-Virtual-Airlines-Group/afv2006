@@ -25,7 +25,7 @@ icon.infoWindowAnchor = new GPoint(5, 1);
 var marker = new GMarker(point, icon);
 if (label != null)
 	GEvent.addListener(marker, 'click', function() { marker.openInfoWindowHtml(label); });
-	
+
 return marker;
 }
 
@@ -71,14 +71,18 @@ return true;
 function removeMarkers(map, arrayName)
 {
 // Get the map data
-var markers = eval(arrayName);
-if (!markers) return false;
+try {
+	var markers = eval(arrayName);
+	if (!markers) return false;
+} catch (err) {
+	return false;
+}
 
 // Remove the map data, either an array or a single element
 if (isNaN(markers.length))
 	map.removeOverlay(markers);
 else if (markers.length > 0) {
-	for (x = 0; x < markers.length; x++)
+	for (var x = 0; x < markers.length; x++)
 		map.removeOverlay(markers[x]);
 }
 	
@@ -101,7 +105,7 @@ else if (distance > 390)
 else if (distance > 195)
 	return 7;
 else if (distance > 90)
-	return 8;
+	return 8
 else if (distance > 50)
 	return 9;
 
