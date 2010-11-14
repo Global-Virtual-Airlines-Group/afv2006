@@ -29,8 +29,11 @@ google.maps.Polyline.prototype.setMap = golgotha.maps.setMap;
 google.maps.Polygon.prototype.setMap = golgotha.maps.setMap;
 google.maps.Circle.prototype.setMap = golgotha.maps.setMap;
 google.maps.Map.prototype.clearOverlays = function() {
-	removeMarkers(golgotha.maps.displayedMarkers);
-	golgotha.maps.displayedMarkers.length = 0;
+	while (golgotha.maps.displayedMarkers.length > 0) {
+		var mrk = golgotha.maps.displayedMarkers.shift();
+		mrk.setMap(null);
+	}
+	
 	return true;
 }
 
