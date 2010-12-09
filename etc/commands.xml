@@ -163,7 +163,19 @@
 		<class>org.deltava.commands.security.LogoutCommand</class>
 		<roles>*</roles>
 	</command>
+
+	<command id="fbauth">
+		<name>Facebook User Authorize</name>
+		<class>org.deltava.commands.security.FacebookAuthCommand</class>
+		<roles>Pilot</roles>
+	</command>
 	
+	<command id="privacy">
+		<name>Privacy Policy</name>
+		<class>org.deltava.commands.help.PrivacyInfoCommand</class>
+		<roles>*</roles>
+	</command>
+
 	<command id="users">
 		<name>Active Web Users</name>
 		<class>org.deltava.commands.main.UserListCommand</class>
