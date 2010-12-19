@@ -84,6 +84,15 @@ textbox.rows = Math.max(textbox.minRows, lines);
 return true;
 }
 
+function resizeAll()
+{
+var boxes = getElementsByClass('resizable');
+for (var x = 0; x < boxes.length; x++)
+	resize(boxes[x]);
+
+return true;
+}
+
 function setCombo(combo, value)
 {
 if (!combo) return false;
