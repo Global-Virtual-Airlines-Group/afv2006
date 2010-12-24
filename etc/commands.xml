@@ -1759,7 +1759,7 @@
 	<command id="hdissuefilter">
 		<name>Help Desk Issue Filter</name>
 		<class>org.deltava.commands.help.IssueFilterCommand</class>
-		<roles>HR,Instructor,Examiner,AcademyAdmin,PIREP,Examination,Signature</roles>
+		<roles>HR,Instructor,AcademyAdmin,PIREP,Examination,Signature</roles>
 	</command>
 
 	<command id="myhdissues">
@@ -2109,7 +2109,7 @@
 	<command id="courseassign">
 		<name>Course Instructor Assignment</name>
 		<class>org.deltava.commands.academy.CourseAssignCommand</class>
-		<roles>HR,Instructor,Examiner</roles>
+		<roles>HR,Instructor</roles>
 	</command>
 
 	<command id="coursedelete">
@@ -2187,7 +2187,7 @@
 	<command id="academyridequeue">
 		<name>Flight Academy Check Ride Queue</name>
 		<class>org.deltava.commands.academy.RideQueueCommand</class>
-		<roles>Instructor,Examiner,HR</roles>
+		<roles>Instructor,HR</roles>
 	</command>
 
 	<command id="tvideolibrary">
