@@ -88,11 +88,35 @@
 	<task id="otrack" enabled="false">
 		<class>org.deltava.tasks.OnlineTrackTask</class>
 		<time>
-			<min>0,3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,48,51,54,57</min>
+			<min>*/3</min>
 			<hour>*</hour>
 			<mday>*</mday>
 			<month>*</month>
 			<wday>*</wday>
 		</time>	
+	</task>
+
+	<!-- Facebook credential validation -->
+	<task id="fbvalidate" enabled="false">
+		<class>org.deltava.tasks.FacebookValidationTask</class>
+		<time>
+			<min>0</min>
+			<hour>8</hour>
+			<mday>*</mday>
+			<month>*</month>
+			<wday>*</wday>
+		</time>
+	</task>
+
+	<!-- Job Posting close -->
+	<task id="jobclose" enabled="false">
+		<class>org.deltava.tasks.JobCloseTask</class>
+		<time>
+			<min>0</min>
+			<hour>4</hour>
+			<mday>*</mday>
+			<month>*</month>
+			<wday>*</wday>
+		</time>
 	</task>
 </tasks>
