@@ -274,6 +274,7 @@
 			<role>Fleet</role>
 			<role>Gallery</role>			
 			<role>HR</role>
+			<role>Instructor</role>
 			<role>News</role>
 			<role>NOTAM</role>
 			<role>PIREP</role>
@@ -474,4 +475,11 @@
 		<enabled type="Boolean">true</enabled>
 		<assignto type="Integer">11</assignto>
 	</helpdesk>
+	
+	<!-- Flight Academy Data -->
+	<academy>
+		<enabled type="Boolean">true</enabled>
+		<minFlights type="Integer">10</minFlights>
+		<eqType>F100</eqType>
+	</academy>
 </config>
