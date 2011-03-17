@@ -239,6 +239,9 @@
 			<code>AFV</code>
 		</list>
 
+		<!-- Gap in minutes between online track data for PIREP time calculation -->
+		<track_gap type="Integer">15</track_gap>
+
 		<!-- Event banner maximum size -->
 		<banner_max>
 			<x type="Integer">800</x>
