@@ -1,4 +1,4 @@
-/* Cascading Style Sheet for Table Views */
+/* Cascading Style Sheet for Table Views (C) 2005 - 2011 Global Virtual Airlines Group. */
 
 table.view {
 	width: 100%;
@@ -9,74 +9,74 @@ table.mid {
 	margin-right: auto;
 }
 
-table.view TR.title {
+table.view tr.title {
 	font-size: 9pt;
-	background-color: #0B228C;
-	font-family: Tahoma, Verdana;
+	background-color: #0b228c;
+	font-family: tahoma, verdana;
 	vertical-align: middle;
 	color: #ffffff;
 	font-weight: bold;
 }
 
-table.view TR {
+table.view tr {
 	font-size: 9pt;
-	background-color: #EFEFEF;
-	font-family: Tahoma, Verdana;
+	background-color: #efefef;
+	font-family: tahoma, verdana;
 	vertical-align: middle;
 	text-align: center;
 }
 
-TD.priB {
-	background-color: #0B228C;
-	color: #FFFFFF;
+td.priB {
+	background-color: #0b228c;
+	color: #ffffff;
 	font-weight: bold;
 }
 
-TD.secB {
-	background-color: #E00303;
-	color: #FFFFFF;
+td.secB {
+	background-color: #e00303;
+	color: #ffffff;
 	font-weight: bold;
 }
 
-TD.def {
-	background-color: #EFEFEF;
+td.def {
+	background-color: #efefef;
 	color: #000000;
 }
 
 /* Table row classes for view legends */
 table.view *.opt1 {
-	background-color: #EFEFBF;
+	background-color: #efefbf;
 }
 
 table.view *.opt2 {
-	background-color: #A0FFD8;
+	background-color: #a0ffd8;
 }
 
 table.view *.opt3 {
-	background-color: #B0E0FF;
+	background-color: #b0e0ff;
 }
 
 table.view *.opt4 {
-	background-color: #C8C0FF;
+	background-color: #c8c0ff;
 }
 
 table.view *.warn {
-	background-color: #FFEFC0;
+	background-color: #ffefc0;
 }
 
 table.view *.err {
-	background-color: #FFC0C0;
+	background-color: #ffc0c0;
 }
 
-*.title :link, *.title :visited, *.title A {
+*.title :link, *.title :visited, *.title a {
 	font-size: 9pt;	
-	font-family: Tahoma, Verdana;
+	font-family: tahoma, verdana;
 	font-weight: bold;
 	text-decoration: underline;
-	color: #FFFFFF;
+	color: #ffffff;
 }
 
-table.view TR :link, table.view TR :visited {
+table.view tr :link, table.view tr :visited {
 	color: inherit;
 	text-decoration: none;
 }
