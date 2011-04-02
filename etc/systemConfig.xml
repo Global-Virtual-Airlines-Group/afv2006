@@ -272,7 +272,8 @@
 			<role>Examination</role>
 			<role>Event</role>
 			<role>Fleet</role>
-			<role>Gallery</role>			
+			<role>Gallery</role>
+			<role>HireMgr</role>			
 			<role>HR</role>
 			<role>Instructor</role>
 			<role>News</role>
