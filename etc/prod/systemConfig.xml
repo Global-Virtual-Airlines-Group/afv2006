@@ -479,6 +479,12 @@
 			</list>
 		</imgurls>
 
+		<!-- Announcement channel for promotion -->
+		<promotion>
+			<channel>Pilot Achievements and Promotions</channel>
+			<maxAge type="Integer">24</maxAge>
+		</promotion>
+
 		<maxreports type="Integer">3</maxreports>
 		<search>
 			<idx>/var/search</idx>
