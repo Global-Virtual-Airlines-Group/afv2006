@@ -1712,6 +1712,12 @@
 		<roles>Pilot</roles>
 	</command>
 
+	<command id="issueconvert">
+		<name>Development Issue Convert</name>
+		<class>org.deltava.commands.system.IssueConvertCommand</class>
+		<roles>Developer</roles>
+	</command>
+
 	<command id="msgtemplates">
 		<name>Message Templates</name>
 		<class>org.deltava.commands.admin.MessageTemplatesCommand</class>
