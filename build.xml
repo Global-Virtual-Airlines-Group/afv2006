@@ -109,13 +109,6 @@
 		<!-- Upload the JAR files to the app server -->
 		<scp todir="${webapp.dev.user}@${webapp.dev.server}:${webapp.dev.path}/WEB-INF/lib"
 			port="${webapp.dev.port}" verbose="yes" trust="yes" password="${webapp.dev.pwd}">
-			<fileset dir="../DVA2006/lib/deploy">
-				<include name="log4j*.jar" />
-				<modified seldirs="false" algorithm="digest">
-					<param name="algorithm.algorithm" value="MD5" />
-					<param name="cache.cachefile" value="../.local_data/afv.jar.cache.dev.txt" />
-				</modified>
-			</fileset>
 			<fileset dir="${java.io.tmpdir}/build">
 				<include name="golgotha.jar" />
 				<include name="golgotha_jsp.jar" />
@@ -196,13 +189,6 @@
 		<!-- Upload the JAR files to the app server -->
 		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}/lib"
 			port="${webapp.ssh.port}" verbose="yes" trust="yes" password="${webapp.ssh.pwd}">
-			<fileset dir="../DVA2006/lib/deploy">
-				<include name="log4j*.jar" />
-				<modified seldirs="false" algorithm="digest">
-					<param name="algorithm.algorithm" value="MD5" />
-					<param name="cache.cachefile" value="../.local_data/afv.jar.cache.txt" />
-				</modified>
-			</fileset>
 			<fileset dir="${java.io.tmpdir}/build">
 				<include name="golgotha.jar" />
 				<include name="golgotha_jsp.jar" />
