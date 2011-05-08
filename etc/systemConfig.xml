@@ -502,6 +502,9 @@
 	<helpdesk>
 		<enabled type="Boolean">true</enabled>
 		<assignto type="Integer">11</assignto>
+		<list name="notify_roles" attr="role" unique="true">
+			<role>Senior Staff</role>
+		</list>
 	</helpdesk>
 	
 	<!-- Flight Academy Data -->
