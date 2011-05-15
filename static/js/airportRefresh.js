@@ -52,7 +52,7 @@ return true;
 
 function changeAirport(combo)
 {
-var text = getElement(combo.name + 'Code');
+var text = document.getElementById(combo.name + 'Code');
 if (text) text.value = combo.options[combo.selectedIndex].value.toUpperCase();
 return true;
 }
