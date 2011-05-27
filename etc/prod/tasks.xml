@@ -133,7 +133,7 @@
 	</task>
 
 	<!-- Pilot Promotion Forum post -->
-	<task id="forumrecog" enabled="false">
+	<task id="forumrecog" enabled="true">
 		<class>org.deltava.tasks.PromotionListTask</class>
 		<time>
 			<min>55</min>
