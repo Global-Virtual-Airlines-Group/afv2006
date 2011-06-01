@@ -1909,6 +1909,26 @@
 	</command>
 
 
+	<!-- MVS Administration Commmands -->
+	<command id="mvschannel">
+		<name>MVS Channel</name>
+		<class>org.deltava.commands.mvs.ChannelCommand</class>
+		<roles>Admin,Tech</roles>
+	</command>
+
+	<command id="mvschannels">
+		<name>MVS Channel List</name>
+		<class>org.deltava.commands.mvs.ChannelListCommand</class>
+		<roles>Admin,Tech</roles>
+	</command>
+
+	<command id="mvschanneldelete">
+		<name>MVS Channel Delete</name>
+		<class>org.deltava.commands.mvs.ChannelDeleteCommand</class>
+		<roles>Admin,Tech</roles>
+	</command>
+
+
 	<!-- ACARS log/data commands -->
 	<command id="acarsversion">
 		<name>ACARS Client Version</name>
