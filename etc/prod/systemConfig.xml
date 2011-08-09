@@ -321,7 +321,6 @@
 			<role>Examination</role>
 			<role>Event</role>
 			<role>Fleet</role>
-			<role>Gallery</role>
 			<role>HireMgr</role>			
 			<role>HR</role>
 			<role>Instructor</role>
@@ -453,8 +452,8 @@
 		<list name="versions" attr="version" sorted="true">
 			<version>2.2</version>
 			<version>3.0</version>
-			<version>3.4</version>
-			<version>3.5</version>
+			<version>4.0</version>
+			<version>4.1</version>
 		</list>
 		
 		<assignto type="Integer">006</assignto>
