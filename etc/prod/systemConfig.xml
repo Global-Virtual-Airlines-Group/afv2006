@@ -606,7 +606,7 @@
 	<academy>
 		<enabled type="Boolean">true</enabled>
 		<minFlights type="Integer">10</minFlights>
-		<eqType>F100</eqType>
+		<eqType>ERJ-145</eqType>
 	</academy>
 
 	<!-- Simulated economy data -->
