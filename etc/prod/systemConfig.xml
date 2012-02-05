@@ -453,7 +453,10 @@
 
 		<auto_reject type="Integer">5</auto_reject>
 		<ip_interval type="Integer">7</ip_interval>
-		<from>AFV009</from>
+		<from>AFV301</from>
+		
+		<!-- Max stage for eq choices -->
+		<max_stage type="Integer">2</max_stage>
 	</registration>
 
 	<!-- PICS content ratings -->

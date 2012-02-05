@@ -402,9 +402,12 @@
 			<domain>gmail.com</domain>
 		</list>
 
-		<from>AFV003</from>
+		<from>AFV301</from>
 		<auto_reject type="Integer">5</auto_reject>
 		<ip_interval type="Integer">7</ip_interval>
+		
+		<!-- Max stage for eq choices -->
+		<max_stage type="Integer">2</max_stage>
 	</registration>
 
 	<!-- PICS content ratings -->
