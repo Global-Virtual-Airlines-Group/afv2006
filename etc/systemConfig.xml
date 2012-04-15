@@ -24,7 +24,7 @@
 		
 		<!-- Copyright disclaimer -->
 		<copyright>For flight simulation purposes only. Not a commercial website. In no way are we affiliated with Air France, its affiliates, or any
- other airline.  All logos, images, and trademarks remain the property of their respective owners.  Air France Virtual is a non-profit entity engaged
+ other airline. All logos, images, and trademarks remain the property of their respective owners. Air France Virtual is a non-profit entity engaged
  in providing an avenue for flight simulation enthusiasts.</copyright>
 		
 		<!-- Home Page Meta Tags -->
@@ -71,10 +71,19 @@
 			<webmaster>webmaster@afva.net</webmaster>
 		</mail>
 
-		<library>
+		<files>
 			<!-- Use mod_xsendfile -->
 			<sendfile type="Boolean">true</sendfile>
-		</library>
+		</files>
+
+		<!-- Do we have newsletters? -->
+		<newsletters>
+			<enabled type="Boolean">true</enabled>
+			<name>Le Ciel Entre Nous</name>
+			<list name="categories" attr="category" unique="true">
+				<category>Le Ciel Entre Nous</category>
+			</list>
+		</newsletters>
 	</airline>
 
 	<!-- Default Date/Time data -->
