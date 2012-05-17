@@ -2,11 +2,11 @@ function updateAirports(combo, cmdURL, doICAO, oldCode)
 {
 if (combo == null) return false;
 var xmlreq = getXMLHttpRequest();
-xmlreq.open("GET", "airports.ws?" + cmdURL, true);
+xmlreq.open('get', 'airports.ws?' + cmdURL, true);
 xmlreq.onreadystatechange = function() {
 	if ((xmlreq.readyState != 4) || (xmlreq.status != 200)) return false;
 	var xmlDoc = xmlreq.responseXML;
-	var ac = xmlDoc.documentElement.getElementsByTagName("airport");
+	var ac = xmlDoc.documentElement.getElementsByTagName('airport');
 	createAirportCombo(combo, ac, doICAO);
 	combo.disabled = false;
 	setAirport(combo, oldCode);
@@ -33,6 +33,9 @@ for (var i = 0; i < nodes.length; i++) {
 	opt.icao = a.getAttribute('icao');
 	opt.iata = a.getAttribute('iata');
 	combo.options[i+1] = opt;
+}
+
+return true;
 }
 
 function changeAirline(aCombo, useSched)
