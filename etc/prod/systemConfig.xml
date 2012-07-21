@@ -329,6 +329,7 @@
 			<role>Dispatch</role>
 			<role>Examination</role>
 			<role>Event</role>
+			<role>Facebook</role>
 			<role>Fleet</role>
 			<role>HireMgr</role>			
 			<role>HR</role>
@@ -544,7 +545,6 @@
 		<facebook>
 			<id>205671896115290</id>		
 			<pageID>205671896115290</pageID>
-			<pageToken>***REMOVED***</pageToken>
 			<secret>***REMOVED***</secret>
 			<img>http://www.deltava.org/img/fleet/dva_side.png</img>
 			<url>
