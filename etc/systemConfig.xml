@@ -294,6 +294,7 @@
 			<role>Developer</role>
 			<role>Examination</role>
 			<role>Event</role>
+			<role>Facebook</role>
 			<role>Fleet</role>
 			<role>HireMgr</role>			
 			<role>HR</role>
@@ -491,7 +492,6 @@
 		<facebook>
 			<id>205671896115290</id>		
 			<pageID>205671896115290</pageID>
-			<pageToken>93603160577|02faa99c85a2e78c9eaf8dff-521227914|205671896115290|tV0-I_lcaJzTMIT1UQJn0duBEfg</pageToken>
 			<secret>725fbf32b9d118a0b767cf4c7a9ff5ae</secret>
 			<img>http://www.deltava.org/img/fleet/dva_side.png</img>
 			<url>
