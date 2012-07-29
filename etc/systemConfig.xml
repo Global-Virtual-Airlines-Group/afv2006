@@ -328,7 +328,7 @@
 				<host>67.97.212.90</host>
 				<user>deltava</user>
 				<pwd>Ssim#2001</pwd>
-				<!-- <file>deltava.zip</file> get newest -->
+				<file>deltava - *</file>
 			</download>
 			
 			<list name="primary_codes" attr="code" unique="true">
@@ -363,7 +363,7 @@
 				<il>AirCharts</il>
 				<nz>AirCharts</nz>
 				<uk>AirCharts</uk>
-				<us>internal</us>
+				<us>AirCharts</us>
 				<za>internal</za>
 			</map>
 
