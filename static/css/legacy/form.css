@@ -68,7 +68,7 @@ input, textarea {
 	background: #F0F4F8;
 }
 
-input.radio, input.check {
+input.radio, input.check, input[type="checkbox"] {
 	border: none;
 	font-size: 8pt;
 }

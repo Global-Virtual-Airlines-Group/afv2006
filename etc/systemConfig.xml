@@ -156,12 +156,11 @@
 	</jdbc>
 	
 	<html>
+		<v5 type="Boolean">true</v5>
 		<table>
-			<spacing type="Integer">3</spacing>
-			<padding type="Integer">3</padding>
 			<viewSize type="Integer">60</viewSize>
 		</table>
-		
+
 		<list name="schemes" attr="css">
 			<css>legacy</css>
 		</list>
@@ -430,7 +429,6 @@
 	<!-- PICS content ratings -->
 	<content>
 		<safesurf>SS~~000 3</safesurf>
-		<icra>cz 1 lz 1 nz 1 oz 1 vz 1</icra>
 	</content>
 
 	<issue_track>
@@ -510,7 +508,7 @@
 	
 		<pirep>
 			<maxDays type="Integer">1</maxDays>
-			<minDays type="Integer">45</minDays>
+			<minDays type="Integer">5</minDays>
 			<maxHeld type="Integer">3</maxHeld>
 			<pad_hours type="Double">0.5</pad_hours>
 			<assign_purge type="Integer">14</assign_purge>

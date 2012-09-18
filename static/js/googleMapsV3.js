@@ -1,15 +1,22 @@
 // Initialize common data
 golgotha.maps.PIN_SIZE = new google.maps.Size(12, 20);
+golgotha.maps.TILE_SIZE = new google.maps.Size(256, 256);
 golgotha.maps.DEFAULT_SHADOW = new google.maps.MarkerImage('/' + golgotha.maps.IMG_PATH + '/maps/shadow.png', new google.maps.Size(22, 20), null, new google.maps.Point(6, 20));
 golgotha.maps.S_ICON_SIZE = new google.maps.Size(24, 24);
 golgotha.maps.S_ICON_SHADOW_SIZE = new google.maps.Size(24 * (59 / 32), 24);
 golgotha.maps.ICON_ANCHOR = new google.maps.Point(12, 12);
 golgotha.maps.DEFAULT_TYPES = [google.maps.MapTypeId.ROADMAP, google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.TERRAIN];
-golgotha.maps.z = {INFOWINDOW:100, POLYLINE:50, MARKER:25, OVERLAY:10};
+golgotha.maps.z = {INFOWINDOW:100, POLYLINE:25, POLYGON:35, MARKER:50, OVERLAY:10};
 golgotha.maps.ovLayers = [];
+golgotha.maps.util = {};
+golgotha.maps.util.isIE = (navigator.appName == 'Microsoft Internet Explorer');
+golgotha.maps.util.oldIE = (golgotha.maps.util.isIE && ((navigator.appVersion.indexOf('IE 7.0') > 0) || (navigator.appVersion.indexOf('IE 8.0') > 0)));  
+
+// Calculate GMT offset in seconds from local
+golgotha.maps.GMTOffset = new Date().getTimezoneOffset() * 60000;
 
 // Set best text color for map types
-golgotha.maps.TEXT_COLOR = {roadmap:'#002010', satellite:'#efefef', terrain:'#002010'};
+golgotha.maps.TEXT_COLOR = {roadmap:'#002010', satellite:'#efefef', terrain:'#002010', hybrid:'#efefef'};
 golgotha.maps.updateMapText = function () {
 	var newColor = golgotha.maps.TEXT_COLOR[this.getMapTypeId()];
 	var elements = getElementsByClass('mapTextLabel');
@@ -21,13 +28,19 @@ golgotha.maps.updateMapText = function () {
 	return true;
 }
 
+golgotha.maps.updateZoom = function() {
+	var zl = document.getElementById('zoomLevel');
+	if (zl) zl.innerHTML = 'Zoom Level ' + this.getZoom();
+	return true;
+}
+
 golgotha.maps.displayedMarkers = [];
 golgotha.maps.setMap = function(map) {
 	if (map == null)
 		golgotha.maps.displayedMarkers.remove(this);
 	else
 		golgotha.maps.displayedMarkers.push(this);
-	
+
 	this.setMap_OLD(map);
 	return true;
 }
@@ -50,63 +63,118 @@ google.maps.Map.prototype.clearOverlays = function() {
 	return true;
 }
 
-google.maps.Map.prototype.addOverlay = function(mrk) {
-	mrk.setMap(this);
+// Sets copyright DIV
+google.maps.Map.prototype.setCopyright = function(msg) {
+	var sp = document.getElementById('copyright');
+	if (sp) sp.innerHTML = msg;
 	return true;
 }
 
-golgotha.maps.setButtonStyle = function(button) {
-	button.style.color = '#303030';
-	button.style.backgroundColor = 'white';
-	button.style.font = 'small Arial';
-	button.style.fontSize = '10px';
-	button.style.border = '1px solid black';
-	button.style.padding = '2px';
-	button.style.marginBottom = '3px';
-	button.style.textAlign = 'center';
-	button.style.cursor = 'pointer';
-	if (!this.buttonTitle)
-		button.style.width = '6em';
-	else if (this.buttonTitle.length > 11)
-		button.style.width = '8em';
-	else if (this.buttonTitle.length > 9)
-		button.style.width = '7em';
-	else
-		button.style.width = '6em';
+// Adds a layer to the map
+google.maps.Map.prototype.addLayer = function(l) {
+	golgotha.maps.ovLayers.push(l);
+	l.setMap(this);
+	return true;
 }
 
-golgotha.maps.LayerSelectControl = function(title, layer) {
+// Clears all map overlay layers
+google.maps.Map.prototype.clearLayers = function() {
+	if (map.animator) {
+		map.animator.stop();
+		map.animator.clear();
+		delete map.animator;
+	}
+
+	for (var ov = golgotha.maps.ovLayers.pop(); (ov != null); ov = golgotha.maps.ovLayers.pop())
+		ov.setMap(null);
+		
+	this.overlayMapTypes.clear();
+	return true;
+}
+
+// Sets a status message
+google.maps.Map.prototype.setStatus = function(msg) {
+	var sp = document.getElementById('mapStatus');
+	if (sp)	sp.innerHTML = msg;
+	return true;
+}
+
+// Prototype to calculate visible tile addresses for map
+google.maps.Map.prototype.getVisibleTiles = function()
+{
+var bnds = this.getBounds();
+var nw = new google.maps.LatLng(bnds.getNorthEast().lat(), bnds.getSouthWest().lng());
+var se = new google.maps.LatLng(bnds.getSouthWest().lat(), bnds.getNorthEast().lng());
+
+// Get the pixel points of the tiles
+var p = map.getProjection();
+var nwp = p.fromLatLngToPoint(nw); nwp.x = Math.round(nwp.x << map.getZoom()); nwp.y = Math.round(nwp.y << map.getZoom());
+var sep = p.fromLatLngToPoint(se); sep.x = Math.round(sep.x << map.getZoom()); sep.y = Math.round(sep.y << map.getZoom());
+var nwAddr = new google.maps.Point((nwp.x >> 8), (nwp.y >> 8));
+var seAddr = new google.maps.Point((sep.x >> 8), (sep.y >> 8));
+
+// Load the tile addresses
+var tiles = [];
+for (var x = nwAddr.x; x <= seAddr.x; x++) {
+	for (var y = nwAddr.y; y <= seAddr.y; y++)
+		tiles.push(new google.maps.Point(x, y));
+}
+
+return tiles;
+}
+
+golgotha.maps.LayerSelectControl = function(map, title, layer) {
 	var container = document.createElement('div');
 	var btn = document.createElement('div');
+	btn.className = 'layerSelect';
 	btn.ovLayer = layer;
-	golgotha.maps.setButtonStyle(btn);
+	if (title.length > 9)
+		btn.style.width = '8em';
+	else if (title.length > 7)
+		btn.style.width = '7em';
+	else
+		btn.style.width = '6em';
+
 	container.appendChild(btn);
 	btn.appendChild(document.createTextNode(title));
 	google.maps.event.addDomListener(btn, 'click', function() {
-		if (this.ovLayer.getMap() != null)
+		var ov = this.ovLayer;
+		if ((ov.getMap != null) && (ov.getMap() != null) && (ov.getMap() != map))
 			return true;
-
-		golgotha.maps.ovLayers.push(this.ovLayer);
-		this.ovLayer.setMap(map);
-		return true;
+		
+		if (this.isSelected) {
+			document.removeClass(btn, 'displayed');
+			ov.setMap(null);
+			if (ov.getCopyright) map.setCopyright('');
+			delete this.isSelected;
+		} else {
+			document.addClass(btn, 'displayed');
+			ov.setMap(map);
+			if (ov.getCopyright) map.setCopyright(ov.getCopyright());
+			this.isSelected = true;
+		}
 	});
 
 	return container;
 }
 
-golgotha.maps.LayerClearControl = function() {
+golgotha.maps.LayerClearControl = function(map) {
 	var container = document.createElement('div');
 	var btn = document.createElement('div');
-	golgotha.maps.setButtonStyle(btn);
+	btn.className = 'layerClear';
+	btn.style.width = '6em';
 	container.appendChild(btn);
 	btn.appendChild(document.createTextNode('None'));
 	google.maps.event.addDomListener(btn, 'click', function() {
-		for (var ov = golgotha.maps.ovLayers.pop(); (ov != null); ov = golgotha.maps.ovLayers.pop())
-			ov.setMap(null);
-
-		return true;
+		map.clearLayers();
+		var lsc = getElementsByClass('layerSelect', 'div', map.getDiv());
+		for (var x = 0; x < lsc.length; x++) {
+			var dv = lsc[x];
+			delete dv.isSelected;
+			document.removeClass(dv, 'displayed');
+		}
 	});
-
+	
 	return container;
 }
 
@@ -234,7 +302,7 @@ function updateTab(mrk, ofs, size)
 {
 if ((ofs < 0) || (ofs > mrk.tabs.length)) ofs = 0;
 var tab = mrk.tabs[ofs];
-var txt = '<div id="infoTab"';
+var txt = '<div class="infoTab"';
 if (!size) size = mrk.tabSize;
 if (size) {
 	txt += ' style="width:';
