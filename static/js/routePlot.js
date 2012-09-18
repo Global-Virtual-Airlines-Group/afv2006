@@ -154,9 +154,16 @@ xmlreq.onreadystatechange = function() {
 
 		// Figure out which row to put it in
 		var isDst = (wx.getAttribute('dst') == 'true');
-		displayObject(document.getElementById(isDst ? 'wxAr' : 'wxDr'), true);
-		var metarSpan = document.getElementById(isDst ? 'wxAmetar' : 'wxDmetar');
-		metarSpan.innerHTML = wx.firstChild.data;
+		var isTAF = (wx.getAttribute('type') == 'taf');
+		if (!isTAF) {
+			displayObject(document.getElementById(isDst ? 'wxAr' : 'wxDr'), true);
+			var metarSpan = document.getElementById(isDst ? 'wxAmetar' : 'wxDmetar');
+			metarSpan.innerHTML = wx.firstChild.data;
+		} else {
+			displayObject(document.getElementById(isDst ? 'wxAr' : 'wxDr'), true);
+			var tafSpan = document.getElementById('wxAtaf');
+			tafSpan.innerHTML = '<br />' + wx.firstChild.data;
+		}
 	}
 
 	return true;
