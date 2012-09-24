@@ -174,6 +174,22 @@ for (var x = 0; x < this.length; x++)
 return result;
 }
 
+if (!Array.prototype.indexOf)
+{
+	Array.prototype.indexOf = function(obj) {
+		for (var x = 0; x < this.length; x++) {	
+			if (this[x] == obj)
+				return x;
+		}
+
+		return -1;
+	}
+}
+
+Array.prototype.contains = function(obj) {
+	return (this.indexOf(obj) != -1);
+}
+
 function checkSubmit()
 {
 if (document.isSubmit) {
