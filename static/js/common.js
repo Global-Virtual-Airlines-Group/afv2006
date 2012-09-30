@@ -132,16 +132,16 @@ for (var x = 0; x < combo.options.length; x++) {
 return false;
 }
 
-function getChild(e, name)
+golgotha.getChild = function(e, name)
 {
 var children = e.getElementsByTagName(name);
 return (children.length == 0) ? null : children[0];
 }
 
 if (window.Element != undefined)
-	Element.prototype.getChild = function(name) { return getChild(this, name); };
+	Element.prototype.getChild = function(name) { return golgotha.getChild(this, name); };
 
-getCDATA = function(e)
+golgotha.getCDATA = function(e)
 {
 var child = e.firstChild;	
 while ((child != null) && (child.nodeType != 4))
@@ -151,7 +151,7 @@ return child;
 };
 
 if (window.Element != undefined)
-	Element.prototype.getCDATA = function() { return getCDATA(this); };
+	Element.prototype.getCDATA = function() { return golgotha.getCDATA(this); };
 
 Array.prototype.remove = function(obj)
 {
