@@ -1,4 +1,4 @@
-/* Cascading Style Sheet for HTML Forms (C) 2005, 2006, 2007, 2009, 2010 Global Virtual Airlines Group. */
+/* Cascading Style Sheet for HTML Forms (C) 2005, 2006, 2007, 2009, 2010, 2012 Global Virtual Airlines Group. */
 
 table.form, table.bar {
 	table-layout: auto;
@@ -8,8 +8,8 @@ table.form, table.bar {
 /* Title Top Row */
 table.form tr.title {
 	font-size: 9pt;
-	background-color: #0B228C;
-	font-family: Tahoma, Verdana;
+	background-color: #0b228c;
+	font-family: tahoma, verdana;
 	vertical-align: middle;
 	color: #ffffff;
 	font-weight: bold;
@@ -17,21 +17,25 @@ table.form tr.title {
 
 /* Button bar table */
 table.bar td {
-	background-color: #0B228C;
+	background-color: #0b228c;
 	text-align: center;
 	vertical-align: middle;
 }
 
 table.form tr {
-	font-family: Tahoma, Verdana;
+	font-family: tahoma, verdana;
 	vertical-align: middle;
-	background-color: #EFEFEF;
+	background-color: #efefef;
+}
+
+table.form td {
+	padding: 3px 3px 3px 3px;
 }
 
 table.form td.label {
-	background-color: #0B228C;
+	background-color: #0b228c;
 	text-align: right;
-	color: #FFFFFF;
+	color: #ffffff;
 	font-size: 8pt;
 	width: 124px;
 }
@@ -54,18 +58,18 @@ table.form td.data {
 }
 
 select {
-	font-family: Tahoma, Verdana;
+	font-family: tahoma, verdana;
 	font-size: 9pt;
 	font-weight: normal;
-	background-color: #0080D1;
-	color: #FFFFFF;
+	background-color: #0080d1;
+	color: #ffffff;
 }
 
 input, textarea {
-	font-family: Tahoma, Verdana;
+	font-family: tahoma, verdana;
 	font-size: 9pt;
-	border: 1px solid #0B228C;
-	background: #F0F4F8;
+	border: 1px solid #0b228c;
+	background: #f0f4f8;
 }
 
 input.radio, input.check, input[type="checkbox"] {
@@ -78,26 +82,26 @@ tr.title input.check {
 }
 
 input.req, textarea.req {
-	border: 1px solid #E00404;
-	background: #FFF8FA;
+	border: 1px solid #e00404;
+	background: #fff8fa;
 }
 
 select.req {
-	border: 1px solid #E00404;
+	border: 1px solid #e00404;
 }
 
 *.label :link, *.label :visited {
 	font-size: 9pt;	
-	font-family: Tahoma, Verdana;
+	font-family: tahoma, verdana;
 	text-decoration: underline;
-	color: #EFFFFF;
+	color: #efffff;
 }
 
 *.title a {
 	font-size: 9pt;
 	text-transform: uppercase;
 	font-weight: bold;
-	font-family: Tahoma, Verdana;
+	font-family: tahoma, verdana;
 	text-decoration: underline;
-	color: #EFFFFF;
+	color: #efffff;
 }
