@@ -52,7 +52,7 @@
 		<mkdir dir="${java.io.tmpdir}/afv/src/jsp" />
 	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="0" poolingEnabled="false" 
 	    	xpoweredBy="true" validateXml="false" webXmlFragment="${jspc.afv.webXMLInc}"
-	    	compilerTargetVM="1.7" compilerSourceVM="1.7" trimSpaces="true"
+	    	compilerTargetVM="1.7" compilerSourceVM="1.7" trimSpaces="false"
 	    	outputDir="${java.io.tmpdir}/afv/src/jsp" />
 		
 		<!-- Clean up -->
@@ -111,6 +111,7 @@
 			port="${webapp.dev.port}" verbose="yes" trust="yes" password="${webapp.dev.pwd}">
 			<fileset dir="${java.io.tmpdir}/build">
 				<include name="golgotha.jar" />
+				<include name="golgotha_web.jar" />
 				<include name="golgotha_jsp.jar" />
 				<modified seldirs="false" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
@@ -191,6 +192,7 @@
 			port="${webapp.ssh.port}" verbose="yes" trust="yes" password="${webapp.ssh.pwd}">
 			<fileset dir="${java.io.tmpdir}/build">
 				<include name="golgotha.jar" />
+				<include name="golgotha_web.jar" />
 				<include name="golgotha_jsp.jar" />
 				<modified seldirs="false" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
