@@ -400,7 +400,7 @@
 		<js>js</js>
 		<img>img</img>
 		<swf>swf</swf>
-		<library>/usr/www/library</library>
+		<library>/home/www/library</library>
 		<httplog>/var/log/www</httplog>
 	</path>
 	
