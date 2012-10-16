@@ -439,7 +439,6 @@
 		<css>css</css>
 		<js>js</js>
 		<img>img</img>
-		<swf>swf</swf>
 		<library>/home/www/library</library>
 		<newsletter>/home/www/afnws</newsletter>
 		<httplog>/var/log/www</httplog>
