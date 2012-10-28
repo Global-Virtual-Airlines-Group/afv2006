@@ -78,6 +78,14 @@ google.maps.Map.prototype.addLayer = function(l) {
 	return true;
 }
 
+// Closes map infoWindow
+google.maps.Map.prototype.closeWindow = function() {
+	if (this.infoWindow)
+		this.infoWindow.close();
+
+	return true;
+}
+
 // Clears all map overlay layers
 google.maps.Map.prototype.clearLayers = function() {
 	if (map.animator) {
@@ -124,11 +132,11 @@ for (var x = nwAddr.x; x <= seAddr.x; x++) {
 return tiles;
 }
 
-golgotha.maps.LayerSelectControl = function(map, title, layer) {
+golgotha.maps.LayerSelectControl = function(map, title, layers) {
 	var container = document.createElement('div');
 	var btn = document.createElement('div');
 	btn.className = 'layerSelect';
-	btn.ovLayer = layer;
+	btn.ovLayers = (layers instanceof Array) ? layers : [layers];
 	if (title.length > 9)
 		btn.style.width = '8em';
 	else if (title.length > 7)
@@ -139,20 +147,28 @@ golgotha.maps.LayerSelectControl = function(map, title, layer) {
 	container.appendChild(btn);
 	btn.appendChild(document.createTextNode(title));
 	google.maps.event.addDomListener(btn, 'click', function() {
-		var ov = this.ovLayer;
-		if ((ov.getMap != null) && (ov.getMap() != null) && (ov.getMap() != map))
-			return true;
-		
 		if (this.isSelected) {
 			document.removeClass(btn, 'displayed');
-			ov.setMap(null);
-			if (ov.getCopyright) map.setCopyright('');
-			delete this.isSelected;
+			try { delete btn.isSelected; } catch (err) { btn.isSelected = false; }
 		} else {
 			document.addClass(btn, 'displayed');
-			ov.setMap(map);
-			if (ov.getCopyright) map.setCopyright(ov.getCopyright());
-			this.isSelected = true;
+			btn.isSelected = true;
+		}
+
+		for (var x = 0; x < this.ovLayers.length; x++) {
+			var ov = this.ovLayers[x];
+			if ((ov.getMap != null) && (ov.getMap() != null) && (ov.getMap() != map))
+				return true;
+
+			if (this.isSelected) {
+				ov.setMap(map);
+				if (ov.getCopyright) map.setCopyright(ov.getCopyright());
+				if (ov.getTextDate) map.setStatus(ov.getTextDate());
+			} else {
+				ov.setMap(null);
+				if (ov.getCopyright) map.setCopyright('');
+				if (ov.getTextDate) map.setStatus('');
+			}
 		}
 	});
 
