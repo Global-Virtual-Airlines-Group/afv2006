@@ -7,8 +7,10 @@ div.style.width = '256px';
 div.style.height = '256px';
 var img = doc.createElement('img');
 img.src = this.getTileUrl(pnt, zoom);
-img.setAttribute('class', 'wxTile ' + this.get('imgClass') + ' ' + this.get('imgClass') + '-' + this.get('date'));
-var tx = this.tempZeroOpacity ? 0 : this.getOpacity();
+var c = 'wxTile ' + this.get('imgClass') + ' ' + this.get('imgClass') + '-' + this.get('date');
+img.setAttribute('class', c);
+if (golgotha.maps.util.oldIE) img.IE8 = c;
+var tx = (this.tempZeroOpacity==true) ? 0 : this.getOpacity();
 if (golgotha.maps.util.isIE)
 	img.style.filter = 'alpha(opacity=' + (tx*100) + ')';
 else
@@ -89,7 +91,11 @@ golgotha.maps.WeatherLayer = function(opts, name, timestamp) {
 		var imgs = getElementsByClass(this.get('imgClass') + '-' + this.get('date'), 'img');
 		for (var x = 0; x < imgs.length; x++) {
 			var img = imgs[x];
-			img.style.opacity = isVisible ? this.getOpacity() : 0;
+			var o = isVisible ? this.getOpacity() : 0;
+			if (golgotha.maps.util.isIE)
+				img.style.filter = 'alpha(opacity=' + (o*100) + ')';
+			else
+				img.style.opacity = o;
 		}
 		
 		return true;
@@ -99,7 +105,10 @@ golgotha.maps.WeatherLayer = function(opts, name, timestamp) {
 		var imgs = getElementsByClass(this.get('imgClass'));
 		for (var x = 0; x < imgs.length; x++) {
 			var img = imgs[x];
-			img.style.opacity = 0;
+			if (golgotha.maps.util.isIE)
+				img.style.filter = 'alpha(opacity=0)';
+			else
+				img.style.opacity = 0;
 		}
 
 		return true;
@@ -115,7 +124,7 @@ golgotha.maps.WeatherLayer = function(opts, name, timestamp) {
 			img.loadCount = 1;
 			img.onload = function(e) {
 				imgsToLoad.remove(this.src);
-				delete this.loadCount;
+				try { delete this.loadCount; } catch (err) { this.loadCount = null; }
 				if (tileLoadHandler != null)
 					tileLoadHandler.call();
 				if (imgsToLoad.length == 0) {
