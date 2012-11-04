@@ -1,7 +1,7 @@
 // ATC positions
 var selectedFIRs = [];
 
-function getACARSData(pirepID)
+function getACARSData(pirepID, doToggle)
 {
 // Disable checkboxes
 var f = document.forms[0];
@@ -50,8 +50,11 @@ xmlreq.onreadystatechange = function() {
 	// Enable checkboxes
 	f.showFDR.disabled = false;
 	f.showRoute.disabled = false;
+	if (doToggle)
+		f.showRoute.click();
+
 	return true;
-} // function
+}
 
 xmlreq.send(null);
 return true;
@@ -70,7 +73,7 @@ return true;
 function showAPP(ctr, range)
 {
 hideATC();
-var c = new google.maps.Circle({center:ctr, radius:(range*1609.344), strokeColor:'#efefff', strokeWeight:1, strokeOpacity:0.85, fillColor:'#7f7f80', fillOpacity:0.25, zIndex:golgotha.maps.z.POLYGON});
+var c = new google.maps.Circle({center:ctr, radius:golgotha.maps.miles2Meter(range), strokeColor:'#efefff', strokeWeight:1, strokeOpacity:0.85, fillColor:'#7f7f80', fillOpacity:0.25, zIndex:golgotha.maps.z.POLYGON});
 selectedFIRs.push(c);
 c.setMap(map);
 return true;
@@ -82,16 +85,14 @@ var xmlreq = getXMLHttpRequest();
 xmlreq.open('get', 'fir.ws?id=' + code, true);
 xmlreq.onreadystatechange = function() {
 	if ((xmlreq.readyState != 4) || (xmlreq.status != 200)) return false;
-	var xdoc = xmlreq.responseXML;
-	var re = xdoc.documentElement;
-	
+	var re = xmlreq.responseXML.documentElement;
+
 	// Loop through the FIRs
 	hideATC();
 	var fs = re.getElementsByTagName('fir');
 	if (fs.length == 0) return true;
 	for (var x = 0; x < fs.length; x++) {
-		var fe = fs[x];
-		var bPts = [];	
+		var fe = fs[x]; var bPts = [];	
 
 		// Display border
 		var pts = fe.getElementsByTagName('pt');
@@ -110,7 +111,7 @@ xmlreq.onreadystatechange = function() {
 
 	gaEvent('ACARS', 'Show FIR', code);
 	return true;
-} // function
+}
 
 xmlreq.send(null);
 return true;
