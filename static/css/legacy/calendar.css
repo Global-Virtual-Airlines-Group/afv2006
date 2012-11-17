@@ -1,11 +1,13 @@
-/* Cascading Style Sheet for Calendar pages */
+/* Cascading Style Sheet for Calendar pages (C) 2005, 2006, 2007, 2009, 2012 Global Virtual Airlines Group. */
 table.calendar {
 	table-layout: auto;
 	border-collapse: separate;
 	border-spacing: 3px 3px;
-	border-width: 4px 4px 4px 4px;
-	padding: 6px 6px 6px 6px;
 	width: 100%;
+}
+
+table.calendar tr {
+	background-color: #efefef;
 }
 
 table.calendar tr {
