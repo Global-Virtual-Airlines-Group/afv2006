@@ -17,8 +17,7 @@
 		</javac>
 		
 		<!-- Compress the Java classes into a single JAR file -->
-		<jar basedir="${java.io.tmpdir}/afv/build/classes" compress="true" index="true"
-			 destfile="${java.io.tmpdir}/afv/build/afv2006.jar" />
+		<jar basedir="${java.io.tmpdir}/afv/build/classes" compress="true" index="true" destfile="${java.io.tmpdir}/afv/build/afv2006.jar" />
 	</target>
 	
 	<!-- Precompile the JSP pages -->
@@ -91,7 +90,56 @@
 			token="&lt;!-- [INSERT AFV FRAGMENT HERE] --&gt;" value="${afv.webXmlFragment}" />
 	</target>
 	
-	<target name="deploy" depends="jspc">
+	<target name="minify">
+		<available file="lib/YUIAnt.jar" property="YUIANT_AVAILABLE" />
+		<fail unless="YUIANT_AVAILABLE" message="Run jar target to generate the required task" />
+		<taskdef name="yuicompress" classname="com.yahoo.platform.yui.compressor.YUICompressTask">
+			<classpath>
+				<fileset dir="../DVA2006/lib" includes="yuicompressor-*.jar" />
+				<pathelement path="../DVA2006/lib/YUIAnt.jar" />
+			</classpath>
+		</taskdef>
+
+		<!-- Minify JS -->
+		<mkdir dir="${java.io.tmpdir}/build/min/js" />
+		<yuicompress linebreak="300" warn="false" munge="yes" preserveallsemicolons="true" outputfolder="${java.io.tmpdir}/afv/build/min/js">
+			<fileset dir="static/js" >
+				<include name="*.js" />
+				<modified seldirs="true" algorithm="digest" update="true" delayupdate="false">
+					<param name="algorithm.algorithm" value="MD5" />
+					<param name="cache.cachefile" value="../.local_data/afv.min.cache.txt" />
+				</modified>
+			</fileset>
+		</yuicompress>
+		<move todir="${java.io.tmpdir}/afv/build/min/js" includeemptydirs="false">
+			<fileset dir="${java.io.tmpdir}/afv/build/min/js">
+				<include name="*.js" />
+				<exclude name="*-min.js" />
+			</fileset>
+			<mapper type="glob" from="*.js" to="*-min.js"/>
+		</move>
+		
+		<!-- Minify CSS -->
+		<mkdir dir="${java.io.tmpdir}/build/min/css" />
+		<yuicompress linebreak="300" warn="false" munge="yes" preserveallsemicolons="true" outputfolder="${java.io.tmpdir}/afv/build/min/css">
+			<fileset dir="static/css" >
+				<include name="**/*.css" />
+				<modified seldirs="true" algorithm="digest" update="true" delayupdate="false">
+					<param name="algorithm.algorithm" value="MD5" />
+					<param name="cache.cachefile" value="../.local_data/afv.min.cache.txt" />
+				</modified>
+			</fileset>
+		</yuicompress>
+		<move todir="${java.io.tmpdir}/afv/build/min/css" includeemptydirs="false">
+			<fileset dir="${java.io.tmpdir}/afv/build/min/css">
+				<include name="**/*.css" />
+				<exclude name="**/*-min.css" />
+			</fileset>
+			<mapper type="glob" from="*.css" to="*-min.css"/>
+		</move>
+	</target>
+	
+	<target name="deploy" depends="jspc,minify">
 		<loadproperties srcFile="data/build_deploy.properties" />
 		<property name="webapp.dev.port" value="22" />
 		<property name="http.dev.port" value="22" />
@@ -141,9 +189,14 @@
 		</scp>
 		
 		<!-- Upload static content to the HTTP server -->
-		<scp todir="${http.dev.user}@${http.dev.server}:${http.dev.path}" verbose="yes"
-			port="${http.dev.port}" trust="yes" password="${http.dev.pwd}">
+		<scp todir="${http.dev.user}@${http.dev.server}:${http.dev.path}" verbose="yes" port="${http.dev.port}" trust="yes" password="${http.dev.pwd}">
 			<fileset dir="static">
+				<modified seldirs="true" algorithm="digest">
+					<param name="algorithm.algorithm" value="MD5" />
+					<param name="cache.cachefile" value="../.local_data/afv.static.cache.dev.txt" />
+				</modified>
+			</fileset>
+			<fileset dir="${java.io.tmpdir}/afv/build/min">
 				<modified seldirs="true" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="../.local_data/afv.static.cache.dev.txt" />
@@ -160,7 +213,7 @@
 	</target>
 	
 	<!-- Production Deployment via SSH -->
-	<target name="prod_deploy" depends="jspc">
+	<target name="prod_deploy" depends="jspc,minify">
 		<loadproperties srcFile="data/build_deploy.properties" />
 		<property name="webapp.ssh.port" value="22" />
 		<property name="http.ssh.port" value="22" />
@@ -216,7 +269,6 @@
 			<fileset dir="etc">
 				<include name="commands.xml" />
 				<include name="services.xml" />
-				<include name="profanity.txt" />
 				<include name="codeshares.txt" />
 				<modified seldirs="false" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
@@ -235,6 +287,12 @@
 		<scp todir="${http.ssh.user}@${http.ssh.server}:${http.ssh.path}"
 			port="${http.ssh.port}" verbose="yes" trust="yes" password="${http.ssh.pwd}">
 			<fileset dir="static">
+				<modified seldirs="true" algorithm="digest">
+					<param name="algorithm.algorithm" value="MD5" />
+					<param name="cache.cachefile" value="../.local_data/afv.static.cache.txt" />
+				</modified>
+			</fileset>
+			<fileset dir="${java.io.tmpdir}/afv/build/min">
 				<modified seldirs="true" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="../.local_data/afv.static.cache.txt" />
