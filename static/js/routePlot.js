@@ -184,11 +184,11 @@ xmlreq.onreadystatechange = function() {
 		if (!isTAF) {
 			displayObject(document.getElementById(isDst ? 'wxAr' : 'wxDr'), true);
 			var metarSpan = document.getElementById(isDst ? 'wxAmetar' : 'wxDmetar');
-			metarSpan.innerHTML = wx.firstChild.data;
+			metarSpan.innerHTML = golgotha.getCDATA(wx).data;
 		} else {
 			displayObject(document.getElementById(isDst ? 'wxAr' : 'wxDr'), true);
 			var tafSpan = document.getElementById('wxAtaf');
-			tafSpan.innerHTML = '<br />' + wx.firstChild.data;
+			tafSpan.innerHTML = golgotha.getCDATA(wx).data;
 		}
 	}
 
