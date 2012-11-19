@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- Copyright 2005, 2006, 2008, 2010, 2011 Global Virtual Airlines Group. All Rights Reserved. -->
 <project default="deploy">
-	<!-- Precompile the Java Code -->
-	<target name="compile">
+	<target name="compile" description="Precompile the Java Code">
 		<mkdir dir="${java.io.tmpdir}/afv/build/classes" />
 		<javac srcdir="src/java" optimize="on" destdir="${java.io.tmpdir}/afv/build/classes"
 		 debug="true" debuglevel="lines,vars,source" source="1.7" target="1.7"
@@ -51,7 +50,7 @@
 		
 		<!-- Precompile the files -->
 		<mkdir dir="${java.io.tmpdir}/afv/src/jsp" />
-	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="0" poolingEnabled="false" 
+	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="0" poolingEnabled="true" 
 	    	xpoweredBy="true" validateXml="false" webXmlFragment="${jspc.afv.webXMLInc}"
 	    	compilerTargetVM="1.7" compilerSourceVM="1.7" trimSpaces="false"
 	    	outputDir="${java.io.tmpdir}/afv/src/jsp" />
@@ -90,8 +89,8 @@
 			token="&lt;!-- [INSERT AFV FRAGMENT HERE] --&gt;" value="${afv.webXmlFragment}" />
 	</target>
 	
-	<target name="minify">
-		<available file="lib/YUIAnt.jar" property="YUIANT_AVAILABLE" />
+	<target name="minify" description="Minify JS and CSS files">
+		<available file="../DVA2006/lib/YUIAnt.jar" property="YUIANT_AVAILABLE" />
 		<fail unless="YUIANT_AVAILABLE" message="Run jar target to generate the required task" />
 		<taskdef name="yuicompress" classname="com.yahoo.platform.yui.compressor.YUICompressTask">
 			<classpath>
@@ -139,7 +138,7 @@
 		</move>
 	</target>
 	
-	<target name="deploy" depends="jspc,minify">
+	<target name="deploy" depends="jspc,minify" description="Deploy to Development environment">
 		<loadproperties srcFile="data/build_deploy.properties" />
 		<property name="webapp.dev.port" value="22" />
 		<property name="http.dev.port" value="22" />
@@ -206,14 +205,15 @@
 	</target>
 	
 	<!-- Clean out compiled data -->
-	<target name="clean">
+	<target name="clean" description="Clean build directories">
 		<delete dir="${java.io.tmpdir}/build" />
 		<delete dir="${java.io.tmpdir}/src/jsp" />
 		<delete file="${java.io.tmpdir}/build/web.xml" />
+		<delete file="../.local_data/afv.min.cache.txt" />
 	</target>
 	
 	<!-- Production Deployment via SSH -->
-	<target name="prod_deploy" depends="jspc,minify">
+	<target name="prod_deploy" depends="jspc,minify" description="Deploy to Production environment">
 		<loadproperties srcFile="data/build_deploy.properties" />
 		<property name="webapp.ssh.port" value="22" />
 		<property name="http.ssh.port" value="22" />
