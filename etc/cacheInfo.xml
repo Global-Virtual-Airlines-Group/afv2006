@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <caches>
 	<!-- Pilot data caches -->
-	<cache id="AirlineInfo" max="4" />
 	<cache id="UserData" max="512" />
 	<cache id="Pilots" max="512" expires="14400" />
 	<cache id="Signature" max="320" />
@@ -49,8 +48,8 @@
 	<cache id="MessageTemplate" max="16" />
 	<cache id="LibraryDLCount" max="64" expires="1800" />
 
-	<cache id="IPInfo" max="512" expires="345600" />
+	<cache id="IPInfo" max="256" expires="345600" />
+	<cache id="IPBlock" max="512" expires="345600" />
 	<cache id="HTTPTotals" max="2" expires="7200" />
-	<cache id="TS2Data" max="16" expires="1200" />
 	<cache id="TableStats" max="12" expires="1800" />
 </caches>
