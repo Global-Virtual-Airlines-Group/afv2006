@@ -132,6 +132,12 @@ for (var x = 0; x < combo.options.length; x++) {
 return false;
 }
 
+function getValue(combo)
+{
+if (combo.selectedIndex == -1) return null;
+return combo.options[combo.selectedIndex].value;
+}
+
 golgotha.getChild = function(e, name)
 {
 var children = e.getElementsByTagName(name);
