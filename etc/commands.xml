@@ -624,12 +624,6 @@
 		<roles>Schedule</roles>
 	</command>
 
-	<command id="trouteplot">
-		<name>SID/STAR Plot</name>
-		<class>org.deltava.commands.navdata.TerminalRoutePlotCommand</class>
-		<roles>Schedule</roles>
-	</command>
-
 	<command id="trouteimport">
 		<name>Import SID/STAR data</name>
 		<class>org.deltava.commands.navdata.TerminalRouteImportCommand</class>
@@ -1137,6 +1131,12 @@
 	<command id="updrwy">
 		<name>PIREP Update Runway</name>	
 		<class>org.deltava.commands.pirep.UpdateRunwayCommand</class>
+		<roles>PIREP</roles>
+	</command>
+
+	<command id="gaterecalc">
+		<name>Recalculate Gates</name>
+		<class>org.deltava.commands.pirep.GateCalculateCommand</class>
 		<roles>PIREP</roles>
 	</command>
 
