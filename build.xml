@@ -119,7 +119,7 @@
 		</move>
 		
 		<!-- Minify CSS -->
-		<mkdir dir="${java.io.tmpdir}/build/min/css" />
+		<mkdir dir="${java.io.tmpdir}/afv/build/min/css" />
 		<yuicompress linebreak="300" warn="false" munge="yes" preserveallsemicolons="true" outputfolder="${java.io.tmpdir}/afv/build/min/css">
 			<fileset dir="static/css" >
 				<include name="**/*.css" />
