@@ -100,7 +100,7 @@
 		</taskdef>
 
 		<!-- Minify JS -->
-		<mkdir dir="${java.io.tmpdir}/build/min/js" />
+		<mkdir dir="${java.io.tmpdir}/afv/build/min/js" />
 		<yuicompress linebreak="300" warn="false" munge="yes" preserveallsemicolons="true" outputfolder="${java.io.tmpdir}/afv/build/min/js">
 			<fileset dir="static/js" >
 				<include name="*.js" />
