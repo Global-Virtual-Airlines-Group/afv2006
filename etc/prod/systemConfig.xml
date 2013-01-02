@@ -486,7 +486,16 @@
 			<version>4.1</version>
 		</list>
 		
-		<assignto type="Integer">006</assignto>
+		<assignto>
+			<website type="Integer">719</website>
+			<server type="Integer">719</server>
+			<fleet type="Integer">719</fleet>
+			<manuals type="Integer">719</manuals>
+			<examinations type="Integer">719</examinations>
+			<acars type="Integer">719</acars>
+			<schedule type="Integer">719</schedule>
+			<dispatch type="Integer">719</dispatch>
+		</assignto>
 	</issue_track>
 
 	<testing>
