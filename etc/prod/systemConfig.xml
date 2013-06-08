@@ -611,6 +611,12 @@
 			<reload type="Integer">15000</reload>
 		</livemap>
 
+		<!-- Archive settings -->
+		<archive>
+			<path>/home/backup/acars</path>		
+			<buckets type="Integer">384</buckets>
+		</archive>
+
 		<!-- XACARS sim versions -->
 		<xacars>
 			<list name="sims" unique="true" attr="sim">
