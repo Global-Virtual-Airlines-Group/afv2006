@@ -299,7 +299,7 @@ for (var x = 0; x < seriesData.seriesNames.length; x++) {
 		slices.push(ovLayer);
 	}
 
-	if (!isFF)
+	if (isFF)
 		slices.reverse();
 
 	this.layers.names.push(layerName);
