@@ -5,7 +5,7 @@
 	<airline>
 		<domain>afva.net</domain>
 		<name>Air France Virtual Airlines</name>
-		<url>afv2006.afva.net</url>
+		<url>dev.afva.net</url>
 		<banner>AFVBanner.png</banner>
 		<code>AFV</code>
 		<forum>Forums</forum>
@@ -61,7 +61,7 @@
 		
 		<partner>
 			<name>Delta Virtual Airlines</name>
-			<url>dva2006.deltava.org</url>
+			<url>dev.deltava.org</url>
 			<location>North American</location>
 		</partner>
 
@@ -127,7 +127,7 @@
 	<!-- JDBC data source configuration -->
 	<jdbc>
 		<driver>com.mysql.jdbc.Driver</driver>
-		<url>jdbc:mysql://polaris.sce.net/afv</url>
+		<url>jdbc:mysql://localhost/afv</url>
 		<user>afv</user>
 		<pwd>m4n3l5</pwd>
 		
