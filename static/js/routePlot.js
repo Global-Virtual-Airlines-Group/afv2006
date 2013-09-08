@@ -29,7 +29,7 @@ if ((f.route) && (f.route.value.length > 0))
 	params['route'] = f.route.value;
 if (getInactive)
 	params['getInactive'] = 'true';
-for (var j = 0; j < f.simVersion.length; j++) {
+for (var j = 0; ((f.simVersion) && (j < f.simVersion.length)); j++) {
 	if (f.simVersion[j].checked)
 		params['simVersion'] = f.simVersion[j].value;
 }
@@ -240,12 +240,15 @@ xmlreq.onreadystatechange = function() {
 		if (!isTAF) {
 			displayObject(document.getElementById(isDst ? 'wxAr' : 'wxDr'), true);
 			var metarSpan = document.getElementById(isDst ? 'wxAmetar' : 'wxDmetar');
-			metarSpan.innerHTML = golgotha.getCDATA(wx).data;
+			displayObject(metarSpan, true);
+			if (metarSpan)
+				metarSpan.innerHTML = golgotha.getCDATA(wx).data;
 		} else {
 			displayObject(document.getElementById(isDst ? 'wxAr' : 'wxDr'), true);
 			var tafSpan = document.getElementById('wxAtaf');
 			displayObject(tafSpan, true);
-			tafSpan.innerHTML = golgotha.getCDATA(wx).data;
+			if (tafSpan)
+				tafSpan.innerHTML = golgotha.getCDATA(wx).data;
 		}
 	}
 
