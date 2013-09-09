@@ -69,7 +69,7 @@ for (var i = 0; i < elements.length; i++) {
 		combo.selectedIndex = (i+1);
 }
 
-gaEvent('Route Plotter', 'Update Routes');
+golgotha.event.beacon('Route Plotter', 'Update Routes');
 return true;
 }
 
@@ -261,7 +261,7 @@ xmlreq.onreadystatechange = function() {
 
 if (myParams == null) myParams = getAJAXParams();
 xmlreq.send(formatAJAXParams(myParams, '&'));
-gaEvent('Route Plotter', 'Plot', formatAJAXParams(myParams, ' '));
+golgotha.event.beacon('Route Plotter', 'Plot', formatAJAXParams(myParams, ' '));
 return true;
 }
 
@@ -317,7 +317,7 @@ xmlreq.onreadystatechange = function() {
 
 xmlreq.send(null);
 if (faReload) f.forceFAReload.checked = false;
-gaEvent('Route Plotter', 'Route Search', aD + '-' + aA, ext ? 1 : 0);
+golgotha.event.beacon('Route Plotter', 'Route Search', aD + '-' + aA, ext ? 1 : 0);
 return true;
 }
 
@@ -353,7 +353,7 @@ try {
 
 enableElement('RouteSaveButton', true);
 plotMap();
-gaEvent('Route Plotter', 'Set Route');
+golgotha.event.beacon('Route Plotter', 'Set Route');
 return true;
 }
 
