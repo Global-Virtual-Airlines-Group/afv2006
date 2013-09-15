@@ -421,9 +421,6 @@
 		<from>AFV301</from>
 		<auto_reject type="Integer">5</auto_reject>
 		<ip_interval type="Integer">7</ip_interval>
-		
-		<!-- Max stage for eq choices -->
-		<max_stage type="Integer">2</max_stage>
 	</registration>
 
 	<!-- PICS content ratings -->
@@ -437,6 +434,8 @@
 			<version>3.0</version>
 			<version>4.0</version>
 			<version>4.1</version>
+			<version>5.1</version>
+			<version>5.2</version>
 		</list>
 		
 		<assignto type="Integer">006</assignto>
