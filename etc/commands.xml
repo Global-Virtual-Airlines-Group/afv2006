@@ -1793,7 +1793,13 @@
 	<command id="cmdlog">
 		<name>View Command Log</name>
 		<class>org.deltava.commands.system.CommandLogViewCommand</class>
-		<roles>Admin,Developer</roles>
+		<roles>Developer</roles>
+	</command>
+	
+	<command id="metadata">
+		<name>System Metadata</name>
+		<class>org.deltava.commands.system.MetadataViewCommand</class>
+		<roles>Operations,HR,Developer</roles>	
 	</command>
 
 
