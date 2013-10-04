@@ -216,6 +216,16 @@ body {
 	font-size: 9pt;
 }
 
+div.ovalBorder {
+	border: 1px solid;
+	padding: 12px;
+	border-radius: 14px;
+}
+
+img.noborder {
+	border: none;
+}
+
 .cmdButton, .button {
 	background-color: #000080;
 	color: #ffffff;
