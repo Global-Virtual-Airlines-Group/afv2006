@@ -54,6 +54,12 @@ in our discussion forums in the past 24 hours.</c:if>
 <fmt:quantity value="${runTimeHours}" single="hour" /> and <fmt:quantity value="${runTimeMinutes}" single="minute" />.</c:if>
 <br />
 <br />
+<content:ip IPv4="false">
+<div class="ovalBorder mid" style="width:80%;">You are visiting <content:airline /> today using IPv6. This new Internet 
+addressing technology eliminates many of the hacks and workarounds needed to combat the impending exhaustion of IPv4 
+addresses. Thanks for doing your part to movethe Internet forward to IPv6!</div>
+<br />
+</content:ip>
 <content:filter roles="!Pilot">
 Please feel free to browse around our web site. Once you join <content:airline />' active pilot roster, 
 you may submit flight reports and contribute to our image library. If you are interested in a serious 
