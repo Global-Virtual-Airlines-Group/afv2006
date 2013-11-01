@@ -238,7 +238,6 @@
 		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path.common}"
 			port="${webapp.ssh.port}" verbose="yes" trust="yes" keyfile="${webapp.ssh.key}">
 			<fileset dir="../DVA2006/lib/deploy" includes="*.jar">
-				<exclude name="log4j*.jar" />
 				<modified seldirs="false" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="../.local_data/jar.cache.txt" />
