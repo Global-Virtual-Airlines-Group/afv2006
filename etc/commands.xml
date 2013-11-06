@@ -1796,6 +1796,12 @@
 		<roles>Operations,HR,Developer</roles>	
 	</command>
 
+	<command id="ip6import">
+		<name>IPv6 Netblock Import</name>	
+		<class>org.deltava.commands.system.IP6BlockImportCommand</class>
+		<roles>Operations,Developer</roles>
+	</command>
+
 
 	<!-- Help Desk commands -->
 	<command id="helpdesk">
