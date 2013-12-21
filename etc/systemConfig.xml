@@ -285,10 +285,6 @@
 		</password>
 
 		<key>
-			<map name="googleMaps">
-				<golgotha.afva.net>ABQIAAAAWFzTV_nG8JA7h9y7QsKTgRRMjYJyMG3aT4ivWV5QVzcQ-NndEBQQUTAEG3JvmzoFAnmiVGDg1mi7cA</golgotha.afva.net>
-				<afv2006.afva.net>ABQIAAAAWFzTV_nG8JA7h9y7QsKTgRQJKTmPgeeZAZtzY_uUn1oxnhXwuBT3UyczTQrj3iUUJ6DiKPS-L4Fuug</afv2006.afva.net>
-			</map>
 			<analytics>***REMOVED***</analytics>
 		</key>
 		
