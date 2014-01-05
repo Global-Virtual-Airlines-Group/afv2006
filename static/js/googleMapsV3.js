@@ -248,6 +248,7 @@ golgotha.maps.ShapeLayer = function(opts, name, imgClass) {
 
 function googleMarker(color, point, label)
 {
+console.log('googleMarker deprecated');
 if (color == 'null') return point;
 var icn = new google.maps.MarkerImage('/' + golgotha.maps.IMG_PATH + '/maps/point_' + color + '.png', null, null, null, golgotha.maps.PIN_SIZE);
 var marker = new google.maps.Marker({position:point, icon:icn, shadow:golgotha.maps.DEFAULT_SHADOW, zIndex:golgotha.maps.z.MARKER});
@@ -261,6 +262,7 @@ return marker;
 
 function googleIconMarker(palCode, iconCode, point, label)
 {
+console.log('googleIconMarker deprecated');
 var imgBase = null;
 if (palCode > 0)
 	imgBase = 'http://maps.google.com/mapfiles/kml/pal' + palCode + '/icon' + iconCode;
