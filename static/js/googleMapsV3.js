@@ -246,6 +246,62 @@ golgotha.maps.ShapeLayer = function(opts, name, imgClass) {
 	return ov;
 }
 
+golgotha.maps.Marker = function(opts, pt) {
+	if ((opts == null) || (opts.color == 'null')) return pt;
+	var hasLabel = (opts.label != null);
+	if (hasLabel && (MarkerWithLabel == null)) {
+		console.log('MarkerWithLabel not loaded!');
+		hasLabel = false;
+	}
+	
+	var icn = new google.maps.MarkerImage('/' + golgotha.maps.IMG_PATH + '/maps/point_' + opts.color + '.png', null, null, null, golgotha.maps.PIN_SIZE);
+	var mrkOpts = {position:pt, icon:icn, shadow:golgotha.maps.DEFAULT_SHADOW, zIndex:golgotha.maps.z.MARKER};
+	if (hasLabel) {
+		mrkOpts.labelClass = 'mapMarkerLabel';
+		if (opts.labelClass)
+			mrkOpts.labelClass += (' ' + opts.labelClass);
+
+		mrkOpts.labelContent = opts.label;
+		mrkOpts.labelStyle = opts.labelStyle;
+		mrkOpts.labelAnchor = new google.maps.Point((opts.label.length * 3), 0);
+	}
+	
+	var mrk = hasLabel ? new MarkerWithLabel(mrkOpts) : new google.maps.Marker(mrkOpts);	
+	if (opts.info != null) {
+		mrk.info = opts.info;	
+		google.maps.event.addListener(mrk, 'click', function() { map.infoWindow.setContent(this.info); map.infoWindow.open(map, this); });	
+	}
+
+	if (opts.map != null)
+		mrk.setMap(map);
+
+	return mrk;
+};
+
+golgotha.maps.IconMarker = function(opts, pt) {
+	if (opts == null) opts = {pal:0, icon:0};
+	var hasLabel = (opts.label != null);
+
+	var imgBase = null;
+	if (opts.pal > 0)
+		imgBase = 'http://maps.google.com/mapfiles/kml/pal' + opts.pal + '/icon' + opts.icon;
+	else
+		imgBase = '/' + golgotha.maps.IMG_PATH + '/maps/pal' + opts.pal + '/icon' + opts.icon;
+
+	var icn = new google.maps.MarkerImage(imgBase + '.png', null, null, golgotha.maps.ICON_ANCHOR, golgotha.maps.S_ICON_SIZE);
+	var shd = new google.maps.MarkerImage(imgBase + 's.png', null, null, golgotha.maps.ICON_ANCHOR, golgotha.maps.S_ICON_SHADOW_SIZE);
+	var mrk = new google.maps.Marker({position:pt, icon:icn, shadow:shd, zIndex:golgotha.maps.z.MARKER});
+	if (opts.info != null) {
+		mrk.info = opts.info;
+		google.maps.event.addListener(mrk, 'click', function() { map.infoWindow.setContent(this.info); map.infoWindow.open(map, this); });
+	}
+
+	if (opts.map != null)
+		mrk.setMap(map);
+
+	return mrk;
+};
+
 function googleMarker(color, point, label)
 {
 console.log('googleMarker deprecated');
