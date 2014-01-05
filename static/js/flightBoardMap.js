@@ -36,11 +36,10 @@ xmlreq.onreadystatechange = function() {
 	for (var i = 0; i < wps.length; i++) {
 		var wp = wps[i];
 		var ll = new google.maps.LatLng(parseFloat(wp.getAttribute('lat')), parseFloat(wp.getAttribute('lng')));
-		var mrk = googleMarker(wp.getAttribute('color'), ll, wp.firstChild.data);
+		var mrk = new golgotha.maps.Marker({color:wp.getAttribute('color'), info:wp.firstChild.data, map:map}, ll);
 		mrk.networkID = wp.getAttribute('id');
 		mrk.callsign = wp.getAttribute('callsign');
 		google.maps.event.addListener(mrk, 'click', function() { infoClose(); showRoute(this.networkID); });
-		mrk.setMap(map);
 		pilots[mrk.callsign] = mrk;		
 	}
 
@@ -49,7 +48,7 @@ xmlreq.onreadystatechange = function() {
 	for (var i = 0; i < cps.length; i++) {
 		var cp = cps[i];
 		var ll = new google.maps.LatLng(parseFloat(cp.getAttribute('lat')), parseFloat(cp.getAttribute('lng')));
-		var mrk = googleMarker(cp.getAttribute('color'), ll, cp.firstChild.data);
+		var mrk = new golgotha.maps.Marker({color:cp.getAttribute('color'), info:cp.firstChild.data, map:map}, ll);
 		mrk.networkID = cp.getAttribute('id');
 		mrk.callsign = cp.getAttribute('callsign');
 		var type = cp.getAttribute('type');
@@ -59,8 +58,7 @@ xmlreq.onreadystatechange = function() {
 			mrk.range = parseInt(cp.getAttribute('range'));
 			google.maps.event.addListener(mrk, 'click', function() { infoClose(); showAPP(this); });
 		}
-		
-		mrk.setMap(map);
+
 		atc[mrk.callsign] = mrk;
 		
 		// Add to ATC list
