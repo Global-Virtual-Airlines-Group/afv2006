@@ -141,19 +141,44 @@ for (var x = nwAddr.x; x <= seAddr.x; x++) {
 }
 
 return tiles;
-}
+};
 
-golgotha.maps.LayerSelectControl = function(map, title, layers) {
-	var container = document.createElement('div');
+golgotha.maps.CreateButtonDiv = function(txt) {
 	var btn = document.createElement('div');
 	btn.className = 'layerSelect';
-	btn.ovLayers = (layers instanceof Array) ? layers : [layers];
-	if (title.length > 9)
+	if (txt.length > 9)
 		btn.style.width = '8em';
-	else if (title.length > 7)
+	else if (txt.length > 7)
 		btn.style.width = '7em';
 	else
 		btn.style.width = '6em';
+
+	btn.appendChild(document.createTextNode(txt));
+	return btn;
+};
+
+golgotha.maps.SelectControl = function(title, onSelect, onClear) {
+	var container = document.createElement('div'); 
+	var btn = golgotha.maps.CreateButtonDiv(title); 
+	container.appendChild(btn);
+	google.maps.event.addDomListener(btn, 'click', function() {
+		if (this.isSelected) {
+			document.removeClass(btn, 'displayed');
+			try { delete btn.isSelected; } catch (err) { btn.isSelected = false; }
+			if (onClear != null) onClear();
+		} else {
+			document.addClass(btn, 'displayed');
+			btn.isSelected = true;
+			if (onSelect != null) onSelect();
+		}
+	});
+
+	return container;
+};
+
+golgotha.maps.LayerSelectControl = function(map, title, layers) {
+	var container = document.createElement('div'); 
+	var btn = golgotha.maps.CreateButtonDiv(title);
 
 	container.appendChild(btn);
 	btn.appendChild(document.createTextNode(title));
