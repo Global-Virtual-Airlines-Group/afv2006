@@ -2287,4 +2287,10 @@
 		<class>org.deltava.commands.academy.VideoCommand</class>
 		<roles>Instructor,HR</roles>
 	</command>
+
+	<command id="tvdelete">
+		<name>Video Delete</name>
+		<class>org.deltava.commands.academy.VideoDeleteCommand</class>
+		<roles>AcademyAdmin,HR</roles>
+	</command>
 </commands>
