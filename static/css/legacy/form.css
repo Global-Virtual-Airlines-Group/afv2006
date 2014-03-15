@@ -9,8 +9,6 @@ table.form, table.bar {
 table.form tr.title {
 	font-size: 9pt;
 	background-color: #0b228c;
-	font-family: tahoma, verdana;
-	vertical-align: middle;
 	color: #ffffff;
 	font-weight: bold;
 }
