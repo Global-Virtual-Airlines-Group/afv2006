@@ -1170,6 +1170,12 @@
 		<roles>PIREP</roles>
 	</command>
 
+	<command id="updevent">
+		<name>PIREP Update Event</name>
+		<class>org.deltava.commands.pirep.UpdateEventCommand</class>
+		<roles>PIREP</roles>
+	</command>
+
 	<command id="pirepdelete">
 		<name>PIREP Delete</name>
 		<class>org.deltava.commands.pirep.PIREPDeleteCommand</class>
