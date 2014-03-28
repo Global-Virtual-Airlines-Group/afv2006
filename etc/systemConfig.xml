@@ -4,7 +4,7 @@
 	<!-- Airline Information -->
 	<airline>
 		<domain>afva.net</domain>
-		<name>Air France Virtual Airlines</name>
+		<name>Air France / KLM Virtual Airlines</name>
 		<url>dev.afva.net</url>
 		<banner>AFVBanner.png</banner>
 		<code>AFV</code>
@@ -23,13 +23,13 @@
 		</voice>
 		
 		<!-- Copyright disclaimer -->
-		<copyright>For flight simulation purposes only. Not a commercial website. In no way are we affiliated with Air France, its affiliates, or any
- other airline. All logos, images, and trademarks remain the property of their respective owners. Air France Virtual is a non-profit entity engaged
- in providing an avenue for flight simulation enthusiasts.</copyright>
+		<copyright>For flight simulation purposes only. Not a commercial website. In no way are we affiliated with Air France, KLM Royal Dutch Airlines, 
+ their affiliates or any other airline. All logos, images, and trademarks remain the property of their respective owners. Air France / KLM Virtual is a 
+ non-profit entity engaged in providing an avenue for flight simulation enthusiasts.</copyright>
 		
 		<!-- Home Page Meta Tags -->
 		<meta>
-			<desc>Air France Virtual is a virtual airline based on Air France.</desc>
+			<desc>Air France / KLM Virtual is a virtual airline based on Air France and KLM Royal Dutch Airlines.</desc>
 			<list name="keywords" attr="keyword">
 				<keyword>Aviation Français Virtuel</keyword>
 				<keyword>Air France</keyword>
@@ -42,6 +42,8 @@
 				<keyword>FS2002</keyword>
 				<keyword>FS2004</keyword>
 				<keyword>FS9</keyword>
+				<keyword>FSX</keyword>
+				<keyword>Prepar3D</keyword>
 				<keyword>microsoft flight simulator</keyword>
 				<keyword>flightsim</keyword>
 				<keyword>flight simulators</keyword>
@@ -51,6 +53,7 @@
 				<keyword>Embraer</keyword>
 				<keyword>Concorde</keyword>
 				<keyword>Delta Virtual Airlines</keyword>
+				<keyword>KLM Royal Dutch Arilines</keyword>
 			</list>
 		</meta>
 		
@@ -162,7 +165,8 @@
 		</table>
 
 		<list name="schemes" attr="css">
-			<css>legacy</css>
+			<css>Legacy</css>
+			<css>KLM 2014</css>
 		</list>
 	</html>
 	
@@ -196,21 +200,6 @@
 			<metar>ftp://tgftp.nws.noaa.gov/data/observations/metar/stations/</metar>
 			<taf>ftp://tgftp.nws.noaa.gov/data/forecasts/taf/stations/</taf>
 		</url>
-
-		<!-- Jet Stream maps -->
-		<jetstream>
-			<map name="types">
-				<atl>Altantic</atl>
-				<na>North America</na>
-				<pac>Pacific</pac>
-			</map>
-
-			<url>
-				<atl>http://squall.sfsu.edu/gif/jetstream_atl_%H_00.gif</atl>
-				<na>http://squall.sfsu.edu/gif/jetstream_%H_00.gif</na>
-				<pac>http://squall.sfsu.edu/gif/jetstream_pac_%H_00.gif</pac>
-			</url>
-		</jetstream>	
 	</weather>
 	
 	<config>
