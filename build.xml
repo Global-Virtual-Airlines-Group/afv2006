@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- Copyright 2005, 2006, 2008, 2010, 2011, 2013 Global Virtual Airlines Group. All Rights Reserved. -->
+<!-- Copyright 2005, 2006, 2008, 2010, 2011, 2013, 2014 Global Virtual Airlines Group. All Rights Reserved. -->
 <project default="deploy">
 	<target name="compile" description="Precompile the Java Code">
 		<mkdir dir="${java.io.tmpdir}/afv/build/classes" />
 		<javac srcdir="src/java" optimize="on" destdir="${java.io.tmpdir}/afv/build/classes"
-		 debug="true" debuglevel="lines,vars,source" source="1.7" target="1.7"
+		 debug="true" debuglevel="lines,vars,source" source="1.8" target="1.8"
 		 compiler="modern" includeantruntime="false">
 			<compilerarg value="-Xlint:unchecked" />
 	    	<classpath id="afv.classpath">
@@ -52,7 +52,7 @@
 		<mkdir dir="${java.io.tmpdir}/afv/src/jsp" />
 	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="0" poolingEnabled="true" 
 	    	xpoweredBy="true" validateXml="false" webXmlFragment="${jspc.afv.webXMLInc}"
-	    	compilerTargetVM="1.7" compilerSourceVM="1.7" trimSpaces="false"
+	    	compilerTargetVM="1.8" compilerSourceVM="1.8" trimSpaces="false"
 	    	outputDir="${java.io.tmpdir}/afv/src/jsp" />
 		
 		<!-- Clean up -->
@@ -63,8 +63,8 @@
 
 		<!-- Compile the files -->
 		<mkdir dir="${java.io.tmpdir}/afv/build/jsp" />
-		<javac srcdir="${java.io.tmpdir}/afv/src/jsp" destdir="${java.io.tmpdir}/afv/build/jsp" nowarn="on"
-			debug="on" debuglevel="source" optimize="on" target="1.7" source="1.7" includeantruntime="false">
+		<javac srcdir="${java.io.tmpdir}/afv/src/jsp" destdir="${java.io.tmpdir}/afv/build/jsp" nowarn="on" compiler="modern"
+			debug="on" debuglevel="source" optimize="on" target="1.8" source="1.8" includeantruntime="false">
 			<classpath refid="afv.jspc.classpath" />
 			<include name="net/afva/jsp/**/*.java" />
 		</javac>
