@@ -1,0 +1,55 @@
+/* KLM14 Cascading Style Sheet for Calendar pages (C) 2014 Global Virtual Airlines Group. */
+table.calendar {
+	table-layout: auto;
+	border-collapse: separate;
+	border-spacing: 3px 3px;
+	width: 100%;
+}
+
+table.calendar tr {
+	background-color: #efefef;
+}
+
+table.calendar td {
+	padding: 3px 3px 3px 3px;
+}
+
+table.calendar td.dayHdr, table.calendar tr.scroll {
+	font-size: 9pt;
+	background-color: #00a1de;
+	color: #ffffff;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+table.calendar tr.scroll td {
+	padding: 5px;
+}
+
+table.calendar td.dayHdr.calendarToday {
+	background-color: #e37222;
+}
+
+table.calendar td.contentW {
+	height: 300px;
+	width: 14%;
+	vertical-align: top;
+}
+
+table.calendar td.contentM {
+	height: 160px;
+	width: 14%;
+	vertical-align: top;
+}
+
+table.calendar td.contentM.calendarToday, table.calendar td.contentW.calendarToday {
+	background-color: #fbece2;
+}
+
+*.dayHdr :link, *.dayHdr :visited, *.scroll :link, *.scroll :visited {
+	color: #efffff;
+	font-weight: bold;
+	text-decoration: underline;
+	text-transform: uppercase;
+	font-family: verdana, arial;
+}

@@ -1,0 +1,106 @@
+/* KLM14 Cascading Style Sheet for HTML Forms (C) 2014 Global Virtual Airlines Group. */
+
+table.form, table.bar {
+	table-layout: auto;
+	width: 100%;
+}
+
+/* Title Top Row */
+table.form tr.title {
+	font-size: 13px;
+	background-color: #005b82;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+/* Button bar table */
+table.bar td {
+	background-color: #005b82;
+	text-align: center;
+	vertical-align: middle;
+}
+
+table.form tr {
+	font-family: verdana, arial;
+	vertical-align: middle;
+	background-color: #efefef;
+}
+
+table.form td {
+	padding: 3px 3px 3px 3px;
+}
+
+table.form td.label {
+	background-color: #11668a;
+	text-align: right;
+	color: #ffffff;
+	font-size: 11px;
+	width: 124px;
+}
+
+table.form td.top {
+	vertical-align: top;	
+}
+
+table.form td.coolerPost {
+	text-align: left;
+	font-size: 9pt;
+	vertical-align: top;
+	width: 195px;
+}
+
+/* Default row with data */
+table.form td.data {
+	text-align: left;
+	font-size: 9pt;
+}
+
+select {
+	font-family: verdana, arial;
+	font-size: 9pt;
+	font-weight: normal;
+	background-color: #005b82;
+	color: #ffffff;
+}
+
+input, textarea {
+	font-family: verdana, arial;
+	font-size: 11px;
+	border: 1px solid #005b82;
+	background: #f8f4f0;
+}
+
+input.radio, input.check, input[type="checkbox"] {
+	border: none;
+	font-size: 12px;
+}
+
+tr.title input.check {
+	background-color: inherit;
+}
+
+input.req, textarea.req {
+	border: 1px solid #f88832;
+	background: #fff8fa;
+}
+
+select.req {
+	border: 1px solid #f88832;
+	background: #c07828
+}
+
+*.label :link, *.label :visited {
+	font-size: 9pt;	
+	font-family: verdana, arial;
+	text-decoration: underline;
+	color: #efffff;
+}
+
+*.title a {
+	font-size: 9pt;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: verdana, arial;
+	text-decoration: underline;
+	color: #efffff;
+}
