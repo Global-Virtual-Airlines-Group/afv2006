@@ -1,0 +1,114 @@
+/* KLM14 Cascading Style Sheet for Water Cooler pages (C) 2014 Global Virtual Airlines Group. */
+
+table.thread {
+	table-layout: auto;
+	border-collapse: separate;
+	border-spacing: 3px 3px;
+	border-width: 4px 4px 4px 4px;
+	padding: 6px 6px 6px 6px;
+	width: 100%;
+}
+
+/* Title Top Row */
+tr.title {
+	font-size: 13px;
+	background-color: #00a1de;
+	font-family: verdana, arial;
+	vertical-align: middle;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+/* Button Bottom Row */
+tr.buttons {
+	background-color: #00a1de;
+	vertical-align: middle;
+}
+
+tr {
+	font-family: verdana, arial;
+	vertical-align: middle;
+	background-color: #efefef;
+	font-size: 12px;
+}
+
+td.postInfo {
+	text-align: left;
+	vertical-align: top;
+	width: 195px;
+}
+
+td.postDate {
+	font-size: 8pt;
+	background-color: #f7f7ff;
+	height: 19px;
+}
+
+td.unread_postDate {
+	font-size: 8pt;
+	background-color: #fefffe;
+	height: 19px;
+}
+
+td.postEdit {
+	width: 180px;
+	text-align: center;
+	background-color: #f7f7ff;
+	height: 19px;
+}
+
+td.postBody {
+	text-align: left;
+	vertical-align: top;
+}
+
+input, textarea {
+	font-family: verdana, arial;
+	font-size: 9pt;
+	color: #000000;
+	border: 1px solid #00a1de;
+	background: #f0f4f8;
+}
+
+*.postInfo :link, *.postInfo :visited, *.postInfo a:hover {
+	font-size: 9pt;
+	color: #00a1de;
+	font-weight: bold;
+	text-decoration: none;
+	font-family: verdana, arial;
+}
+
+*.postEdit :link, *.postEdit :visited, *.postEdit :hover {
+	font-size: 8pt;
+	color: #00a1de;
+	font-weight: bold;
+	font-family: verdana, arial;
+}
+
+*.title :link, *.title :visited {
+	font-size: 9pt;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: verdana, arial;
+	text-decoration: underline;
+	color: #efffff;
+}
+
+/* Post Quotes */
+blockquote {
+	background: #e1ebf2 none no-repeat scroll 6px 8px;
+	border: 1px dashed #ababab;
+	font-size: 0.95em;
+	margin: 0.5em 10px 0pt 10px;
+	overflow: hidden;
+	padding: 4px;
+}
+
+blockquote cite {
+	background-color: #00a1de;
+	color: #efffff;
+	font-size: 9pt;
+	display: block;
+	font-style: normal;
+	font-weight: bold;
+}
