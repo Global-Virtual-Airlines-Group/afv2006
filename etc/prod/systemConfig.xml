@@ -462,21 +462,19 @@
 		<list name="versions" attr="version" sorted="true">
 			<version>2.2</version>
 			<version>3.0</version>
-			<version>4.0</version>
-			<version>4.1</version>
-			<version>5.1</version>
-			<version>5.2</version>
+			<version>5.3</version>
+			<version>5.4</version>
 		</list>
 		
 		<assignto>
-			<website type="Integer">719</website>
-			<server type="Integer">719</server>
-			<fleet type="Integer">719</fleet>
-			<manuals type="Integer">719</manuals>
-			<examinations type="Integer">719</examinations>
-			<acars type="Integer">719</acars>
-			<schedule type="Integer">719</schedule>
-			<dispatch type="Integer">719</dispatch>
+			<website type="Integer">006</website>
+			<server type="Integer">006</server>
+			<fleet type="Integer">006</fleet>
+			<manuals type="Integer">006</manuals>
+			<examinations type="Integer">006</examinations>
+			<acars type="Integer">006</acars>
+			<schedule type="Integer">006</schedule>
+			<dispatch type="Integer">006</dispatch>
 		</assignto>
 	</issue_track>
 
