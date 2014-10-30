@@ -58,6 +58,14 @@ ul.menuitem li {
 	display: block;
 }
 
+div.ipv4 ul.menuitem li {
+	background-color: #103098;
+}
+
+div.ipv6 ul.menuitem li {
+	background-color: #2040b8;
+}
+
 ul.menu ul.submenu {
 	position: absolute;
 	list-style: none;
@@ -75,7 +83,7 @@ ul.menu li.submenuTitle {
 	display: block;
 }
 
-ul.menuitem li:hover {
+div ul.menuitem li:hover {
 	background-color: #0b228c;
 }
 
