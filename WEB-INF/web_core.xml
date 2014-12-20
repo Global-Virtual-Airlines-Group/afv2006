@@ -176,16 +176,6 @@
 	
 	<!-- Servlet URL mappings -->
 	<servlet-mapping>
-		<servlet-name>cmdController</servlet-name>
-		<url-pattern>*.do</url-pattern>
-	</servlet-mapping>
-	
-	<servlet-mapping>
-		<servlet-name>webService</servlet-name>
-		<url-pattern>*.ws</url-pattern>
-	</servlet-mapping>
-    
-	<servlet-mapping>
 		<servlet-name>dbImage</servlet-name>
 		<url-pattern>/charts/*</url-pattern>
 	</servlet-mapping>
@@ -253,6 +243,16 @@
 	<servlet-mapping>
 		<servlet-name>fleetLibrary</servlet-name>
 		<url-pattern>/newsletter/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>cmdController</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>webService</servlet-name>
+		<url-pattern>*.ws</url-pattern>
 	</servlet-mapping>
 
 	<!-- [INSERT AFV FRAGMENT HERE] -->
