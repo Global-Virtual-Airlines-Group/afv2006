@@ -262,10 +262,33 @@ a:hover {
 	text-decoration: underline;
 }
 
+div.googleMapV3 {
+	user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+    -webkit-user-select: none;
+}
+
 div.mapInfoBox {
 	font-family: tahoma, verdana, sans-serif;
 	font-size: 8pt;
 	white-space: nowrap;
+}
+
+div.mapInfoBox.navdata, div.mapInfoBox.pilotBoard {
+	min-width: 165px;
+}
+
+div.mapInfoBox.onlinePilot {
+	min-width: 240px;
+}
+
+div.mapInfoBox.acarsATC, div.mapInfoBox.onlineATC {
+	min-width: 200px;
+}
+
+div.mapInfoBox.acarsFlight, div.mapInfoBox.acarsPosition {
+	min-width: 260px;
 }
 
 div.mapMarkerLabel {
