@@ -80,9 +80,14 @@ tr.title input.check {
 	background-color: inherit;
 }
 
-input.req, textarea.req {
+input.req, textarea.req, input.err {
 	border: 1px solid #f88832;
 	background: #fff8fa;
+}
+
+input.ok {
+	background: #a0e4a0;
+	border: 1px solid #20a020;
 }
 
 select.req {
