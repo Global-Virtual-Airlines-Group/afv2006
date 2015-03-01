@@ -8,4 +8,5 @@ Disallow: /pwdreset.do
 Disallow: /airlinestats.do
 Disallow: /acars_data.ws
 Disallow: /acars_earth.ws
+Disallow: /tracks
 Disallow: /http:/
