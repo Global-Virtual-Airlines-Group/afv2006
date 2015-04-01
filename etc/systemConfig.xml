@@ -300,7 +300,7 @@
 			<role>TestAdmin</role>
 		</list>
 		
-		<auth>org.deltava.security.ApacheSQLAuthenticator</auth>
+		<auth>org.deltava.security.MirrorAuthenticator</auth>
 		<baseDN>ou=afv,o=sce</baseDN>
 	</security>
 
