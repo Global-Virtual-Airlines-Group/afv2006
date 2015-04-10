@@ -276,6 +276,7 @@
 	</online>
 
 	<security>
+		<ssl type="Boolean">true</ssl>
 		<desKey>super-secret extra-special AFV 3DeS key</desKey>
 		<hash>
 			<salt>***REMOVED***!!AFV</salt>
