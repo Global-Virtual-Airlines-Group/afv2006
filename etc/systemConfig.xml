@@ -406,7 +406,10 @@
 		<list name="reject_domain" attr="domain">
 			<domain>yahoo.com</domain>
 			<domain>hotmail.com</domain>
-			<domain>gmail.com</domain>
+			<domain>hotmail.co.uk</domain>
+			<domain>outlook.com</domain>
+			<domain>live.com</domain>
+			<domain>msn.com</domain>
 		</list>
 
 		<from>AFV301</from>
