@@ -13,7 +13,7 @@
 	</task>
 
 	<!-- Purge old Draft Flight Reports -->
-	<task id="draftpurge" enabled="false">
+	<task id="draftpurge" enabled="true">
 		<class>org.deltava.tasks.DraftPIREPPurgeTask</class>
 		<time>
 			<min>0</min>
@@ -109,7 +109,7 @@
 	</task>
 
 	<!-- Facebook credential validation -->
-	<task id="fbvalidate" enabled="false">
+	<task id="fbvalidate" enabled="true">
 		<class>org.deltava.tasks.FacebookValidationTask</class>
 		<time>
 			<min>0</min>
