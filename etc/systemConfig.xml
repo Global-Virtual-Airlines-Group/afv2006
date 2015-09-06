@@ -96,7 +96,14 @@
 		<time_format>HH:mm</time_format>
 	</time>
 
-	<!-- Staff functional areas -->
+	<!-- Memcached server info -->
+    <memcached>
+        <list name="addrs" attr="addr" unique="true">
+            <addr>localhost:11211</addr>
+        </list>
+    </memcached>
+
+    <!-- Staff functional areas -->
 	<list name="staff.departments" attr="dept" unqiue="true">
 		<dept>Senior Staff</dept>
 		<dept>Online Events</dept>

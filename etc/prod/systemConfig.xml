@@ -114,16 +114,13 @@
 		<time_format>HH:mm</time_format>
 	</time>
 	
-	<!-- pilot ranks -->
-	<list name="ranks" attr="rank">
-		<rank>Trainee</rank>
-		<rank>First Officer</rank>
-		<rank>Captain</rank>
-		<rank>Senior Captain</rank>
-		<rank>Assistant Chief Pilot</rank>
-		<rank>Chief Pilot</rank>
-	</list>
-
+	<!-- Memcached server info -->
+    <memcached>
+        <list name="addrs" attr="addr" unique="true">
+            <addr>localhost:11211</addr>
+        </list>
+    </memcached>
+	
 	<!-- Staff functional areas -->
 	<list name="staff.departments" attr="dept" unqiue="true">
 		<dept>Senior Staff</dept>
