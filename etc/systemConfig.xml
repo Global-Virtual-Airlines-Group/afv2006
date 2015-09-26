@@ -405,6 +405,7 @@
             <live>/home/www/video</live>
             <stage>/home/video</stage>
         </video>
+        <archive>/home/www/pos_archive</archive>
 	</path>
 	
 	<!-- SMTP Server configuration -->
