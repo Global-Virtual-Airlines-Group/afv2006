@@ -424,6 +424,7 @@
 		<library>/home/www/library</library>
 		<newsletter>/home/www/afnws</newsletter>
 		<httplog>/var/log/www</httplog>
+		<archive>/home/www/pos_archive</archive>
 		<video>
             <live>/home/www/video</live>
             <stage>/home/video</stage>
