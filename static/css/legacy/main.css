@@ -1,13 +1,4 @@
-/* Main Cascading Style Sheet (C) 2005, 2006, 2009, 2010, 2012 Global Virtual Airlines Group. */
-
-/* ------------------------------------------------------------------ */
-/* Controls the sizing and formatting of the top header image section */
-div#header {
-	height: 101px;
-	right: 0px;
-	margin: 0px;
-	border: 1px solid #ffffff;
-}
+/* Main Cascading Style Sheet (C) 2005, 2006, 2009, 2010, 2012, 2015 Global Virtual Airlines Group. */
 
 /* Formatting for header title caption */
 h1.header {
@@ -24,6 +15,10 @@ h1.header {
     img.header {
         float: right;
         border: none;
+    }
+    
+    div#header {
+        height: 101px;
     }
 }
 
