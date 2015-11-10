@@ -150,13 +150,12 @@ ul.menu li ul {
 /* Formatting for the side menu table */
 table#nav {
 	table-layout: fixed;
-	width: 100%;
+	width: 99%;
 	border-collapse: separate;
 	text-align: center;
 	vertical-align: middle;
 	color: #000000;
 	border-width: 2px 2px 2px 2px;
-	padding: 4px 4px 4px 4px;
 }
 
 /* Formatting for side menu section headers */
@@ -178,7 +177,6 @@ table.nav tr.submenu, table.nav tr.menuitem {
 
 table.nav td {
 	text-transform: uppercase;
-	padding: 2px;	
 }
 
 /* Side menu hyperlinks */
