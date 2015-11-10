@@ -19,6 +19,7 @@
 <content:rss title="${airlineName} News" path="/news_rss.ws" />
 <content:js name="common" />
 <content:pics />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="Description" content="${desc}" />
 <meta name="Keywords" content="<fmt:list value="${keywords}" delim="," />" />
 <meta property="og:title" content="<content:airline />" />
@@ -30,7 +31,7 @@
 <meta property="og:country-name" content="France" />
 </head>
 <content:copyright visible="false" />
-<body onload="void initLinks()">
+<body>
 <content:page>
 <%@ include file="/jsp/main/header.jspf" %> 
 <%@ include file="/jsp/main/sideMenu.jspf" %>
@@ -57,7 +58,7 @@ in our discussion forums in the past 24 hours.</c:if>
 <br />
 <br />
 <content:ip IPv6="true">
-<div class="ovalBorder mid" style="width:55%; height:128px; min-width:512px;">
+<div class="ovalBorder mid nophone" style="width:55%; height:128px; min-width:512px;">
 <el:img src="IPv6_128.png" caption="World IPv6 Launch" style="float:left; margin-right:20px;"/>
 <span class="mid" style="position:relative; top:28px;">You are visiting <content:airline /> today using IPv6. This new Internet 
 addressing technology eliminates many of the hacks and workarounds needed to combat the impending exhaustion of IPv4 addresses.<br />
@@ -143,7 +144,7 @@ our sister airline <a rel="external" href="${reqProtocol}://${partnerURL}/" clas
 </c:if>
 <c:if test="${!empty centuryClub}">
 <!-- Latest Century Club members -->
-<el:table className="view mid" style="width:510px;">
+<el:table className="view mid" style="width:100%; max-width:510px;">
 <tr class="title caps left">
  <td colspan="2">OUR NEWEST CENTURY CLUB MEMBERS</td>
 </tr>
@@ -158,7 +159,7 @@ our sister airline <a rel="external" href="${reqProtocol}://${partnerURL}/" clas
 </c:if>
 <c:if test="${!empty promotions}">
 <!-- Latest Pilot Promotions -->
-<el:table className="view mid" style="width:510px;">
+<el:table className="view mid" style="width:100%; max-width:510px;">
 <tr class="title caps left">
  <td colspan="2"><content:airline /> CONGRATULATES</td>
 </tr>
@@ -191,7 +192,7 @@ ${eRoute.airportA.name} (<fmt:airport airport="${eRoute.airportA}" />)</td>
 </c:if>
 <c:if test="${!empty toLand}">
 <!-- Latest Takeoffs/Landings -->
-<el:table className="view mid" style="width:790px;">
+<el:table className="view mid" style="width:100%; max-width:790px;">
 <tr class="title caps left">
  <td colspan="3">LATEST <content:airline /> ACARS FLIGHT DEPARTURES AND ARRIVALS</td>
 </tr>
@@ -214,7 +215,7 @@ ${eRoute.airportA.name} (<fmt:airport airport="${eRoute.airportA}" />)</td>
 </c:if>
 <c:if test="${!empty latestPilots}">
 <!-- Latest Pilot Hires -->
-<el:table className="view mid" style="width:530px;">
+<el:table className="view mid" style="width:100%; max-width:530px;">
 <tr class="title caps left">
  <td colspan="2"><content:airline /> WELCOMES OUR NEWEST PILOTS</td>
 </tr>
@@ -232,14 +233,16 @@ If you have questions or comments, please direct them to our Corporate Offices a
 <br />
 <c:choose>
 <c:when test="${empty fbClientID}">
-<div class="mid"><a rel="nofollow" href="http://www.vatsim.net/"><el:img src="network/vatsim_button.png" caption="VATSIM Partner Airline" className="noborder" /></a></div>
+<div class="mid nophone"><a rel="nofollow" href="http://www.vatsim.net/"><el:img src="network/vatsim_button.png" caption="VATSIM Partner Airline" className="noborder" /></a></div>
 </c:when>
 <c:otherwise>
-<div style="float:right; margin-right:70px;">
+<content:browser human="true">
+<div class="nophone" style="float:right; margin-right:70px;">
 <iframe src="${reqProtocol}://www.facebook.com/plugins/like.php?href=${reqProtocol}%3A%2F%2Fwww.facebook.com%2Fapps%2Fapplication.php%3Fid%3D${fbClientID}&amp;send=false&amp;layout=standard&amp;width=300&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=tahoma&amp;height=62&amp;appId=${fbClientID}" style="border:none; overflow:hidden; width:450px; height:35px;"></iframe>
 </div>
-<div style="float:left; margin-left:70px;"><a rel="nofollow" href="http://www.vatsim.net/"><el:img src="network/vatsim_button.png" caption="VATSIM Partner Airline" className="noborder" /></a></div>
-<div style="clear:both;"></div>
+</content:browser>
+<div class="nophone" style="float:left; margin-left:70px;"><a rel="nofollow" href="http://www.vatsim.net/"><el:img src="network/vatsim_button.png" caption="VATSIM Partner Airline" className="noborder" /></a></div>
+<div class="nophone" style="clear:both;"></div>
 </c:otherwise>
 </c:choose>
 <br />
