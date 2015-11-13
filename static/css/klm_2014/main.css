@@ -151,9 +151,9 @@ ul.menu li ul {
 /* Controls the sizing and formatting of side navigation elements     */
 
 /* Formatting for the side menu table */
-table#nav {
+table.nav {
 	table-layout: fixed;
-	width: 99%;
+	width: 100%;
 	border-collapse: separate;
 	text-align: center;
 	vertical-align: middle;
