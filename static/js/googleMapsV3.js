@@ -35,6 +35,23 @@ golgotha.maps.util.Timer.prototype.stop = function() {
 	return this.runTime;
 };
 
+//Resize map based on window size
+golgotha.maps.util.resize = function() {
+	var wh = window.innerHeight	|| document.documentElement.clientHeight || document.body.clientHeight;
+	var ratio = wh / 800;
+	var divs = golgotha.util.getElementsByClass('googleMapV3', 'div');
+	for (var d = divs.pop(); (d != null); d = divs.pop()) {
+		var h = d.getAttribute('w');
+		if (h != null)
+			d.style.height = Math.max(200, Math.floor(h * ratio)) + 'px';
+	}
+
+	return true;
+};
+
+golgotha.onDOMReady(golgotha.maps.util.resize);
+window.addEventListener('resize', golgotha.maps.util.resize);
+
 // Calculate default zoom for flight distance
 golgotha.maps.util.getDefaultZoom = function(distance)
 {
