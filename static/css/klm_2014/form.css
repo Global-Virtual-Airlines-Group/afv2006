@@ -34,8 +34,8 @@ table.form td.label {
 
 @media (min-width: 941px) {
     table.form td.label {
-        width: 30%;
-        max-width: 128px;
+        width: 128px;
+        max-width: 112px;
         font-size: 11px;
     }
 
@@ -58,8 +58,8 @@ table.form td.label {
 
 @media (max-width: 940px) {
     table.form td.label {
-        width: 30%;
-        min-width: 100px;
+        width: 112px;
+        min-width: 92px;
         font-size: 10px;
     }
 
