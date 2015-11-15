@@ -10,7 +10,6 @@ table.mid {
 }
 
 table.view tr.title {
-	font-size: 12px;
 	background-color: #11668a;
 	font-family: verdana, arial;
 	vertical-align: middle;
@@ -19,15 +18,46 @@ table.view tr.title {
 }
 
 table.view tr {
-	font-size: 11px;
 	background-color: #efefef;
 	font-family: verdana, arial;
 	vertical-align: middle;
 	text-align: center;
 }
 
-table.view td {
-	padding: 3px 3px 3px 3px;
+@media (min-width: 941px) {
+    table.view tr {
+       font-size: 11px;
+    }
+
+    table.view tr.title {
+        font-size: 12px;
+    }
+
+    *.title :link, *.title :visited, *.title a {
+        font-size: 12px;
+    }
+
+    table.view td {
+        padding: 3px 3px 3px 3px;
+    }   
+}
+
+@media (max-width: 940px) {
+    table.view tr {
+       font-size: 10px;
+    }
+    
+    table.view tr.title {
+        font-size: 11px;
+    }
+
+    *.title :link, *.title :visited, *.title a {
+        font-size: 11px; 
+    }
+
+    table.view td {
+        padding: 2px 2px 2px 2px;
+    }   
 }
 
 td.priB {
@@ -73,7 +103,6 @@ table.view *.err {
 }
 
 *.title :link, *.title :visited, *.title a {
-	font-size: 12px;	
 	font-family: verdana, arial;
 	font-weight: bold;
 	text-decoration: underline;
