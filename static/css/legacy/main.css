@@ -229,10 +229,35 @@ table.nav *.submenu :link:hover, table.nav *.submenu :hover {
 	font-weight: bold;
 	font-size: 10pt;
 	background-color: #0b228c;
-	width: 99%;
+	width: 100%;
 	padding: 2px;
 	color: #ffffff;
 	text-transform: uppercase;
+}
+
+/* Map layer controls */
+div.layerSelect, div.layerClear {
+    background-color: white;
+    color: #303030;
+    font-family: tahoma, verdana, sans-serif;
+    font-size: 9px;
+    border: 1px solid black;
+    padding: 2px;
+    margin-bottom: 3px;
+    text-align: center;
+    cursor: pointer;
+}
+
+div.layerSelect.displayed {
+    background-color: #041a98;
+    color: #c8e8f8;
+}
+
+div.layerSelect.disabled {
+    background-color:#dedede;
+    color:azure;
+    opacity: .700;
+    filter: alpha(opacity=70);
 }
 
 /* Default table formatting */
