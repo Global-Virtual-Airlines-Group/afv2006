@@ -106,6 +106,7 @@ golgotha.maps.setMap = function(map) {
 };
 
 // Track instances
+google.maps.controlStyle = 'azteca';
 golgotha.maps.Map = function(div, opts) { var m = new google.maps.Map(div, opts); golgotha.maps.instances.push(m); return m; };
 
 // Track overlays
