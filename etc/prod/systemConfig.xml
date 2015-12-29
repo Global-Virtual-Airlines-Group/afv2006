@@ -636,6 +636,7 @@
 		<enabled type="Boolean">true</enabled>
 		<minFlights type="Integer">10</minFlights>
 		<ato type="Boolean">true</ato>
+		<coursePurge type="Integer">180</coursePurge>
 	</academy>
 
 	<!-- Simulated economy data -->
