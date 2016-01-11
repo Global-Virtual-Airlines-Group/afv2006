@@ -1,6 +1,13 @@
 golgotha.gate = golgotha.gate || {ids:[],gates:[],ourGates:[],isEdit:false,isDirty:[],data:[]};
 golgotha.gate.icons = {ours:{pal:2,icon:56},intl:{pal:2,icon:48},pop:{pal:3,icon:52},other:{pal:3,icon:60}};
 golgotha.gate.markDirty = function(id) { if (!golgotha.gate.isDirty.contains(id)) golgotha.gate.isDirty.push(id); };
+golgotha.gate.toggleAirline = function(al) {
+	var wasOurs = this.airlines.remove(al); 
+	if (!wasOurs) 
+		this.airlines.push(al); 
+
+	return !wasOurs;
+};
 
 golgotha.gate.load = function(id, forceReload)
 {
@@ -13,7 +20,6 @@ xreq.open('get', url, true);
 xreq.onreadystatechange = function() {
 	if ((xreq.readyState != 4) || (xreq.status != 200)) return false;
 	var jsData = JSON.parse(xreq.responseText);
-	golgotha.gate.id = jsData.icao;
 	golgotha.gate.id = jsData.icao; golgotha.gate.ids = [];
 	jsData.gates.forEach(function(g) { golgotha.gate.data[g.id] = g; golgotha.gate.ids.push(g.id); });
 	golgotha.gate.reload();
@@ -24,7 +30,7 @@ xreq.send(null);
 return true;
 };
 
-golgotha.gate.reload = function() {
+golgotha.gate.reload = function(al) {
 	golgotha.gate.gates.forEach(function(m) { google.maps.event.clearInstanceListeners(m); });
 	golgotha.gate.ourGates.forEach(function(m) { google.maps.event.clearInstanceListeners(m); });
 	map.removeMarkers(golgotha.gate.gates);
@@ -32,19 +38,20 @@ golgotha.gate.reload = function() {
 	golgotha.gate.gates = []; golgotha.gate.ourGates = [];
 	golgotha.gate.ids.forEach(function(id) {
 		var g = golgotha.gate.data[id]; var opts = golgotha.gate.icons.other;
-		if (g.isIntl)
+		var isOurs = (((al == null) && (g.airlines.length > 0)) || g.airlines.contains(al));
+		if (isOurs && g.isIntl)
 			opts = golgotha.gate.icons.intl;
-		else if (g.isOurs)
+		else if (isOurs)
 			opts = golgotha.gate.icons.ours;
 		else if (g.useCount > 0)
 			opts = golgotha.gate.icons.pop;
 
 		var mrk = new golgotha.maps.IconMarker({pal:opts.pal,icon:opts.icon,info:g.info}, g.pos);
-		mrk.gateID = id;
-		var dst = g.isOurs ? golgotha.gate.ourGates : golgotha.gate.gates;
+		mrk.gateID = id; g.toggleAirline = golgotha.gate.toggleAirline;
+		var dst = isOurs ? golgotha.gate.ourGates : golgotha.gate.gates;
 		if (golgotha.gate.isEdit) {
 			google.maps.event.addListener(mrk, 'dblclick', golgotha.gate.toggleOurs);
-			if (g.isOurs)
+			if (isOurs)
 				google.maps.event.addListener(mrk, 'rightclick', golgotha.gate.toggleIntl);
 		}
 
@@ -59,8 +66,11 @@ golgotha.gate.reload = function() {
 golgotha.gate.edit = function() {
 	golgotha.gate.isEdit = true;
 	golgotha.util.display('editLink', false);
-	golgotha.util.display('helpText', true);
+	golgotha.util.display('airlineCombo', true);
 	golgotha.gate.reload();
+	if (map.getZoom() < 17)
+		map.setZoom(17);
+
 	return true;
 };
 
@@ -84,8 +94,7 @@ xreq.onreadystatechange = function() {
 
 // Convert associative array to object
 var data = [];
-golgotha.gate.isDirty.forEach(function(k) { var gd = golgotha.gate.data[k]; data.push({id:k,ours:gd.isOurs,intl:gd.isIntl}); });
-golgotha.event.beacon('Schedule', 'Update Gates');
+golgotha.gate.isDirty.forEach(function(k) { var gd = golgotha.gate.data[k]; data.push({id:k,airlines:gd.airlines,intl:gd.isIntl}); });
 xreq.send('data=' + JSON.stringify(data));
 return true;
 };
@@ -110,19 +119,28 @@ golgotha.gate.updateAirline = function(combo) {
 };
 
 golgotha.gate.toggleOurs = function() {
+	if (!golgotha.gate.airline) return false;
 	var g = golgotha.gate.data[this.gateID];
-	g.isOurs = !g.isOurs; g.isIntl &= g.isOurs;
+	var isOurs = g.toggleAirline(golgotha.gate.airline);
+	if (!isOurs)
+		g.isIntl &= (g.airlines.length > 0);
+
 	golgotha.gate.markDirty(this.gateID);
 	golgotha.util.display('saveLink', true);
-	golgotha.gate.reload();
+	golgotha.gate.reload(golgotha.gate.airline);
 	return true;
 };
 
 golgotha.gate.toggleIntl = function() {
+	if (!golgotha.gate.airline) return false;
 	var g = golgotha.gate.data[this.gateID];
-	g.isOurs = true; g.isIntl = !g.isIntl;
+	var isOurs = g.airlines.contains(golgotha.gate.airline);
+	if (!isOurs)
+		g.airlines.push(golgotha.gate.airline);
+	
+	g.isIntl = !g.isIntl;
 	golgotha.gate.markDirty(this.gateID);
 	golgotha.util.display('saveLink', true);
-	golgotha.gate.reload();
+	golgotha.gate.reload(golgotha.gate.airline);
 	return true;
 };
