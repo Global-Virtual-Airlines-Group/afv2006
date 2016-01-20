@@ -452,12 +452,6 @@
 		<roles>Fleet,HR</roles>
 	</command>
 
-	<command id="fleetlog">
-		<name>Fleet Installer Logs</name>
-		<class>org.deltava.commands.fleet.InstallerLogViewCommand</class>
-		<roles>Fleet</roles>
-	</command>
-
 	<command id="resources">
 		<name>Web Resources</name>
 		<class>org.deltava.commands.fleet.ResourceListCommand</class>
