@@ -18,11 +18,49 @@ h1.header {
     div#header {
         height: 104px;
     }
+
+    div#mobileMenu {
+        display:none;
+    }
 }
 
 @media (max-width: 940px) {
+    div#header {
+       position:relative;
+       height: 68px;
+    }
+
     img.header {
         display:none;
+    }
+
+    #hdrLink {
+        z-index: 20;
+        position:absolute;
+        top: -8px;
+        left: 20px;
+        right: 16px;
+    }
+
+    div#mobileMenu {
+        margin-top: 2px;
+        margin-left: 2px;
+        border: 2px solid #00a1de;
+        border-radius: 6px; 
+        height: 36px;
+        width: 36px;
+        position:relative;
+    }
+
+    #mobileMenu:before { 
+        border-bottom: 17px double #00a1de;
+        border-top: 6px solid #00a1de;
+        content:"";
+        height: 5px; 
+        position: absolute; 
+        right:3px;  
+        top: 4px; 
+        width:30px;
     }
 }
 
