@@ -277,7 +277,7 @@
 
 	<security>
 		<ssl type="Boolean">true</ssl>
-		<desKey>super-secret extra-special AFV 3DeS key</desKey>
+		<aesKey>Air France secret AES cookie key</aesKey>
 		<hash>
 			<salt>hash!!salt!!AFV</salt>
 			<algorithm>SHA-1</algorithm>
