@@ -277,6 +277,7 @@
 
 	<security>
 		<ssl type="Boolean">true</ssl>
+		<simFDR>5339142733696a9b26aef7b2bfecce5a</simFDR>
 		<aesKey>Air France secret AES cookie key</aesKey>
 		<hash>
 			<salt>hash!!salt!!AFV</salt>
