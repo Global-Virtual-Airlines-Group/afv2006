@@ -69,10 +69,11 @@
 	<service id="examplot" class="org.deltava.service.exam.RoutePlotService" />
 	<service id="ridecount" class="org.deltava.service.exam.AcademyRideCountService" />
 
-    <!-- simFDR PIREP Services -->
+    <!-- simFDR Services -->
     <service id="simfdr_user" class="org.deltava.service.simfdr.UserListService" />
     <service id="simfdr_eq" class="org.deltava.service.simfdr.AvailableEquipmentService" />
     <service id="simfdr" class="org.deltava.service.simfdr.FlightSubmitService" />
+    <service id="simfdr_airports" class="org.deltava.service.simfdr.ValidAirportService" />
 
 	<!-- XACARS Offline PIREP Services -->
 	<service id="xaddr" class="org.deltava.service.xacars.XAddressService" />
