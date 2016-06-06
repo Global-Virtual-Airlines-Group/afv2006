@@ -303,6 +303,7 @@
 		<key>
 			<analytics>UA-2066915-3</analytics>
 			<wunderground>e466a9feecedb389</wunderground>
+			<googleMaps>AIzaSyB58rBxgNQvVzsMULM0KrIKkWFtIWOo0wM</googleMaps>
 		</key>
 
 		<list name="roles" attr="role" sorted="true">
