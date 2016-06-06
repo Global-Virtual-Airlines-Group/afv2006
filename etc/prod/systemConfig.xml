@@ -303,6 +303,7 @@
 		<key>
 			<analytics>***REMOVED***</analytics>
 			<wunderground>***REMOVED***</wunderground>
+			<googleMaps>***REMOVED***</googleMaps>
 		</key>
 
 		<list name="roles" attr="role" sorted="true">
