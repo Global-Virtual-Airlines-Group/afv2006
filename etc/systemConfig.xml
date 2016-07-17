@@ -220,6 +220,7 @@
 		<list name="networks" attr="network">
 			<network>VATSIM</network>
 			<network>IVAO</network>
+			<network>PilotEdge</network>
 		</list>
 		
 		<list name="highlightCodes" attr="code">
@@ -244,6 +245,14 @@
 				<info>/var/cache/servinfo/vatsim.info</info>
 			</local>
 		</vatsim>
+		
+        <pilotedge>
+            <banner>pilotedge.png</banner>
+            <url>http://www.pilotedge.net/</url>
+            <local>
+                <info>/var/cache/servinfo/pilotedge.info</info>
+            </local>
+        </pilotedge>
 
 		<ivao>
 			<status_url>http://www.ivao.aero/whazzup/status.txt</status_url>
