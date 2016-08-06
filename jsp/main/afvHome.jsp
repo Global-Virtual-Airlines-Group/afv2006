@@ -44,12 +44,10 @@
 
 <!-- Main Body Frame -->
 <content:region id="main">
-Welcome to <content:airline />'s web site. We are a group of flight simulation enthusiasts who fly Air
-France and its alliance partners' routes using Microsoft's Flight Simulator 2002, 2004 or Flight 
-Simulator X. We are in no way affiliated with Air France.<br />
+Welcome to <content:airline />'s web site. We are a group of flight simulation enthusiasts who fly Air France and its alliance partners' routes using Microsoft's Flight Simulator 2002, 2004 or Flight 
+Simulator X (including Steam Edition), as well as Laminar Research X-Plane and Lockheed-Martin's Prepar3D. We are in no way affiliated with Air France.<br />
 <br />
-Since May 2003, we have received over <fmt:int value="${httpStats.homeHits}" /> visits and received 
-<fmt:int value="${httpStats.hits}" /> hits. During this time, our servers have sent out over
+Since May 2003, we have received over <fmt:int value="${httpStats.homeHits}" /> visits and received <fmt:int value="${httpStats.hits}" /> hits. During this time, our servers have sent out over
 <fmt:int value="${httpStats.bytes}" /> bytes worth of data.
 <c:if test="${coolerStats > 1}"> Our members have posted over <fmt:quantity value="${coolerStats}" single="message" /> 
 in our discussion forums in the past 24 hours.</c:if>
@@ -60,22 +58,17 @@ in our discussion forums in the past 24 hours.</c:if>
 <content:ip IPv6="true">
 <div class="ovalBorder mid nophone" style="width:55%; height:128px; min-width:512px;">
 <el:img src="IPv6_128.png" caption="World IPv6 Launch" style="float:left; margin-right:20px;"/>
-<span class="mid" style="position:relative; top:28px;">You are visiting <content:airline /> today using IPv6. This new Internet 
-addressing technology eliminates many of the hacks and workarounds needed to combat the impending exhaustion of IPv4 addresses.<br />
+<span class="mid" style="position:relative; top:28px;">You are visiting <content:airline /> today using IPv6. This new Internet addressing technology eliminates many of the hacks and workarounds needed to combat the impending exhaustion of IPv4 addresses.<br />
 <br /> 
 Thanks for doing your part to move the Internet forward to IPv6!</span>
 </div>
 <br />
 </content:ip>
 <content:filter roles="!Pilot">
-Please feel free to browse around our web site. Once you join <content:airline />' active pilot roster, 
-you may submit flight reports and contribute to our image library. If you are interested in a serious 
-virtual airline, designed for both the experienced pilot and the novice (and all of us that are in 
-between!) we welcome your interest. <el:cmd url="register" className="pri bld">Click Here to join 
-<content:airline />.</el:cmd><br />
+Please feel free to browse around our web site. Once you join <content:airline />' active pilot roster, you may submit flight reports and contribute to our image library. If you are interested in a serious 
+virtual airline, designed for both the experienced pilot and the novice (and all of us that are in between!) we welcome your interest. <el:cmd url="register" className="pri bld">Click Here to join <content:airline />.</el:cmd><br />
 <br />
-If you are interested in a virtual airline with primarily ${partnerLoc} operations, we encourage you to visit 
-our sister airline <a rel="external" href="${reqProtocol}://${partnerURL}/" class="sec bld">${partnerName}</a>.<br />
+If you are interested in a virtual airline with primarily ${partnerLoc} operations, we encourage you to visit our sister airline <a rel="external" href="${reqProtocol}://${partnerURL}/" class="sec bld">${partnerName}</a>.<br />
 <br /></content:filter>
 <!-- Dynamic Content Type ${dynContentType} -->
 <c:if test="${noUpcomingEvents}"><!-- No upcoming Online Events, skipped --></c:if>
