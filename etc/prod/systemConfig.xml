@@ -501,17 +501,17 @@
 	</testing>
 	
 	<cooler>
-		<img_max>
-			<x type="Integer">1030</x>
-			<y type="Integer">780</y>
-			<size type="Integer">327680</size>
-		</img_max>
+        <img_max>
+            <x type="Integer">1260</x>
+            <y type="Integer">860</y>
+            <size type="Integer">327680</size>
+        </img_max>
 
-		<sig_max>
-			<x type="Integer">520</x>
-			<y type="Integer">160</y>
-			<size type="Integer">81920</size>
-		</sig_max>
+        <sig_max>
+            <x type="Integer">640</x>
+            <y type="Integer">185</y>
+            <size type="Integer">102400</size>
+        </sig_max>
 
 		<imgurls>
 			<max type="Integer">10</max>
