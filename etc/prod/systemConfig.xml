@@ -201,7 +201,7 @@
 		<http>
 			<format>httpd-access.afv.log</format>
 			<parser>org.deltava.util.log.ApacheLogParser</parser>
-			<archive>/home/backup/logs/afv</archive>
+			<archive>/home/backup/httplogs/afv</archive>
 		</http>
 	</log>
 
