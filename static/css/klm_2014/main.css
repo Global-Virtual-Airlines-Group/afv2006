@@ -509,6 +509,10 @@ a.plain {
 	text-decoration: none;
 }
 
+a.plain:hover {
+    color: #00c1ee;
+}
+
 @media (max-width: 800px) {
     .nophone {
        display:none;
