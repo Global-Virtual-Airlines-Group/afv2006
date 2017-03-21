@@ -195,14 +195,10 @@ ${eRoute.airportA.name} (<fmt:airport airport="${eRoute.airportA}" />)</td>
 <tr>
  <td class="priB" style="width:115px;">${info.flightCode}</td>
  <td class="secB" style="width:145px;">${info.equipmentType}</td>
-<c:if test="${tl.isTakeoff}">
- <td class="left">Departed from ${info.airportD.name} (<fmt:airport airport="${info.airportD}" />)
- at <fmt:date date="${tl.date}" t="HH:mm" /></td>
-</c:if>
+ <c:if test="${tl.isTakeoff}">
+ <td class="left">Departed from ${info.airportD.name} (<el:cmd url="airportInfo" linkID="${info.airportD.IATA}" authOnly="true" className="plain"><fmt:airport airport="${info.airportD}" /></el:cmd>) at <fmt:date date="${tl.date}" t="HH:mm" /></td></c:if>
 <c:if test="${!tl.isTakeoff}">
- <td class="left">Arrived at ${info.airportA.name} (<fmt:airport airport="${info.airportA}" />)
- at <fmt:date date="${tl.date}" t="HH:mm" /></td>
-</c:if>
+ <td class="left">Arrived at ${info.airportA.name} (<el:cmd url="airportInfo" linkID="${info.airportA.IATA}" authOnly="true" className="plain"><fmt:airport airport="${info.airportA}" /></el:cmd>) at <fmt:date date="${tl.date}" t="HH:mm" /></td></c:if>
 </tr>
 </c:forEach>
 </el:table>
@@ -245,7 +241,7 @@ If you have questions or comments, please direct them to our Corporate Offices a
 </content:page>
 <content:ip IPv6="true">
 <content:googleAnalytics eventSupport="true" />
-<script>
+<script async>
 golgotha.event.beacon('Network', 'IPv6');</script>
 </content:ip>
 <content:ip IPv4="true">
