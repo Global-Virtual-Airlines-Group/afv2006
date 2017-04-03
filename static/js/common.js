@@ -84,6 +84,13 @@ golgotha.util.getStyle = function(sheet, cl) {
 	return null;
 };
 
+golgotha.util.setHTML = function(e, content) {
+	if (!e) return false;
+	if (!e.style) e = document.getElementById(e);
+	if (e) e.innerHTML = content;
+	return true;
+};
+
 golgotha.form.resizeAll = function() {
 	var boxes = golgotha.util.getElementsByClass('resizable');
 	for (var x = 0; x < boxes.length; x++) golgotha.form.resize(boxes[x]);
@@ -175,6 +182,9 @@ golgotha.onDOMReady = function(f) {
 		return document.addEventListener('DOMContentLoaded', f);
 };
 
+golgotha.attach = function(f, name) {
+};
+
 golgotha.getChild = function(e, name) {
 	var children = e.getElementsByTagName(name);
 	return (children.length == 0) ? null : children[0];
@@ -205,7 +215,7 @@ if (document.all && !window.setTimeout.isPolyfill)
 	};
 
 	window.setTimeout.isPolyfill = true;
-}	
+}
 
 Array.prototype.remove = function(obj) {
 for (var x = 0; x < this.length; x++) {
@@ -335,16 +345,15 @@ golgotha.form.validateText = function(t, min, title) {
 	return true;
 };
 
-golgotha.form.validateNumber = function(t, minValue, title)
-{
-if ((!t) || (t.disabled)) return true;
-var i = parseFloat(t.value);
-if ((t.value.length < 1) || (i == Number.NaN))
-	throw new golgotha.event.ValidationError('Please provide a numeric ' + title + '.', t);
-if (i < minValue)
-	throw new golgotha.event.ValidationError('The ' + title + ' must be greater than ' + minValue + '.', t);
+golgotha.form.validateNumber = function(t, minValue, title) {
+	if ((!t) || (t.disabled)) return true;
+	var i = parseFloat(t.value);
+	if ((t.value.length < 1) || (i == Number.NaN))
+		throw new golgotha.event.ValidationError('Please provide a numeric ' + title + '.', t);
+	if (i < minValue)
+		throw new golgotha.event.ValidationError('The ' + title + ' must be greater than ' + minValue + '.', t);
 
-return true;
+	return true;
 };
 
 golgotha.form.validateEMail = function(t, title)
@@ -370,15 +379,14 @@ golgotha.form.validateCombo = function(c, title) {
 	throw new golgotha.event.ValidationError('Please provide the ' + title + '.', c);
 };
 
-golgotha.form.validateFile = function(f, extTypes, title, allowBlank)
-{
-if ((!f) || (f.disabled)) return true;
-if (allowBlank && (f.value.length == 0)) return true;
-var ext = f.value.substring(f.value.lastIndexOf('.') + 1).toLowerCase();
-for (var e = extTypes.pop(); (e != null); e = extTypes.pop())
-	if (ext == e) return true;
+golgotha.form.validateFile = function(f, extTypes, title, allowBlank) {
+	if ((!f) || (f.disabled)) return true;
+	if (allowBlank && (f.value.length == 0)) return true;
+	var ext = f.value.substring(f.value.lastIndexOf('.') + 1).toLowerCase();
+	for (var e = extTypes.pop(); (e != null); e = extTypes.pop())
+		if (ext == e) return true;
 
-throw new golgotha.event.ValidationError('The ' + title + ' must be a ' + ext.toUpperCase() + ' file.', f);
+	throw new golgotha.event.ValidationError('The ' + title + ' must be a ' + extTypes + ' file.', f);
 };
 
 golgotha.form.validateCheckBox = function(cb, min, title)
