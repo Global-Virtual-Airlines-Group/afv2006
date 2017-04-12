@@ -97,6 +97,13 @@ golgotha.form.resizeAll = function() {
 	return true;
 };
 
+golgotha.util.setHTML = function(e, content) {
+	if (!e) return false;
+	if (!e.style) e = document.getElementById(e);
+	if (e) e.innerHTML = content;
+	return true;
+};
+
 golgotha.form.resize = function(textbox)
 {
 if ((!textbox) || (textbox.clientHeight >= textbox.scrollHeight)) return false;
