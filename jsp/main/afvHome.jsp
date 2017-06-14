@@ -147,7 +147,7 @@ If you are interested in a virtual airline with primarily ${partnerLoc} operatio
 <c:set var="pilot" value="${updPilots[entry.ID]}" scope="page" />
 <tr>
  <td class="priB mid">${pilot.name}</td>
- <td class="def mid">${entry.description} on <fmt:date fmt="d" date="${entry.createdOn}" /></td>
+ <td class="def mid">${entry.description} on <fmt:date fmt="d" date="${entry.date}" /></td>
 </tr>
 </c:forEach>
 </el:table>
@@ -162,7 +162,7 @@ If you are interested in a virtual airline with primarily ${partnerLoc} operatio
 <c:set var="pilot" value="${updPilots[entry.ID]}" scope="page" />
 <tr>
  <td class="priB mid">${pilot.name}</td>
- <td class="def mid">${entry.description} on <fmt:date fmt="d" date="${entry.createdOn}" /></td>
+ <td class="def mid">${entry.description} on <fmt:date fmt="d" date="${entry.date}" /></td>
 </tr>
 </c:forEach>
 </el:table>
@@ -179,8 +179,8 @@ If you are interested in a virtual airline with primarily ${partnerLoc} operatio
  <td class="pri bld"><el:cmd url="event" link="${event}">${event.name}</el:cmd></td>
  <td class="sec bld">${event.network}</td>
  <td class="small bld"><fmt:date t="HH:mm" date="${event.startTime}" /> - <fmt:date t="HH:mm" date="${event.endTime}" /></td>
- <td class="left small">${eRoute.airportD.name} (<fmt:airport airport="${eRoute.airportD}" />) - 
-${eRoute.airportA.name} (<fmt:airport airport="${eRoute.airportA}" />)</td>
+ <td class="nophone left small">${eRoute.airportD.name} (<el:cmd url="airportInfo" linkID="${eRoute.airportD.IATA}" authOnly="true" className="plain"><fmt:airport airport="${eRoute.airportD}" /></el:cmd>) - 
+ ${eRoute.airportA.name} (<el:cmd url="airportInfo" linkID="${eRoute.airportA.IATA}" authOnly="true" className="plain"><fmt:airport airport="${eRoute.airportA}" /></el:cmd>)</td>
 </tr>
 </c:forEach>
 </el:table>
@@ -195,7 +195,7 @@ ${eRoute.airportA.name} (<fmt:airport airport="${eRoute.airportA}" />)</td>
 <c:set var="info" value="${toLand[tl]}" scope="page" />
 <tr>
  <td class="priB" style="width:115px;">${info.flightCode}</td>
- <td class="secB" style="width:145px;">${info.equipmentType}</td>
+ <td class="secB nophone" style="width:145px;">${info.equipmentType}</td>
  <c:if test="${tl.isTakeoff}">
  <td class="left">Departed from ${info.airportD.name} (<el:cmd url="airportInfo" linkID="${info.airportD.IATA}" authOnly="true" className="plain"><fmt:airport airport="${info.airportD}" /></el:cmd>) at <fmt:date date="${tl.date}" t="HH:mm" /></td></c:if>
 <c:if test="${!tl.isTakeoff}">
