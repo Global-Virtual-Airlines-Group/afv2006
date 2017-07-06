@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- Copyright 2005, 2006, 2008, 2010, 2011, 2013, 2014 Global Virtual Airlines Group. All Rights Reserved. -->
+<!-- Copyright 2005, 2006, 2008, 2010, 2011, 2013, 2014, 2017 Global Virtual Airlines Group. All Rights Reserved. -->
 <project default="deploy">
 	<target name="compile" description="Precompile the Java Code">
 		<mkdir dir="${java.io.tmpdir}/afv/build/classes" />
@@ -50,10 +50,8 @@
 		
 		<!-- Precompile the files -->
 		<mkdir dir="${java.io.tmpdir}/afv/src/jsp" />
-	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="0" poolingEnabled="true" 
-	    	xpoweredBy="false" validateXml="false" webXmlFragment="${jspc.afv.webXMLInc}"
-	    	compilerTargetVM="1.8" compilerSourceVM="1.8" trimSpaces="false"
-	    	outputDir="${java.io.tmpdir}/afv/src/jsp" />
+	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="0" poolingEnabled="true" xpoweredBy="false" validateXml="false" webXmlFragment="${jspc.afv.webXMLInc}"
+	    	compilerTargetVM="1.8" compilerSourceVM="1.8" trimSpaces="true" outputDir="${java.io.tmpdir}/afv/src/jsp" />
 		
 		<!-- Clean up -->
 		<delete>
