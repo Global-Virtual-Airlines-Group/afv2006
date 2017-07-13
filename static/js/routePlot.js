@@ -352,3 +352,30 @@ golgotha.routePlot.toggleGates = function(gts) {
 	golgotha.util.display('gateLegendRow', golgotha.routePlot.gatesVisible());
 	return true;
 };
+
+golgotha.routePlot.toForm = function(o) {
+	var params = [];
+	for (p in o) {
+		if (o.hasOwnProperty(p))
+			params.push(p + '=' + o[p]);
+	}
+	
+	return params.join('&');
+};
+
+golgotha.routePlot.download = function() {
+	if (!golgotha.form.wrap(golgotha.local.validate, document.forms[0])) return false;
+	var xmlreq = new XMLHttpRequest();
+	xmlreq.open('post', '/routeplan.ws', true);
+	xmlreq.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	xmlreq.responseType = 'blob';
+	xmlreq.onreadystatechange = function() {
+		if ((xmlreq.readyState != 4) || (xmlreq.status != 200)) return false;		
+		var b = new Blob([xmlreq.response], {type: xmlreq.getResponseHeader('Content-Type')});
+		saveAs(b, xmlreq.getResponseHeader('X-Plan-Filename'));
+		return true;
+	};
+	
+	xmlreq.send(golgotha.routePlot.toForm(golgotha.routePlot.getAJAXParams()));
+	return true;
+};
