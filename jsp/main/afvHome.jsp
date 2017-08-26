@@ -9,7 +9,6 @@
 <html lang="en">
 <head>
 <title><content:airline /></title>
-<content:expire expires="10" />
 <content:canonical url="https://${airlineURL}/" />
 <content:sysdata var="airlineName" name="airline.name" />
 <content:sysdata var="desc" name="airline.meta.desc" />
