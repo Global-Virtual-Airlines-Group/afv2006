@@ -290,6 +290,7 @@
 			<wunderground>***REMOVED***</wunderground>
 			<googleMaps>***REMOVED***</googleMaps>
 			<vatsim>***REMOVED***</vatsim>
+			<twc>***REMOVED***</twc>
 		</key>
 		
 		<list name="roles" attr="role" sorted="true" unique="true">
