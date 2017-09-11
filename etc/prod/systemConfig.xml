@@ -406,10 +406,11 @@
 		<flightaware>
 			<enabled type="Boolean">true</enabled>
 			<max_age type="Integer">180</max_age>
-			<download>
+			<flightXML>
 				<user>gvagroup</user>			
-				<pwd>***REMOVED***</pwd>			
-			</download>
+				<v2>***REMOVED***</v2>
+				<v3>***REMOVED***</v3>			
+			</flightXML>
 		</flightaware>
 	</schedule>
 
