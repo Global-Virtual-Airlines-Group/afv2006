@@ -495,6 +495,11 @@
 	<testing>
 		<lockout type="Integer">24</lockout>
 		<correct_ratio_age type="Integer">90</correct_ratio_age>
+		<currency>
+			<enabled type="Boolean">false</enabled>
+			<selfenroll type="Boolean">false</selfenroll>
+			<validity type="Integer">180</validity>
+		</currency>
 	</testing>
 	
 	<cooler>
