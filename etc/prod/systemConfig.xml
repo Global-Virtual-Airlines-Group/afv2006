@@ -207,8 +207,7 @@
 
 	<!-- Weather map tile sources -->	
 	<weather>
-		<tileHost>g%.imwx.com</tileHost>
-		<multiHost type="Boolean">true</multiHost>
+		<tileHost>api.weather.com</tileHost>
 
 		<!-- Download locations -->
 		<url>
