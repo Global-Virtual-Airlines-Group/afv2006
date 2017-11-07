@@ -708,6 +708,18 @@
 		<roles>Schedule</roles>
 	</command>
 
+	<command id="vaimport">
+		<name>VABase Schedule Import</name>
+		<class>org.deltava.commands.schedule.VABaseImportCommand</class>
+		<roles>Schedule,Operations</roles>
+	</command>
+
+	<command id="vafilter">
+		<name>VABase Schedule Filter</name>
+		<class>org.deltava.commands.schedule.VABaseFilterCommand</class>
+		<roles>Schedule,Operations</roles>
+	</command>
+
 	<command id="airlines">
 		<name>Airline List</name>
 		<class>org.deltava.commands.schedule.AirlineListCommand</class>
