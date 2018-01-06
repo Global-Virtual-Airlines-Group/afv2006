@@ -604,18 +604,18 @@
 	<acars>
 		<enabled type="Boolean">true</enabled>
 		<max_offline_size type="Integer">4096000</max_offline_size>
+		
+		<!-- Archive file permissions -->
+		<archive>
+			<owner>www</owner>
+			<group>backup</group>
+		</archive>
 
 		<livemap>
 			<lat type="Double">42.88</lat>
 			<lng type="Double">-3.25</lng>
 			<reload type="Integer">15000</reload>
 		</livemap>
-
-		<!-- Archive settings -->
-		<archive>
-			<path>/home/backup/acars</path>		
-			<buckets type="Integer">384</buckets>
-		</archive>
 
 		<!-- XACARS sim versions -->
 		<xacars>
