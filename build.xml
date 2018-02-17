@@ -49,7 +49,7 @@
 		<!-- Precompile the files -->
 		<mkdir dir="${java.io.tmpdir}/afv/src/jsp" />
 	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="0" poolingEnabled="true" xpoweredBy="false" validateXml="false" webXmlFragment="${jspc.afv.webXMLInc}"
-	    	compilerTargetVM="1.9" compilerSourceVM="1.9" trimSpaces="false" outputDir="${java.io.tmpdir}/afv/src/jsp" />
+	    	compilerTargetVM="1.9" compilerSourceVM="1.9" trimSpaces="FALSE" outputDir="${java.io.tmpdir}/afv/src/jsp" />
 		
 		<!-- Clean up -->
 		<delete>
