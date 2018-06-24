@@ -653,6 +653,18 @@
 		<class>org.deltava.commands.navdata.DispatchRouteUpdateCommand</class>
 		<roles>Schedule,Operations</roles>
 	</command>
+	
+		<command id="rwymappings">
+		<name>Runway Mappings</name>
+		<class>org.deltava.commands.navdata.RunwayMappingsCommand</class>
+		<roles>Schedule,Operations</roles>
+	</command>
+
+	<command id="rwymapping">
+		<name>Runway Mapping</name>
+		<class>org.deltava.commands.navdata.RunwayMappingCommand</class>
+		<roles>Schedule,Operations</roles>
+	</command>
 
 	<command id="navsearch">
 		<name>Navigation Data Search</name>
