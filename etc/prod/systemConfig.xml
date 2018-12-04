@@ -148,7 +148,7 @@
 	<!-- JDBC data source configuration -->
 	<jdbc>
 		<driver>com.mysql.jdbc.Driver</driver>
-		<url>jdbc:mysql://mysql.deltava.org/afv</url>
+		<url>jdbc:mysql://mysql.gva.aws/afv</url>
 		<user>afv</user>
 		<pwd>m4n3l5</pwd>
 		
@@ -440,7 +440,7 @@
 	</path>
 	
 	<smtp>
-		<server>nephele.gvagroup.org</server>
+		<server>mail.gva.aws</server>
 		<tls type="Boolean">false</tls>
 		<errors-to>webmaster@afva.net</errors-to>
 		<testMode type="Boolean">false</testMode>
