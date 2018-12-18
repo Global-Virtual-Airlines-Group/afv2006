@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- Copyright 2005, 2006, 2008, 2010, 2011, 2013, 2014, 2017 Global Virtual Airlines Group. All Rights Reserved. -->
+<!-- Copyright 2005, 2006, 2008, 2010, 2011, 2013, 2014, 2017, 2018 Global Virtual Airlines Group. All Rights Reserved. -->
 <project default="deploy">
+	
+	<!-- Lowercase function -->
+	<scriptdef language="javascript" name="lower">
+		<attribute name="string" /> 
+		<attribute name="to" />
+			project.setProperty(attributes.get("to"),attributes.get("string").toLowerCase());
+	</scriptdef>
+	
 	<target name="compile" description="Precompile the Java Code">
 		<mkdir dir="${java.io.tmpdir}/afv/build/classes" />
 		<javac srcdir="src/java" optimize="on" destdir="${java.io.tmpdir}/afv/build/classes" debug="true" debuglevel="lines,vars,source" source="1.10" target="1.10" compiler="modern" includeantruntime="false">
@@ -59,8 +67,7 @@
 
 		<!-- Compile the files -->
 		<mkdir dir="${java.io.tmpdir}/afv/build/jsp" />
-		<javac srcdir="${java.io.tmpdir}/afv/src/jsp" destdir="${java.io.tmpdir}/afv/build/jsp" nowarn="on" compiler="modern"
-			debug="on" debuglevel="source" optimize="on" target="1.10" source="1.10" includeantruntime="false">
+		<javac srcdir="${java.io.tmpdir}/afv/src/jsp" destdir="${java.io.tmpdir}/afv/build/jsp" nowarn="on" compiler="modern" debug="on" debuglevel="source" optimize="on" target="1.10" source="1.10" includeantruntime="false">
 			<classpath refid="afv.jspc.classpath" />
 			<include name="net/afva/jsp/**/*.java" />
 		</javac>
@@ -135,9 +142,9 @@
 	<target name="deploy" depends="jspc,minify" description="Deploy to Development environment">
 		<loadproperties srcFile="data/build_deploy.properties" />
 		<property name="webapp.dev.port" value="22" />
-		<property name="webapp.dev.user" value="${user.name}" />
+		<lower string="${user.name}" to="webapp.dev.user" />
 		<property name="http.dev.port" value="22" />
-		<property name="http.dev.user" value="${user.name}" />
+		<lower string="${user.name}" to="http.dev.user" />
 		<mkdir dir="../.local_data" />
 		
 		<!-- Upload the web configuration -->
@@ -212,9 +219,9 @@
 	<target name="prod_deploy" depends="jspc,minify" description="Deploy to Production environment">
 		<loadproperties srcFile="data/build_deploy.properties" />
 		<property name="webapp.ssh.port" value="22" />
-		<property name="webapp.ssh.user" value="${user.name}" />
+		<lower string="${user.name}" to="webapp.ssh.user" />
 		<property name="http.ssh.port" value="22" />
-		<property name="http.ssh.user" value="${user.name}" />
+		<lower string="${user.name}" to="http.ssh.user" />
 		<mkdir dir="../.local_data" />
 		
 		<!-- Upload the web configuration -->
