@@ -533,6 +533,11 @@
 			<maxAge type="Integer">24</maxAge>
 		</promotion>
 
+		<!-- System messages -->
+		<system>
+			<channel>AFV System Notifications</channel>
+		</system>
+
 		<maxreports type="Integer">3</maxreports>
 	</cooler>
 
