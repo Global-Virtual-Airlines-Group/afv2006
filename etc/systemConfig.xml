@@ -415,9 +415,20 @@
 	
 	<!-- SMTP Server configuration -->
 	<smtp>
-		<server>localhost</server>
-		<errors-to>webmaster@sce.net</errors-to>
+		<server>email-smtp.us-east-1.amazonaws.com</server>
+		<errors-to>webmaster@afva.net</errors-to>
 		<testMode type="Boolean">true</testMode>
+		<tls type="Boolean">true</tls>
+		<user>AKIAIEJ5ZVSVUD26YCPA</user>
+		<pwd>AhU8YMg83cLd6ZpGVV1vJ2VM2kHSiu6x7KLRBPt3SWLy</pwd>
+
+		<imap>
+			<path>/home/mail</path>
+			<enabled type="Boolean">true</enabled>
+			<quota type="Integer">10240000</quota>
+			<server>mail.afva.net</server>
+			<script>/usr/local/sbin/www/mailbox_create</script>
+		</imap>
 	</smtp>
 
 	<registration>
@@ -487,6 +498,11 @@
 			<channel>Pilot Achievements and Promotions</channel>
 			<maxAge type="Integer">24</maxAge>
 		</promotion>
+
+		<!-- System messages -->
+		<system>
+			<channel>AFV System Notifications</channel>
+		</system>
 
 		<maxreports type="Integer">2</maxreports>
 		<search>
