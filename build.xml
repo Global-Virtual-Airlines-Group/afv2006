@@ -11,7 +11,7 @@
 	
 	<target name="compile" description="Precompile the Java Code">
 		<mkdir dir="${java.io.tmpdir}/afv/build/classes" />
-		<javac srcdir="src/java" optimize="on" destdir="${java.io.tmpdir}/afv/build/classes" debug="true" debuglevel="lines,vars,source" source="12" target="12" compiler="modern" includeantruntime="false">
+		<javac srcdir="src/java" optimize="on" destdir="${java.io.tmpdir}/afv/build/classes" debug="true" debuglevel="lines,vars,source" source="13" target="13" compiler="modern" includeantruntime="false">
 			<compilerarg value="-Xlint:unchecked" />
 	    	<classpath id="afv.classpath">
 				<fileset dir="${ant.home}/lib" includes="*.jar" />
