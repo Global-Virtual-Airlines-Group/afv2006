@@ -1922,11 +1922,18 @@
 		<roles>Operations,HR,Developer</roles>	
 	</command>
 
-	<command id="ip6import">
-		<name>IPv6 Netblock Import</name>	
-		<class>org.deltava.commands.system.IP6BlockImportCommand</class>
+	<command id="ipimport">
+		<name>IP Netblock Import</name>	
+		<class>org.deltava.commands.system.IPBlockImportCommand</class>
 		<roles>Operations,Developer</roles>
 	</command>
+
+	<command id="ipgeoimport">
+		<name>IP Netblock Location Import</name>	
+		<class>org.deltava.commands.system.IPGeoImportCommand</class>
+		<roles>Operations,Developer</roles>
+	</command>
+	
 
 
 	<!-- Help Desk commands -->
