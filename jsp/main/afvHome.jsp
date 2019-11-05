@@ -36,7 +36,6 @@
 <%@ include file="/jsp/main/header.jspf" %> 
 <%@ include file="/jsp/main/sideMenu.jspf" %>
 <content:sysdata var="infoEmail" name="airline.mail.info" />
-<content:sysdata var="fbClientID" name="users.facebook.id" />
 
 <!-- Main Body Frame -->
 <content:region id="main">
@@ -220,11 +219,6 @@ If you have questions or comments, please direct them to our Corporate Offices a
 <div class="mid nophone"><a rel="nofollow" href="http://www.vatsim.net/"><el:img src="network/vatsim_button.png" caption="VATSIM Partner Airline" className="noborder" /></a></div>
 </c:when>
 <c:otherwise>
-<content:browser human="true">
-<div class="nophone" style="float:right; margin-right:70px;">
-<iframe src="$https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fapps%2Fapplication.php%3Fid%3D${fbClientID}&amp;send=false&amp;layout=standard&amp;width=300&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=tahoma&amp;height=62&amp;appId=${fbClientID}" style="border:none; overflow:hidden; width:450px; height:35px;"></iframe>
-</div>
-</content:browser>
 <div class="nophone" style="float:left; margin-left:70px;"><a rel="nofollow" href="http://www.vatsim.net/"><el:img src="network/vatsim_button.png" caption="VATSIM Partner Airline" className="noborder" /></a></div>
 <div class="nophone" style="clear:both;"></div>
 </c:otherwise>
