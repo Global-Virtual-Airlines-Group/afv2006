@@ -319,7 +319,6 @@
 			<role>Dispatch</role>
 			<role>Examination</role>
 			<role>Event</role>
-			<role>Facebook</role>
 			<role>Fleet</role>
 			<role>HireMgr</role>			
 			<role>HR</role>
@@ -557,25 +556,6 @@
 		<user_cookie_age type="Integer">30</user_cookie_age>
 		<transfer_max type="Integer">30</transfer_max>
 		<checkrde_max type="Integer">3</checkrde_max>
-
-		<!-- Facebook integration settings -->
-		<facebook>
-			<id>205671896115290</id>		
-			<pageID>205671896115290</pageID>
-			<secret>725fbf32b9d118a0b767cf4c7a9ff5ae</secret>
-			<img>http://www.deltava.org/img/fleet/dva_side.png</img>
-			<url>
-				<accessToken>https://graph.facebook.com/oauth/access_token</accessToken>
-				<authorize>https://graph.facebook.com/oauth/authorize</authorize>
-				<userInfo>https://graph.facebook.com/v2.3/me</userInfo>
-				<feed>https://graph.facebook.com/v2.3/me/feed</feed>
-			</url>
-			<list name="permissions" attr="perm" unique="true">
-			    <perm>public_profile</perm>
-                <perm>publish_actions</perm>
-                <perm>email</perm>
-			</list>
-		</facebook>
 
 		<pirep>
 			<maxDays type="Integer">1</maxDays>
