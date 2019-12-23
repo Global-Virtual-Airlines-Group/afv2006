@@ -13,10 +13,6 @@
 		<birthdate>08/25/2004</birthdate>
 		<voice>
 			<url>rw.afva.net/AFV</url>
-			<ts2>
-				<enabled type="Boolean">true</enabled>
-				<url>teamspeak://ts2.afva.net</url>
-			</ts2>
 			<mvs>
 				<enabled type="Boolean">true</enabled>
 			</mvs>
