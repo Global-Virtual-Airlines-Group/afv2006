@@ -205,7 +205,7 @@ virtual airline, designed for both the experienced pilot and the novice (and all
 <c:forEach var="pilot" items="${latestPilots}">
 <tr>
  <td class="priB mid">${pilot.pilotCode}</td>
- <td class="def mid">${pilot.rank.name} ${pilot.name} (${pilot.equipmentType})</td>
+ <td class="def mid">${pilot.rank.name}&nbsp;${pilot.name} (${pilot.equipmentType})</td>
 </tr>
 </c:forEach>
 </el:table>
@@ -216,10 +216,10 @@ If you have questions or comments, please direct them to our Corporate Offices a
 <br />
 <c:choose>
 <c:when test="${empty fbClientID}">
-<div class="mid nophone"><a rel="nofollow" href="http://www.vatsim.net/"><el:img src="network/vatsim_button.png" caption="VATSIM Partner Airline" className="noborder" /></a></div>
+<div class="mid nophone"><a rel="nofollow" href="https://www.vatsim.net/"><el:img src="network/vatsim_button.png" caption="VATSIM Partner Airline" className="noborder" /></a></div>
 </c:when>
 <c:otherwise>
-<div class="nophone" style="float:left; margin-left:70px;"><a rel="nofollow" href="http://www.vatsim.net/"><el:img src="network/vatsim_button.png" caption="VATSIM Partner Airline" className="noborder" /></a></div>
+<div class="nophone" style="float:left; margin-left:70px;"><a rel="nofollow" href="https://www.vatsim.net/"><el:img src="network/vatsim_button.png" caption="VATSIM Partner Airline" className="noborder" /></a></div>
 <div class="nophone" style="clear:both;"></div>
 </c:otherwise>
 </c:choose>
