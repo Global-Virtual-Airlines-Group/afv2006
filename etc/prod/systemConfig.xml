@@ -305,6 +305,10 @@
 			<google>AIzaSyDipON4NxnUFpg1wEnqA5OugqaqYxaBXIU</google>
 			<twc>d522aa97197fd864d36b418f39ebb323</twc>
 			<vatsim>1db84fa44417fda98d313a5839f80ba8</vatsim>
+			<recaptcha>
+				<site>6LfT-tYUAAAAAAVLCI-ysfCX3pdDD2Rl9mLZYkHb</site>
+				<secret>6LfT-tYUAAAAAJurVtQdeIK9q-JV_USReeqnBLA8</secret>
+			</recaptcha>
 		</key>
 
 		<list name="roles" attr="role" sorted="true">
@@ -486,7 +490,7 @@
 			<server type="Integer">006</server>
 			<fleet type="Integer">006</fleet>
 			<manuals type="Integer">006</manuals>
-			<examinations type="Integer">006</examinations>
+			<exams type="Integer">006</exams>
 			<acars type="Integer">006</acars>
 			<schedule type="Integer">006</schedule>
 			<dispatch type="Integer">006</dispatch>
