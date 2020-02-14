@@ -480,9 +480,8 @@
 	<issue_track>
 		<list name="versions" attr="version" sorted="true">
 			<version>2.2</version>
-			<version>3.0</version>
-			<version>5.3</version>
-			<version>5.4</version>
+			<version>3.4</version>
+			<version>9.0</version>
 		</list>
 		
 		<assignto>
