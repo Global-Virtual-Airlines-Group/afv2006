@@ -463,9 +463,9 @@ golgotha.nav.initMenu = function() {
 };
 
 golgotha.nav.initBar = function() {
-	var nv = document.getElementById('nav');
+	const nv = document.getElementById('nav');
 	if (!golgotha.util.hasClass(nv, 'navbar')) return false;
-	var hdrs = golgotha.util.getElementsByClass('submenuTitle', 'li', document.getElementById('navmenu'));
+	const hdrs = golgotha.util.getElementsByClass('submenuTitle', 'li', document.getElementById('navmenu'));
 	for (var h = hdrs.pop(); (h != null); h = hdrs.pop())
 		h.addEventListener('click', golgotha.nav.toggleBar);
 
@@ -484,7 +484,7 @@ golgotha.util.validateCAPTCHA = function(token) {
 	xreq.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
 	xreq.onreadystatechange = function() {
 		if (xreq.readyState != 4) return false;
-		const isOK = (xreq.status == 200);
+		const isOK = (xreq.status == 200) || (xreq.status == 304);
 		if (!isOK) console.log('Error ' + xreq.status + ' validating CAPTCHA!');
 		golgotha.util.captcha = true;
 		return isOK;
