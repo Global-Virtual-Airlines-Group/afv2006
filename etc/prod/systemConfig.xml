@@ -345,7 +345,6 @@
 		
 		<auth>org.deltava.security.ApacheSQLAuthenticator</auth>
 		<baseDN>ou=afv,o=sce</baseDN>
-		<auth_alias type="Boolean">true</auth_alias>
 	</security>
 
 	<!-- Innovata schedule link data -->
