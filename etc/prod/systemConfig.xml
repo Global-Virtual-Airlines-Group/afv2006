@@ -273,6 +273,14 @@
 		<default_network>VATSIM</default_network>
 	</online>
 
+	<!-- API usage limits -->
+	<api>
+		<max>
+			<googleMaps type="Integer">2700</googleMaps>
+			<flightaware type="Integer">1500</flightaware>
+		</max>
+	</api>
+
 	<security>
 		<ssl type="Boolean">true</ssl>
 		<simFDR>5339142733696a9b26aef7b2bfecce5a</simFDR>
