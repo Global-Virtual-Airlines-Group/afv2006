@@ -257,6 +257,14 @@
 		<default_network>VATSIM</default_network>
 	</online>
 	
+	<!-- API usage limits -->
+	<api>
+		<max>
+			<googleMaps type="Integer">2700</googleMaps>
+			<flightaware type="Integer">1500</flightaware>
+		</max>
+	</api>
+
 	<security>
 		<ssl type="Boolean">true</ssl>
 		<aesKey>AFV super-secret AES cookie key</aesKey>
@@ -280,7 +288,7 @@
 			<default type="Integer">8</default>
 			<min type="Integer">5</min>	
 		</password>
-
+		
 		<key>
 			<analytics>UA-2066915-3</analytics>
 			<wunderground>e466a9feecedb389</wunderground>
