@@ -143,7 +143,7 @@
 
 	<!-- JDBC data source configuration -->
 	<jdbc>
-		<driver>com.mysql.jdbc.Driver</driver>
+		<driver>com.mysql.cj.jdbc.Driver</driver>
 		<url>jdbc:mysql://mysql.gva.aws/afv</url>
 		<user>afv</user>
 		<pwd>***REMOVED***</pwd>
