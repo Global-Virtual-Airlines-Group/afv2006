@@ -1,8 +1,8 @@
 golgotha.exam = golgotha.exam || {isExpired:false, rpInfo:[]};
 golgotha.exam.getElementsById = function(id, eName)
 {
-var elements = [];
-var all = document.getElementsByTagName((eName == null) ? '*' : eName);
+let elements = [];
+const all = document.getElementsByTagName((eName == null) ? '*' : eName);
 for (var x = 0; x < all.length; x++) {
 	if (all[x].id == id)
 		elements.push(all[x]);
@@ -16,8 +16,8 @@ golgotha.local.validate = function(f)
 if (!golgotha.form.check()) return false;
 
 // Check if all questions were answered
-var isOK = true; var qNum = 1;
-var a = golgotha.exam.getElementsById('A' + qNum);
+let isOK = true; let qNum = 1;
+let a = golgotha.exam.getElementsById('A' + qNum);
 while (isOK && (a.length > 0)) {
 	if (a.length == 1)
 		isOK = (isOK && (a[0].value.length > 1));
