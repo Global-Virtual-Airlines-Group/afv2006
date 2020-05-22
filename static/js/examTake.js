@@ -22,7 +22,7 @@ while (isOK && (a.length > 0)) {
 	if (a.length == 1)
 		isOK = (isOK && (a[0].value.length > 1));
 	else {
-		var checkCount = 0;
+		let checkCount = 0;
 		for (var x = 0; x < a.length; x++) {
 			if (a[x].checked)
 				checkCount++;
@@ -59,9 +59,9 @@ return null;
 
 golgotha.exam.showRemaining = function(interval)
 {
-var now = new Date();
-var tr = document.getElementById('timeRemaining');
-var secondsLeft = (golgotha.exam.expiry - now.getTime() + golgotha.exam.timeOffset) / 1000;
+const now = new Date();
+const tr = document.getElementById('timeRemaining');
+const secondsLeft = (golgotha.exam.expiry - now.getTime() + golgotha.exam.timeOffset) / 1000;
 if (!tr) return false;
 
 // Update the text color
@@ -85,7 +85,7 @@ return window.setTimeout(golgotha.exam.showRemaining, interval * 1000, interval)
 
 golgotha.exam.saveAnswer = function(qNum, id)
 {
-var txtbox = golgotha.exam.getElementsById('A' + qNum);
+const txtbox = golgotha.exam.getElementsById('A' + qNum);
 if (!txtbox) return false;
 if (txtbox.length == 1) {
 	txtbox[0].oldBorder = txtbox[0].style.border;
@@ -93,12 +93,12 @@ if (txtbox.length == 1) {
 }
 
 // Create the AJAX request
-var xmlreq = new XMLHttpRequest();
+const xmlreq = new XMLHttpRequest();
 xmlreq.open('POST', 'answer.ws?id=' + id + '&q=' + qNum + '&date=' + golgotha.util.getTimestamp(100));
 xmlreq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 xmlreq.onreadystatechange = function() {
 	if ((xmlreq.readyState != 4) || (xmlreq.status != 200)) return false;
-	var time = parseInt(xmlreq.responseText);
+	const time = parseInt(xmlreq.responseText);
 	if (!isNaN(time)) secondsLeft = time;
 	if (txtbox.length == 1) {
 		txtbox[0].style.border = txtbox[0].oldBorder;
@@ -109,7 +109,7 @@ xmlreq.onreadystatechange = function() {
 };
 
 // Save the answer
-var answer = golgotha.exam.getAnswer(txtbox);
+const answer = golgotha.exam.getAnswer(txtbox);
 if (answer != null) {
 	xmlreq.send('answer=' + escape(answer));
 	golgotha.event.beacon('Examination', 'Submit Answer');
@@ -126,7 +126,7 @@ return window.open('/exam_rsrc/' + id, 'questionImage', flags);
 
 golgotha.exam.updateMap = function(rpq)
 {
-var xmlreq = new XMLHttpRequest();
+const xmlreq = new XMLHttpRequest();
 xmlreq.open('POST', 'examplot.ws?id=' + rpq.examID + '&q=' + rpq.idx + '&date=' + golgotha.util.getTimestamp(100), true);
 xmlreq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 var txtbox = golgotha.exam.getElementsById('A' + rpq.idx);
@@ -142,9 +142,9 @@ xmlreq.onreadystatechange = function() {
 	rpq.map.clearOverlays();
 
 	// Draw the markers and load the codes
-	var positions = [];
-	var codes = [];
-	var xdoc = xmlreq.responseXML.documentElement;
+	let positions = [];
+	let codes = [];
+	const xdoc = xmlreq.responseXML.documentElement;
 	var waypoints = xdoc.getElementsByTagName('pos');
 	for (var i = 0; i < waypoints.length; i++) {
 		var wp = waypoints[i];
