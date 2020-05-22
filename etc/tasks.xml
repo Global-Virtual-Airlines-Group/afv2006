@@ -61,7 +61,7 @@
 	</task>
 
 	<!-- Innovata Schedule download -->
-	<task id="schedfilter" enabled="false">
+	<task id="schedfilter" enabled="true">
 		<class>org.deltava.tasks.ScheduleFilterTask</class>
 		<time>
 			<min>0</min>
