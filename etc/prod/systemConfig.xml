@@ -309,7 +309,10 @@
 		<key>
 			<analytics>UA-2066915-3</analytics>
 			<wunderground>e466a9feecedb389</wunderground>
-			<googleMaps>AIzaSyB58rBxgNQvVzsMULM0KrIKkWFtIWOo0wM</googleMaps>
+			<googleMaps>
+				<auth>AIzaSyB58rBxgNQvVzsMULM0KrIKkWFtIWOo0wM</auth>
+				<anon>AIzaSyABHUO-rRq-Ih1htFLwyXktI_30cbLY-q4</anon>
+			</googleMaps>
 			<google>AIzaSyDipON4NxnUFpg1wEnqA5OugqaqYxaBXIU</google>
 			<twc>d522aa97197fd864d36b418f39ebb323</twc>
 			<vatsim>1db84fa44417fda98d313a5839f80ba8</vatsim>
