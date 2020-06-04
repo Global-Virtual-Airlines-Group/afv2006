@@ -579,7 +579,7 @@
 	
 	<!-- Flight Academy Data -->
 	<academy>
-		<enabled type="Boolean">true</enabled>
+		<enabled type="Boolean">false</enabled>
 		<minFlights type="Integer">10</minFlights>
 		<ato type="Boolean">true</ato>
 		<coursePurge type="Integer">240</coursePurge>
