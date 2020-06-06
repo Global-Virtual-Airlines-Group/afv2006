@@ -275,6 +275,7 @@
 				<include name="services.xml" />
 				<include name="codeshares.txt" />
 				<include name="cacheInfo.xml" />
+				<include name="bb_config.xml" />
 				<modified seldirs="false" algorithm="digest">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="../.local_data/afv.cfg.cache.txt" />
