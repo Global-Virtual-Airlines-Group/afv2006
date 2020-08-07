@@ -1629,6 +1629,12 @@
 		<class>org.deltava.commands.testing.ExamProfilesCommand</class>
 		<roles>HR,Examination,TestAdmin</roles>
 	</command>
+
+	<command id="epdelete">
+		<name>Examination Profile Delete</name>
+		<class>org.deltava.commands.testing.ExamProfileDeleteCommand</class>
+		<roles>HR,TestAdmin,AcademyAdmin</roles>
+	</command>
 	
 	<command id="eprofile">
 		<name>Examination Profile</name>
