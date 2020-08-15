@@ -19,7 +19,7 @@ xmlreq.onreadystatechange = function() {
 
 	// Display effective date
 	const dt = new Date(js.date);
-	golgotha.util.setHTML('isLoading', ' - VALID AS OF ' + golgotha.flightBoard.months[dt.getMonth()] + ' ' + dt.getDate() + ' ' + dt.getFullYear() + ' ' + dt.getHours() + ':' + dt.getMinutes());
+	golgotha.util.setHTML('isLoading', ' - VALID AS OF ' + golgotha.flightBoard.formatDate(dt));
 
 	// Display pilots
 	golgotha.flightBoard.pilots.length = 0;
@@ -62,6 +62,20 @@ xmlreq.send(null);
 return true;
 };
 
+golgotha.flightBoard.formatDate = function(dt) {
+	let fdt = golgotha.flightBoard.months[dt.getMonth()] + ' ' + dt.getDate() + ' ' + dt.getFullYear() + ' ';
+	if (dt.getHours() < 10)
+		fdt += '0';
+
+	fdt += dt.getHours();
+	fdt += ':';
+	if (dt.getMinutes() < 10)
+		fdt += ':';
+
+	fdt += dt.getMinutes();
+	return fdt;
+}
+
 golgotha.flightBoard.infoClose = function()
 {
 if (golgotha.flightBoard.selectedRoute != null) {
@@ -83,7 +97,7 @@ return true;
 };
 
 golgotha.flightBoard.zoomTo = function(combo) {
-	var opt = combo.options[combo.selectedIndex];
+	const opt = combo.options[combo.selectedIndex];
 	if ((!opt) || (opt.mrk == null)) return false;	
 	map.panTo(opt.mrk.getPosition());
 	google.maps.event.trigger(opt.mrk, 'click');
