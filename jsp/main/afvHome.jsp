@@ -43,12 +43,9 @@
 Welcome to <content:airline />'s web site. We are a group of flight simulation enthusiasts who fly Air France and its alliance partners' routes using Microsoft's Flight Simulator 2002, 2004 or Flight 
 Simulator X (including Steam Edition), as well as Laminar Research X-Plane and Lockheed-Martin's Prepar3D. We are in no way affiliated with Air France.<br />
 <br />
-Since May 2003, we have received over <fmt:int value="${httpStats.homeHits}" /> visits and received <fmt:int value="${httpStats.hits}" /> hits. During this time, our servers have sent out over
-<fmt:int value="${httpStats.bytes}" /> bytes worth of data.
-<c:if test="${coolerStats > 1}"> Our members have posted over <fmt:quantity value="${coolerStats}" single="message" /> 
-in our discussion forums in the past 24 hours.</c:if>
-<c:if test="${(!empty runTimeDays) && (runTimeDays > 0)}"> Our web server has been running for <fmt:quantity value="${runTimeDays}" single="day" /> , 
-<fmt:quantity value="${runTimeHours}" single="hour" /> and <fmt:quantity value="${runTimeMinutes}" single="minute" />.</c:if>
+Since May 2003, we have received over <fmt:int value="${httpStats.homeHits}" /> visits and received <fmt:int value="${httpStats.hits}" /> hits. During this time, our servers have sent out over <fmt:int value="${httpStats.bytes}" /> bytes worth of data.
+<c:if test="${coolerStats > 1}"> Our members have posted over <fmt:quantity value="${coolerStats}" single="message" /> in our discussion forums in the past 24 hours.</c:if>
+<c:if test="${!empty runTime}"> Our web server has been running for <fmt:quantity value="${runTime.toDays()}" single="day" />, <fmt:quantity value="${runTime.toHoursPart()}" single="hour" /> and <fmt:quantity value="${runTime.toMinutesPart()}" single="minute" />.</c:if>
 <br />
 <br />
 <content:ip IPv6="true">
@@ -212,18 +209,7 @@ virtual airline, designed for both the experienced pilot and the novice (and all
 </el:table>
 </c:if>
 <br />
-If you have questions or comments, please direct them to our Corporate Offices at 
-<a href="mailto:${infoEmail}">${infoEmail}</a>.<br />
-<br />
-<c:choose>
-<c:when test="${empty fbClientID}">
-<div class="mid nophone"><a rel="nofollow" href="https://www.vatsim.net/"><el:img src="network/vatsim_button.png" caption="VATSIM Partner Airline" className="noborder" /></a></div>
-</c:when>
-<c:otherwise>
-<div class="nophone" style="float:left; margin-left:70px;"><a rel="nofollow" href="https://www.vatsim.net/"><el:img src="network/vatsim_button.png" caption="VATSIM Partner Airline" className="noborder" /></a></div>
-<div class="nophone" style="clear:both;"></div>
-</c:otherwise>
-</c:choose>
+If you have questions or comments, please direct them to our Corporate Offices at <a href="mailto:${infoEmail}">${infoEmail}</a>.<br />
 <br />
 <content:copyright />
 </content:region>
