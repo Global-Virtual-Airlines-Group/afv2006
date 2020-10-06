@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- Copyright 2005, 2006, 2008, 2010, 2011, 2013, 2014, 2017, 2018, 2019 Global Virtual Airlines Group. All Rights Reserved. -->
+<!-- Copyright 2005, 2006, 2008, 2010, 2011, 2013, 2014, 2017, 2018, 2019, 2020 Global Virtual Airlines Group. All Rights Reserved. -->
 <project default="deploy">
-	
-	<!-- Lowercase function -->
-	<scriptdef language="javascript" name="lower">
-		<attribute name="string" /> 
-		<attribute name="to" />
-			project.setProperty(attributes.get("to"),attributes.get("string").toLowerCase());
-	</scriptdef>
-	
 	<target name="compile" description="Precompile the Java Code">
 		<mkdir dir="${java.io.tmpdir}/afv/build/classes" />
-		<javac srcdir="src/java" optimize="on" destdir="${java.io.tmpdir}/afv/build/classes" debug="true" debuglevel="lines,vars,source" source="14" target="14" compiler="modern" includeantruntime="false">
+		<javac srcdir="src/java" optimize="on" destdir="${java.io.tmpdir}/afv/build/classes" debug="true" debuglevel="lines,vars,source" source="15" target="15" compiler="modern" includeantruntime="false">
 			<compilerarg value="-Xlint:unchecked" />
 	    	<classpath id="afv.classpath">
 				<fileset dir="${ant.home}/lib" includes="*.jar" />
@@ -56,8 +48,7 @@
 		
 		<!-- Precompile the files -->
 		<mkdir dir="${java.io.tmpdir}/afv/src/jsp" />
-	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="0" poolingEnabled="true" xpoweredBy="false" validateXml="false" webXmlFragment="${jspc.afv.webXMLInc}"
-	    	compilerTargetVM="1.14" compilerSourceVM="1.14" trimSpaces="FALSE" outputDir="${java.io.tmpdir}/afv/src/jsp" />
+	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="0" poolingEnabled="true" xpoweredBy="false" validateXml="false" webXmlFragment="${jspc.afv.webXMLInc}" compilerTargetVM="1.15" compilerSourceVM="1.15" trimSpaces="FALSE" outputDir="${java.io.tmpdir}/afv/src/jsp" />
 		
 		<!-- Clean up -->
 		<delete>
@@ -67,7 +58,7 @@
 
 		<!-- Compile the files -->
 		<mkdir dir="${java.io.tmpdir}/afv/build/jsp" />
-		<javac srcdir="${java.io.tmpdir}/afv/src/jsp" destdir="${java.io.tmpdir}/afv/build/jsp" nowarn="on" compiler="modern" debug="on" debuglevel="source" optimize="on" target="14" source="14" includeantruntime="false">
+		<javac srcdir="${java.io.tmpdir}/afv/src/jsp" destdir="${java.io.tmpdir}/afv/build/jsp" nowarn="on" compiler="modern" debug="on" debuglevel="source" optimize="on" target="15" source="15" includeantruntime="false">
 			<classpath refid="afv.jspc.classpath" />
 			<include name="net/afva/jsp/**/*.java" />
 		</javac>
@@ -142,9 +133,16 @@
 	<target name="deploy" depends="jspc,minify" description="Deploy to Development environment">
 		<loadproperties srcFile="data/build_deploy.properties" />
 		<property name="webapp.dev.port" value="22" />
-		<lower string="${user.name}" to="webapp.dev.user" />
+		<taskdef classname="org.gvagroup.ant.LowercaseTask" name="lower">
+			<classpath id="lc.classpath">
+				<pathelement path="${classpath}" />
+				<fileset dir="./lib" includes="golgotha_ipc-*.jar" />
+			</classpath>
+		</taskdef>
+
+		<lower value="${user.name}" property="webapp.dev.user" />
 		<property name="http.dev.port" value="22" />
-		<lower string="${user.name}" to="http.dev.user" />
+		<lower value="${user.name}" property="http.dev.user" />
 		<mkdir dir="../.local_data" />
 		
 		<!-- Upload the web configuration -->
@@ -219,9 +217,16 @@
 	<target name="prod_deploy" depends="jspc,minify" description="Deploy to Production environment">
 		<loadproperties srcFile="data/build_deploy.properties" />
 		<property name="webapp.ssh.port" value="22" />
-		<lower string="${user.name}" to="webapp.ssh.user" />
+		<taskdef classname="org.gvagroup.ant.LowercaseTask" name="lower">
+			<classpath id="lc.classpath">
+				<pathelement path="${classpath}" />
+				<fileset dir="./lib" includes="golgotha_ipc-*.jar" />
+			</classpath>
+		</taskdef>
+
+		<lower value="${user.name}" property="webapp.ssh.user" />
 		<property name="http.ssh.port" value="22" />
-		<lower string="${user.name}" to="http.ssh.user" />
+		<lower value="${user.name}" property="http.ssh.user" />
 		<mkdir dir="../.local_data" />
 		
 		<!-- Upload the web configuration -->
