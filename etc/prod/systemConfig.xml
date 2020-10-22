@@ -152,6 +152,7 @@
 			<useCompression>false</useCompression>
 			<useSSL>false</useSSL>
 			<characterEncoding>utf-8</characterEncoding>
+			<connectionCollation>latin1_swedish_ci</connectionCollation>
 			<connectTimeout>1000</connectTimeout>
 			<autoReconnect>true</autoReconnect>
 			<sendFractionalSeconds>true</sendFractionalSeconds>
