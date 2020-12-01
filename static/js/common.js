@@ -189,9 +189,6 @@ golgotha.onDOMReady = function(f) {
 		return document.addEventListener('DOMContentLoaded', f);
 };
 
-golgotha.attach = function(f, name) {
-};
-
 golgotha.getChild = function(e, name) {
 	var children = e.getElementsByTagName(name);
 	return (children.length == 0) ? null : children[0];
