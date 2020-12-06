@@ -1242,7 +1242,21 @@
 		<roles>HR,Signature</roles>
 	</command>
 
-	<command id="accomplishments">
+	<command id="wxcenter">
+		<name>Weather Center</name>
+		<class>org.deltava.commands.main.WeatherCenterCommand</class>
+		<roles>Pilot</roles>	
+	</command>
+
+	<command id="wxfinder">
+		<name>Airport Weather Finder</name>	
+		<class>org.deltava.commands.main.WeatherFinderCommand</class>
+		<roles>Pilot</roles>	
+	</command>
+
+
+	<!-- Accomplishment commands -->
+		<command id="accomplishments">
 		<name>Accomplishment Profile List</name>
 		<class>org.deltava.commands.stats.AccomplishmentListCommand</class>
 		<roles>HR,Operations,PIREP</roles>
@@ -1283,19 +1297,7 @@
 		<class>org.deltava.commands.stats.AccomplishmentAirportMapCommand</class>
 		<roles>Pilot</roles>
 	</command>
-
-	<command id="wxcenter">
-		<name>Weather Center</name>
-		<class>org.deltava.commands.main.WeatherCenterCommand</class>
-		<roles>Pilot</roles>	
-	</command>
-
-	<command id="wxfinder">
-		<name>Airport Weather Finder</name>	
-		<class>org.deltava.commands.main.WeatherFinderCommand</class>
-		<roles>Pilot</roles>	
-	</command>
-
+	
 
 	<!-- Flight Assignment commands -->
 	<command id="findflight">
