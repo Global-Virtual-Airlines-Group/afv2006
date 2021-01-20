@@ -1644,6 +1644,12 @@
 		<roles>HR,Examination,TestAdmin</roles>
 	</command>
 
+	<command id="qpsearch">
+		<name>Question Profile Search</name>
+		<class>org.deltava.commands.testing.QuestionProfileSearchCommand</class>
+		<roles>HR,Examination,TestAdmin,AcademyAdmin,AcademyAudit</roles>
+	</command>
+
 	<command id="qprofiles">
 		<name>Question Profiles</name>
 		<class>org.deltava.commands.testing.QuestionProfilesCommand</class>
