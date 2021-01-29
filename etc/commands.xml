@@ -1152,6 +1152,12 @@
 		<roles>PIREP,HR</roles>
 	</command>
 
+	<command id="calclf">
+		<name>Calculate Load Factor</name>
+		<class>org.deltava.commands.pirep.LoadCalculateCommand</class>
+		<roles>Pilot</roles>
+	</command>
+
 	<command id="dispose">
 		<name>PIREP Disposal</name>
 		<class>org.deltava.commands.pirep.PIREPDisposalCommand</class>
