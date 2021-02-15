@@ -145,8 +145,8 @@
 	</task>
 
 	<!-- Flight Report Queue Warning -->
-	<task id="pirepqueuewarn" enabled="false">
-		<class>org.deltava.tasks.PIREPQueueWarningTask</class>
+	<task id="queuewarn" enabled="false">
+		<class>org.deltava.tasks.QueueWarningTask</class>
 		<time>
 			<min>0</min>
 			<hour>1,11,20</hour>
