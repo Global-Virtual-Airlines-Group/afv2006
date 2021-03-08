@@ -43,6 +43,20 @@ golgotha.tour.clearCustomLeg = function() { delete golgotha.tour.customLog; golg
 golgotha.tour.showCustomFields = function(doShow) {
 	const srn = golgotha.util.getElementsByClass('searchResultNone', 'tr');
 	srn.forEach(function(e) { golgotha.util.display(e, doShow); });
+	golgotha.util.display('legWarnRow', false);
+	return true;
+};
+
+golgotha.tour.clearCustomFields = function() {
+	const f = document.forms[0];
+	f.airline.selectedIndex = 0;
+	f.eq.selectedIndex = 0;
+	f.flightNumber.value = '';
+	f.flightLeg.value = '';
+	f.flightTimeD.value = '';
+	f.flightTimeA.value = '';
+	f.airportD.selectedIndex = 0;
+	f.airportA.selectedIndex = 0;
 	return true;
 };
 
@@ -67,6 +81,7 @@ golgotha.tour.addLeg = function(se) {
 	c = r.insertCell(1); c.className = 'data';
 	c.innerHTML = '<span class="pri bld">' + code + '</span> <span class="small">' + golgotha.tour.renderRoute(se) + ' <span class="bld">' + golgotha.tour.renderTime(se) + '</span> <span class="sec bld">' + se.eqType + '</span></span>';
 	document.forms[0].legCodes.value = golgotha.tour.buildLegCodes();
+	golgotha.tour.clearCustomFields();
 	return true;
 };
 
@@ -110,9 +125,15 @@ golgotha.tour.searchCustom = function() {
 			return false;
 		}
 
-		golgotha.tour.customLeg = JSON.parse(xmlreq.responseText);
+		const js = JSON.parse(xmlreq.responseText);
+		golgotha.tour.customLeg = js;
 		golgotha.util.display('customLeg', true);
-		golgotha.util.setHTML('customLegInfo', golgotha.tour.renderDuration(golgotha.tour.customLeg));
+		golgotha.util.display('rangeWarn', js.rangeWarn);
+		golgotha.util.display('trWarn', js.tRunwayWarn);
+		golgotha.util.display('lrWarn', js.lRunwayWarn);
+		golgotha.util.display('etopsWarn', js.etopsWarn);
+		golgotha.util.display('legWarnRow', (js.rangeWarn || js.tRunwayWarn || js.lRunwayWarn || js.etopsWarn));
+		golgotha.util.setHTML('customLegInfo', golgotha.tour.renderDuration(js));
 		golgotha.form.clear(f);
 		return true;
 	};
