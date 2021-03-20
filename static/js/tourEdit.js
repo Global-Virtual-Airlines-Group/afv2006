@@ -57,6 +57,8 @@ golgotha.tour.clearCustomFields = function() {
 	f.flightTimeA.value = '';
 	f.airportD.selectedIndex = 0;
 	f.airportA.selectedIndex = 0;
+	f.airportDCode.value = '';
+	f.airportACode.value = '';
 	return true;
 };
 
@@ -179,17 +181,21 @@ golgotha.tour.search = function() {
 		const hdr = document.getElementById('searchResultHdr'); const hdrIdx = hdr.rowIndex;
 		const t = document.getElementById('searchTable');
 		js.results.forEach(function(se) {
-			const r = t.insertRow(hdrIdx + idx); r.className = 'mid searchResultEntry';
-			let c = r.insertCell(0); c.className = 'pri bld';
-			c.innerText = se.airline + se.flight + ' Leg ' + se.leg;
-			c = r.insertCell(1); c.className = 'small';
-			c.innerText = golgotha.tour.renderRoute(se);
+			const r = t.insertRow(hdrIdx + idx); r.className = 'mid searchResultEntry'; r.flight = se;
+			let c = r.insertCell(0); 
+			let btn = document.createElement('button'); btn.className = 'button';
+			btn.innerHTML = 'ADD LEG'; btn.onclick = function() { return golgotha.tour.addLeg(r.flight, hdrIdx + idx); };
+			c.appendChild(btn);
+			let s = document.createElement('span'); s.className = 'pri bld';			
+			s.innerText = se.airline + se.flight + ' Leg ' + se.leg;
+			c = r.insertCell(1); c.appendChild(s);
+			c.appendChild(document.createTextNode(' '));
+			s = document.createElement('span'); s.className = 'small';
+			s.innerText = golgotha.tour.renderRoute(se); c.appendChild(s); 
 			c = r.insertCell(2); c.className = 'sec bld';
 			c.innerText = se.eqType;
 			c = r.insertCell(3); c.className = 'bld';
 			c.innerText = golgotha.tour.renderTime(se);
-			r.flight = se;
-			r.onclick = function() { return golgotha.tour.addLeg(r.flight, hdrIdx + idx); };
 			idx++;
 		});
 
