@@ -159,7 +159,7 @@ golgotha.maps.WeatherLayer.prototype.preload = function(map, handler, tileLoadHa
 		var src = ov.makeURL(vizTiles[x], map.getZoom());
 		var img = new Image();
 		img.loadCount = 1;
-		img.onload = function(e) {
+		img.onload = function() {
 			imgsToLoad.remove(this.src);
 			try { delete this.loadCount; } catch (err) { this.loadCount = undefined; }
 			if (tileLoadHandler != null) tileLoadHandler.call();
@@ -171,7 +171,7 @@ golgotha.maps.WeatherLayer.prototype.preload = function(map, handler, tileLoadHa
 			return true;
 		};
 		
-		img.onerror = function(e) {
+		img.onerror = function() {
 			console.log('Error ' + this.loadCount + ' loading ' + this.src);
 			if (this.loadCount > 1) {
 				this.onload();
