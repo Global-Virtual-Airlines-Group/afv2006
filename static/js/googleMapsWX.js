@@ -71,7 +71,7 @@ return elements;
 // Tile URL generation functions
 golgotha.maps.util.GinsuOverlayLayer = function(name, ts, size) { return '/wx/tile/' + name + '/u' + ts + '/'; };
 golgotha.maps.util.TWCOverlayLayer = function(name, ts, size, noStencil) {
-	var url = golgotha.maps.protocol + '://' + golgotha.maps.tileHost + '/v3/TileServer/tile?product=' + name + '&ts=' + (ts/1000) + '&apiKey=' + golgotha.maps.keys.twc;
+	let url = self.location.protocol + '//' + golgotha.maps.tileHost + '/v3/TileServer/tile?product=' + name + '&ts=' + (ts/1000) + '&apiKey=' + golgotha.maps.keys.twc;
 	if (noStencil) url += '&stencil=false';
 	return url;
 };
