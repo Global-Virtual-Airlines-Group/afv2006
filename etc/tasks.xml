@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 <tasks name="default">
 	<!-- Purge/Notify Inactive Users -->
 	<task id="inactivity" enabled="false">
@@ -165,6 +165,17 @@
             <wday>*</wday>
         </time>
     </task>
+    
+	<task id="taxitimes" enabled="false">
+		<class>org.deltava.tasks.TaxiUpdateTask</class>
+		<time>
+			<min>40</min>
+			<hour>9</hour>
+			<mday>*</mday>
+			<month>*</month>
+			<wday>*</wday>
+		</time>
+	</task>
 
 	<task id="currencyrating" enabled="false">
 	    <class>org.deltava.tasks.CurrencyRatingTask</class>
