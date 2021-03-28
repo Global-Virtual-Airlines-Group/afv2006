@@ -138,6 +138,12 @@
 	<service id="airportwx" class="org.deltava.service.wx.AirportWeatherService" />
 	<service id="tileseries" class="org.deltava.service.wx.SeriesListService" />
 
+	<!-- Push Notification Services -->
+	<service id="pushstatus" class="org.deltava.service.push.StatusService" />
+	<service id="pushsub" class="org.deltava.service.push.SubscribeService" />
+	<service id="pushunsub" class="org.deltava.service.push.UnsubscribeService" />
+	<service id="pushclear" class="org.deltava.service.push.ClearEndpointsService" />
+
 	<!-- AWS Services -->
 	<service id="sesfeedback" class="org.deltava.service.aws.SESFeedbackService" />
 	<service id="sesdeliver" class="org.deltava.service.aws.SESDeliveryService" />

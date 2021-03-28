@@ -304,6 +304,10 @@
 				<site>***REMOVED***</site>
 				<secret>***REMOVED***</secret>
 			</recaptcha>
+			<push>
+				<pub>***REMOVED***</pub>
+				<pvt>***REMOVED***</pvt>
+			</push>
 		</key>
 		
 		<list name="roles" attr="role" sorted="true" unique="true">
