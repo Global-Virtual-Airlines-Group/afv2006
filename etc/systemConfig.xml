@@ -304,6 +304,10 @@
 				<site>6LfT-tYUAAAAAAVLCI-ysfCX3pdDD2Rl9mLZYkHb</site>
 				<secret>6LfT-tYUAAAAAJurVtQdeIK9q-JV_USReeqnBLA8</secret>
 			</recaptcha>
+			<push>
+				<pub>BAyVS854iJkjpLelDpqytPy6Mbw99EGpHwFri70OBdAqVCsCCbAXUEIOplGqwHUc9XvzEekdlZpeVeXTsw_5m2g</pub>
+				<pvt>MEECAQAwEwYHKoZIzj0CAQYIKoZIzj0DAQcEJzAlAgEBBCBKdKIaWbVVHVW-WVjvzOa5geM8s0NVF-cp51-5CqMHvw</pvt>
+			</push>
 		</key>
 		
 		<list name="roles" attr="role" sorted="true" unique="true">

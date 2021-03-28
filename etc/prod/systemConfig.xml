@@ -321,6 +321,10 @@
 				<site>6LfT-tYUAAAAAAVLCI-ysfCX3pdDD2Rl9mLZYkHb</site>
 				<secret>6LfT-tYUAAAAAJurVtQdeIK9q-JV_USReeqnBLA8</secret>
 			</recaptcha>
+			<push>
+				<pub>BDmJLJRv16Q2m3p1BoAGrFz3Oea4NnsXvKybhN3hQxow8P3lbB6I_JIs90HgpcEK8J9xvbUQvx3X02569uq2eIg</pub>
+				<pvt>MEECAQAwEwYHKoZIzj0CAQYIKoZIzj0DAQcEJzAlAgEBBCA8PNsvH8bJ7mVLpUr47pMH7XzcdWuGIaf6nepIN9G2_w</pvt>
+			</push>
 		</key>
 
 		<list name="roles" attr="role" sorted="true">
