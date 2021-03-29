@@ -373,7 +373,12 @@ golgotha.routePlot.download = function() {
 	xmlreq.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	xmlreq.responseType = 'blob';
 	xmlreq.onreadystatechange = function() {
-		if ((xmlreq.readyState != 4) || (xmlreq.status != 200)) return false;
+		if (xmlreq.readyState != 4) return false;
+		if (xmlreq.status != 200) {
+			alert('Error ' + xmlreq.statusText + ' generating flight plan');
+			return false;
+		}
+
 		const ct = xmlreq.getResponseHeader('Content-Type');
 		const b = new Blob([xmlreq.response], {type: ct.substring(0, ct.indexOf(';')), endings:'native'});
 		saveAs(b, xmlreq.getResponseHeader('X-Plan-Filename'));
