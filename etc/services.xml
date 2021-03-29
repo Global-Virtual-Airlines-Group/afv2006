@@ -143,6 +143,7 @@
 	<service id="pushsub" class="org.deltava.service.push.SubscribeService" />
 	<service id="pushunsub" class="org.deltava.service.push.UnsubscribeService" />
 	<service id="pushclear" class="org.deltava.service.push.ClearEndpointsService" />
+	<service id="pushtest" class="org.deltava.service.push.TestService" />
 
 	<!-- AWS Services -->
 	<service id="sesfeedback" class="org.deltava.service.aws.SESFeedbackService" />
