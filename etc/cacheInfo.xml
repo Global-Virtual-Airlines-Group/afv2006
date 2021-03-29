@@ -64,6 +64,7 @@
 	<cache id="Accomplishments" max="144" expires="3600" />
 	<cache id="Metadata" max="24" expires="1800" />
 	<cache id="ScheduleSource" remote="true" expires="3600" />
+	<cache id="ExamProfiles" expires="14400" max="3" />
 
 	<cache id="MessageTemplate" max="32" />
 	<cache id="LibraryDLCount" max="128" expires="3600" />
