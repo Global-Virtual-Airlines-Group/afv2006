@@ -30,7 +30,7 @@ golgotha.push.check = async function() {
 
 golgotha.push.sub = async function() {
 	const reg = await navigator.serviceWorker.ready;
-	const sub = await reg.pushManager.subscribe({userVisibleOnly: true, applicationServerKey: golgotha.push.pubKey });
+	const sub = await reg.pushManager.subscribe({userVisibleOnly: true, applicationServerKey: golgotha.push.pubKey});
 
 	const rsp = await fetch('/pushsub.ws', {method:'post', body:JSON.stringify(sub), haleaders:{"content-type":"application/json"}});
 	const js = await rsp.json();
@@ -73,5 +73,17 @@ golgotha.push.clear = function() {
 	};
 
 	xmlreq.send(null);
+	return true;
+};
+
+golgotha.push.test = async function(doCurrent) {
+	const reg = await navigator.serviceWorker.ready;
+	const sub = await reg.pushManager.getSubscription();
+	if (!sub) return false;
+
+	sub.doCurrent = doCurrent;
+	const rsp = await fetch('/pushtest.ws', {method:'post', body:JSON.stringify(sub), headers:{"content-type":"application/json"}});
+	const js = await rsp.json();
+	console.log('Sent ' + js.sent + '/' + js.size + ' notifications');
 	return true;
 };
