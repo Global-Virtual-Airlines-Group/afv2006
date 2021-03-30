@@ -1,4 +1,4 @@
-golgotha.airportLoad = golgotha.airportLoad || {config:{doICAO:false, notVisited:false, useSched:true, dst:false, myRated:false}};
+golgotha.airportLoad = golgotha.airportLoad || {config:{doICAO:false, notVisited:false, useSched:true, dst:false, myRated:false, noCache:false}};
 golgotha.airportLoad.config.clone = function() {
 	let o = {};
 	for (p in this) {
