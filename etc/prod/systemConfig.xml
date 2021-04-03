@@ -433,6 +433,7 @@
 		<archive>/home/www/pos_archive</archive>
 		<video>/home/www/video</video>
         <upload>/home/www/upload</upload>
+        <tile>/var/cache/tile</tile>
 	</path>
 	
 	<smtp>
