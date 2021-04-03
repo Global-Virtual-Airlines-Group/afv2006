@@ -406,6 +406,7 @@
 		<video>/home/www/video</video>
         <upload>/home/www/upload</upload>
         <archive>/home/www/pos_archive</archive>
+        <tile>/var/cache/tile</tile>
 	</path>
 	
 	<!-- SMTP Server configuration -->
