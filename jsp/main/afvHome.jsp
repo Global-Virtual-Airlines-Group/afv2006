@@ -216,7 +216,7 @@ If you have questions or comments, please direct them to our Corporate Offices a
 </content:page>
 <content:ip IPv6="true">
 <content:googleAnalytics eventSupport="true" />
-<script async>
+<script>
 golgotha.event.beacon('Network', 'IPv6');</script>
 </content:ip>
 <content:ip IPv4="true">
