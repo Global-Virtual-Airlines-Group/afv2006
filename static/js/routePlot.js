@@ -17,6 +17,7 @@ if (golgotha.form.comboSet(f.star)) o.star = golgotha.form.getCombo(f.star);
 if ((f.route) && (f.route.value.length > 0)) o.route = f.route.value;
 if (f.cruiseAlt) o.cruiseAlt = f.cruiseAlt.value;
 o.saveDraft = ((f.saveDraft) && f.saveDraft.checked);
+o.precalcPax = ((f.precalcPax) && f.precalcPax.enabled && f.precalcPax.checked);
 o.getInactive = golgotha.routePlot.getInactive;
 o.etopsCheck = golgotha.routePlot.etopsCheck;
 for (var j = 0; ((f.simVersion) && (j < f.simVersion.length)); j++) {
@@ -360,10 +361,32 @@ return true;
 
 golgotha.routePlot.toggleGates = function(gts) {
 	gts.toggle();
-	if (gts.visible() && map.getZoom() < 14) map.setZoom(14);
+	if (gts.visible() && (map.getZoom() < 14)) map.setZoom(14);
 	if (gts.mapCenter) map.setCenter(gts.mapCenter);
 	golgotha.util.display('gateLegendRow', golgotha.routePlot.gatesVisible());
 	return true;
+};
+
+golgotha.routePlot.validateBlob = function(f) {
+	try {
+		golgotha.routePlot.hasBlob = !!new Blob;
+	} catch (e) {}
+
+	// Reset form links if blob download supported
+	if (golgotha.routePlot.hasBlob) {
+		f.onsubmit = function() { return false; };
+		const btn = document.getElementById('SaveButton');
+		btn.onclick = golgotha.routePlot.download;
+	}
+
+	return true;
+};
+
+golgotha.routePlot.togglePax = function() {
+	const f = document.forms[0];
+	const isOK = golgotha.form.comboSet(f.eqType) && golgotha.form.comboSet(f.airportD) && golgotha.form.comboSet(f.airportA);
+	golgotha.util.disable(f.precalcPax, !isOK || !f.saveDraft.checked);
+	return isOK && f.saveDraft.checked;
 };
 
 golgotha.routePlot.download = function() {
