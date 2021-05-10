@@ -180,6 +180,18 @@
 		</time>
 	</task>
 
+	<!-- Push Endpoint removal -->
+	<task id="invalidpush" enabled="true">
+		<class>org.deltava.tasks.PushInvalidationTask</class>
+		<time>
+			<min>40</min>
+			<hour>2,10,18</hour>
+			<mday>*</mday>
+			<month>*</month>
+			<wday>*</wday>
+		</time>
+	</task>
+
     <task id="coursepurge" enabled="true">
        <class>org.deltava.tasks.CoursePurgeTask</class>
         <time>
