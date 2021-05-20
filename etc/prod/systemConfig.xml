@@ -400,6 +400,7 @@
 		<!-- Charter calculations -->
 		<charter>
 			<count_days type="Integer">365</count_days>
+			<requests type="Boolean">true</requests>
 		</charter>
 
 		<!-- FlightAware download data -->
