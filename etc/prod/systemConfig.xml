@@ -300,7 +300,7 @@
 		<aesKey>Air France secret AES cookie key</aesKey>
 		<hash>
 			<salt>***REMOVED***!!AFV</salt>
-			<algorithm>SHA-1</algorithm>
+			<algorithm>SHA-256</algorithm>
 			<acars>
 				<salt>***REMOVED***</salt>
 				<algorithm>SHA-256</algorithm>
