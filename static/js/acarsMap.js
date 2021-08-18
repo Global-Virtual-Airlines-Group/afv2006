@@ -262,3 +262,10 @@ map.panTo(opt.mrk.getPosition());
 google.maps.event.trigger(opt.mrk, 'click');
 return true;
 };
+
+golgotha.maps.clear = function() { localStorage.removeItem('golgotha.mapInfo'); return true; };
+golgotha.maps.save = function(m) {
+	const inf = {type:m.getType(), zoom:m.getZoom(), ctr:map.getCenter()};
+	localstorage.setItem('golgotha.mapInfo', JSON.stringify(inf));
+	return true;
+};
