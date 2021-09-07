@@ -720,6 +720,12 @@
 		<roles>Schedule,Operations</roles>
 	</command>
 
+	<command id="schedhistory">
+		<name>Schedule Filter History</name>
+		<class>org.deltava.commands.schedule.ScheduleFilterHistoryCommand</class>
+		<roles>Schedule,Operations</roles>
+	</command>
+
 	<command id="airlines">
 		<name>Airline List</name>
 		<class>org.deltava.commands.schedule.AirlineListCommand</class>
