@@ -339,6 +339,7 @@
 		</key>
 
 		<list name="roles" attr="role" sorted="true">
+			<role>AcademyAdmin</role>
 			<role>Admin</role>
 			<role>Blog</role>
 			<role>Charts</role>
@@ -349,6 +350,7 @@
 			<role>Fleet</role>
 			<role>HireMgr</role>			
 			<role>HR</role>
+			<role>Instructor</role>
 			<role>News</role>
 			<role>NOTAM</role>
 			<role>Operations</role>
