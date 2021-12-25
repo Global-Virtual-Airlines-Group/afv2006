@@ -1,6 +1,5 @@
 var golgotha = {event:{}, util:{}, form:{isSubmitted:false, invalidDomains:[]}, local:{}, nav:{sideMenu:false}};
 golgotha.util.isIE = (navigator.appName == 'Microsoft Internet Explorer');
-golgotha.util.oldIE = (golgotha.util.isIE && ((navigator.appVersion.indexOf('IE 7.0') > 0) || (navigator.appVersion.indexOf('IE 8.0') > 0)));
 golgotha.util.isIOS = (!golgotha.util.isIE && ((navigator.platform == 'iPad') || (navigator.platform == 'iPhone')));
 golgotha.util.isAndroid = (!golgotha.util.isIE && (navigator.platform.indexOf('Android') > -1));
 golgotha.nav.touch = (golgotha.util.isIOS || golgotha.util.isAndroid); 
@@ -70,12 +69,11 @@ golgotha.util.display = function(e, isVisible) {
 };
 
 golgotha.util.getStyle = function(sheet, cl) {
-	if (golgotha.util.oldIE) return null;
 	for (var x = 0; x < document.styleSheets.length; x++) {
-		var ss = document.styleSheets[x];
+		const ss = document.styleSheets[x];
 		if ((ss.href == null) || (ss.href.indexOf(sheet) == -1)) continue;
 		for (var y = 0; y < ss.cssRules.length; y++) {
-			var cs = ss.cssRules[y];
+			const cs = ss.cssRules[y];
 			if ((cs.selectorText) && (cs.style) && (cs.selectorText.indexOf(cl) > -1))
 				return cs.style.color;
 		}
@@ -182,13 +180,7 @@ golgotha.util.enable = function(n) {
 	return true; 
 };
 
-golgotha.onDOMReady = function(f) {
-	if (golgotha.util.oldIE)
-		return document.attachEvent('onreadystatechange', f); 
-	else
-		return document.addEventListener('DOMContentLoaded', f);
-};
-
+golgotha.onDOMReady = function(f) { return document.addEventListener('DOMContentLoaded', f); };
 golgotha.getChild = function(e, name) {
 	var children = e.getElementsByTagName(name);
 	return (children.length == 0) ? null : children[0];
@@ -493,10 +485,6 @@ golgotha.util.validateCAPTCHA = function(token) {
 
 golgotha.onDOMReady(function() {
 	golgotha.nav.init();
-	if (golgotha.nav.sideMenu) {
-		if (golgotha.util.oldIE)
-			document.attachEvent('onresize', golgotha.nav.initMenu);
-		else
-			window.addEventListener('resize', golgotha.nav.initMenu);
-	}
+	if (golgotha.nav.sideMenu)
+		window.addEventListener('resize', golgotha.nav.initMenu);
 });
