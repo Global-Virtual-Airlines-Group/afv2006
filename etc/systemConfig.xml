@@ -217,6 +217,7 @@
 	</config>
 	
 	<online>
+		<tours type="Boolean">true</tours>
 		<list name="networks" attr="network">
 			<network>VATSIM</network>
 			<network>IVAO</network>
