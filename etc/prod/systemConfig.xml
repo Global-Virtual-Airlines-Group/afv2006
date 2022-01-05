@@ -230,6 +230,7 @@
 	</config>
 	
 	<online>
+		<tours type="Boolean">false</tours>
 		<list name="networks" attr="network" unique="true">
 			<network>VATSIM</network>
 			<network>IVAO</network>
