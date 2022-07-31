@@ -1,5 +1,6 @@
 var golgotha = {event:{}, util:{}, form:{isSubmitted:false, invalidDomains:[]}, local:{}, nav:{sideMenu:false}};
 golgotha.util.isIOS = ((navigator.platform == 'iPad') || (navigator.platform == 'iPhone'));
+golgotha.util.isAndroid = (navigator.platform.indexOf('Android') > -1);
 golgotha.nav.touch = (golgotha.util.isIOS || golgotha.util.isAndroid); 
 golgotha.util.getTimestamp = function(ms) { var d = new Date(); return d.getTime() - (d.getTime() % ms); };
 golgotha.event.beacon = function() { return false; };
@@ -24,7 +25,7 @@ return elements;
 golgotha.util.addClass = function(e, cl)
 {
 	if (!e) return false;
-	let c = e.className.split(' ');
+	const c = e.className.split(' ');
 	if (c.indexOf(cl) < 0) c.push(cl);
 	e.className = (c.length == 0) ? '' : c.join(' ');
 	return true;
@@ -32,7 +33,7 @@ golgotha.util.addClass = function(e, cl)
 
 golgotha.util.removeClass = function(e, cl) {
 	if (!e) return false;
-	let c = e.className.split(' ');
+	const c = e.className.split(' ');
 	const hasClass = c.remove(cl);
 	e.className = (c.length == 0) ? '' : c.join(' ');
 	return hasClass;
@@ -40,7 +41,7 @@ golgotha.util.removeClass = function(e, cl) {
 
 golgotha.util.hasClass = function(e, cl) {
 	if (!e) return false;
-	let c = e.className.split(' ');
+	const c = e.className.split(' ');
 	return c.remove(cl);
 };
 
@@ -126,7 +127,7 @@ golgotha.form.getCombo = function(combo) {
 golgotha.util.isFunction = function(o) { return !!(o && o.constructor && o.call && o.apply); };
 golgotha.util.createURLParams = function(o) {
 	let params = [];
-		for (p in o) {
+	for (p in o) {
 		let v = o[p];
 		if (o.hasOwnProperty(p) && !golgotha.util.isFunction(v) && (v != null))
 			params.push(p + '=' + encodeURIComponent(v));
@@ -187,9 +188,6 @@ golgotha.getChild = function(e, name) {
 	return (children.length == 0) ? null : children[0];
 };
 
-if (window.Element != undefined)
-	Element.prototype.getChild = function(name) { return golgotha.getChild(this, name); };
-
 golgotha.getCDATA = function(e)
 {
 let child = e.firstChild;	
@@ -199,9 +197,13 @@ while ((child != null) && (child.nodeType != 4))
 return child;
 };
 
-if (window.Element != undefined)
+if (window.Element != undefined) {
+	Element.prototype.getChild = function(name) { return golgotha.getChild(this, name); };
 	Element.prototype.getCDATA = function() { return golgotha.getCDATA(this); };
+}
 
+Array.prototype.contains = function(obj) { return (this.indexOf(obj) != -1); };
+Array.prototype.clone = function() { return this.slice(); };
 Array.prototype.remove = function(obj) {
 for (var x = 0; x < this.length; x++) {
 	if (this[x] == obj) {
@@ -213,44 +215,22 @@ for (var x = 0; x < this.length; x++) {
 return false;
 };
 
-if (!Array.prototype.indexOf)
-{
-	Array.prototype.indexOf = function(obj) {
-		for (var x = 0; x < this.length; x++) {	
-			if (this[x] == obj)
-				return x;
-		}
-
-		return -1;
-	}
-}
-
-Array.prototype.contains = function(obj) { return (this.indexOf(obj) != -1); };
-Array.prototype.clone = function() { return this.slice(); };
-if (!Array.prototype.forEach) {
-	Array.prototype.forEach = function(f) {
-		for (var x = 0; x < this.length; x++)
-			f(this[x]);
-	};
-}
-
 golgotha.form.check = function() { return (golgotha.form.isSubmitted != true); };
 golgotha.form.submit = function(f) {
 	golgotha.form.isSubmitted = true;
 	if (f != null) {
-		let ies = golgotha.util.getElementsByClass('button', 'input', f);
-		for (var e = ies.pop(); (e != null); e = ies.pop())
-			e.disabled = true;
+		const ies = golgotha.util.getElementsByClass('button', 'input', f);
+		ies.forEach(function(e) { e.disabled = true; });
 	}
-	
+
 	const dv = document.getElementById('spinner');
 	if (!dv) return true;
-	
+
 	// Add background
 	const sb = document.createElement('div');
 	sb.setAttribute('id', 'spinnerBack');
 	document.body.appendChild(sb);
-	
+
 	// Add spinner message
 	const w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 	const h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
@@ -267,9 +247,8 @@ golgotha.form.clear = function(f) {
 	const dv = document.getElementById('spinner');
 	if (dv) dv.style.display = 'none';
 	if (f != null) {
-		let ies = golgotha.util.getElementsByClass('button', 'input', f);
-		for (var e = ies.pop(); (e != null); e = ies.pop())
-			e.disabled = false;
+		const ies = golgotha.util.getElementsByClass('button', 'input', f);
+		ies.forEach(function(e) { e.disabled = false; });
 	}
 
 	return true;
@@ -290,7 +269,7 @@ if (f.onsubmit) {
 		return false;
 	}
 }
-  
+
 golgotha.form.submit(f);
 f.submit();
 return true;
@@ -392,15 +371,12 @@ if (cnt >= min) return true;
 throw new golgotha.event.ValidationError('At least ' + min + ' ' + title + ' must be selected.', cb[0]);
 };
 
-golgotha.util.toggleExpand = function(lnk, className)
-{
-const isDisplayed = (lnk.innerHTML == 'COLLAPSE');
-lnk.innerHTML = isDisplayed ? 'EXPAND' : 'COLLAPSE';
-const rows = golgotha.util.getElementsByClass(className);
-for (var r = rows.pop(); (r != null); r = rows.pop())
-	r.style.display = isDisplayed ? 'none' : '';
-
-return true;
+golgotha.util.toggleExpand = function(lnk, className) {
+	const isDisplayed = (lnk.innerHTML == 'COLLAPSE');
+	lnk.innerHTML = isDisplayed ? 'EXPAND' : 'COLLAPSE';
+	const rows = golgotha.util.getElementsByClass(className);
+	rows.forEach(function(r) { r.style.display = isDisplayed ? 'none' : ''; });
+	return true;
 };
 
 golgotha.nav.toggleMenu = function(e, force) {
