@@ -314,14 +314,12 @@
 		
 		<key>
 			<analytics>***REMOVED***</analytics>
-			<wunderground>***REMOVED***</wunderground>
 			<googleMaps>
 				<auth>***REMOVED***</auth>
 				<anon>***REMOVED***</anon>
 			</googleMaps>
 			<google>***REMOVED***</google>
 			<vatsim>***REMOVED***</vatsim>
-			<twc>***REMOVED***</twc>
 			<recaptcha>
 				<site>***REMOVED***</site>
 				<secret>***REMOVED***</secret>
@@ -330,6 +328,7 @@
 				<pub>***REMOVED***</pub>
 				<pvt>***REMOVED***</pvt>
 			</push>
+			<simrbief>***REMOVED***</simrbief>
 		</key>
 		
 		<list name="roles" attr="role" sorted="true" unique="true">
