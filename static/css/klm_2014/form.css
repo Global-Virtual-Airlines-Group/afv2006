@@ -137,6 +137,10 @@ select.req {
 	background: #c07828
 }
 
+table.bar select {
+	border: 1px solid #f88832;
+}
+
 *.label :link, *.label :visited {
 	font-family: verdana, arial;
 	text-decoration: underline;
