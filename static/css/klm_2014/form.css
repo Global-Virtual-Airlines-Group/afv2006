@@ -1,4 +1,4 @@
-/* KLM14 Cascading Style Sheet for HTML Forms (C) 2014, 2015 Global Virtual Airlines Group. */
+/* KLM14 Cascading Style Sheet for HTML Forms (C) 2014, 2015, 2022 Global Virtual Airlines Group. */
 
 table.form, table.bar {
 	table-layout: auto;
@@ -18,6 +18,7 @@ table.bar td {
 	text-align: center;
 	vertical-align: middle;
 	padding: 3px 3px 3px 3px;
+	color: #ffffff;
 }
 
 table.form tr {
