@@ -97,7 +97,7 @@
 			<fileset dir="static/js" >
 				<include name="*.js" />
 				<exclude name="push*.js" />
-				<modified seldirs="true" algorithm="digest" update="true" delayupdate="false">
+				<modified seldirs="true" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="../.local_data/afv.min.cache.txt" />
 				</modified>
@@ -121,7 +121,7 @@
 		<yuicompress linebreak="300" warn="false" munge="yes" preserveallsemicolons="true" outputfolder="${java.io.tmpdir}/afv/build/min/css">
 			<fileset dir="static/css" >
 				<include name="**/*.css" />
-				<modified seldirs="true" algorithm="digest" update="true" delayupdate="false">
+				<modified seldirs="true" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="../.local_data/afv.min.cache.txt" />
 				</modified>
@@ -152,10 +152,9 @@
 		<mkdir dir="../.local_data" />
 		
 		<!-- Upload the web configuration -->
-		<scp todir="${webapp.dev.user}@${webapp.dev.server}:${webapp.dev.path}/WEB-INF"
-			port="${webapp.dev.port}" verbose="yes" trust="yes" keyfile="${webapp.dev.key}">
+		<scp todir="${webapp.dev.user}@${webapp.dev.server}:${webapp.dev.path}/WEB-INF" port="${webapp.dev.port}" verbose="yes" trust="yes" keyfile="${webapp.dev.key}">
 			<fileset file="${java.io.tmpdir}/afv/build/web.xml">
-				<modified seldirs="false" algorithm="digest">
+				<modified seldirs="false" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="../.local_data/afv.cfg.cache.dev.txt" />
 				</modified>
@@ -163,20 +162,19 @@
 		</scp>
 
 		<!-- Upload the JAR files to the app server -->
-		<scp todir="${webapp.dev.user}@${webapp.dev.server}:${webapp.dev.path}/WEB-INF/lib"
-			port="${webapp.dev.port}" verbose="yes" trust="yes" keyfile="${webapp.dev.key}">
+		<scp todir="${webapp.dev.user}@${webapp.dev.server}:${webapp.dev.path}/WEB-INF/lib" port="${webapp.dev.port}" verbose="yes" trust="yes" keyfile="${webapp.dev.key}">
 			<fileset dir="${java.io.tmpdir}/build">
 				<include name="golgotha.jar" />
 				<include name="golgotha_web.jar" />
 				<include name="golgotha_jsp.jar" />
-				<modified seldirs="false" algorithm="digest">
+				<modified seldirs="false" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="../.local_data/afv.jar.cache.dev.txt" />
 				</modified>
 			</fileset>
 			<fileset dir="${java.io.tmpdir}/afv/build">
 				<include name="*.jar" />
-				<modified seldirs="false" algorithm="digest">
+				<modified seldirs="false" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="../.local_data/afv.jar.cache.dev.txt" />
 				</modified>
@@ -184,10 +182,9 @@
 		</scp>
 		
 		<!-- Upload the config files to the app server -->
-		<scp todir="${webapp.dev.user}@${webapp.dev.server}:${webapp.dev.path}/WEB-INF/classes/etc"
-			port="${webapp.dev.port}" verbose="yes" trust="yes" keyfile="${webapp.dev.key}">
+		<scp todir="${webapp.dev.user}@${webapp.dev.server}:${webapp.dev.path}/WEB-INF/classes/etc" port="${webapp.dev.port}" verbose="yes" trust="yes" keyfile="${webapp.dev.key}">
 			<fileset dir="etc" includes="*.*">
-				<modified seldirs="false" algorithm="digest">
+				<modified seldirs="false" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="../.local_data/afv.cfg.cache.dev.txt" />
 				</modified>
@@ -197,13 +194,13 @@
 		<!-- Upload static content to the HTTP server -->
 		<scp todir="${http.dev.user}@${http.dev.server}:${http.dev.path}" verbose="yes" port="${http.dev.port}" trust="yes" keyfile="${http.dev.key}">
 			<fileset dir="static">
-				<modified seldirs="true" algorithm="digest">
+				<modified seldirs="true" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="../.local_data/afv.static.cache.dev.txt" />
 				</modified>
 			</fileset>
 			<fileset dir="${java.io.tmpdir}/afv/build/min">
-				<modified seldirs="true" algorithm="digest">
+				<modified seldirs="true" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="../.local_data/afv.static.cache.dev.txt" />
 				</modified>
@@ -236,10 +233,9 @@
 		<mkdir dir="../.local_data" />
 		
 		<!-- Upload the web configuration -->
-		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}"
-			port="${webapp.ssh.port}" verbose="yes" trust="yes" keyfile="${webapp.ssh.key}">
+		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}" port="${webapp.ssh.port}" verbose="yes" trust="yes" keyfile="${webapp.ssh.key}">
 			<fileset file="${java.io.tmpdir}/afv/build/web.xml">
-				<modified seldirs="false" algorithm="digest">
+				<modified seldirs="false" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="../.local_data/afv.cfg.cache.txt" />
 				</modified>
@@ -247,10 +243,9 @@
 		</scp>
 		
 		<!-- Upload the common JAR files to the app server -->
-		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path.common}"
-			port="${webapp.ssh.port}" verbose="yes" trust="yes" keyfile="${webapp.ssh.key}">
+		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path.common}" port="${webapp.ssh.port}" verbose="yes" trust="yes" keyfile="${webapp.ssh.key}">
 			<fileset dir="../DVA2006/lib/deploy" includes="*.jar">
-				<modified seldirs="false" algorithm="digest">
+				<modified seldirs="false" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="../.local_data/jar.cache.txt" />
 				</modified>
@@ -258,20 +253,19 @@
 		</scp>
 
 		<!-- Upload the JAR files to the app server -->
-		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}/lib"
-			port="${webapp.ssh.port}" verbose="yes" trust="yes" keyfile="${webapp.ssh.key}">
+		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}/lib" port="${webapp.ssh.port}" verbose="yes" trust="yes" keyfile="${webapp.ssh.key}">
 			<fileset dir="${java.io.tmpdir}/build">
 				<include name="golgotha.jar" />
 				<include name="golgotha_web.jar" />
 				<include name="golgotha_jsp.jar" />
-				<modified seldirs="false" algorithm="digest">
+				<modified seldirs="false" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="../.local_data/afv.jar.cache.txt" />
 				</modified>
 			</fileset>
 			<fileset dir="${java.io.tmpdir}/afv/build">
 				<include name="*.jar" />
-				<modified seldirs="false" algorithm="digest">
+				<modified seldirs="false" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="../.local_data/afv.jar.cache.txt" />
 				</modified>
@@ -279,21 +273,20 @@
 		</scp>
 		
 		<!-- Upload the config file to the app server -->
-		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}/classes/etc"
-			port="${webapp.ssh.port}" verbose="yes" trust="yes" keyfile="${webapp.ssh.key}">
+		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}/classes/etc" port="${webapp.ssh.port}" verbose="yes" trust="yes" keyfile="${webapp.ssh.key}">
 			<fileset dir="etc">
 				<include name="commands.xml" />
 				<include name="services.xml" />
 				<include name="codeshares.txt" />
 				<include name="cacheInfo.xml" />
 				<include name="bb_config.xml" />
-				<modified seldirs="false" algorithm="digest">
+				<modified seldirs="false" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="../.local_data/afv.cfg.cache.txt" />
 				</modified>
 			</fileset>
 			<fileset dir="etc/prod">
-				<modified seldirs="false" algorithm="digest">
+				<modified seldirs="false" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="../.local_data/afv.cfg.cache.txt" />
 				</modified>
@@ -301,16 +294,15 @@
 		</scp>
 		
 		<!-- Upload static content to the HTTP server -->
-		<scp todir="${http.ssh.user}@${http.ssh.server}:${http.ssh.path}"
-			port="${http.ssh.port}" verbose="yes" trust="yes" keyfile="${http.ssh.key}">
+		<scp todir="${http.ssh.user}@${http.ssh.server}:${http.ssh.path}" port="${http.ssh.port}" verbose="yes" trust="yes" keyfile="${http.ssh.key}">
 			<fileset dir="static">
-				<modified seldirs="true" algorithm="digest">
+				<modified seldirs="true" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="../.local_data/afv.static.cache.txt" />
 				</modified>
 			</fileset>
 			<fileset dir="${java.io.tmpdir}/afv/build/min">
-				<modified seldirs="true" algorithm="digest">
+				<modified seldirs="true" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
 					<param name="cache.cachefile" value="../.local_data/afv.static.cache.txt" />
 				</modified>
