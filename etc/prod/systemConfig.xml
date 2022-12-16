@@ -486,6 +486,7 @@
 		<auto_reject type="Integer">5</auto_reject>
 		<ip_interval type="Integer">7</ip_interval>
 		<from>AFV301</from>
+		<captcha_timeout type="Integer">48</captcha_timeout>
 	</registration>
 
 	<!-- PICS content ratings -->
