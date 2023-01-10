@@ -86,10 +86,11 @@ virtual airline, designed for both the experienced pilot and the novice (and all
 <!-- Latest News -->
 <el:table className="view">
 <c:forEach var="entry" items="${latestNews}">
+<c:set var="author" value="${authors[entry.authorID]}" scope="page" />
 <tr>
  <td class="priB" width="20%"><fmt:date fmt="d" date="${entry.date}" /></td>
  <td class="pri bld mid">${entry.subject}</td>
- <td class="secB" width="20%">${entry.authorName}</td>
+ <td class="secB" width="20%">${author.name}</td>
 </tr>
 <tr>
  <td class="left" colspan="3"><fmt:msg value="${entry.body}" bbCode="true" /></td>
