@@ -77,7 +77,12 @@ virtual airline, designed for both the experienced pilot and the novice (and all
  <td><el:cmd url="notamedit" link="${notam}"><fmt:text value="${notam.subject}" /></el:cmd></td>
 </tr>
 <tr>
+<c:if test="${notam.isHTML}">
+ <td colspan="3" class="left">${notam.body}</td>
+</c:if>
+<c:if test="${!notam.isHTML}">
  <td colspan="3" class="left"><fmt:msg value="${notam.body}" bbCode="true" /></td>
+</c:if>
 </tr>
 </c:forEach>
 </el:table>
@@ -93,7 +98,12 @@ virtual airline, designed for both the experienced pilot and the novice (and all
  <td class="secB" width="20%">${author.name}</td>
 </tr>
 <tr>
+<c:if test="${notam.isHTML}">
+ <td class="left" colspan="3">${entry.body}</td>
+</c:if>
+<c:if test="${!notam.isHTML}">
  <td class="left" colspan="3"><fmt:msg value="${entry.body}" bbCode="true" /></td>
+</c:if>
 </tr>
 </c:forEach>
 </el:table>
