@@ -443,6 +443,7 @@
         <upload>/home/www/upload</upload>
         <archive>/home/www/pos_archive</archive>
         <tile>/var/cache/tile</tile>
+        <inc>/home/www/inc</inc>
 	</path>
 	
 	<!-- SMTP Server configuration -->
