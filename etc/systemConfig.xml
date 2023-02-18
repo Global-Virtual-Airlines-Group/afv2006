@@ -11,13 +11,7 @@
 		<forum>Forums</forum>
 		<db>afv</db>
 		<birthdate>08/25/2004</birthdate>
-		<voice>
-			<url>rw.afva.net/AFV</url>
-			<mvs>
-				<enabled type="Boolean">true</enabled>
-			</mvs>
-		</voice>
-		
+
 		<!-- Copyright disclaimer -->
 		<copyright>For flight simulation purposes only. Not a commercial website. In no way are we affiliated with Air France, KLM Royal Dutch Airlines, 
  their affiliates or any other airline. All logos, images, and trademarks remain the property of their respective owners. Air France / KLM Virtual is a 
@@ -145,8 +139,6 @@
 	<jdbc>
 		<driver>com.mysql.cj.jdbc.Driver</driver>
 		<url>jdbc:mysql://localhost/afv</url>
-		<user>afv</user>
-		<pwd>m4n3l5</pwd>
 		<socket>/run/mysql/mysql.sock</socket>
 		
 		<map name="connectProperties">
@@ -306,15 +298,7 @@
 
 	<security>
 		<ssl type="Boolean">true</ssl>
-		<aesKey>AFV super-secret AES cookie key</aesKey>
-		<hash>
-			<salt>hashcode salt</salt>
-			<algorithm>SHA-256</algorithm>
-			<acars>
-				<salt>ha$h-Salt-ACARS-Value</salt>
-				<algorithm>SHA-256</algorithm>
-			</acars>
-		</hash>
+		<secrets>/usr/local/tomcat/conf/afv_secrets.properties</secrets>
 
 		<!-- Security cookie settings -->
 		<cookie>
@@ -327,26 +311,7 @@
 			<default type="Integer">8</default>
 			<min type="Integer">5</min>	
 		</password>
-		
-		<key>
-			<analytics>UA-2066915-3</analytics>
-			<googleMaps>
-				<auth>AIzaSyB58rBxgNQvVzsMULM0KrIKkWFtIWOo0wM</auth>
-				<anon>AIzaSyABHUO-rRq-Ih1htFLwyXktI_30cbLY-q4</anon>
-			</googleMaps>
-			<google>AIzaSyDipON4NxnUFpg1wEnqA5OugqaqYxaBXIU</google>
-			<vatsim>1db84fa44417fda98d313a5839f80ba8</vatsim>
-			<recaptcha>
-				<site>6LfT-tYUAAAAAAVLCI-ysfCX3pdDD2Rl9mLZYkHb</site>
-				<secret>6LfT-tYUAAAAAJurVtQdeIK9q-JV_USReeqnBLA8</secret>
-			</recaptcha>
-			<push>
-				<pub>BAyVS854iJkjpLelDpqytPy6Mbw99EGpHwFri70OBdAqVCsCCbAXUEIOplGqwHUc9XvzEekdlZpeVeXTsw_5m2g</pub>
-				<pvt>MEECAQAwEwYHKoZIzj0CAQYIKoZIzj0DAQcEJzAlAgEBBCBKdKIaWbVVHVW-WVjvzOa5geM8s0NVF-cp51-5CqMHvw</pvt>
-			</push>
-			<simbrief>zifnwE1Tt2gMmlxqoLPEHA7wkTUYhCSR</simbrief>
-		</key>
-		
+
 		<list name="roles" attr="role" sorted="true" unique="true">
 			<role>Admin</role>
 			<role>Blog</role>
@@ -415,11 +380,6 @@
 		<!-- FlightAware download data -->
 		<flightaware>
 			<enabled type="Boolean">false</enabled>
-			<flightXML>
-				<user>gvagroup</user>			
-				<v2>18f14fe837c03e585d20b955d797fd711cd907b0</v2>
-				<v3>e8865f4fd85717e58df556ec8e56909ef23b9581</v3>			
-			</flightXML>
 		</flightaware>
 	</schedule>
 
@@ -538,9 +498,6 @@
 		</system>
 
 		<maxreports type="Integer">2</maxreports>
-		<search>
-			<idx>/var/search</idx>
-		</search>
 	</cooler>
 	
 	<users>
