@@ -11,13 +11,7 @@
 		<forum>Forums</forum>
 		<db>afv</db>
 		<birthdate>08/25/2004</birthdate>
-		<voice>
-			<url>rw.afva.net/AFV</url>
-			<mvs>
-				<enabled type="Boolean">true</enabled>
-			</mvs>
-		</voice>
-		
+
 		<!-- Copyright disclaimer -->
 		<copyright>For flight simulation purposes only. Not a commercial website. In no way are we affiliated with Air France, KLM Royal Dutch Airlines, 
  their affiliates or any other airline. All logos, images, and trademarks remain the property of their respective owners. Air France / KLM Virtual is a 
@@ -145,8 +139,6 @@
 	<jdbc>
 		<driver>com.mysql.cj.jdbc.Driver</driver>
 		<url>jdbc:mysql://localhost/afv</url>
-		<user>afv</user>
-		<pwd>***REMOVED***</pwd>
 		<socket>/run/mysql/mysql.sock</socket>
 		
 		<map name="connectProperties">
@@ -306,15 +298,7 @@
 
 	<security>
 		<ssl type="Boolean">true</ssl>
-		<aesKey>AFV super-secret AES cookie key</aesKey>
-		<hash>
-			<salt>hashcode salt</salt>
-			<algorithm>SHA-256</algorithm>
-			<acars>
-				<salt>***REMOVED***</salt>
-				<algorithm>SHA-256</algorithm>
-			</acars>
-		</hash>
+		<secrets>/usr/local/tomcat/conf/afv_secrets.properties</secrets>
 
 		<!-- Security cookie settings -->
 		<cookie>
@@ -327,26 +311,7 @@
 			<default type="Integer">8</default>
 			<min type="Integer">5</min>	
 		</password>
-		
-		<key>
-			<analytics>***REMOVED***</analytics>
-			<googleMaps>
-				<auth>***REMOVED***</auth>
-				<anon>***REMOVED***</anon>
-			</googleMaps>
-			<google>***REMOVED***</google>
-			<vatsim>***REMOVED***</vatsim>
-			<recaptcha>
-				<site>***REMOVED***</site>
-				<secret>***REMOVED***</secret>
-			</recaptcha>
-			<push>
-				<pub>***REMOVED***</pub>
-				<pvt>***REMOVED***</pvt>
-			</push>
-			<simbrief>***REMOVED***</simbrief>
-		</key>
-		
+
 		<list name="roles" attr="role" sorted="true" unique="true">
 			<role>Admin</role>
 			<role>Blog</role>
@@ -415,11 +380,6 @@
 		<!-- FlightAware download data -->
 		<flightaware>
 			<enabled type="Boolean">false</enabled>
-			<flightXML>
-				<user>gvagroup</user>			
-				<v2>***REMOVED***</v2>
-				<v3>***REMOVED***</v3>			
-			</flightXML>
 		</flightaware>
 	</schedule>
 
@@ -538,9 +498,6 @@
 		</system>
 
 		<maxreports type="Integer">2</maxreports>
-		<search>
-			<idx>/var/search</idx>
-		</search>
 	</cooler>
 	
 	<users>
