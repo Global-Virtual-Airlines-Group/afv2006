@@ -295,6 +295,7 @@
 
 	<security>
 		<ssl type="Boolean">true</ssl>
+		<secrets>/usr/local/tomcat/conf/afv_secrets.properties</secrets>
 
 		<!-- Security cookie settings -->
 		<cookie>
