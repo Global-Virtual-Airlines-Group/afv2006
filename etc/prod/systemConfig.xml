@@ -147,8 +147,6 @@
 	<jdbc>
 		<driver>com.mysql.cj.jdbc.Driver</driver>
 		<url>jdbc:mysql://mysql.gva.aws/afv</url>
-		<user>afv</user>
-		<pwd>***REMOVED***</pwd>
 		<socket>/run/mysql/mysql.sock</socket>
 		
 		<map name="connectProperties">
@@ -297,16 +295,6 @@
 
 	<security>
 		<ssl type="Boolean">true</ssl>
-		<simFDR>5339142733696a9b26aef7b2bfecce5a</simFDR>
-		<aesKey>Air France secret AES cookie key</aesKey>
-		<hash>
-			<salt>***REMOVED***!!AFV</salt>
-			<algorithm>SHA-256</algorithm>
-			<acars>
-				<salt>***REMOVED***</salt>
-				<algorithm>SHA-256</algorithm>
-			</acars>
-		</hash>
 
 		<!-- Security cookie settings -->
 		<cookie>
@@ -319,27 +307,6 @@
 			<default type="Integer">8</default>
 			<min type="Integer">5</min>
 		</password>
-
-		<key>
-			<analytics>***REMOVED***</analytics>
-			<wunderground>***REMOVED***</wunderground>
-			<googleMaps>
-				<auth>***REMOVED***</auth>
-				<anon>***REMOVED***</anon>
-			</googleMaps>
-			<google>***REMOVED***</google>
-			<twc>***REMOVED***</twc>
-			<vatsim>***REMOVED***</vatsim>
-			<recaptcha>
-				<site>***REMOVED***</site>
-				<secret>***REMOVED***</secret>
-			</recaptcha>
-			<push>
-				<pub>BDmJLJRv16Q2m3p1BoAGrFz3Oea4NnsXvKybhN3hQxow8P3lbB6I_JIs90HgpcEK8J9xvbUQvx3X02569uq2eIg</pub>
-				<pvt>MEECAQAwEwYHKoZIzj0CAQYIKoZIzj0DAQcEJzAlAgEBBCA8PNsvH8bJ7mVLpUr47pMH7XzcdWuGIaf6nepIN9G2_w</pvt>
-			</push>
-			<simbrief>***REMOVED***</simbrief>
-		</key>
 
 		<list name="roles" attr="role" sorted="true">
 			<role>AcademyAdmin</role>
@@ -419,11 +386,6 @@
 		<flightaware>
 			<enabled type="Boolean">true</enabled>
 			<max_age type="Integer">180</max_age>
-			<flightXML>
-				<user>gvagroup</user>			
-				<v2>***REMOVED***</v2>
-				<v3>***REMOVED***</v3>			
-			</flightXML>
 		</flightaware>
 	</schedule>
 
