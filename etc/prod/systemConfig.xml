@@ -311,8 +311,8 @@
 
 		<list name="roles" attr="role" sorted="true">
 			<role>AcademyAdmin</role>
+			<role>AcademyAudit</role>
 			<role>Admin</role>
-			<role>Blog</role>
 			<role>Charts</role>
 			<role>Developer</role>
 			<role>Dispatch</role>
