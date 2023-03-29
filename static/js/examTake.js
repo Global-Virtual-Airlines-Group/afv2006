@@ -111,7 +111,7 @@ xmlreq.onreadystatechange = function() {
 // Save the answer
 const answer = golgotha.exam.getAnswer(txtbox);
 if (answer != null) {
-	xmlreq.send('answer=' + escape(answer));
+	xmlreq.send('answer=' + encodeURI(answer));
 	golgotha.event.beacon('Examination', 'Submit Answer');
 }
 
@@ -121,13 +121,13 @@ return true;
 golgotha.exam.viewImage = function(id, x, y)
 {
 var flags = 'height=' + (y+45) + ',width=' + (x+45) + ',menubar=no,toolbar=no,status=yes,scrollbars=yes';
-return window.open('/exam_rsrc/' + id, 'questionImage', flags);
+return window.open('/dbimg/exam_rsrc/' + id, 'questionImage', flags);
 };
 
 golgotha.exam.updateMap = function(rpq)
 {
 const xmlreq = new XMLHttpRequest();
-xmlreq.open('POST', 'examplot.ws?id=' + rpq.examID + '&q=' + rpq.idx + '&date=' + golgotha.util.getTimestamp(100), true);
+xmlreq.open('post', 'examplot.ws?id=' + rpq.examID + '&q=' + rpq.idx + '&date=' + golgotha.util.getTimestamp(100), true);
 xmlreq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 var txtbox = golgotha.exam.getElementsById('A' + rpq.idx);
 if (!txtbox) return false;
@@ -175,7 +175,7 @@ xmlreq.onreadystatechange = function() {
 	return true;
 };
 
-xmlreq.send('route=' + escape(getAnswer(txtbox)));
+xmlreq.send('route=' + encodeURI(getAnswer(txtbox)));
 golgotha.event.beacon('Examination', 'Route Plot');
 return true;
 };
