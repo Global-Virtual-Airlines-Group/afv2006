@@ -132,31 +132,27 @@
 	<!-- Filter mappings to Image Server (for charts/exam resources only) -->
 	<filter-mapping>
 		<filter-name>SecurityCookieFilter</filter-name>
-		<url-pattern>/charts/*</url-pattern>
+		<url-pattern>/dbimg/charts/*</url-pattern>
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>SecurityCookieFilter</filter-name>
-		<url-pattern>/exam_rsrc/*</url-pattern>
+		<url-pattern>/dbimg/exam_rsrc/*</url-pattern>
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>SecurityCookieFilter</filter-name>
-		<url-pattern>/gallery/*</url-pattern>
-	</filter-mapping>
-	<servlet-mapping>
-		<servlet-name>dbImage</servlet-name>
-		<url-pattern>/partner/*</url-pattern>
-	</servlet-mapping>
-	<filter-mapping>
-		<filter-name>SecurityRequestWrapperFilter</filter-name>
-		<url-pattern>/charts/*</url-pattern>
+		<url-pattern>/dbimg/gallery/*</url-pattern>
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>SecurityRequestWrapperFilter</filter-name>
-		<url-pattern>/exam_rsrc/*</url-pattern>
+		<url-pattern>/dbimg/charts/*</url-pattern>
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>SecurityRequestWrapperFilter</filter-name>
-		<url-pattern>/gallery/*</url-pattern>
+		<url-pattern>/dbimg/exam_rsrc/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SecurityRequestWrapperFilter</filter-name>
+		<url-pattern>/dbimg/gallery/*</url-pattern>
 	</filter-mapping>
 
     <!-- Filter mappings to File Attachments / Upload -->
@@ -236,15 +232,7 @@
 	<!-- Servlet URL mappings -->
 	<servlet-mapping>
 		<servlet-name>dbImage</servlet-name>
-		<url-pattern>/charts/*</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>dbImage</servlet-name>
-		<url-pattern>/exam_rsrc/*</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>dbImage</servlet-name>
-		<url-pattern>/gallery/*</url-pattern>
+		<url-pattern>/dbimg/*</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>sigImage</servlet-name>
@@ -261,10 +249,6 @@
 	<servlet-mapping>
     	<servlet-name>customTile</servlet-name>
     	<url-pattern>/tile/*</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-    	<servlet-name>dbImage</servlet-name>
-    	<url-pattern>/event/*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>fleetLibrary</servlet-name>
