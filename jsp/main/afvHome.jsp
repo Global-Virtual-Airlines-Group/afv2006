@@ -48,15 +48,6 @@ Since May 2003, we have received over <fmt:int value="${httpStats.homeHits}" /> 
 <c:if test="${!empty runTime}"> Our web server has been running for <fmt:quantity value="${runTime.toDays()}" single="day" />, <fmt:quantity value="${runTime.toHoursPart()}" single="hour" /> and <fmt:quantity value="${runTime.toMinutesPart()}" single="minute" />.</c:if>
 <br />
 <br />
-<content:ip IPv6="true">
-<div class="ovalBorder mid nophone" style="width:55%; height:128px; min-width:512px;">
-<el:img src="IPv6_128.png" caption="World IPv6 Launch" style="float:left; margin-right:20px;"/>
-<span class="mid" style="position:relative; top:28px;">You are visiting <content:airline /> today using IPv6. This new Internet addressing technology eliminates many of the hacks and workarounds needed to combat the impending exhaustion of IPv4 addresses.<br />
-<br /> 
-Thanks for doing your part to move the Internet forward to IPv6!</span>
-</div>
-<br />
-</content:ip>
 <content:filter roles="!Pilot">
 Please feel free to browse around our web site. Once you join <content:airline />' active pilot roster, you may submit flight reports and contribute to our image library. If you are interested in a serious 
 virtual airline, designed for both the experienced pilot and the novice (and all of us that are in between!) we welcome your interest. <el:cmd url="register" className="pri bld">Click Here to join <content:airline />.</el:cmd><br />
@@ -78,7 +69,8 @@ virtual airline, designed for both the experienced pilot and the novice (and all
 </tr>
 <tr>
 <c:if test="${notam.isHTML}">
- <td colspan="3" class="left">${notam.body}</td>
+ <td colspan="3" class="left notam"><c:if test="${notam.hasImage}"><div class="hdr"><el:dbimg img="${notam}" style="width:${notam.bannerWidth}%; max-width=${notam.bannerWidth}%" caption="${notam.subject}"  /></div></c:if>
+${notam.body}</td>
 </c:if>
 <c:if test="${!notam.isHTML}">
  <td colspan="3" class="left notam"><fmt:msg value="${notam.body}" bbCode="true" /></td>
@@ -99,7 +91,8 @@ virtual airline, designed for both the experienced pilot and the novice (and all
 </tr>
 <tr>
 <c:if test="${entry.isHTML}">
- <td class="left" colspan="3">${entry.body}</td>
+ <td class="left" colspan="3"><c:if test="${entry.hasImage}"><div class="hdr"><el:dbimg img="${entry}" style="width:${entry.bannerWidth}%; max-width=${entry.bannerWidth}%" caption="${entry.subject}"  /></div></c:if>
+${entry.body}</td>
 </c:if>
 <c:if test="${!entry.isHTML}">
  <td class="left news" colspan="3"><fmt:msg value="${entry.body}" bbCode="true" /></td>
