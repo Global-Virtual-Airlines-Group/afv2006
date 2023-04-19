@@ -12,7 +12,6 @@
 		<db>afv</db>
 		<birthdate>08/25/2004</birthdate>
 		<voice>
-			<url>rw.afva.net/AFV</url>
 			<mvs>
 				<enabled type="Boolean">false</enabled>
 			</mvs>
