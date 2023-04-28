@@ -265,7 +265,7 @@ return true;
 
 golgotha.maps.clear = function() { localStorage.removeItem('golgotha.mapInfo'); return true; };
 golgotha.maps.save = function(m) {
-	const inf = {type:m.getType(), zoom:m.getZoom(), ctr:map.getCenter()};
+	const inf = {type:m.getMapTypeId(), zoom:m.getZoom(), ctr:map.getCenter()};
 	localstorage.setItem('golgotha.mapInfo', JSON.stringify(inf));
 	return true;
 };
