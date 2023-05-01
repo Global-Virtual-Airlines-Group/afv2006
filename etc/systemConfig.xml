@@ -546,12 +546,6 @@
 		<enabled type="Boolean">true</enabled>
 		<max_offline_size type="Integer">4096000</max_offline_size>
 
-		<!-- Archive file permissions -->
-		<archive>
-			<owner>dva</owner>
-			<group>users</group>
-		</archive>
-
 		<!-- Live map settings -->
 		<livemap>
 			<lat type="Double">38.88</lat>
