@@ -407,7 +407,7 @@
 		<library>/home/www/library</library>
 		<newsletter>/home/www/afnws</newsletter>
 		<httplog>/var/log/www</httplog>
-		<archive>/home/www/pos_archive</archive>
+		<archive>/home/www/archive/afva.net</archive>
 		<video>/home/www/video</video>
         <upload>/home/www/upload</upload>
         <tile>/var/cache/tile</tile>
