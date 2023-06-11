@@ -402,7 +402,7 @@
 		<httplog>/var/log/www</httplog>
 		<video>/home/www/video</video>
         <upload>/home/www/upload</upload>
-        <archive>/home/www/pos_archive</archive>
+        <archive>/home/www/afva.net/archive</archive>
         <tile>/var/cache/tile</tile>
         <inc>/home/www/inc</inc>
 	</path>
