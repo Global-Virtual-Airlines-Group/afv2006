@@ -439,6 +439,7 @@
 		<auto_reject type="Integer">5</auto_reject>
 		<ip_interval type="Integer">7</ip_interval>
 		<captcha_timeout type="Integer">48</captcha_timeout>
+		<purge_timeout type="Integer">72</purge_timeout>
 	</registration>
 
 	<!-- PICS content ratings -->
