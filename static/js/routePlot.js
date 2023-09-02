@@ -256,6 +256,7 @@ o.faReload = (f.forceFAReload) ? f.forceFAReload.checked : false;
 
 // Generate an XMLHTTP request
 const xmlreq = new XMLHttpRequest();
+xmlreq.timeout = 2500;
 xmlreq.open('post', 'dsproutes.ws', true);
 xmlreq.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
 xmlreq.onreadystatechange = function() {
