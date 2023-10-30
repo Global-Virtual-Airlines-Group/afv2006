@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- Copyright 2005, 2006, 2008, 2010, 2011, 2013, 2014, 2017, 2018, 2019, 2020, 2021, 2022, 2023 Global Virtual Airlines Group. All Rights Reserved. -->
-<project default="deploy">
+<project default="deploy" xmlns:if="ant:if">
 	<target name="compile" description="Precompile the Java Code">
 		<mkdir dir="${java.io.tmpdir}/afv/build/classes" />
 		<javac srcdir="src/java" optimize="on" destdir="${java.io.tmpdir}/afv/build/classes" updatedProperty="jar.compile" debug="true" debuglevel="lines,vars,source" source="21" target="21" compiler="modern" includeantruntime="false">
@@ -13,8 +13,45 @@
 	    	</classpath>
 		</javac>
 		
+		<!-- Load version constant -->
+		<taskdef classname="org.gvagroup.ant.VersionInfoTask" name="versionInfo">
+			<classpath id="vi.classpath">
+				<pathelement path="${classpath}" />
+				<fileset dir="./lib" includes="golgotha_ipc-*.jar" />
+				<fileset dir="${java.io.tmpdir}/build" includes="golgotha.jar" />
+			</classpath>
+		</taskdef>
+    	
+		<versionInfo property="v.major" className="org.deltava.beans.system.VersionInfo" fieldName="MAJOR" />
+		<versionInfo property="v.minor" className="org.deltava.beans.system.VersionInfo" fieldName="MINOR" />
+		<versionInfo property="v.build" className="org.deltava.beans.system.VersionInfo" fieldName="BUILD" />
+		
+		<!-- Save Build date/time in property file -->
+		<propertyfile if:set="jar.compile" file="${java.io.tmpdir}/afv/build/classes/golgotha_afv_build.properties" comment="Golgotha AFV build properties">
+			<entry key="build.date" value="${build_utc}" />
+			<entry key="build.ts" value="${ant.tstamp}" />
+			<entry key="build.ant" value="${ant.version}" />
+			<entry key="build.jvm" value="${ant.java.version}" />
+			<entry key="build.os" value="${os.name} ${os.version} ${os.arch}" />
+			<entry key="build.user" value="${user.name}" />
+			<entry key="build.version" value="${v.major} ${v.minor} ${v.build}" />
+		</propertyfile>
+    	
+		<!-- Build the manifest -->
+		<manifest if:set="jar.compile" file="${java.io.tmpdir}/build/golgotha_afv_MANIFEST.MF">
+			<attribute name="Built-By" value="${user.name}" />
+			<section name="common">
+				<attribute name="Specification-Title" value="Golgotha AFV" />
+				<attribute name="Specification-Version" value="${v.major}.${v.minor}.${v.build}" />
+				<attribute name="Specification-Vendor" value="Global Virtual Airlines Group" />
+				<attribute name="Implementation-Title" value="Golgotha AFV" />
+				<attribute name="Implementation-Version" value="${v.major}.${v.minor}.${v.build}" />
+				<attribute name="Implementation-Vendor" value="Global Virtual Airlines Group" />
+			</section>
+		</manifest>
+		
 		<!-- Compress the Java classes into a single JAR file -->
-		<jar basedir="${java.io.tmpdir}/afv/build/classes" compress="true" index="true" destfile="${java.io.tmpdir}/afv/build/afv2006.jar" />
+		<jar basedir="${java.io.tmpdir}/afv/build/classes" compress="true" index="true" destfile="${java.io.tmpdir}/afv/build/afv2006.jar" manifest="${java.io.tmpdir}/build/golgotha_afv_MANIFEST.MF" />
 	</target>
 	
 	<!-- Precompile the JSP pages -->
@@ -211,9 +248,8 @@
 	
 	<!-- Clean out compiled data -->
 	<target name="clean" description="Clean build directories">
-		<delete dir="${java.io.tmpdir}/build" />
-		<delete dir="${java.io.tmpdir}/src/jsp" />
-		<delete file="${java.io.tmpdir}/build/web.xml" />
+		<delete dir="${java.io.tmpdir}/afv/build" />
+		<delete file="${java.io.tmpdir}/afv/build/web.xml" />
 		<delete file="../.local_data/afv.min.cache.txt" />
 	</target>
 	
