@@ -198,4 +198,15 @@
     			<wday>*</wday>
     		</time>
     </task>
+
+   	<task id="flightaggregate" enabled="false">
+    	<class>org.deltava.tasks.FlightAggregateTask</class>
+    	<time>
+			<min>10,40</min>
+			<hour>*</hour>
+   			<mday>*</mday>
+   			<month>*</month>
+   			<wday>*</wday>
+    	</time>
+    </task>
 </tasks>
