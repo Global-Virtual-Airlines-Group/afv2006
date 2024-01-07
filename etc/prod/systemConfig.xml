@@ -337,7 +337,7 @@
 		</list>
 		
 		<auth>org.deltava.security.ApacheSQLAuthenticator</auth>
-		<baseDN>ou=afv,o=sce</baseDN>
+		<baseDN>ou=afv,o=gva</baseDN>
 	</security>
 
 	<!-- Innovata schedule link data -->
