@@ -389,6 +389,7 @@ golgotha.routePlot.togglePax = function() {
 
 golgotha.routePlot.download = function() {
 	if (!golgotha.form.wrap(golgotha.local.validate, document.forms[0])) return false;
+	const btn = document.getElementById('SaveButton');
 	const xmlreq = new XMLHttpRequest();
 	xmlreq.open('post', '/routeplan.ws', true);
 	xmlreq.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -396,6 +397,7 @@ golgotha.routePlot.download = function() {
 	xmlreq.onreadystatechange = function() {
 		if (xmlreq.readyState != 4) return false;
 		if (xmlreq.status != 200) {
+			btn.disabled = false;
 			alert('Error ' + xmlreq.statusText + ' generating flight plan');
 			return false;
 		}
@@ -403,10 +405,12 @@ golgotha.routePlot.download = function() {
 		const ct = xmlreq.getResponseHeader('Content-Type');
 		const b = new Blob([xmlreq.response], {type:ct.substring(0, ct.indexOf(';')), endings:'native'});
 		saveAs(b, xmlreq.getResponseHeader('X-Plan-Filename'));
+		btn.disabled = false;
 		return true;
 	};
 
 	// Generate parameters
+	btn.disabled = true;
 	const params = golgotha.util.createURLParams(golgotha.routePlot.getAJAXParams());
 	xmlreq.send(params);
 	return true;
