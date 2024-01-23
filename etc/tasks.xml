@@ -166,17 +166,6 @@
             <wday>*</wday>
         </time> 
     </task>
-    
-	<task id="taxitimes" enabled="false">
-		<class>org.deltava.tasks.TaxiUpdateTask</class>
-		<time>
-			<min>40</min>
-			<hour>9</hour>
-			<mday>*</mday>
-			<month>*</month>
-			<wday>*</wday>
-		</time>
-	</task>
 
 	<task id="captchapurge" enabled="false">
 		<class>org.deltava.tasks.ApplicantPurgeTask</class>
