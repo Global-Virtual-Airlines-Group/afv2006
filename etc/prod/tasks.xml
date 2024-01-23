@@ -35,18 +35,6 @@
 			<wday>*</wday>
 		</time>
 	</task>
-	
-	<!-- Update Taxi Times -->
-	<task id="taxitimes" enabled="true">
-		<class>org.deltava.tasks.TaxiUpdateTask</class>
-		<time>
-			<min>40</min>
-			<hour>4</hour>
-			<mday>*</mday>
-			<month>*</month>
-			<wday>*</wday>
-		</time>
-	</task>
 
 	<!-- Update HTTP server statistics -->
 	<task id="httpstats" enabled="true">
