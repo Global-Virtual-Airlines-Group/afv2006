@@ -1,4 +1,4 @@
-// Copyright 2023 Global Virtual Airlines Group. All Rights Reserved.
+// Copyright 2023, 2024 Global Virtual Airlines Group. All Rights Reserved.
 package net.afva.beans.econ;
 
 import org.deltava.beans.acars.RunwayDistance;
@@ -9,7 +9,7 @@ import org.deltava.util.system.SystemData;
 /**
  * An Elite program scorer for Air France / KLM.
  * @author Luke
- * @version 11.1
+ * @version 11.2
  * @since 11.0  
  */
 
@@ -41,8 +41,10 @@ public class FlyingBlueScorer extends EliteScorer {
 			if (accPct < MAX_ACCEL_PCT) {
 				addBonus(ffr.getDistance() / 2, String.format("Minimal Time Acceleration - %d%%", Long.valueOf(accPct)), true);
 				_score.setDistance(Math.max(MIN_DISTANCE, ffr.getDistance()));
-			} else
+			} else {
+				ffr.addStatusUpdate(0, HistoryType.ELITE, String.format("Time Acceleration %d%%, limiting Distance credit to %d%%", Long.valueOf(accPct), Long.valueOf(100 - accPct)));
 				_score.setDistance(Math.max(MIN_DISTANCE, Math.round(ffr.getDistance() * (1f - (accPct / 2)))));
+			}
 			
 			// Calculate on-time bonus
 			addBonus(Math.round(ffr.getDistance() * 0.4f), "Early Arrival", (afr.getOnTime() == OnTime.EARLY));
