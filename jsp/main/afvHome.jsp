@@ -106,7 +106,7 @@ ${entry.body}</td>
 <!-- Current ACARS server connections -->
 <el:table className="view">
 <tr class="title caps left">
- <td colspan="6">CURRENTLY FLYING USING <content:airline /> ACARS</td>
+ <td colspan="7">CURRENTLY FLYING USING <content:airline /> ACARS</td>
 </tr>
 <c:forEach var="con" items="${acarsPool}">
 <c:if test="${!con.userHidden || isHR}">
