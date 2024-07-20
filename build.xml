@@ -3,7 +3,7 @@
 <project default="deploy" xmlns:if="ant:if">
 	<target name="compile" description="Precompile the Java Code">
 		<mkdir dir="${java.io.tmpdir}/afv/build/classes" />
-		<javac srcdir="src/java" optimize="on" destdir="${java.io.tmpdir}/afv/build/classes" updatedProperty="jar.compile" debug="true" debuglevel="lines,vars,source" source="21" target="21" compiler="modern" includeantruntime="false">
+		<javac srcdir="src/java" optimize="on" destdir="${java.io.tmpdir}/afv/build/classes" updatedProperty="jar.compile" debug="true" debuglevel="lines,vars,source" source="22" target="22" compiler="modern" includeantruntime="false">
 			<compilerarg value="-Xlint:unchecked,-options" />
 	    	<classpath id="afv.classpath">
 				<fileset dir="${ant.home}/lib" includes="*.jar" />
@@ -85,7 +85,7 @@
 		
 		<!-- Precompile the files -->
 		<mkdir dir="${java.io.tmpdir}/afv/src/jsp" />
-	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="0" poolingEnabled="true" xpoweredBy="false" validateXml="false" webXmlFragment="${jspc.afv.webXMLInc}" compilerTargetVM="1.21" compilerSourceVM="1.21" trimSpaces="SINGLE" outputDir="${java.io.tmpdir}/afv/src/jsp" />
+	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="0" poolingEnabled="true" xpoweredBy="false" validateXml="false" webXmlFragment="${jspc.afv.webXMLInc}" compilerTargetVM="1.22" compilerSourceVM="1.22" trimSpaces="SINGLE" outputDir="${java.io.tmpdir}/afv/src/jsp" />
 		
 		<!-- Clean up -->
 		<delete>
@@ -95,7 +95,7 @@
 
 		<!-- Compile the files -->
 		<mkdir dir="${java.io.tmpdir}/afv/build/jsp" />
-		<javac srcdir="${java.io.tmpdir}/afv/src/jsp" destdir="${java.io.tmpdir}/afv/build/jsp" nowarn="on" compiler="modern" debug="on" debuglevel="source" optimize="on" target="21" source="21" includeantruntime="false">
+		<javac srcdir="${java.io.tmpdir}/afv/src/jsp" destdir="${java.io.tmpdir}/afv/build/jsp" nowarn="on" compiler="modern" debug="on" debuglevel="source" optimize="on" target="22" source="22" includeantruntime="false">
 			<compilerarg value="-Xlint:unchecked,-options" />
 			<classpath refid="afv.jspc.classpath" />
 			<include name="net/afva/jsp/**/*.java" />
@@ -177,6 +177,7 @@
 	<target name="deploy" depends="jspc,minify" description="Deploy to Development environment">
 		<loadproperties srcFile="data/build_deploy.properties" />
 		<property name="webapp.dev.port" value="22" />
+		<property name="webapp.dev.hosts" value="${user.home}/.ssh/known_hosts" />
 		<taskdef classname="org.gvagroup.ant.LowercaseTask" name="lower">
 			<classpath id="lc.classpath">
 				<pathelement path="${classpath}" />
@@ -186,11 +187,12 @@
 
 		<lower value="${user.name}" property="webapp.dev.user" />
 		<property name="http.dev.port" value="22" />
+		<property name="http.dev.hosts" value="${user.home}/.ssh/known_hosts" />
 		<lower value="${user.name}" property="http.dev.user" />
 		<mkdir dir="../.local_data" />
 		
 		<!-- Upload the web configuration -->
-		<scp todir="${webapp.dev.user}@${webapp.dev.server}:${webapp.dev.path}/WEB-INF" port="${webapp.dev.port}" verbose="yes" trust="yes" keyfile="${webapp.dev.key}">
+		<scp todir="${webapp.dev.user}@${webapp.dev.server}:${webapp.dev.path}/WEB-INF" port="${webapp.dev.port}" knownhosts="${webapp.dev.hosts}" keyfile="${webapp.dev.key}">
 			<fileset file="${java.io.tmpdir}/afv/build/web.xml">
 				<modified seldirs="false" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
@@ -200,7 +202,7 @@
 		</scp>
 
 		<!-- Upload the JAR files to the app server -->
-		<scp todir="${webapp.dev.user}@${webapp.dev.server}:${webapp.dev.path}/WEB-INF/lib" port="${webapp.dev.port}" verbose="yes" trust="yes" keyfile="${webapp.dev.key}">
+		<scp todir="${webapp.dev.user}@${webapp.dev.server}:${webapp.dev.path}/WEB-INF/lib" port="${webapp.dev.port}" knownhosts="${webapp.dev.hosts}" keyfile="${webapp.dev.key}">
 			<fileset dir="${java.io.tmpdir}/build">
 				<include name="golgotha.jar" />
 				<include name="golgotha_web.jar" />
@@ -220,7 +222,7 @@
 		</scp>
 		
 		<!-- Upload the config files to the app server -->
-		<scp todir="${webapp.dev.user}@${webapp.dev.server}:${webapp.dev.path}/WEB-INF/classes/etc" port="${webapp.dev.port}" verbose="yes" trust="yes" keyfile="${webapp.dev.key}">
+		<scp todir="${webapp.dev.user}@${webapp.dev.server}:${webapp.dev.path}/WEB-INF/classes/etc" port="${webapp.dev.port}" knownhosts="${webapp.dev.hosts}" keyfile="${webapp.dev.key}">
 			<fileset dir="etc" includes="*.*">
 				<modified seldirs="false" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
@@ -230,7 +232,7 @@
 		</scp>
 		
 		<!-- Upload static content to the HTTP server -->
-		<scp todir="${http.dev.user}@${http.dev.server}:${http.dev.path}" verbose="yes" port="${http.dev.port}" trust="yes" keyfile="${http.dev.key}">
+		<scp todir="${http.dev.user}@${http.dev.server}:${http.dev.path}" port="${http.dev.port}" knownhosts="${http.dev.hosts}" keyfile="${http.dev.key}">
 			<fileset dir="static">
 				<modified seldirs="true" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
@@ -257,6 +259,7 @@
 	<target name="prod_deploy" depends="jspc,minify" description="Deploy to Production environment">
 		<loadproperties srcFile="data/build_deploy.properties" />
 		<property name="webapp.ssh.port" value="22" />
+		<property name="webapp.dev.hosts" value="${user.home}/.ssh/known_hosts" />
 		<taskdef classname="org.gvagroup.ant.LowercaseTask" name="lower">
 			<classpath id="lc.classpath">
 				<pathelement path="${classpath}" />
@@ -266,11 +269,12 @@
 
 		<lower value="${user.name}" property="webapp.ssh.user" />
 		<property name="http.ssh.port" value="22" />
+		<property name="http.dev.hosts" value="${user.home}/.ssh/known_hosts" />
 		<lower value="${user.name}" property="http.ssh.user" />
 		<mkdir dir="../.local_data" />
 		
 		<!-- Upload the web configuration -->
-		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}" port="${webapp.ssh.port}" verbose="yes" trust="yes" keyfile="${webapp.ssh.key}">
+		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}" port="${webapp.ssh.port}" knownhosts="${webapp.dev.hosts}" keyfile="${webapp.ssh.key}">
 			<fileset file="${java.io.tmpdir}/afv/build/web.xml">
 				<modified seldirs="false" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
@@ -280,7 +284,7 @@
 		</scp>
 		
 		<!-- Upload the common JAR files to the app server -->
-		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path.common}" port="${webapp.ssh.port}" verbose="yes" trust="yes" keyfile="${webapp.ssh.key}">
+		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path.common}" port="${webapp.ssh.port}" knownhosts="${webapp.dev.hosts}" keyfile="${webapp.ssh.key}">
 			<fileset dir="../DVA2006/lib/deploy" includes="*.jar">
 				<modified seldirs="false" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
@@ -290,7 +294,7 @@
 		</scp>
 
 		<!-- Upload the JAR files to the app server -->
-		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}/lib" port="${webapp.ssh.port}" verbose="yes" trust="yes" keyfile="${webapp.ssh.key}">
+		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}/lib" port="${webapp.ssh.port}" knownhosts="${webapp.dev.hosts}" keyfile="${webapp.ssh.key}">
 			<fileset dir="${java.io.tmpdir}/build">
 				<include name="golgotha.jar" />
 				<include name="golgotha_web.jar" />
@@ -310,7 +314,7 @@
 		</scp>
 		
 		<!-- Upload the config file to the app server -->
-		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}/classes/etc" port="${webapp.ssh.port}" verbose="yes" trust="yes" keyfile="${webapp.ssh.key}">
+		<scp todir="${webapp.ssh.user}@${webapp.ssh.server}:${webapp.ssh.path}/classes/etc" port="${webapp.ssh.port}" knownhosts="${webapp.dev.hosts}" keyfile="${webapp.ssh.key}">
 			<fileset dir="etc">
 				<include name="commands.xml" />
 				<include name="services.xml" />
@@ -331,7 +335,7 @@
 		</scp>
 		
 		<!-- Upload static content to the HTTP server -->
-		<scp todir="${http.ssh.user}@${http.ssh.server}:${http.ssh.path}" port="${http.ssh.port}" verbose="yes" trust="yes" keyfile="${http.ssh.key}">
+		<scp todir="${http.ssh.user}@${http.ssh.server}:${http.ssh.path}" port="${http.ssh.port}" knownhosts="${http.dev.hosts}" keyfile="${http.ssh.key}">
 			<fileset dir="static">
 				<modified seldirs="true" algorithm="digest" update="true" delayupdate="true">
 					<param name="algorithm.algorithm" value="MD5" />
