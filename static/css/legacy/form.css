@@ -27,6 +27,11 @@ table.form tr {
 	background-color: #efefef;
 }
 
+table.form tr.title span.toggle {
+	text-decoration: underline;
+	float: right;
+}
+
 table.form td.label {
 	background-color: #0b228c;
 	text-align: right;
