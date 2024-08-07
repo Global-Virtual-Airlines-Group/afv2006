@@ -11,8 +11,21 @@ golgotha.util.disable(f.rwyDebug, true);
 const xmlreq = new XMLHttpRequest();
 xmlreq.open('get', 'acars_pirep.ws?id=' + pirepID + '&showAirspace=' + showAirspace, true);
 xmlreq.onreadystatechange = function() {
-	if ((xmlreq.readyState != 4) || (xmlreq.status != 200)) return false;
+	if (xmlreq.readyState != 4) return false;
+	const errE = document.getElementById('archiveError');
+	if (xmlreq.status != 200) {
+		errE.innerText = 'Error ' + xmlreq.status;
+		golgotha.util.display(errE, true);
+		return false;
+	}
+
 	const js = JSON.parse(xmlreq.responseText);
+	if (js.error) {
+		errE.innerText = js.error;
+		golgotha.util.display(errE, true);
+	} else
+		golgotha.util.display('archiveOK', true);
+
 	js.positions.forEach(function(p) {
 		var mrk;
 		golgotha.maps.acarsFlight.routePoints.push(p.ll);
