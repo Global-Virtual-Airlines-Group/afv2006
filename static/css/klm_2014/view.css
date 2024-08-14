@@ -1,4 +1,4 @@
-/* KLM14 Cascading Style Sheet for Table Views (C) 2014 Global Virtual Airlines Group. */
+/* KLM14 Cascading Style Sheet for Table Views (C) 2014, 2024 Global Virtual Airlines Group. */
 
 table.view {
 	width: 100%;
@@ -15,6 +15,11 @@ table.view tr.title {
 	vertical-align: middle;
 	color: #ffffff;
 	font-weight: bold;
+}
+
+table.view tr.title span.toggle {
+	text-decoration: underline;
+	float: right;
 }
 
 table.view tr {
