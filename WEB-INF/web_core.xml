@@ -256,23 +256,7 @@
     </servlet-mapping>
 	<servlet-mapping>
         <servlet-name>attachments</servlet-name>
-        <url-pattern>/issue/*</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>attachments</servlet-name>    
-        <url-pattern>/error_log/*</url-pattern>
-    </servlet-mapping>
-	<servlet-mapping>
-    	<servlet-name>attachments</servlet-name>
-    	<url-pattern>/helpdesk/*</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>attachments</servlet-name>    
-        <url-pattern>/ebrief/*</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>attachments</servlet-name>    
-        <url-pattern>/tbrief/*</url-pattern>
+        <url-pattern>/attach/*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>upload</servlet-name>
