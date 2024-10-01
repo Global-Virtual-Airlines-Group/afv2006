@@ -176,7 +176,7 @@
 		<map name="connectProperties">
 			<addr>/run/valkey/valkey.sock</addr>
 			<db type="Integer">0</db>
-			<poolName>ACARS</poolName>
+			<poolName>AFV</poolName>
 		</map>
 	</jedis>
 
