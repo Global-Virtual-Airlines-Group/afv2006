@@ -3,7 +3,7 @@
 <project default="deploy" xmlns:if="ant:if">
 	<target name="compile" description="Precompile the Java Code">
 		<mkdir dir="${java.io.tmpdir}/afv/build/classes" />
-		<javac srcdir="src/java" optimize="on" destdir="${java.io.tmpdir}/afv/build/classes" updatedProperty="jar.compile" debug="true" debuglevel="lines,vars,source" source="22" target="22" compiler="modern" includeantruntime="false">
+		<javac srcdir="src/java" optimize="on" destdir="${java.io.tmpdir}/afv/build/classes" updatedProperty="jar.compile" debug="true" debuglevel="lines,vars,source" source="23" target="23" compiler="modern" includeantruntime="false">
 			<compilerarg value="-Xlint:unchecked,-options" />
 	    	<classpath id="afv.classpath">
 				<fileset dir="${ant.home}/lib" includes="*.jar" />
@@ -87,7 +87,7 @@
 		
 		<!-- Precompile the files -->
 		<mkdir dir="${java.io.tmpdir}/afv/src/jsp" />
-	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="0" poolingEnabled="true" xpoweredBy="false" validateXml="false" webXmlFragment="${jspc.afv.webXMLInc}" compilerTargetVM="1.22" compilerSourceVM="1.22" trimSpaces="SINGLE" outputDir="${java.io.tmpdir}/afv/src/jsp" />
+	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="0" poolingEnabled="true" xpoweredBy="false" validateXml="false" webXmlFragment="${jspc.afv.webXMLInc}" compilerTargetVM="1.23" compilerSourceVM="1.23" trimSpaces="SINGLE" outputDir="${java.io.tmpdir}/afv/src/jsp" />
 		
 		<!-- Clean up -->
 		<delete>
