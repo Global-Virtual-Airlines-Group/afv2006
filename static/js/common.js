@@ -19,7 +19,7 @@ golgotha.charts.buildOptions = function(opts) {
 	o.backgroundColor = golgotha.charts.bg;
 	o.vAxis = Object.assign({}, aX);
 	o.hAxis = Object.assign({}, aX);
-	o.legend = Object.assign({}, aX);
+	o.legend = Object.assign({}, opts.legend, aX);
 	o.fontSize = 10;
 	o.fontName = o.fontName || 'Verdana';
 	o.textStyle = o.textStyle || Object.assign({}, golgotha.charts.lgStyle);
@@ -32,18 +32,17 @@ golgotha.util.mapAPILoaded = function() {
 	return true;
 };
 
-golgotha.util.getElementsByClass = function(cName, eName, parent)
-{
-if (parent == null) parent = document;
-let elements = [];
-const all = parent.getElementsByTagName((eName == null) ? '*' : eName);
-for (var x = 0; x < all.length; x++) {
-	const cl = all[x].className;
-	if (cl.split && (cl.split(' ').indexOf(cName) > -1))
-		elements.push(all[x]);
-}
+golgotha.util.getElementsByClass = function(cName, eName, parent) {
+	if (parent == null) parent = document;
+	let elements = [];
+	const all = parent.getElementsByTagName((eName == null) ? '*' : eName);
+	for (var x = 0; x < all.length; x++) {
+		const cl = all[x].className;
+		if (cl.split && (cl.split(' ').indexOf(cName) > -1))
+			elements.push(all[x]);
+	}
 
-return elements;
+	return elements;
 };
 
 golgotha.util.addClass = function(e, cl) {
