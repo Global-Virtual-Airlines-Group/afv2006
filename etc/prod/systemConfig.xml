@@ -218,8 +218,6 @@
 
 	<!-- Weather map tile sources -->	
 	<weather>
-		<tileHost>api.weather.com</tileHost>
-
 		<!-- Download locations -->
 		<url>
 			<metarCycle>https://tgftp.nws.noaa.gov/data/observations/metar/cycles/</metarCycle>

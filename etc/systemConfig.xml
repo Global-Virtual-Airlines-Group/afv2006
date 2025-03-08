@@ -214,7 +214,6 @@
 			<path>/pub/data/nccf/com/gfs/prod</path>
 		</gfs>
 
-		<tileHost>g%.imwx.com</tileHost>
 		<multiHost type="Boolean">true</multiHost>
 
 		<!-- Download locations -->
