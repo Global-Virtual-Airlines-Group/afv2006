@@ -4,6 +4,7 @@ Disallow: /error500.html
 Disallow: /roster.do
 Disallow: /logbook.do
 Disallow: /profile.do
+Disallow: /pirep.do
 Disallow: /pwdreset.do
 Disallow: /airlinestats.do
 Disallow: /acars_data.ws
