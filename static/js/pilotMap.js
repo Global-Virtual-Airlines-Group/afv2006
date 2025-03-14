@@ -30,11 +30,11 @@ return xmlreq;
 
 golgotha.pilotMap.load = function(batchSize)
 {
-var cnt = 0;
-var a = golgotha.pilotMap.queue.pop();
+let cnt = 0;
+let a = golgotha.pilotMap.queue.pop();
 golgotha.pilotMap.pBar.updateBar(2);
 while ((cnt < batchSize) && (a != null)) {
-	var mrk = new golgotha.maps.Marker({map:map, color:a.color}, a.ll);
+	const mrk = new golgotha.maps.Marker({map:map, color:a.color}, a.ll);
 	mrk.infoLabel = a.info; mrk.ID = a.id; mrk.rank = a.rank; mrk.eqType = a.eqType;
 
 	// Set the the click handler and add to the list
@@ -48,7 +48,7 @@ while ((cnt < batchSize) && (a != null)) {
 if (a != null)
 	window.setTimeout(golgotha.pilotMap.load, 2, batchSize);
 else {
-	var f = document.forms[0];
+	const f = document.forms[0];
 	golgotha.util.setHTML('isLoading', '');
 	golgotha.util.disable(f.noFilter, false);
 	golgotha.util.disable(f.eqType, false);
