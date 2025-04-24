@@ -254,10 +254,6 @@
 		<filter-name>FileUploadFilter</filter-name>
 		<servlet-name>webService</servlet-name>
 	</filter-mapping>
-		<filter-mapping>
-		<filter-name>RateLimitFilter</filter-name>
-		<servlet-name>webService</servlet-name>
-	</filter-mapping>
 	
 	<!-- Servlet URL mappings -->
 	<servlet-mapping>
