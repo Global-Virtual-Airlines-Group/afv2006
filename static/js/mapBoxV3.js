@@ -294,11 +294,10 @@ golgotha.maps.Polygon.prototype.getLayer = function () {
 	return o;
 };
 
-golgotha.util.generateCircle = function(map, ctr, radius) {
+golgotha.maps.util.generateCircle = function(map, ctr, radius) {
 	if (radius <= 0) return [];
-	const l2 = [ctr.lng, ctr.lat + (radius / 69.16)];
-	const centerPt = map.project(ctr); 
-	const radiusPt = map.project(l2);
+	const centerPt = map.project(ctr);
+	const radiusPt = map.project([ctr.lng, ctr.lat + (radius / 69.16)]);
 
 	// Build the circle
 	const pts = [];
