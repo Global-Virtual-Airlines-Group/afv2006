@@ -18,6 +18,7 @@
 <content:rss title="${airlineName} News" path="/news_rss.ws" />
 <content:js name="common" />
 <content:captcha action="home" />
+<content:googleAnalytics />
 <content:pics />
 <content:favicon />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -235,13 +236,5 @@ If you have questions or comments, please direct them to our Corporate Offices a
 <content:copyright />
 </content:region>
 </content:page>
-<content:ip IPv6="true">
-<content:googleAnalytics eventSupport="true" />
-<script async>
-golgotha.event.beacon('Network', 'IPv6');</script>
-</content:ip>
-<content:ip IPv4="true">
-<content:googleAnalytics />
-</content:ip>
 </body>
 </html>
