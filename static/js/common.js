@@ -1,8 +1,8 @@
 var golgotha = {event:{},util:{},form:{isSubmitted:false,invalidDomains:[]},local:{},nav:{sideMenu:false},charts:{},sort:{lastSort:{},data:{}}};
-golgotha.nav.touch = ("ontouchend" in document); 
+golgotha.nav.touch = ("ontouchend" in document);
 golgotha.util.getTimestamp = function(ms) { var d = new Date(); return d.getTime() - (d.getTime() % ms); };
 golgotha.util.darkMode = false; // (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-golgotha.event.beacon = function() { return false; };
+golgotha.event.beacon = function() { if (gtag) gtag(arguments); };
 golgotha.event.stop = function(e) { if (e) { e.stopPropagation(); e.preventDefault(); } return false; };
 golgotha.event.Error = function(msg, showAlert) { var e = new Error(msg); e.showAlert = showAlert; return e; };
 golgotha.event.ValidationError = function(msg, el) { var e = new golgotha.event.Error(msg, true); e.focusElement = el; return e; };
@@ -215,7 +215,7 @@ if (url.indexOf(golgotha.maps.wxHost) > -1) {
 	url += api;
 }
 	
-let sc = document.createElement('script');
+const sc = document.createElement('script');
 sc.setAttribute('id', opts.id);
 sc.src = url;
 if (opts.async) sc.setAttribute('async', 'true');
