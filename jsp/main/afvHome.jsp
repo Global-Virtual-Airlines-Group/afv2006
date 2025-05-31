@@ -31,6 +31,7 @@
 <meta property="og:site_name" content="<content:airline />" />
 <meta property="og:locality" content="Paris" />
 <meta property="og:country-name" content="France" />
+<content:cspHeader />
 </head>
 <content:copyright visible="false" />
 <body>
