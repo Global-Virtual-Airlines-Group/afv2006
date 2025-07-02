@@ -421,8 +421,6 @@
 	<smtp>
 		<server>email-smtp.us-east-2.amazonaws.com</server>
 		<tls type="Boolean">true</tls>
-		<user>***REMOVED***</user>
-		<pwd>***REMOVED***</pwd>
 		<multiChannel type="Boolean">true</multiChannel>
 
 		<errors-to>webmaster@afva.net</errors-to>
