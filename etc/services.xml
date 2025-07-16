@@ -83,6 +83,7 @@
 	<service id="lfmodel" class="org.deltava.service.stats.LoadModelService" />
 	<service id="otstats" class="org.deltava.service.stats.OnTimeStatsService" />
 	<service id="logpreload" class="org.deltava.service.logbook.LogbookPreloadService" />
+	<service id="airportinfo" class="org.deltava.service.stats.AirportInformationService" />
 
 	<!-- Pilot Data Services -->
 	<service id="pilotmap" class="org.deltava.service.PilotLocationService" />
@@ -141,7 +142,7 @@
 	<!-- ACARS/Google Maps Services -->
 	<service id="acars_data" class="org.deltava.service.acars.FlightDataExportService" />
 	<service id="acars_error" class="org.deltava.service.acars.ErrorLogService" />
-   <service id="acars_map" class="org.deltava.service.acars.MapXMLService" />
+    <service id="acars_map" class="org.deltava.service.acars.MapXMLService" />
     <service id="acars_map_json" class="org.deltava.service.acars.MapJSONService" />
     <service id="acars_progress" class="org.deltava.service.acars.MapProgressXMLService" />
     <service id="acars_progress_json" class="org.deltava.service.acars.MapProgressJSONService" />
