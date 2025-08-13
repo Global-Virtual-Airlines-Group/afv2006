@@ -1,4 +1,4 @@
-// Copyright 2023, 2024 Global Virtual Airlines Group. All Rights Reserved.
+// Copyright 2023, 2024, 2025 Global Virtual Airlines Group. All Rights Reserved.
 package net.afva.beans.econ;
 
 import org.deltava.beans.acars.RunwayDistance;
@@ -9,7 +9,7 @@ import org.deltava.util.system.SystemData;
 /**
  * An Elite program scorer for Air France / KLM.
  * @author Luke
- * @version 11.2
+ * @version 12.2
  * @since 11.0  
  */
 
@@ -61,7 +61,7 @@ public class FlyingBlueScorer extends EliteScorer {
 		_score.setAuthorID(fr.getAuthorID());
 		_score.setDistance(fr.getDistance());
 		
-		setBase(fr.getDistance(), fr.hasAttribute(FlightReport.ATTR_ACARS) ? "ACARS/XACARS/simFDR Base Miles" : "Base Miles");
+		setBase(fr.getDistance(), fr.hasAttribute(Attribute.ACARS) ? "ACARS/XACARS/simFDR Base Miles" : "Base Miles");
 		
 		addBonus(Math.round(_score.getPoints() * lvl.getBonusFactor()), String.format("% Supplement", lvl.getName()), lvl.getBonusFactor() > 0f);
 		return _score;
