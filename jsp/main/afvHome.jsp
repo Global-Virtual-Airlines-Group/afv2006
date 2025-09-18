@@ -21,16 +21,9 @@
 <content:googleAnalytics />
 <content:pics />
 <content:favicon />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="Description" content="${desc}" />
-<meta name="Keywords" content="<fmt:list value="${keywords}" delim="," />" />
-<meta property="og:title" content="<content:airline />" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://${airlineURL}" />
-<meta property="og:description" content="${desc}" />
-<meta property="og:site_name" content="<content:airline />" />
-<meta property="og:locality" content="Paris" />
-<meta property="og:country-name" content="France" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="${desc}">
+<meta name="Keywords" content="<fmt:list value="${keywords}" delim="," />">
 <content:cspHeader />
 </head>
 <content:copyright visible="false" />
@@ -43,17 +36,17 @@
 <!-- Main Body Frame -->
 <content:region id="main">
 Welcome to <content:airline />'s web site. We are a group of flight simulation enthusiasts who fly Air France and its alliance partners' routes using Microsoft's Flight Simulator 2002, 2004 or Flight 
-Simulator X (including Steam Edition), as well as Laminar Research X-Plane and Lockheed-Martin's Prepar3D. We are in no way affiliated with Air France.<br />
-<br />
+Simulator X (including Steam Edition), as well as Laminar Research X-Plane and Lockheed-Martin's Prepar3D. We are in no way affiliated with Air France.<br>
+<br>
 Since May 2003, we have received over <fmt:int value="${httpStats.homeHits}" /> visits and received <fmt:int value="${httpStats.hits}" /> hits. During this time, our servers have sent out over <fmt:int value="${httpStats.bytes}" /> bytes worth of data.
 <c:if test="${coolerStats > 1}"> Our members have posted over <fmt:quantity value="${coolerStats}" single="message" /> in our discussion forums in the past 24 hours.</c:if>
 <c:if test="${!empty runTime}"> Our web server has been running for <fmt:quantity value="${runTime.toDays()}" single="day" />, <fmt:quantity value="${runTime.toHoursPart()}" single="hour" /> and <fmt:quantity value="${runTime.toMinutesPart()}" single="minute" />.</c:if>
-<br />
-<br />
+<br>
+<br>
 <content:filter roles="!Pilot">
 Please feel free to browse around our web site. Once you join <content:airline />' active pilot roster, you may submit flight reports and contribute to our image library. If you are interested in a serious 
-virtual airline, designed for both the experienced pilot and the novice (and all of us that are in between!) we welcome your interest. <el:cmd url="register" className="pri bld">Click Here to join <content:airline />.</el:cmd><br />
-<br /></content:filter>
+virtual airline, designed for both the experienced pilot and the novice (and all of us that are in between!) we welcome your interest. <el:cmd url="register" className="pri bld">Click Here to join <content:airline />.</el:cmd><br>
+<br></content:filter>
 <!-- Dynamic Content Type ${dynContentType} -->
 <c:if test="${noUpcomingEvents}"><!-- No upcoming Online Events, skipped --></c:if>
 <c:if test="${noACARSUsers}"><!-- No connected ACARS users, skipped --></c:if>
@@ -71,7 +64,7 @@ virtual airline, designed for both the experienced pilot and the novice (and all
 </tr>
 <tr>
 <c:if test="${notam.isHTML}">
- <td colspan="3" class="left notam"><c:if test="${notam.hasImage}"><div class="hdr"><el:dbimg img="${notam}" style="width:${notam.bannerWidth}%; max-width=${notam.bannerWidth}%" caption="${notam.subject}"  /></div></c:if>
+ <td colspan="3" class="left notam"><c:if test="${notam.hasImage}"><div class="hdr"><el:dbimg img="${notam}" style="width:${notam.bannerWidth}%; max-width:${notam.bannerWidth}%" caption="${notam.subject}"  /></div></c:if>
 ${notam.body}</td>
 </c:if>
 <c:if test="${!notam.isHTML}">
@@ -93,7 +86,7 @@ ${notam.body}</td>
 </tr>
 <tr>
 <c:if test="${entry.isHTML}">
- <td class="left" colspan="3"><c:if test="${entry.hasImage}"><div class="hdr"><el:dbimg img="${entry}" style="width:${entry.bannerWidth}%; max-width=${entry.bannerWidth}%" caption="${entry.subject}"  /></div></c:if>
+ <td class="left" colspan="3"><c:if test="${entry.hasImage}"><div class="hdr"><el:dbimg img="${entry}" style="width:${entry.bannerWidth}%; max-width:${entry.bannerWidth}%" caption="${entry.subject}"  /></div></c:if>
 ${entry.body}</td>
 </c:if>
 <c:if test="${!entry.isHTML}">
@@ -231,9 +224,9 @@ ${entry.body}</td>
 </c:forEach>
 </el:table>
 </c:if>
-<br />
-If you have questions or comments, please direct them to our Corporate Offices at <a href="mailto:${infoEmail}">${infoEmail}</a>.<br />
-<br />
+<br>
+If you have questions or comments, please direct them to our Corporate Offices at <a href="mailto:${infoEmail}">${infoEmail}</a>.<br>
+<br>
 <content:copyright />
 </content:region>
 </content:page>
