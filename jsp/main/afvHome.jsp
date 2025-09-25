@@ -80,9 +80,9 @@ ${notam.body}</td>
 <c:forEach var="entry" items="${latestNews}">
 <c:set var="author" value="${authors[entry.authorID]}" scope="page" />
 <tr>
- <td class="priB" width="20%"><fmt:date fmt="d" date="${entry.date}" /></td>
+ <td class="priB" style="width:20%;"><fmt:date fmt="d" date="${entry.date}" /></td>
  <td class="pri bld mid">${entry.subject}</td>
- <td class="secB" width="20%">${author.name}</td>
+ <td class="secB" style="width:20%;">${author.name}</td>
 </tr>
 <tr>
 <c:if test="${entry.isHTML}">
