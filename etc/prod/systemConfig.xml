@@ -456,11 +456,6 @@
 		<purge_timeout type="Integer">72</purge_timeout>
 	</registration>
 
-	<!-- PICS content ratings -->
-	<content>
-		<safesurf>SS~~000 3</safesurf>
-	</content>
-
 	<issue_track>
 		<list name="versions" attr="version" sorted="true">
 			<version>2.2</version>
