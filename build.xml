@@ -41,7 +41,7 @@
 		<manifest if:set="jar.compile" file="${java.io.tmpdir}/build/golgotha_afv_MANIFEST.MF">
 			<attribute name="Built-By" value="${user.name}" />
 			<section name="common">
-				<attribute name="Bundle-Name" value="IPC" />
+				<attribute name="Bundle-Name" value="Golgotha-AFV" />
 				<attribute name="Bundle-Version" value="${v.major}.${v.minor}" />
 				<attribute name="Specification-Title" value="Golgotha AFV" />
 				<attribute name="Specification-Version" value="${v.major}.${v.minor}.${v.build}" />
@@ -58,19 +58,15 @@
 	
 	<!-- Precompile the JSP pages -->
 	<target name="jspc" depends="compile">
-		<property name="jspc.dva.webXMLInc" value="${java.io.tmpdir}/src/jsp/include.xml" />
-		<property name="jspc.afv.webXMLInc" value="${java.io.tmpdir}/afv/src/jsp/include.xml" />
-		<taskdef classname="org.apache.jasper.JspC" name="jasper2"> 
+		<taskdef classname="org.apache.jasper.JspC" name="jasper2">
 			<classpath id="afv.jspc.classpath"> 
-				<fileset dir="${ant.home}/lib" includes="*.jar" />
+				<pathelement path="${classpath}" />
+				<fileset dir="${java.io.tmpdir}/build" includes="*.jar" />
 				<fileset dir="../DVA2006/lib/jspc" includes="*.jar" />
-				<fileset dir="../DVA2006/lib" includes="**/*.jar" />
-				<pathelement location="${java.io.tmpdir}/build/golgotha.jar" />
-				<pathelement location="${java.io.tmpdir}/build/golgotha_web.jar" />
-				<pathelement location="${java.io.tmpdir}/afv/build/afv2006.jar" />
+				<fileset dir="../DVA2006/lib" includes="servlet-api-6.1.jar,jsp-api-4.0.jar" />
 			</classpath> 
 		</taskdef>
-		
+
 		<!-- Delete the old web.xml -->
 		<delete file="${java.io.tmpdir}/afv/build/web.xml" />
 		
@@ -87,7 +83,8 @@
 		
 		<!-- Precompile the files -->
 		<mkdir dir="${java.io.tmpdir}/afv/src/jsp" />
-	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="0" poolingEnabled="true" xpoweredBy="false" validateXml="false" webXmlFragment="${jspc.afv.webXMLInc}" compilerTargetVM="1.24" compilerSourceVM="1.24" trimSpaces="SINGLE" outputDir="${java.io.tmpdir}/afv/src/jsp" />
+		<property name="jspc.afv.webXMLInc" value="${java.io.tmpdir}/afv/src/jsp/include.xml" />
+	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="1" poolingEnabled="true" xpoweredBy="false" validateXml="false" compilerTargetVM="1.24" compilerSourceVM="1.24" webXmlInclude="${jspc.afv.webXMLInc}" trimSpaces="SINGLE" outputDir="${java.io.tmpdir}/afv/src/jsp" />
 		
 		<!-- Clean up -->
 		<delete>
@@ -105,15 +102,8 @@
 		</javac>
 
 		<!-- Compress the Java classes into a single JAR file -->
-		<jar basedir="${java.io.tmpdir}/afv/build/jsp" compress="true" index="true"
-		 	destfile="${java.io.tmpdir}/afv/build/afv2006_jsp.jar" />
+		<jar basedir="${java.io.tmpdir}/afv/build/jsp" compress="true" index="true" destfile="${java.io.tmpdir}/afv/build/afv2006_jsp.jar" />
 		
-		<!-- Force all JSPs to load on startup -->
-		<!-- <replace file="${jspc.afv.webXMLInc}" token="&lt;/servlet-class&gt;">
-			<replacevalue><![CDATA[</servlet-class>
-        <load-on-startup>2</load-on-startup>]]></replacevalue>
-		</replace> -->
-		 		 
 		<!-- Merge the precompile definitions into web.xml -->
 		<loadfile property="afv.webXmlFragment" srcFile="${jspc.afv.webXMLInc}" />
 		<loadfile property="dva.webXmlFragment" srcFile="${jspc.dva.webXMLInc}" />		
