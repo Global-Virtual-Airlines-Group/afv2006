@@ -3,7 +3,7 @@
 <project default="deploy" xmlns:if="ant:if">
 	<target name="compile" description="Precompile the Java Code">
 		<mkdir dir="${java.io.tmpdir}/afv/build/classes" />
-		<javac srcdir="src/java" optimize="on" destdir="${java.io.tmpdir}/afv/build/classes" updatedProperty="jar.compile" debug="true" debuglevel="lines,vars,source" source="24" target="24" compiler="modern" includeantruntime="false">
+		<javac srcdir="src/java" optimize="on" destdir="${java.io.tmpdir}/afv/build/classes" updatedProperty="jar.compile" debug="true" debuglevel="lines,vars,source" source="25" target="25" compiler="modern" includeantruntime="false">
 			<compilerarg value="-Xlint:unchecked,-options" />
 	    	<classpath id="afv.classpath">
 				<fileset dir="${ant.home}/lib" includes="*.jar" />
@@ -58,15 +58,19 @@
 	
 	<!-- Precompile the JSP pages -->
 	<target name="jspc" depends="compile">
-		<taskdef classname="org.apache.jasper.JspC" name="jasper2">
+		<property name="jspc.dva.webXMLInc" value="${java.io.tmpdir}/src/jsp/include.xml" />
+		<property name="jspc.afv.webXMLInc" value="${java.io.tmpdir}/afv/src/jsp/include.xml" />
+		<taskdef classname="org.apache.jasper.JspC" name="jasper2"> 
 			<classpath id="afv.jspc.classpath"> 
-				<pathelement path="${classpath}" />
-				<fileset dir="${java.io.tmpdir}/build" includes="*.jar" />
+				<fileset dir="${ant.home}/lib" includes="*.jar" />
 				<fileset dir="../DVA2006/lib/jspc" includes="*.jar" />
-				<fileset dir="../DVA2006/lib" includes="servlet-api-6.1.jar,jsp-api-4.0.jar" />
+				<fileset dir="../DVA2006/lib" includes="**/*.jar" />
+				<pathelement location="${java.io.tmpdir}/build/golgotha.jar" />
+				<pathelement location="${java.io.tmpdir}/build/golgotha_web.jar" />
+				<pathelement location="${java.io.tmpdir}/afv/build/afv2006.jar" />
 			</classpath> 
 		</taskdef>
-
+		
 		<!-- Delete the old web.xml -->
 		<delete file="${java.io.tmpdir}/afv/build/web.xml" />
 		
@@ -84,7 +88,7 @@
 		<!-- Precompile the files -->
 		<mkdir dir="${java.io.tmpdir}/afv/src/jsp" />
 		<property name="jspc.afv.webXMLInc" value="${java.io.tmpdir}/afv/src/jsp/include.xml" />
-	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="1" poolingEnabled="true" xpoweredBy="false" validateXml="false" compilerTargetVM="1.24" compilerSourceVM="1.24" webXmlInclude="${jspc.afv.webXMLInc}" trimSpaces="SINGLE" outputDir="${java.io.tmpdir}/afv/src/jsp" />
+	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="0" poolingEnabled="true" xpoweredBy="false" validateXml="false" webXmlInclude="${jspc.afv.webXMLInc}" compilerTargetVM="1.25" compilerSourceVM="1.25" trimSpaces="SINGLE" outputDir="${java.io.tmpdir}/afv/src/jsp" />
 		
 		<!-- Clean up -->
 		<delete>
@@ -94,7 +98,7 @@
 
 		<!-- Compile the files -->
 		<mkdir dir="${java.io.tmpdir}/afv/build/jsp" />
-		<javac srcdir="${java.io.tmpdir}/afv/src/jsp" destdir="${java.io.tmpdir}/afv/build/jsp" nowarn="on" compiler="modern" debug="on" debuglevel="source" optimize="on" target="24" source="24" includeantruntime="false">
+		<javac srcdir="${java.io.tmpdir}/afv/src/jsp" destdir="${java.io.tmpdir}/afv/build/jsp" nowarn="on" compiler="modern" debug="on" debuglevel="source" optimize="on" target="25" source="25" includeantruntime="false">
 			<compilerarg value="-Xlint:unchecked,-options" />
 			<compilerarg value="-proc:none" />
 			<classpath refid="afv.jspc.classpath" />
@@ -102,7 +106,8 @@
 		</javac>
 
 		<!-- Compress the Java classes into a single JAR file -->
-		<jar basedir="${java.io.tmpdir}/afv/build/jsp" compress="true" index="true" destfile="${java.io.tmpdir}/afv/build/afv2006_jsp.jar" />
+		<jar basedir="${java.io.tmpdir}/afv/build/jsp" compress="true" index="true"
+		 	destfile="${java.io.tmpdir}/afv/build/afv2006_jsp.jar" />
 		
 		<!-- Merge the precompile definitions into web.xml -->
 		<loadfile property="afv.webXmlFragment" srcFile="${jspc.afv.webXMLInc}" />
