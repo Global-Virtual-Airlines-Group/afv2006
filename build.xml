@@ -3,7 +3,7 @@
 <project default="deploy" xmlns:if="ant:if">
 	<target name="compile" description="Precompile the Java Code">
 		<mkdir dir="${java.io.tmpdir}/afv/build/classes" />
-		<javac srcdir="src/java" optimize="on" destdir="${java.io.tmpdir}/afv/build/classes" updatedProperty="jar.compile" debug="true" debuglevel="lines,vars,source" source="24" target="24" compiler="modern" includeantruntime="false">
+		<javac srcdir="src/java" optimize="on" destdir="${java.io.tmpdir}/afv/build/classes" updatedProperty="jar.compile" debug="true" debuglevel="lines,vars,source" source="25" target="25" compiler="modern" includeantruntime="false">
 			<compilerarg value="-Xlint:unchecked,-options" />
 	    	<classpath id="afv.classpath">
 				<fileset dir="${ant.home}/lib" includes="*.jar" />
@@ -41,7 +41,7 @@
 		<manifest if:set="jar.compile" file="${java.io.tmpdir}/build/golgotha_afv_MANIFEST.MF">
 			<attribute name="Built-By" value="${user.name}" />
 			<section name="common">
-				<attribute name="Bundle-Name" value="IPC" />
+				<attribute name="Bundle-Name" value="Golgotha-AFV" />
 				<attribute name="Bundle-Version" value="${v.major}.${v.minor}" />
 				<attribute name="Specification-Title" value="Golgotha AFV" />
 				<attribute name="Specification-Version" value="${v.major}.${v.minor}.${v.build}" />
@@ -87,7 +87,7 @@
 		
 		<!-- Precompile the files -->
 		<mkdir dir="${java.io.tmpdir}/afv/src/jsp" />
-	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="0" poolingEnabled="true" xpoweredBy="false" validateXml="false" webXmlFragment="${jspc.afv.webXMLInc}" compilerTargetVM="1.24" compilerSourceVM="1.24" trimSpaces="SINGLE" outputDir="${java.io.tmpdir}/afv/src/jsp" />
+	    <jasper2 package="net.afva" uriroot="${basedir}" verbose="0" poolingEnabled="true" xpoweredBy="false" validateXml="false" webXmlInclude="${jspc.afv.webXMLInc}" compilerTargetVM="1.25" compilerSourceVM="1.25" trimSpaces="SINGLE" outputDir="${java.io.tmpdir}/afv/src/jsp" />
 		
 		<!-- Clean up -->
 		<delete>
@@ -97,7 +97,7 @@
 
 		<!-- Compile the files -->
 		<mkdir dir="${java.io.tmpdir}/afv/build/jsp" />
-		<javac srcdir="${java.io.tmpdir}/afv/src/jsp" destdir="${java.io.tmpdir}/afv/build/jsp" nowarn="on" compiler="modern" debug="on" debuglevel="source" optimize="on" target="24" source="24" includeantruntime="false">
+		<javac srcdir="${java.io.tmpdir}/afv/src/jsp" destdir="${java.io.tmpdir}/afv/build/jsp" nowarn="on" compiler="modern" debug="on" debuglevel="source" optimize="on" target="25" source="25" includeantruntime="false">
 			<compilerarg value="-Xlint:unchecked,-options" />
 			<compilerarg value="-proc:none" />
 			<classpath refid="afv.jspc.classpath" />
@@ -108,12 +108,6 @@
 		<jar basedir="${java.io.tmpdir}/afv/build/jsp" compress="true" index="true"
 		 	destfile="${java.io.tmpdir}/afv/build/afv2006_jsp.jar" />
 		
-		<!-- Force all JSPs to load on startup -->
-		<!-- <replace file="${jspc.afv.webXMLInc}" token="&lt;/servlet-class&gt;">
-			<replacevalue><![CDATA[</servlet-class>
-        <load-on-startup>2</load-on-startup>]]></replacevalue>
-		</replace> -->
-		 		 
 		<!-- Merge the precompile definitions into web.xml -->
 		<loadfile property="afv.webXmlFragment" srcFile="${jspc.afv.webXMLInc}" />
 		<loadfile property="dva.webXmlFragment" srcFile="${jspc.dva.webXMLInc}" />		
@@ -259,6 +253,7 @@
 	<!-- Clean out compiled data -->
 	<target name="clean" description="Clean build directories">
 		<delete dir="${java.io.tmpdir}/afv/build" />
+		<delete dir="${java.io.tmpdir}/afv/src" />
 		<delete file="${java.io.tmpdir}/afv/build/web.xml" />
 		<delete file="../.local_data/afv.min.cache.txt" />
 	</target>
