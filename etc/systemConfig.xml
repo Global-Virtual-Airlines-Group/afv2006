@@ -305,13 +305,13 @@
 	</api>
 
 	<security>
-		<ssl type="Boolean">true</ssl>
 		<secrets>/usr/local/tomcat/conf/afv_secrets.properties</secrets>
 
 		<!-- Security cookie settings -->
 		<cookie>
+			<authAge type="Integer">8</authAge> <!-- Hours -->
 			<checkIP type="Boolean">false</checkIP>
-			<maxAge type="Integer">-1</maxAge>
+			<userAge type="Integer">30</userAge> <!-- Days -->
 		</cookie>
 
 		<!-- Password settings -->
@@ -511,7 +511,6 @@
 		<inactive_leave_days type="Integer">180</inactive_leave_days>
 		<inactive_new_days type="Integer">21</inactive_new_days>
 
-		<user_cookie_age type="Integer">30</user_cookie_age>
 		<transfer_max type="Integer">30</transfer_max>
 		<checkrde_max type="Integer">3</checkrde_max>
 
