@@ -168,7 +168,6 @@ div#spinnerBack {
 	height: 100%;
 	background-color: #9191a1;
 	opacity: .667;
-	filter: alpha(opacity=67);
 	z-Index: 10001;
 }
 
@@ -181,6 +180,5 @@ div#spinner {
 	text-align: center;
 	vertical-align: middle;
 	opacity: .925;
-	filter: alpha(opacity=93);
 	z-Index: 10002;
 }
