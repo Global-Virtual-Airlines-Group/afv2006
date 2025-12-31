@@ -1,5 +1,4 @@
 /* KLM14 Cascading Style Sheet for HTML Forms (C) 2014, 2015, 2022 Global Virtual Airlines Group. */
-
 table.form, table.bar {
 	table-layout: auto;
 	width: 100%;
@@ -182,4 +181,23 @@ div#spinner {
 	vertical-align: middle;
 	opacity: .925;
 	z-Index: 10002;
+}
+
+/* Form Dialog */
+dialog.formDialog {
+	background-color: #fefefe;
+	border: 1px solid;
+	border-color: #005b82;
+	padding: 12px;
+	border-radius: 14px;
+	opacity: .925;
+}
+
+div#dialogMsg {
+	min-width: 320px;
+}
+
+::backdrop {
+	background-color: #9191a1;
+	opacity: .667;
 }
