@@ -228,7 +228,7 @@
 		<services>/etc/services.xml</services>
 		<tasks>/etc/tasks.xml</tasks>
 		<mapbox>
-			<v3 type="Integer">17</v3>
+			<v3 type="Integer">18</v3>
 		</mapbox>
 	</config>
 	
