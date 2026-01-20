@@ -24,8 +24,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="Description" content="${desc}">
 <meta name="Keywords" content="<fmt:list value="${keywords}" delim="," />">
-<content:newRelic />
-<content:cspHeader />
+<content:newRelic>
+<content:cspHeader /></content:newRelic>
 </head>
 <content:copyright visible="false" />
 <body>
