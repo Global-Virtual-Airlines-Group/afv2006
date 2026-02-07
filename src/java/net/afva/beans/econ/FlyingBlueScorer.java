@@ -1,4 +1,4 @@
-// Copyright 2023, 2024, 2025 Global Virtual Airlines Group. All Rights Reserved.
+// Copyright 2023, 2024, 2025, 2026 Global Virtual Airlines Group. All Rights Reserved.
 package net.afva.beans.econ;
 
 import org.deltava.beans.acars.RunwayDistance;
@@ -9,7 +9,7 @@ import org.deltava.util.system.SystemData;
 /**
  * An Elite program scorer for Air France / KLM.
  * @author Luke
- * @version 12.2
+ * @version 12.4
  * @since 11.0  
  */
 
@@ -29,7 +29,7 @@ public class FlyingBlueScorer extends EliteScorer {
 		// Calculate landing score bonus
 		if (pkg.getRunwayA() instanceof RunwayDistance ra) {
 			double ls = LandingScorer.score(ffr.getLandingVSpeed(), ra.getDistance());
-			LandingRating lr = LandingRating.rate((int)ls);
+			LandingRating lr = LandingRating.rate(ls);
 			addBonus(Math.round(ffr.getDistance() * 0.15f), "Acceptable Landing", (lr == LandingRating.ACCEPTABLE));
 			addBonus(Math.round(ffr.getDistance() * 0.375f), "Good Landing", (lr == LandingRating.GOOD));
 		}
