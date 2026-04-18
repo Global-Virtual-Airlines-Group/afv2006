@@ -503,6 +503,17 @@ golgotha.util.isExpanded = function(className) {
 	return (rows[0].style.display == '');
 };
 
+golgotha.util.getVar = function(id) {
+	const tkns = id.split('.');
+	let o = (tkns[0] == 'golgotha') ? golgotha : window[tkns[0]];
+	for (var x = 1; ((o) && (x < tkns.length)); x++) {
+		const tkn = tkns[x];
+		o = o[tkn];
+	}	
+
+	return o;	
+};
+
 golgotha.nav.toggleMenu = function(e, force) {
 	const nv = document.getElementById('nav');
 	if (!golgotha.util.hasClass(nv, 'navside')) return false;
