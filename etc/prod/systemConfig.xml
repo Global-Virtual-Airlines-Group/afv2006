@@ -146,7 +146,7 @@
 	<jdbc>
 		<driver>com.mysql.cj.jdbc.Driver</driver>
 		<url>jdbc:mysql://mysql.gva.aws/afv</url>
-		<socket>/run/mysql/mysql.sock</socket>
+		<!-- <socket>/run/mysql/mysql.sock</socket> -->
 		
 		<map name="connectProperties">
 			<useCompression>false</useCompression>
@@ -230,7 +230,7 @@
 		<services>/etc/services.xml</services>
 		<tasks>/etc/tasks.xml</tasks>
 		<mapbox>
-			<v3 type="Integer">22</v3>
+			<v3 type="Integer">24</v3>
 		</mapbox>
 	</config>
 	
