@@ -186,9 +186,8 @@ golgotha.airportLoad.massageSelects = function(root) {
 	return opts.length;
 };
 
-golgotha.airportLoad.codeMassage = function() {
-	let e = window.event;
-	let c = e.which || e.keyCode;
+golgotha.airportLoad.codeMassage = function(e) {
+	const c = e.which || e.keyCode;
 	if (((c > 64) && (c < 91)) || ((c > 96) && (c < 123)))
 		return true;
 
