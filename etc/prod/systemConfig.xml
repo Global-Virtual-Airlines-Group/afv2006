@@ -145,7 +145,7 @@
 	<!-- JDBC data source configuration -->
 	<jdbc>
 		<driver>com.mysql.cj.jdbc.Driver</driver>
-		<url>jdbc:mysql://mysql.gva.aws/afv</url>
+		<url>jdbc:mysql://localhost/afv</url>
 		<!-- <socket>/run/mysql/mysql.sock</socket> -->
 		
 		<map name="connectProperties">
