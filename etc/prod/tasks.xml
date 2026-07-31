@@ -65,7 +65,7 @@
 		<class>org.deltava.tasks.AVStackDownloadTask</class>
 		<time>
 			<min>40</min>
-			<hour>4</hour>
+			<hour>10</hour>
 			<mday>*</mday>
 			<month>*</month>
 			<wday>*</wday>
