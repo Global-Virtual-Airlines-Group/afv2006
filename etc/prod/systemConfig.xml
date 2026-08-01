@@ -368,6 +368,12 @@
             <file>/var/cache/sched/innovata.csv.gz</file>
 		</innovata>
 		<cache>/var/cache/sched</cache>
+		
+		<!-- AviationStack settings -->
+		<avstack>
+			<persist type="Boolean">false</persist>
+			<sleep type="Integer">10350</sleep>
+		</avstack>
 
 		<!-- External Chart data -->
 		<chart>
