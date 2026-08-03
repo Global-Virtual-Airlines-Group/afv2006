@@ -64,6 +64,7 @@
 	<service id="gateuse" class="org.deltava.service.stats.GateUseService" />
     <service id="gateupdate" class="org.deltava.service.navdata.GateUpdateService" />
     <service id="ftstats" class="org.deltava.service.schedule.FlightTimeStatsService" />
+    <service id="rawschedxfer" class="org.deltava.service.schedule.RawScheduleTransferService" />
     <service id="schedexport" class="org.deltava.service.schedule.ExportService" />
     <service id="tourleg" class="org.deltava.service.schedule.TourLegService" />
 

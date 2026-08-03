@@ -71,6 +71,18 @@
 			<wday>*</wday>
 		</time>	
 	</task>
+
+	<!-- Raw Schedule transfer from Production -->
+	<task id="rawschedxfer" enabled="false">
+		<class>org.deltava.tasks.RawScheduleTransferTask</class>
+		<time>
+			<min>30</min>
+			<hour>11</hour>
+			<mday>*</mday>
+			<month>*</month>
+			<wday>*</wday>
+		</time>	
+	</task>
 	
 	<!-- Innovata Schedule download -->
 	<task id="schedfilter" enabled="true">
