@@ -373,6 +373,12 @@
 		<avstack>
 			<persist type="Boolean">false</persist>
 			<sleep type="Integer">10350</sleep>
+			
+			<!-- Pull flights that are codeshares of these airlines -->
+			<list name="codeshares" attr="code" unique="true">
+				<code>AF</code>
+				<code>DL</code>
+			</list>
 		</avstack>
 
 		<!-- External Chart data -->
